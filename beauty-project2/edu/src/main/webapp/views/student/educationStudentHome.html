@@ -1,0 +1,107 @@
+<ion-view class="educationStudentHome">
+    <div class="esh-tongzhi" ng-if="noticeFlag">
+        <img src="images/tongzhi-icon.png" class="esh-tz-title-left-icon"/>
+        <span class="esh-tz-content">班主任审批了我的请假</span>
+        <span class="esh-tz-button" ng-click="goVacationDetail()">去看看</span>
+    </div>
+    <div class="esh-table">
+        <div class="esh-t-item" ng-click="goStudentCourseTable()">
+            <img src="images/courseTable.png"/>
+            <div>课程表</div>
+        </div>
+        <div class="esh-t-item" ng-click="goSchoolNews()">
+            <img src="images/yuhunews.png"/>
+            <div>育湖见闻</div>
+        </div>
+        <div class="esh-t-item" ng-click="goSchoolMasterMail()">
+            <img src="images/masterEmail.png"/>
+            <div>校长信箱</div>
+        </div>
+        <div class="esh-t-item" ng-click="moreInfo()">
+            <img src="images/moreFun.png"/>
+            <div>更多</div>
+        </div>
+    </div>
+    <ion-content ng-class="{true:'have_tongzhi',false:'no_tongzhi'}[noticeFlag]">
+        <div class="list" style="color:black">
+            <a class="item item-icon-left">
+                <img src="images/beike-icon.png" class="title-left-icon"/>
+                <span style="font-size:15px;margin-left:-10px">记得备课</span>
+                <i class="ion ion-ios-arrow-forward item-note" style="margin-top:2px" ng-click="goCourseTable()"></i>
+                <span class="item-note" style="color: #2f7eff" ng-click="goCourseTable()">前往课表&nbsp;&nbsp;</span>
+            </a>
+            <a class="item" ng-repeat="item in param.studentCourseMissionList" ng-if="$index<param.courseMissionLength">
+                <div ng-click="goCourseMission($index)">
+                    <img class="item-note" src="images/mission.png" style="height:20px" ng-if="item.homeWorkFlag === '1'">
+                    <span style="color:lightgrey">{{$index+1}}&nbsp;&nbsp;</span>
+                    <span style="font-weight:bold">{{item.courseName}}</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <!--<span style="color:lightgrey;font-size:12px">|&nbsp;&nbsp;{{item.studentName}}&nbsp;&nbsp;{{item.className}}</span>-->
+                </div>
+            </a>
+            <div style="font-size: 16px;color: #000000;text-align: center;background-color: #fff;padding: 15px 0" ng-if="param.studentCourseMissionList.length === 0">
+                没有课程安排！
+            </div>
+            <a class="item" ng-click="showMoreCourse()" ng-if="showMoreCourseFlag">
+                <center><span style="font-size:80%;color:#2f7eff">展开全部{{param.studentCourseMissionList.length}}节课</span></center>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-10px">
+            <a class="item item-icon-left">
+                <img src="images/deyulianghua-icon.png" class="title-left-icon"/>
+                <span style="font-size:15px;color:black;margin-left:-10px">德育量化分数&nbsp;&nbsp;96分</span>
+                <i class="ion ion-ios-arrow-forward item-note" style="margin-top:2px"></i>
+                <span class="item-note" style="color: #9b9b9b">更多&nbsp;&nbsp;</span>
+            </a>
+            <div style="background:white">
+                <!-- start 轮播图-->
+                <ion-slide-box auto-play="true" does-continue="true" slide-interval=50000>
+                    <ion-slide ng-repeat="item in [1,2,3,4]">
+                        <div class="esh-dy-content">
+                            <div class="c-title">
+                                <span class="t-left">班级才艺活动</span>
+                                <span class="t-right">
+                                    <img src="images/up-icon.png">
+                                    <span>+2</span>
+                                </span>
+                            </div>
+                            <div class="c-content">
+                                才艺活动中表现突出，围棋下得很好，还能很耐心的指点同学，让同学们对围棋都有了很多的兴趣。
+                            </div>
+                            <div class="c-time">
+                                <span>33分钟前</span>
+                                <span>吴主任</span>
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+                <!-- end 轮播图-->
+            </div>
+        </div>
+        <div class="list" style="color:black;margin-top: -10px">
+            <a class="item item-icon-left">
+                <img src="images/yuhujingxuan-icon.png" class="title-left-icon"/>
+                <span style="font-size:15px;margin-left:-10px">校园精选</span>
+            </a>
+            <a class="item" ng-repeat="item in param.schoolNewsList" ng-click="goNewsDetail(item.schoolNewsId)">
+                <span class="com-style-more-show">{{item.schoolNewsTitle}}</span>
+                <div style="color:grey;font-size:10px;margin-top: 5px">{{item.schoolNewsDate|date:'yyyy-MM-dd'}}</div>
+            </a>
+        </div>
+        <br ng-repeat="item in [1,2]">
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item active">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ng-click="goStudentMessage()">
+            <i class="icon ion-ios-people"></i>
+            班级圈
+        </a>
+        <a class="tab-item" ng-click="goStudentCenter()">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

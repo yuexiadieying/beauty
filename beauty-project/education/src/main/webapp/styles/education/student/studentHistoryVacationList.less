@@ -1,0 +1,86 @@
+@import "../../common/styles";
+
+.studentHistoryVacationList{
+  
+  .shvl{
+    .padding-t-r-b-l(16, 16, 0, 16);
+
+    .com{
+
+      div{
+        &:nth-child(1){
+          .margin-bottom(16);
+
+          span{
+            color: @c-060d25;
+            .font-size16;
+
+            &:nth-child(2){
+              float: right;
+              color: @c-9b9b;
+              .font-size14;
+            }
+          }
+        }
+      }
+
+      .shvl-a-c{
+        .margin-bottom(8);
+        span{
+          color: @c-494951;
+          .font-size14;
+
+          &:nth-child(2){
+            .margin-left(16);
+            color: @c-9b9b;
+            .font-size14;
+          }
+        }
+      }
+
+      .shvl-icon{
+        position: absolute;
+        .height(100);
+        .right(16);
+        .bottom(16);
+      }
+
+      .shvl-span{
+        position: absolute;
+        .right(38);
+        .top(48);
+        color: @c-1d79e4;
+        .font-size16;
+      }
+    }
+    
+    .shvl-1{
+      background: url("../../../images/card1.png") round;
+      background-size: cover;
+      .padding(16);
+      position: relative;
+
+      .com;
+    }
+
+    .shvl-2{
+      background: url("../../../images/card2.png") round;
+      background-size: cover;
+      .padding(16);
+      position: relative;
+
+      .com;
+    }
+
+    .shvl-3{
+      background: url("../../../images/card3.png") round;
+      background-size: cover;
+      .padding(16);
+      position: relative;
+
+      .com;
+    }
+
+  }
+
+}

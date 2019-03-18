@@ -1,0 +1,50 @@
+<ion-view style="background: #f2f5f9">
+    <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
+        <div class="tabs" style="margin-top:-45px">
+            <a class="tab-item active">
+                全部
+            </a>
+            <a class="tab-item">
+                提及
+            </a>
+        </div>
+    </div>
+    <ion-content style="margin-top:50px">
+        <div class="list">
+            <a class="item" ng-repeat="item in [1,2,3,4]">
+                <p>
+                    <img src="images/message.png" style="width:15px">
+                    <span style="margin-left:25px;
+                                    margin-top: -15px;
+                                    position: absolute;
+                                    font-size: 15px;
+                                    font-weight: bold">
+                        付老师的课堂点评
+                    </span>
+                </p>
+                <br>
+                <p style="color:black;word-break:normal;width:auto;display:block;
+                    white-space:pre-wrap;word-wrap: break-word;overflow: hidden">以下是详细的内容点评，允许显示50个字符，以下是详细的内容点评，允许显示50个字符，以下是详细的内容点评，允许显示50个字符，以下是详细的内容点评，允许显示50个字符，以下是详细的内容点评，允许显示50个字符，以下是详细的内容点评，允许显示50个字符，以下是详细的内容点评，允许显示50个字符，</p>
+                <p>
+                    <img src="images/praise.png" style="height:30px">
+                </p>
+            </a>
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    </div>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goTeacherHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-chatbubbles"></i>
+            消息
+        </a>
+        <a class="tab-item" ng-click="goTeacherCenter()">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

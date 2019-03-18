@@ -1,0 +1,86 @@
+<ion-view style="background: #f2f5f9" class="educationVacation">
+    <div class="com-style-float" ng-if="showFloat" ng-click="hideFloat()"></div>
+    <div class="bar bar-header bar-calm">
+        <h1 style="font-size:13px;color:white;margin-top:9px">&nbsp;&nbsp;需要查看以往的请假记录吗？</h1>
+        <h1 class="title"></h1>
+        <button class="button button-calm" style="border-color:white;border-radius:15px;height:0px" ng-click="goHistoryVacation()">去看看</button>
+    </div>
+    <ion-content>
+        <div class="list" style="margin-top:44px">
+            <a class="item" ng-click="goVacation(0)">
+                <span class="font-size16 color494951">请假类型&nbsp;&nbsp;<span style="color:red">*</span></span>
+                <i class="ion item-note ion-chevron-right margin-top3"></i>
+                <span class="item-note font-size16 color9b9b margin-right8">{{vacationMap.type}}</span>
+            </a>
+            <a class="item" ng-click="goVacation(1)">
+                <span class="font-size16 color494951">请假去向&nbsp;&nbsp;<span style="color:red">*</span></span>
+                <i class="ion item-note ion-chevron-right margin-top3"></i>
+                <span class="item-note font-size16 color9b9b margin-right8">{{vacationMap.de}}</span>
+            </a>
+            <a class="item" ng-click="goVacation(2)">
+                <span class="font-size16 color494951">请假原因&nbsp;&nbsp;<span style="color:red">*</span></span>
+                <i class="ion item-note ion-chevron-right margin-top3"></i>
+                <span class="item-note font-size16 color9b9b margin-right8">{{vacationMap.case}}</span>
+            </a>
+        </div>
+        <div class="list">
+            <a class="item">
+                <span class="font-size16 color494951">开始时间&nbsp;&nbsp;<span style="color:red">*</span></span>
+                <i class="ion item-note ion-chevron-right margin-top3"></i>
+                <ionic-datepicker input-obj="startObject">
+                    <span class="item-note font-size16 color9b9b margin-right8">{{startObject.inputDate | date:startObject.dateFormat}}</span>
+                </ionic-datepicker>
+            </a>
+            <a class="item">
+                <span class="font-size16 color494951">结束时间&nbsp;&nbsp;<span style="color:red">*</span></span>
+                <i class="ion item-note ion-chevron-right margin-top3"></i>
+                <ionic-datepicker input-obj="endObject">
+                    <span class="item-note font-size16 color9b9b margin-right8">{{endObject.inputDate | date:endObject.dateFormat}}</span>
+                </ionic-datepicker>
+            </a>
+            <a class="item" >
+                <h1 class="font-size16 color494951">请假时长</h1>
+                <span class="item-note" style="margin-top:-18px">{{vacationMap.vacationTime}}</span>
+            </a>
+        </div>
+        <div class="list">
+            <div class="item">
+                <p>补充说明</p>
+            </div>
+            <div class="item item-body">
+                <textarea placeholder="补充说明请假原因或者拍照上传病假证明等材料" style="width: 100%;line-height: 20px"></textarea>
+                <i class="ion ion-ios-plus-outline" style="font-size:48px"></i>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item">
+                <p>审批人</p>
+            </div>
+            <div class="item item-body">
+                <div class="row" style="color:black">
+                    <div class="col">
+                        <center>
+                            <img src="images/yuhunews.png"/>
+                            <p>班主任</p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/>
+    </ion-content>
+    <div class="bar bar-footer bar-calm">
+        <div class="title" ng-click="submitVacation()">提交申请</div>
+    </div>
+    <ion-scroll class="changeType changeOrgan" ng-if="showOrgan">
+        <div class="rn-ct-title">
+            请假：
+        </div>
+        <div class="rn-ct-con">
+            <div class="rn-ct-c-com" ng-click="changeOrganItem($index)" ng-repeat="item in vacationList">
+                <!--<img src="images/no-change-icon.png"/>-->
+                <span>{{item.content}}</span>
+            </div>
+        </div>
+    </ion-scroll>
+</ion-view>

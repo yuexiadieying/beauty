@@ -1,0 +1,108 @@
+@import "../common/styles";
+
+.studentVacationDetail{
+  .com-color-bg;
+
+  .detail{
+    .padding-t-r-b-l(32, 0, 16, 16);
+    .com-color-cbg;
+    position: relative;
+
+    .d-type{
+      .font-size16;
+      .padding-bottom(16);
+      .com-color-fg;
+      .padding-right(16);
+
+      span{
+        &:nth-child(1){
+          color: @c-494951;
+        }
+        &:nth-child(2){
+          color: @c-1d79e4;
+          float: right;
+        }
+      }
+    }
+
+    .d-content{
+      .font-size(13);
+      color: @c-9b9b;
+
+      p{
+        .margin-top(16);
+      }
+    }
+
+    .d-icon{
+      position: absolute;
+      .top(20);
+      .right(28);
+      .height(100);
+    }
+  }
+
+  .d-flow{
+    .margin-top(10);
+    .padding-left(16);
+    .com-color-cbg;
+
+    .d-f-title{
+      .padding-t-r(16, 0);
+      .com-color-fg;
+      .font-size(13);
+      color: @c-494951;
+    }
+
+    .d-f-content{
+      .padding(16);
+      .margin-left(69);
+
+      .result{
+
+        .item-note{
+          color: @c-9b9b;
+          .font-size(13);
+        }
+
+        .r-icon{
+          border-radius: 50%;
+          .width(16);
+          .height(16);
+          background-color: @c-d7e6fe;
+          vertical-align: middle;
+          display: inline-block;
+        }
+
+        .r-icon-agree{
+          background-color: @c-1d79e4;
+        }
+
+        .r-icon-no-agree{
+          background-color: red;
+        }
+
+        .r-title{
+          .font-size(13);
+          color: @c-9b9b;
+          .margin-left(8);
+        }
+
+        .no-agree-reason{
+          .margin-top(16);
+          .margin-left(16);
+          color: @c-9b9b;
+          .font-size(13);
+        }
+      }
+
+      .d-f-border{
+        border-left: 1px dashed @c-9b9b;
+        .height(40);
+        .margin-left(7);
+      }
+    }
+
+  }
+
+}

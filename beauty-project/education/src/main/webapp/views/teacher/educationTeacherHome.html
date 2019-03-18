@@ -1,0 +1,132 @@
+<style>
+    .tabs-has-message{
+        margin-top:-50px;height:80px;background:white
+    }
+    .tabs-no-message{
+        background:white;height:80px;
+    }
+</style>
+<ion-view style="background: #f2f5f9">
+    <div class="bar bar-header bar-calm" ng-show="true">
+        <h1 style="font-size:13px;color:white;margin-top:9px"><i class="ion ion-android-volume-up"></i>&nbsp;&nbsp;有{{param.vacationApplyNum}}位同学提交了请假申请</h1>
+        <h1 class="title"></h1>
+        <button class="button button-calm" style="border-color:white;border-radius:15px;height:0px"
+                ng-click="goTeacherMissionList()">去审批</button>
+    </div>
+    <div class="list" ng-show="param.missionTable"
+         style="position: absolute;width: 100%;z-index: 999;margin-top: 105%">
+        <a class="item" style="background:blue;text-align:center" ng-click="pushMission()">布置任务</a>
+        <a class="item" style="color:black;text-align:center" ng-click="discussStudent()">点评学生</a>
+        <a class="item" style="color:black;text-align:center" ng-click="cancel()">取消</a>
+    </div>
+    <div style="position:relative;top:0px">
+        <div class="tabs has-tabs-top" ng-class="{'tabs-has-message':true}">
+            <a class="tab-item" ng-click="goTeacherCourseTable()">
+                <center>
+                    <image src="images/courseTable.png" style="width:35%;margin-top:10px"></image>
+                </center>
+                <center>
+                    <span style="position: absolute;margin-left: -20px;margin-top:-10px;">课程表</span>
+                </center>
+            </a>
+            <a class="tab-item" ng-click="goSchoolNews()">
+                <center>
+                    <image src="images/yuhunews.png" style="width:35%;margin-top:10px"></image>
+                </center>
+                <center>
+                    <span style="position: absolute;margin-left: -26px;margin-top:-10px;">育湖见闻</span>
+                </center>
+            </a>
+            <a class="tab-item" ng-click="goSchoolMasterMail()">
+                <center>
+                    <image src="images/masterEmail.png" style="width:35%;margin-top:10px"></image>
+                </center>
+                <center>
+                    <span style="position: absolute;margin-left: -26px;margin-top:-10px;">校长信箱</span>
+                </center>
+            </a>
+            <a class="tab-item" ng-click="moreInfo()">
+                <center>
+                    <image src="images/moreFun.png" style="width:35%;margin-top:10px"></image>
+                </center>
+                <center>
+                    <span style="position: absolute;margin-left:-13px;margin-top:-10px;">更多</span>
+                </center>
+            </a>
+        </div>
+        <ion-content style="height:680px">
+            <div class="list" style="color:black;margin-top:130px">
+                <a class="item item-icon-left">
+                    <i class="icon ion-ios-compose" style="font-size:20px;color:#b2b2b2"></i>
+                    <span style="font-size:13px;margin-left:-10px;position:absolute;margin-top:-9px">审批课程任务</span>
+                </a>
+                <a class="item" ng-repeat="item in param.courseMissionList" ng-if="$index<param.maxCourseMissionListLength">
+                    <div ng-click="goCourseMissionList(item.courseMissionId)">
+                        <i class="item-note ion ion-ios-close-empty" style="font-size:25px"></i>
+                        <p style="font-weight:bold;font-size:15px">{{item.courseMissionContent}}</p>
+                        <p style="font-size:12px">
+                            <span style="font-weight:bold">{{item.courseName}}&nbsp;</span>
+                            <span>{{item.courseMissionDate}}&nbsp;</span>
+                            <span>{{item.courseMissionClass}}&nbsp;</span>
+                            |&nbsp;
+                            <span>已提交（{{item.alreadySubmitNum}}）&nbsp;</span>
+                            <span>未提交（{{item.notSubmitNum}}）</span>
+                        </p>
+                    </div>
+                </a>
+                <a class="item" ng-click="extendAllCourseMissionList()" ng-if="!(param.maxCourseMissionListLength>=param.courseMissionList.length)">
+                    <center><span style="font-size:80%;color:blue">展开全部{{param.courseMissionList.length}}个任务</span></center>
+                </a>
+            </div>
+            <div class="list" style="color:black;margin-top:-12px">
+                <a  class="item item-icon-left">
+                    <i class="icon ion-ios-paper" style="color:#b2b2b2;font-size: 20px"></i>
+                    <span style="font-size:13px;margin-left: -10px;">记得备课</span>
+                    <i class="ion ion-ios-arrow-forward item-note" style="margin-top:2px" ng-click="goTeacherCourseTable()"></i>
+                    <span class="item-note" style="color: blue" ng-click="goTeacherCourseTable()">前往课表&nbsp;&nbsp;</span>
+                </a>
+                <a  class="item" ng-repeat="item in param.coursePrepareList">
+                    <div ng-click="goCourseMission(item.courseId,item.classId)">
+                        <img class="item-note" src="images/more.png" style="height:5px;margin-top:8px">
+                        <span style="color:lightgrey">{{$index+1}}&nbsp;&nbsp;</span>
+                        <span style="font-weight:bold">{{item.courseName}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="color:lightgrey;font-size:12px">|&nbsp;&nbsp;{{item.className}}</span>
+                    </div>
+                </a>
+                <a  class="item" ng-click="extendAllCoursePrepareList()" ng-if="!(param.maxCoursePrepareListLength>=param.coursePrepareList.length)">
+                    <center><span style="font-size:80%;color:blue">展开全部{{param.coursePrepareList.length}}节课</span></center>
+                </a>
+            </div>
+            <div class="list" style="color:black">
+                <a  class="item item-icon-left">
+                    <i class="icon ion-social-designernews" style="color:#b2b2b2;font-size: 20px"></i>
+                    <span style="font-size:13px;margin-left:-10px">育湖精选</span>
+                </a>
+                <a  class="item" ng-click="goNewsDetail(param.schoolMessageImportant.newsId)">
+                    <span style="color:black;word-break:normal;width:auto;display:block;
+                    white-space:pre-wrap;word-wrap: break-word;overflow: hidden;font-weight:bold">{{param.schoolMessageImportant.newsTitle}}</span>
+                </a>
+                <a  class="item">
+                    <span style="color:grey;font-size:10px">{{param.schoolMessageImportant.newsDate}}</span>
+                </a>
+            </div>
+            <center><span style="color:blue">+&nbsp;&nbsp;绑定手机号，不怕丢数据</span></center>
+            <br ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]">
+        </ion-content>
+    </div>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item active">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ng-click="goTeacherMessage()">
+            <i class="icon ion-chatbubbles"></i>
+            消息
+        </a>
+        <a class="tab-item" ng-click="goTeacherCenter()">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

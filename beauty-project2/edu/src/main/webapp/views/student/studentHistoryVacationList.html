@@ -1,0 +1,75 @@
+<ion-view class="com-color-bg studentHistoryVacationList">
+    <ion-content>
+        <div class="shvl" ng-repeat="item in vacationList" >
+            <div class="shvl-1" ng-if="item.vacationStatus === '1'" ng-click="goDetail(1,item.vacationId)">
+                <div class="">
+                    <span style="font-size: 18px;font-weight: 600">{{item.vacationType}}</span>
+                    <span>{{item.applyDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假去向:</span>
+                    <span>{{item.vacationPlace}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>开始时间:</span>
+                    <span>{{item.beginDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>结束时间:</span>
+                    <span>{{item.endDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假时长:</span>
+                    <span>{{item.period}}小时</span>
+                </div>
+                <img class="shvl-icon" src="images/agree.png"/>
+            </div>
+            <div class="shvl-2" ng-if="item.vacationStatus === '2'" ng-click="goDetail(2,item.vacationId)">
+                <div class="">
+                    <span style="font-size: 18px;font-weight: 600">{{item.vacationType}}</span>
+                    <span>{{item.applyDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假去向:</span>
+                    <span>{{item.vacationPlace}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>开始时间:</span>
+                    <span>{{item.beginDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>结束时间:</span>
+                    <span>{{item.endDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假时长:</span>
+                    <span>{{item.period}}小时</span>
+                </div>
+                <img class="shvl-icon" src="images/reject.png"/>
+            </div>
+            <div class="shvl-3" ng-if="item.vacationStatus === '0'" ng-click="goDetail(0,item.vacationId)">
+                <div class="">
+                    <span style="font-size: 18px;font-weight: 600">{{item.vacationType}}</span>
+                    <span>{{item.applyDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假去向:</span>
+                    <span>{{item.vacationPlace}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>开始时间:</span>
+                    <span>{{item.beginDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>结束时间:</span>
+                    <span>{{item.endDate}}</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假时长:</span>
+                    <span>{{item.period}}小时</span>
+                </div>
+                <span class="shvl-span">审批中</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

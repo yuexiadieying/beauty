@@ -1,0 +1,83 @@
+
+  <div>
+         <enjoy-menu></enjoy-menu>
+         <nav-bar index1="4" index2="41" ></nav-bar>
+         <div class="main_content">
+             <div class="mum" ng-show="mum">
+                 <div class="m-load2">
+                     <div class="line">
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                         <div></div>
+                     </div>
+                     <div class="circlebg"></div>
+                 </div>
+             </div>
+             <div class="content_box">
+                <div class="product_content_right">
+                     <div class="rightCenter">
+                         <div class="product_eara">
+                            <!-- <div class="product_name">
+                                 <div class="product_nameEara">
+                                     <label for="courseName" class="bold">课程名称:</label>
+                                     <input type="text" class="product_search" id="courseName">
+                                 </div>
+                             </div>
+                             <div class="product_searchEara">
+                                 <p><input type="button" value="搜索" class="search_btn top_1"></p>
+                             </div>-->
+                         </div>
+                         <div class="table_lis">
+                             <table class="table   table-hover text-center " >
+                              <thead>
+                                 <tr id="product_lis_title">
+
+                                     <th class="text-center">课程名称</th>
+                                     <th class="text-center">操作</th>
+                                     <th class="text-center">备注</th>
+                                 </tr>
+                                 </thead>
+                                 </tbody>
+                             </table>
+                             <div class="titleClassBox">
+                                 <div ng-repeat="item in rainingList">
+                                     <p class="titleClass">
+                                         <span class="train FMess" ng-click="classShow($index,2,2)">
+                                                {{item.trainingProductName}}
+                                         </span>
+                                         <span class="FMess"></span>
+                                         <span class="FMess  ">{{item.trainingProductType}}</span>
+                                     </p>
+                                     <ul  class="classLis"  ng-show="tabArray[2].productFlag[$index]">
+                                         <li ng-repeat="item1 in item.listCourse" ng-click="func();$event.stopPropagation();">
+                                             <p class="bigClass" ng-click="classShow($index,3,15)">{{item1.name}}</p>
+                                             <ul ng-show="tabArray[3].productFlag[$index]" class="smallClass">
+                                                 <li ng-repeat="item2 in item1.list" class="knobble">
+                                                     <div>
+                                                         <p>{{item2.name}}</p>
+                                                         <a class="copyreader orderBtn" ui-sref="operationClassParticulars({id:item.productId,url:item2.url})">编辑</a>
+                                                         <div>
+                                                             <p class=""><label>时长：</label>{{item2.duration}}</p>
+                                                             <p><label>路径：</label><input type="text" value="{{item2.url}}" class="classUrl"></p>
+                                                         </div>
+                                                     </div>
+
+                                                 </li>
+                                             </ul>
+                                         </li>
+                                     </ul>
+                                 </div>
+                             </div>
+
+
+                             <!--<div page-tool></div>-->
+                         </div>
+                     </div>
+                </div>
+                 <div class="product_content_left"></div>
+             </div>
+         </div>
+  </div>

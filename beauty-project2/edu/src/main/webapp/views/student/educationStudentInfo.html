@@ -1,0 +1,27 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item">
+                <div style="position: relative">
+                    <img src="images/user-big-icon.png"
+                         style="width:45%;margin-left:25%">
+                    <img src="images/paizhao-icon.png" style="position: absolute;right: 33%;bottom: -2px;height: 35px;">
+                </div>
+                <p class="item-note" style="margin-top: 30px;color: #9b9b9b">
+                    {{studentInfo.studentName}}
+                </p>
+                <p style="font-weight:bold;margin-top:30px;font-size:16px;color: #060d25">姓名</p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-10px">
+            <a class="item">
+                <p class="item-note" style="color: #9b9b9b">{{studentInfo.schoolName}}</p>
+                <p style="font-weight:bold;font-size:16px;color: #060d25">院校</p>
+            </a>
+            <a class="item">
+                <p class="item-note" style="color: #9b9b9b">{{studentInfo.className}}</p>
+                <p style="font-weight:bold;font-size:16px;color: #060d25">班级</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

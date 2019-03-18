@@ -1,0 +1,64 @@
+<ion-view class="studentCourseTable">
+    <div class="bar bar-header bar-light">
+        <button class="button" style="border-color:white;font-size:20px;" ng-click="chooseWeek()">
+            <span style="font-weight:bold">第{{param.weekIndex}}周</span>
+            <i class="ion ion-android-arrow-dropdown-circle" style="color:#b2b2b2"></i>
+        </button>
+        <h1 class="title"></h1>
+        <button class="button" style="border-color:white;color: #b2b2b2;font-size: 15px">
+            {{param.courseBaseInfo.className}}&nbsp;{{param.courseBaseInfo.semester}}
+        </button>
+    </div>
+    <div style="position:absolute;color: black;width: 100%;text-align: center;z-index: 999;margin-top: 45px;" ng-show="studentChooseWeek">
+        <div class="list">
+            <a class="item" style="height:10px" ng-click="preWeek()">
+                <i class="ion ion-ios-arrow-up" style="font-size:30px;margin-top:-10px"></i>
+            </a>
+            <div  ng-repeat="item in param.weekList" ng-click="confirmWeek(item)">
+                <a class="item" ng-if="item==param.weekIndex" style="background: blue">
+                    第{{item}}周
+                </a>
+                <a class="item" ng-if="item!=param.weekIndex" style="background: white">
+                    第{{item}}周
+                </a>
+            </div>
+            <a class="item" style="height:10px" ng-click="nextWeek()">
+                <i class="ion ion-ios-arrow-down" style="font-size:30px;margin-top:-20px"></i>
+            </a>
+        </div>
+    </div>
+    <ion-content style="margin-top:50px;height:680px">
+        <table style="width:100%;color:#060d25;text-align:center;font-size:14px">
+            <tr class="sct-table-week">
+                <td style="height:50px;vertical-align: middle;">日期</td>
+                <td style="vertical-align: middle" ng-repeat="it in param.courseList">
+                    <span ng-if="it.weekName == 1">周一</span>
+                    <span ng-if="it.weekName == 2">周二</span>
+                    <span ng-if="it.weekName == 3">周三</span>
+                    <span ng-if="it.weekName == 4">周四</span>
+                    <span ng-if="it.weekName == 5">周五</span>
+                    <span ng-if="it.weekName == 6">周六</span>
+                    <span ng-if="it.weekName == 0">周日</span>
+                    <br>
+                    <span style="color: #999">{{ it.weekDate | limitTo: -2}}日</span>
+                </td>
+            </tr>
+            <tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]">
+                <td class="sct-table-num">{{$index+1}}</td>
+                <td class="sct-table-content" ng-repeat="ite in param.courseList">
+                    <span ng-if="item2.coursePlace == $parent.$parent.$index+1" ng-repeat="item2 in ite.courseList"
+                          ng-click="chooseCourse(ite.weekDate, item2.courseStatus, item2.classCourseId)">
+                        {{item2.courseName}}
+                        <br>
+                        <span ng-repeat="item3 in item2.courseStatus">
+                            <i class="sct-table-flag1" ng-if="item3.redFlag"></i>
+                            <i class="sct-table-flag2" ng-if="item3.greenFlag"></i>
+                            <i class="sct-table-flag3" ng-if="item3.yellowFlag"></i>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <br ng-repeat="item in [1,2,3,4,5]">
+    </ion-content>
+</ion-view>

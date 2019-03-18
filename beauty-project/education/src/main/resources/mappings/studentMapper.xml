@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.education.dao.StudentDao">
+
+	<select id="getStudentInfo" resultType="com.meixiang.beauty.webapp.education.dto.StudentDTO">
+		SELECT
+		ssc.id schoolId,
+		ssc.name schoolName,
+		scl.id classId,
+		scl.name className,
+		sst.id studentId,
+		sst.name studentName,
+		sst.no studyNo,
+		csr.no classNo,
+		sst.password password
+		FROM
+		sys_student sst,
+		class_student_rel csr,
+		sys_class scl,
+		school_class_rel scr,
+		sys_school ssc
+		WHERE
+		1=1
+		AND
+		sst.id = csr.student_id
+		AND
+		scl.id = csr.class_id
+		AND
+		scr.school_id = scl.id
+		AND
+		scr.school_id = ssc.id
+		<if test="schoolId != null and schoolId != ''">
+			AND
+			ssc.id = #{schoolId}
+		</if>
+		<if test="studyNo != null and studyNo != ''">
+			AND
+			sst.no = #{studyNo}
+		</if>
+		<if test="studentId != null and studentId != ''">
+			AND
+			sst.id = #{studentId}
+		</if>
+		GROUP BY
+		sst.id
+	</select>
+
+	<select id="getStudentCourseTableList" resultType="com.meixiang.beauty.webapp.education.dto.CourseInfoDTO">
+		SELECT
+		scs.id as courseId,
+		ccr.id as classCourseId,
+		scs.name as courseName,
+		sc.id as classId,
+		sc.name as courseClass
+		,ccr.place as coursePlace
+		FROM
+		class_course_rel ccr
+		left join sys_class sc on ccr.class_id=sc.id
+		LEFT JOIN sys_course scs on ccr.course_id=scs.id
+		where
+		ccr.week=#{week}
+		and
+		sc.id=#{classId}
+	</select>
+
+	<select id="getSchoolInfo" resultType="com.meixiang.beauty.webapp.education.dto.SchoolDTO">
+			SELECT
+			ss.id as schoolId,
+			ss.name as schoolName,
+			ss.address as schoolAddress,
+			ss.start_school_date as startSchoolDate
+			FROM sys_school ss
+			LEFT JOIN school_class_rel scr on ss.id=scr.school_id
+			where scr.class_id=#{classId}
+	</select>
+
+	<select id="studentVacationApplyList" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+		SELECT id as vacationId,vacation_type as vacationType,apply_reason as applyReason,apply_date as applyDate,begin_date as beginDate,
+		end_date as endDate,period as period,vacation_place as vacationPlace,vacation_status as vacationStatus,approved_time as approvedTime,
+		remark as remark FROM student_vacation where studentId=#{studentId}
+	</select>
+
+	<select id="getStudentApplyVacationDetail" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+		SELECT id as vacationId,vacation_type as vacationType,apply_reason as applyReason,apply_date as applyDate,begin_date as beginDate,
+		end_date as endDate,period as period,vacation_place as vacationPlace,vacation_status as vacationStatus,approved_time as approvedTime,
+		remark as remark FROM student_vacation where id=#{vacationId}
+	</select>
+
+	<insert id="saveStudentApplyVacation">
+		insert into student_vacation(vacation_type,begin_date,end_date,period,apply_reason,study_no,apply_date,vacation_place,vacation_status)
+		values(#{vacationType},#{beginDate},#{endDate},#{period},#{applyReason},#{studyNo},#{applyDate},#{vacationPlace},#{vacationStatus})
+	</insert>
+
+	<update id="updateStudentHomeworkRel">
+		update student_homework_rel set student_files=#{homeWorkAttachList}
+		,status=#{commitStatus},description=#{homeWorkDesc} where student_id = #{studentId} and homework_id = #{homeWorkId}
+	</update>
+
+	<select id="getStudentShortMessage" resultType="com.meixiang.beauty.webapp.education.dto.ShortMessageDTO">
+		SELECT * FROM student_message where student_id=#{studentId} ORDER BY create_date desc limit 1
+	</select>
+
+
+	<!--<select id="getStudentCourseHomeWork"
+			resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		select
+		sst.id studentId,
+		sst.name studentName,
+		sth.id teacherId,
+		sth.name teacherName,
+		scr.id courseId,
+		scr.name courseName,
+		ccr.week week,
+		ccr.place place,
+		ccr.class_id as classId,
+		ccr.id as classCourseId,
+		sh.name homeWorkName,
+		sh.finish_time homeWorkTime,
+		sh.description homeWorkDesc,
+		shc.homework_comment_msg homeWorkComment,
+		shc.homework_comment_status homeWorkStatus,
+		shr.status commitStatus
+		from
+		student_homework_rel shr,
+		sys_homework sh,
+		sys_student sst,
+		sys_teacher sth,
+		student_homework_comment shc,
+		class_course_rel ccr,
+		sys_course scr
+		WHERE
+		1=1
+		AND
+		shr.student_id = sst.id
+		and
+		shr.homework_id=sh.id
+		AND
+		sh.teacher_id = sth.id
+		AND
+		ccr.teacher_id = sh.teacher_id
+		AND
+		ccr.course_id = scr.id
+		<if test="studentId != null and studentId != ''">
+			AND
+			sst.id = #{studentId}
+		</if>
+		<if test="teacherId != null and teacherId != ''">
+			AND
+			sth.id = #{teacherId}
+		</if>
+		<if test="classCourseId != null and classCourseId != ''">
+			AND
+			sh.class_course_id = #{classCourseId}
+		</if>
+		<if test="courseId != null and courseId != ''">
+			AND
+			scr.id = #{courseId}
+		</if>
+		<if test="commitStatus != null and commitStatus != ''">
+			AND
+			shr.status = #{commitStatus}
+		</if>
+		<if test="homeWorkStatus != null and homeWorkStatus != ''">
+			AND
+			shc.homework_comment_status = #{homeWorkStatus}
+		</if>
+	</select>-->
+
+	<select id="getStudentCourseHomeWork"
+			resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		SELECT  class_id as classId,place as coursePlace,name as courseName,ccr.id as classCourseId FROM class_course_rel ccr LEFT JOIN sys_course sc on ccr.course_id = sc.id
+	where class_id=#{classId} and week=#{week}
+	</select>
+	<select id="getCourseMissionComment" resultType="com.meixiang.beauty.webapp.education.dto.StudentCourseCommentDTO">
+		SELECT scc.course_comment_status as courseCommentStatus,scc.course_comment_msg as courseCommentMsg,sc.name as courseName FROM student_course_comment scc LEFT JOIN class_course_rel ccr on scc.class_course_id = ccr.id
+		LEFT JOIN sys_course sc on sc.id = ccr.course_id where class_course_id=#{classCourseId} and student_id = #{studentId}
+	</select>
+
+	<select id="getHomeWorkInfo" resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		SELECT id as homeWorkId FROM sys_homework where finish_time>#{classTime} and class_course_id=#{classCourseId}
+	</select>
+	<select id="getStudentCourseMissionDetail" resultType="com.meixiang.beauty.webapp.education.dto.MissionBaseInfoDTO">
+		select
+		shr.id missionId,
+		sh.name missionName,
+		sh.description missionDescription,
+		sh.class_course_id classCourseId,
+		sh.finish_time missionEndDate,
+		sh.teacher_id teacherId,
+        sh.create_date createDate,
+        ccr.week as courseWeek,
+        ccr.place as coursePlace,
+        sc.name as className,
+        scr.name as courseName,
+        st.name as teacherName
+		from
+	  	student_homework_rel shr
+  		LEFT JOIN sys_homework sh on sh.id=shr.homework_id
+  		LEFT JOIN class_course_rel ccr on ccr.id = sh.class_course_id
+		LEFT JOIN sys_teacher st on st.id = ccr.teacher_id
+		LEFT JOIN sys_class sc on ccr.class_id = sc.id
+		LEFT JOIN sys_course scr on scr.id = ccr.course_id
+  		where shr.student_id=#{studentId}
+  		<if test="classCourseId!=null and classCourseId!=''">
+			and sh.class_course_id=#{classCourseId}
+		</if>
+		<if test="homeWorkTime!=null and homeWorkTime!=''">
+			and finish_time>#{homeWorkTime}
+		</if>
+	</select>
+	<select id="getClassCourseInfo" resultType="com.meixiang.beauty.webapp.education.dto.MissionBaseInfoDTO">
+		SELECT
+		ccr. WEEK AS courseWeek,
+		ccr.place AS coursePlace,
+		sc. NAME AS className,
+		scr. NAME AS courseName,
+		st. NAME AS teacherName
+		FROM
+		class_course_rel ccr
+		LEFT JOIN sys_teacher st ON st.id = ccr.teacher_id
+		LEFT JOIN sys_class sc ON ccr.class_id = sc.id
+		LEFT JOIN sys_course scr ON scr.id = ccr.course_id
+		WHERE
+		ccr.id =#{classCourseId}
+	</select>
+
+	<select id="getStudentIdByClassId" resultType="String">
+		SELECT student_id FROM class_student_rel where class_id=#{classId}
+	</select>
+
+	<select id="getStudentCourseBaseInfo" resultType="com.meixiang.beauty.webapp.education.dto.CourseClassInfoDTO">
+		select * from sys_course sc LEFT JOIN class_course_rel ccr on ccr.course_id=sc.id
+		LEFT JOIN sys_teacher st on st.id=ccr.teacher_id where sc.id=#{courseId} and ccr.class_id=#{classId}
+	</select>
+
+	<select id="getStudentMoralityList" resultType="com.meixiang.beauty.webapp.education.dto.StudentMoralityDTO">
+		SELECT *
+		FROM
+		student_morality smr,
+		sys_class scl,
+		class_student_rel csr
+		where
+		1=1
+		AND
+		smr.semester = scl.semester
+		AND
+		scl.id = csr.class_id
+		AND
+		smr.student_id = csr.student_id
+		<if test="studentId != null and studentId != ''">
+			AND
+			smr.student_id = #{studentId}
+		</if>
+	</select>
+
+	<select id="getStudentCourseList">
+		SELECT *
+		FROM sys_course sc
+		LEFT JOIN class_course_rel ccr on ccr.course_id=sc.id
+		where ccr.class_id=#{classId} and ccr.week=#{week}
+	</select>
+
+	<select id="getStudentCourseCommentByClassCourseId" resultType="com.meixiang.beauty.webapp.education.dto.StudentCourseCommentDTO">
+		SELECT * FROM student_course_comment
+		WHERE
+		class_course_id=#{classCourseId}
+		AND
+		student_id=#{studentId}
+	</select>
+
+	<select id="getStudentVacationApplyList" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+		SELECT id as vacationId,vacation_type as vacationType,apply_reason as applyReason,apply_date as applyDate,begin_date as beginDate,
+		end_date as endDate,period as period,vacation_place as vacationPlace,vacation_status as vacationStatus,approved_time as approvedTime,
+		remark as remark
+		FROM student_vacation sv where sv.study_no=#{studyNo}
+	</select>
+
+	<select id="getCourseStudentHomeWorkListByStudentId" resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		select
+		ppp.*,
+		shc.homework_comment_status homeWorkCommentStatus,
+		shc.homework_comment_msg homeWorkCommentMsg
+		from
+		(SELECT
+		sh.id homeWorkId,
+		shr.id homeWorkStudentRelId,
+		stu.id studentId,
+		stu.name studentName,
+		sst.name teacherName,
+		scl.id classId,
+		scl.name className,
+		sh.name homeWorkName,
+		shr.status homeWorkStatus,
+		shr.student_files homeWorkImgList,
+		shr.commit_status commitStatus,
+		shr.student_files missionContentList,
+		sh.create_date homeWorkCreateDate
+		FROM
+		sys_teacher sst,
+		sys_homework sh,
+		student_homework_rel shr,
+		sys_student stu,
+		sys_class scl,
+		class_student_rel ctr
+		where
+		sh.id=shr.homework_id
+		AND
+		stu.id = #{studentId}
+		AND
+		scl.id = ctr.class_id
+		AND
+		ctr.student_id = stu.id
+		AND
+		sst.id = sh.teacher_id
+		) ppp
+		LEFT JOIN
+		student_homework_comment shc
+		ON
+		ppp.homeWorkId = shc.student_homework_id
+		GROUP BY
+		ppp.studentId
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="getTeacherVacationApplyListByStudentId" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+		select
+		stv.id vacationId,
+		stud.id studentId,
+		stud.name studentName,
+		stt.id teacherId,
+		stt.name teacherName,
+		stv.apply_date applyDate,
+		scl.id classId,
+		scl.name className,
+		stv.vacation_type vacationType,
+		stv.apply_reason applyReason,
+		stv.begin_date beginDate,
+		stv.end_date endDate,
+		stv.period period,
+		stv.vacation_place vacationPlace,
+		stv.vacation_status vacationStatus
+		from
+		sys_teacher stt,
+		sys_class scl,
+		sys_student stud,
+		class_student_rel ctur,
+		class_teacher_rel cttr,
+		student_vacation stv
+		WHERE
+		stt.id = cttr.teacher_id
+		AND
+		scl.id = ctur.class_id
+		AND
+		scl.id = cttr.class_id
+		AND
+		stv.study_no = stud.no
+		AND
+		stud.id = #{studentId}
+		GROUP BY
+		stud.id
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="getTeacherCommentStudentListByStudentId" resultType="com.meixiang.beauty.webapp.education.dto.StudentCourseCommentDTO">
+		select ppp.*,
+		scc.course_comment_status courseCommentStatus,
+		scc.course_comment_msg courseCommentMsg,
+		scc.course_comment_urls courseCommentURLS,
+		scc.create_date courseCommentCreateDate
+		from
+		(SELECT
+		ccr.id classCourseId,
+		scc.name courseName,
+		stu.id studentId,
+		stu.name studentName,
+		stu.no studentNo,
+		sst.name teacherName
+		FROM
+		sys_teacher sst,
+		class_teacher_rel ctr,
+		class_student_rel csr,
+		class_course_rel ccr,
+		sys_student stu,
+		sys_course scc
+		WHERE
+		1=1
+		AND
+		stu.id = #{studentId} AND
+		ccr.teacher_id = sst.id AND
+		sst.id = ctr.teacher_id AND
+		csr.class_id = ctr.class_id AND
+		stu.id = csr.student_id AND
+		scc.id = ccr.course_id
+		GROUP BY
+		stu.id) ppp
+		LEFT JOIN
+		student_course_comment scc ON ppp.studentId = scc.student_id
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="getCourseStudentHomeWorkListByClassId" resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		select
+		ppp.*,
+		shc.homework_comment_status homeWorkCommentStatus,
+		shc.homework_comment_msg homeWorkCommentMsg
+		from
+		(SELECT
+		sh.id homeWorkId,
+		shr.id homeWorkStudentRelId,
+		stu.id studentId,
+		stu.name studentName,
+		sst.name teacherName,
+		scl.id classId,
+		scl.name className,
+		sh.name homeWorkName,
+		shr.status homeWorkStatus,
+		shr.student_files homeWorkImgList,
+		shr.commit_status commitStatus,
+		shr.student_files missionContentList,
+		sh.create_date homeWorkCreateDate
+		FROM
+		sys_teacher sst,
+		sys_homework sh,
+		student_homework_rel shr,
+		sys_student stu,
+		sys_class scl,
+		class_student_rel ctr
+		where
+		sh.id=shr.homework_id
+		AND
+		stu.id = ctr.student_id
+		AND
+		scl.id = #{classId}
+		AND
+		ctr.student_id = stu.id
+		AND
+		sst.id = sh.teacher_id
+		) ppp
+		LEFT JOIN
+		student_homework_comment shc
+		ON
+		ppp.homeWorkId = shc.student_homework_id
+		GROUP BY
+		ppp.studentId
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="getTeacherVacationApplyListByClassId" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+		select
+		stv.id vacationId,
+		stud.id studentId,
+		stud.name studentName,
+		stt.id teacherId,
+		stt.name teacherName,
+		stv.apply_date applyDate,
+		scl.id classId,
+		scl.name className,
+		stv.vacation_type vacationType,
+		stv.apply_reason applyReason,
+		stv.begin_date beginDate,
+		stv.end_date endDate,
+		stv.period period,
+		stv.vacation_place vacationPlace,
+		stv.vacation_status vacationStatus
+		from
+		sys_teacher stt,
+		sys_class scl,
+		sys_student stud,
+		class_student_rel ctur,
+		class_teacher_rel cttr,
+		student_vacation stv
+		WHERE
+		stt.id = cttr.teacher_id
+		AND
+		scl.id = ctur.class_id
+		AND
+		scl.id = #{classId}
+		AND
+		stv.study_no = stud.no
+		AND
+		stud.id = ctur.student_id
+		GROUP BY
+		stud.id
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="getTeacherCommentStudentListByClassId" resultType="com.meixiang.beauty.webapp.education.dto.StudentCourseCommentDTO">
+		select ppp.*,
+		scc.course_comment_status courseCommentStatus,
+		scc.course_comment_msg courseCommentMsg,
+		scc.course_comment_urls courseCommentURLS,
+		scc.create_date courseCommentCreateDate
+		from
+		(SELECT
+		ccr.id classCourseId,
+		scc.name courseName,
+		stu.id studentId,
+		stu.name studentName,
+		stu.no studentNo,
+		sst.name teacherName
+		FROM
+		sys_teacher sst,
+		class_teacher_rel ctr,
+		class_student_rel csr,
+		class_course_rel ccr,
+		sys_student stu,
+		sys_course scc
+		WHERE
+		1=1
+		AND
+		stu.id = csr.student_id AND
+		ccr.teacher_id = sst.id AND
+		sst.id = ctr.teacher_id AND
+		csr.class_id = #{classId} AND
+		scc.id = ccr.course_id
+		GROUP BY
+		stu.id) ppp
+		LEFT JOIN
+		student_course_comment scc ON ppp.studentId = scc.student_id
+		limit #{pageNo},#{pageSize}
+	</select>
+
+
+</mapper>

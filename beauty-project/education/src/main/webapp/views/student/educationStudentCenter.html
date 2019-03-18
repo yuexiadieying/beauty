@@ -1,0 +1,70 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item">
+                <p style="color:black;">
+                    <img src="images/copper.png" style="width:78px">
+                    <span style="margin-top:-46px;position: absolute;margin-left: 25px;color:black">6.00</span>
+                    <span style="margin-left:10px">点击备课</span>
+                </p>
+                <p style="color:black;margin-left:37%;margin-top:-36px">
+                    <img src="images/my.png" style="width:150px;margin-left:-35px;position:absolute">
+                    <span style="position:absolute;text-align:center;margin-top: 52px;margin-left: 10px;color: white;font-weight: bold;">
+                        2.00<br>今日获得
+                    </span>
+                    <span style="margin-top:115px;position:absolute">
+                        智慧币  30.00
+                    </span>
+                </p>
+                <p class="item-note" style="color:black;margin-top: -30px;">
+                    <img src="images/gold.png" style="width:78px;margin-top:120px">
+                    <span style="position:absolute;margin-top:-45px;margin-left:26px;color:black">2.00</span>
+                    <span style="margin-left:12px">签到赚取</span>
+                </p>
+            </a>
+            <a class="item item-avatar" ng-click="goStudentInfo()">
+                <img src="https://mx-beauty.oss-cn-beijing.aliyuncs.com/%E5%A4%B4%E5%83%8F.png">
+                <h2>刘德华</h2>
+                <p class="item-note">更多&nbsp;&nbsp;></p>
+                <p>北大附中  高三二班</p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item">
+                <p style="font-weight:bold">学业档案竞争力</p>
+                <div class="item range range-positive" style="margin-top:15px">
+                    <i class="icon ion-ios-sunny-outline"></i>
+                        <input type="range" name="volume" min="0" max="100" value="33">
+                    <i class="icon ion-ios-sunny"></i>
+                </div>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goStudentReward()">
+                <p class="item-note">5></p>
+                <p>育湖奖励</p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goStudentSet()">
+                <p class="item-note">></p>
+                <p>设定</p>
+            </a>
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goStudentHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ng-click="goStudentMessage()">
+            <i class="icon ion-chatbubbles"></i>
+            消息
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view class="renrenList">
+    <ion-content>
+        <div class="rrl" ng-repeat="item in [0,1,2,3,4,5]" ng-click="goDetail()">
+            <div class="rrl-header">
+                <img src="images/rrt.png"/>
+                <span class="rrl-h-name">
+                    <span>啦啦啦</span>
+                    <span>08-03 09:29&nbsp;北京大学</span>
+                </span>
+            </div>
+            <div class="rrl-text">
+                终于攒到15000了，希望能如愿换到我要的自行车。
+            </div>
+            <div class="rrl-icon">
+                <img src="images/card1.png"/>
+                <img src="images/card1.png"/>
+            </div>
+            <div class="rrl-other">
+                <span class="rrl-o-r">223</span>
+                <span class="rrl-o-d">253</span>
+            </div>
+        </div>
+    </ion-content>
+    <div class="rrl-r" ng-click="goRelease()">
+        <img class="new-icon" src="images/new_notice_icon.png" />
+    </div>
+</ion-view>

@@ -1,0 +1,75 @@
+<ion-view class="com-color-bg studentHistoryVacationList">
+    <ion-content>
+        <div class="shvl" ng-repeat="item in vacationList" ng-click="goDetail(item.type)">
+            <div class="shvl-1" ng-if="item.type === 0">
+                <div class="">
+                    <span>病假</span>
+                    <span>05-04&nbsp;9:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假去向:</span>
+                    <span>回宿舍</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>开始时间:</span>
+                    <span>05-06 8:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>结束时间:</span>
+                    <span>05-06 20:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假时长:</span>
+                    <span>12小时</span>
+                </div>
+                <img class="shvl-icon" src="images/agree.png"/>
+            </div>
+            <div class="shvl-2" ng-if="item.type === 1">
+                <div class="">
+                    <span>病假</span>
+                    <span>05-04&nbsp;9:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假去向:</span>
+                    <span>回宿舍</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>开始时间:</span>
+                    <span>05-06 8:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>结束时间:</span>
+                    <span>05-06 20:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假时长:</span>
+                    <span>12小时</span>
+                </div>
+                <img class="shvl-icon" src="images/reject.png"/>
+            </div>
+            <div class="shvl-3" ng-if="item.type === 2">
+                <div class="">
+                    <span>病假</span>
+                    <span>05-04&nbsp;9:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假去向:</span>
+                    <span>回宿舍</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>开始时间:</span>
+                    <span>05-06 8:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>结束时间:</span>
+                    <span>05-06 20:00</span>
+                </div>
+                <div class="shvl-a-c">
+                    <span>请假时长:</span>
+                    <span>12小时</span>
+                </div>
+                <span class="shvl-span">审批中</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

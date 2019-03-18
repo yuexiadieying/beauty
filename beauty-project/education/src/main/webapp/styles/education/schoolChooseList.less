@@ -1,0 +1,71 @@
+@import "../common/styles";
+
+.schoolChooseList{
+  .com-color-bg;
+
+  .scl-search{
+    position: relative;
+    .padding-t-r-b-l(35, 85, 10, 16);
+    .com-color-cbg;
+
+    input{
+      .font-size16;
+      width: 100%;
+      .com-color-fg;
+      .height(35);
+    }
+
+    span{
+      position: absolute;
+      right: 16px;
+      top: 20px;
+      display: inline-block;
+      .padding-t-r(10, 15);
+      border-radius: 20px;
+      color: @c-1d79e4;
+      .font-size14;
+      border: 1px solid @c-1d79e4;
+    }
+
+  }
+
+  .scl-content{
+    .com-color-cbg;
+    .padding-left(16);
+
+    .scl-c-title{
+      .padding-t-r(16, 0);
+      .com-color-fg;
+      .font-size14;
+      color: @c-060d25;
+    }
+
+    .scl-c-item{
+      .padding-t-r-b-l(16, 16, 16, 0);
+      .com-color-fg;
+
+      .item-school{
+        position: relative;
+        .padding-right(50);
+
+        .school-name{
+          color: @c-060d25;
+          .font-size16;
+        }
+        .school-long{
+          position: absolute;
+          right: 16px;
+          top: 0;
+          color: @c-494951;
+
+        }
+      }
+
+      .item-address{
+        color: @c-494951;
+        .font-size14;
+      }
+    }
+
+  }
+}

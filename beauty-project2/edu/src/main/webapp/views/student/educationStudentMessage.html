@@ -1,0 +1,120 @@
+<ion-view class="educationStudentMessage">
+    <div class="esm-tabs">
+        <div class="esm-tab" ng-click="selectStudentMessage('all')">
+            <span ng-class="{'tab':studentMessageType=='mine','tab tab-click':studentMessageType=='all'}" id="tab-all">全部</span>
+        </div>
+        <div class="esm-tab" ng-click="selectStudentMessage('mine')">
+            <span ng-class="{'tab':studentMessageType=='all','tab tab-click':studentMessageType=='mine'}" id="tab-my">
+                <i class="tab-red"></i>
+                提及
+            </span>
+        </div>
+    </div>
+    <ion-content style="margin-top:55px">
+        <ion-refresher pulling-text="下拉获取更多朋友圈信息" on-refresh="getMoreStudentMessage()">
+        </ion-refresher>
+        <div class="esm-content" ng-show="studentMessageType=='all'">
+            <div ng-repeat="item in param.studentMessageList">
+                <div class="esm-c-type1" ng-click="goCourseComment()" ng-if="item.messageType=='COURSE_COMMENT'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span>{{item.message.teacherName}}对{{item.message.studentName}}的课堂点评</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p maxlength="50">课堂点评：{{item.message.courseCommentMsg}}。</p>
+                        <p><img src="images/praise.png" ng-if="item.message.courseCommentStatus=='0'" style="width:120px;height:30px"></p>
+                        <p><img src="images/criticism.png" ng-if="item.message.courseCommentStatus=='1'" style="width:120px;height:30px"></p>
+                    </div>
+                </div>
+                <div class="esm-c-type1" ng-click="goVacateDetail(item.message.vacationStatus, item.message.vacationId)"  ng-if="item.messageType=='VACATION_APPLY'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span ng-if="item.message.vacationStatus=='1'">{{item.message.studentName}}请假已同意</span>
+                        <span ng-if="item.message.vacationStatus=='2'">{{item.message.studentName}}请假已拒绝</span>
+                        <span ng-if="item.message.vacationStatus=='0'">{{item.message.studentName}}请假未处理</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p ng-if="item.message.vacationStatus=='1'">{{item.message.teacherName}}已同意{{item.message.studentName}}的{{item.message.vacationType}}申请</p>
+                        <p ng-if="item.message.vacationStatus=='2'">{{item.message.teacherName}}未同意{{item.message.studentName}}的{{item.message.vacationType}}申请</p>
+                        <p ng-if="item.message.vacationStatus=='0'">{{item.message.teacherName}}未处理{{item.message.studentName}}的{{item.message.vacationType}}申请</p>
+                        <p>开始时间：{{item.message.beginDate|date:'yyyy-MM-dd'}}</p>
+                        <p>结束时间：{{item.message.endDate|date:'yyyy-MM-dd'}}</p>
+                        <p>请假去向：{{item.message.applyReason}}</p>
+                    </div>
+                </div>
+                <div class="esm-c-type1" ng-click="goMissionDetail($index)" ng-if="item.messageType=='HOMEWORK_COMMENT'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span>{{item.message.teacherName}}点评了{{item.message.studentName}}的作业任务</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p>任务名称：{{item.message.homeWorkName}}</p>
+                        <p>任务点评：{{item.message.homeWorkCommentMsg}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="esm-content" ng-show="studentMessageType=='mine'">
+            <div ng-repeat="item in param.studentMessageList">
+                <div class="esm-c-type1" ng-click="goCourseComment()" ng-if="item.messageType=='COURSE_COMMENT'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span>{{item.message.teacherName}}对我的课堂点评</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p maxlength="50">课堂点评：{{item.message.courseCommentMsg}}。</p>
+                        <p><img src="images/praise.png" ng-if="item.message.courseCommentStatus=='0'" style="width:120px;height:30px"></p>
+                        <p><img src="images/criticism.png" ng-if="item.message.courseCommentStatus=='1'" style="width:120px;height:30px"></p>
+                    </div>
+                </div>
+                <div class="esm-c-type1" ng-click="goVacateDetail(item.message.vacationStatus, item.message.vacationId)"  ng-if="item.messageType=='VACATION_APPLY'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span ng-if="item.message.vacationStatus=='1'">我的请假已同意</span>
+                        <span ng-if="item.message.vacationStatus=='2'">我的请假已拒绝</span>
+                        <span ng-if="item.message.vacationStatus=='0'">我的请假未处理</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p ng-if="item.message.vacationStatus=='1'">{{item.message.teacherName}}已同意我的{{item.message.vacationType}}申请</p>
+                        <p ng-if="item.message.vacationStatus=='2'">{{item.message.teacherName}}未同意我的{{item.message.vacationType}}申请</p>
+                        <p ng-if="item.message.vacationStatus=='0'">{{item.message.teacherName}}未处理我的{{item.message.vacationType}}申请</p>
+                        <p>开始时间：{{item.message.beginDate|date:'yyyy-MM-dd'}}</p>
+                        <p>结束时间：{{item.message.endDate|date:'yyyy-MM-dd'}}</p>
+                        <p>请假去向：{{item.message.applyReason}}</p>
+                    </div>
+                </div>
+                <div class="esm-c-type1" ng-click="goMissionDetail($index)" ng-if="item.messageType=='HOMEWORK_COMMENT'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span>{{item.message.teacherName}}点评了我的作业任务</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p>任务名称：{{item.message.homeWorkName}}</p>
+                        <p>任务点评：{{item.message.homeWorkCommentMsg}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goStudentHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-ios-people"></i>
+            班级圈
+        </a>
+        <a class="tab-item" ng-click="goStudentCenter()">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

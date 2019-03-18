@@ -1,0 +1,93 @@
+<ion-view class="educationStudentMessage">
+    <div class="esm-tabs">
+        <div class="esm-tab">
+            <span class="tab" id="tab-all">全部</span>
+        </div>
+        <div class="esm-tab">
+            <span class="tab tab-click" id="tab-my">
+                <i class="tab-red"></i>
+                提及
+            </span>
+        </div>
+    </div>
+    <ion-content style="margin-top:55px">
+        <div class="esm-content">
+            <div class="esm-c-type1" ng-click="goCourseComment()">
+               <div class="type-title">
+                   <img src="images/message.png"/>
+                   <span>付老师的课堂点评</span>
+                   <img src="images/down.png">
+               </div>
+               <p maxlength="50">连接是否困了就睡富锦市夸奖对方开始减肥的会计师李开复健身卡飞机开始夸奖对方克里斯空间大放送甲方看电视发空间里设计费skjfkdjs</p>
+               <div class="type-footer">
+                   <img src="images/praise.png">
+                   <img src="images/criticism.png">
+                   <img src="images/criticism.png">
+               </div>
+            </div>
+            <div class="esm-c-type1" ng-click="goVacateDetail(2)">
+                <div class="type-title">
+                    <img src="images/message.png"/>
+                    <span>请假未批准</span>
+                    <img src="images/down.png">
+                </div>
+                <p>李宁老师未同意你的病假申请</p>
+                <p>请假去向：回宿舍</p>
+                <p>请假原因：这个月第三次了，骗人要有技术</p>
+            </div>
+            <div class="esm-c-type1" ng-click="goVacateDetail(1)">
+                <div class="type-title">
+                    <img src="images/message.png"/>
+                    <span>请假已同意</span>
+                    <img src="images/down.png">
+                </div>
+                <p>李宁老师未同意你的病假申请</p>
+                <p>开始时间：2018年3月24日</p>
+                <p>结束时间：2018年3月25日</p>
+                <p>请假去向：过生日</p>
+            </div>
+            <div class="esm-c-type1" ng-click="goMissionDetail()">
+                <div class="type-title">
+                    <img src="images/message.png"/>
+                    <span>付老师点评了我的语文课程任务</span>
+                    <img src="images/down.png">
+                </div>
+                <p>任务名称：请家长督促背诵《背影》</p>
+            </div>
+            <div class="esm-c-type1">
+                <div class="type-title">
+                    <img src="images/message.png"/>
+                    <span>付老师打回老我的语文课程任务</span>
+                    <img src="images/down.png">
+                </div>
+                <p>这位同学，跨世纪的咖啡机看水电费看见了是看得见开始垃圾分类快结束了疯狂夺</p>
+                <button class="button button-outline button-positive" ng-click="subminMission()">重新提交</button>
+            </div>
+            <div class="esm-c-type1">
+                <div class="type-title">
+                    <img src="images/message.png"/>
+                    <span>付老师发布了数学课程任务</span>
+                    <img src="images/down.png">
+                </div>
+                <p>任务名称：请家长督促预习三角函数</p>
+                <p>截止时间：2018年5月3日 18：00</p>
+                <button class="button button-outline button-positive" ng-click="goCourseDetail()">提交任务</button>
+            </div>
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goStudentHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-chatbubbles"></i>
+            消息
+        </a>
+        <a class="tab-item" ng-click="goStudentCenter()">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

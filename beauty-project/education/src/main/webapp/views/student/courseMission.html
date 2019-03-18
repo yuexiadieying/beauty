@@ -1,0 +1,52 @@
+<ion-view class="courseMission">
+    <ion-content>
+        <div class="cm-up">
+            <a class="cm-u-title">语文</a>
+            <div class="cm-u-praise">
+                <div class="p">
+                    <span>"好评"</span>
+                    <img src="images/praise.png"/>
+                </div>
+                <span class="file"></span>
+                <span class="file"></span>
+            </div>
+            <div class="cm-u-praise">
+                <div class="p">
+                    <span>"差评"</span>
+                    <img src="images/criticism.png"/>
+                </div>
+                <span class="file"></span>
+                <span class="file"></span>
+            </div>
+        </div>
+        <div class="cm-down">
+            <div class="cm-d-title">
+                <img src="images/courseTask-icon.png"/>
+                <span>课程任务</span>
+            </div>
+            <div class="cm-d-content">
+                <div class="cm-d-c-title">
+                    <span>预习《背影》</span>
+                    <span>04月03日</span>
+                </div>
+                <div class="cm-d-c-content">
+                    需要背诵1-3段内容，上传视频。
+                </div>
+                <div class="cm-d-c-file">
+                    <img src="images/file-icon.png">
+                    <span>附件（2）</span>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="cm-d-c-time">
+                    <img src="images/time-icon.png"/>
+                    <span>截止：04月04日20：00</span>
+                </div>
+                <div class="cm-d-c-button">
+                    <span ng-click="commitMission()">提交任务</span>
+                </div>
+            </div>
+        </div>
+        <div class="cm-button" ng-click="goCourseDetail()">进入课程</div>
+    </ion-content>
+</ion-view>

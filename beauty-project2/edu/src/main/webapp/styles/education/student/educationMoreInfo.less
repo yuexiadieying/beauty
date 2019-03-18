@@ -1,0 +1,47 @@
+@import "../../common/styles";
+
+.educationMoreInfo{
+  .emi-title{
+    .padding(16);
+    text-align: center;
+    .font-size16;
+    color: @c-060d25;
+    .com-color-fg;
+  }
+
+  .emi{
+    .com-style-box;
+    .padding-top(32);
+
+    .emi-item{
+      .com-style-box-flex(1);
+      text-align: center;
+
+      .emi-i-icon{
+        display: inline-block;
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        .margin-bottom(16);
+        border: 2px solid @c-fbfb;
+        background-color: @c-fbfb;
+        .com-style-box-shadow(@c-dc);
+
+        img{
+          display: inline-block;
+          width: 39px;
+          height: 39px;
+          margin-top: 10px;
+        }
+      }
+
+      .emi-i-text{
+        .font-size14;
+        color: @c-060d25;
+        text-align: center;
+      }
+    }
+
+  }
+
+}

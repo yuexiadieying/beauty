@@ -1,0 +1,12 @@
+<ion-view class="aboutOur">
+    <ion-content>
+        <div class="list">
+            <a class="item" ng-repeat="item in param.schoolNewsList"  ng-click="goSchoolNewsDetail(item.schoolNewsId)">
+                <p style="font-weight: bold;word-break:normal;width:auto;display:block;
+                            white-space:pre-wrap;word-wrap: break-word;overflow: hidden">{{item.schoolNewsTitle}}</p>
+                <p class="item-note">{{item.schoolNewsDate|date:'yyyy-MM-dd'}}</p>
+                <p>{{item.schoolNewsApartment}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

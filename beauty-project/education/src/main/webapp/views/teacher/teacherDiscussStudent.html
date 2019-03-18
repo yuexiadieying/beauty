@@ -1,0 +1,36 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list" style="color:black">
+            <a class="item">
+                <p class="item-note">
+                    <button ng-click="goDiscussStudentGroup()" class="button button-small button-light"
+                            style="border-radius:20px;border-color:black;width:100px;color:blue;font-weight:bold">
+                        去点评
+                    </button>
+                </p>
+            </a>
+            <div ng-repeat="item in teacherDiscussStudentList" ng-click="goDiscussStudent(item)">
+                <a class="item" ng-click="chooseDiscussStudent(item)">
+                    <span ng-if="item.courseCommentStatus=='3'">
+                        <img src="images/chooseButton.png"
+                             style="width:20px;position:absolute"
+                            ng-show="item.discussStudentFlag">
+                        <span style="margin-left:25px" ng-show="item.discussStudentFlag">{{item.studentName}}</span>
+                        <span ng-show="!item.discussStudentFlag">{{item.studentName}}</span>
+                    </span>
+                    <img class="item-note"
+                         ng-if="item.courseCommentStatus=='1'"
+                         src="images/criticism.png"
+                         style="height:30px;margin-top:-5px">
+                    <img class="item-note"
+                         ng-if="item.courseCommentStatus=='0'"
+                         src="images/praise.png"
+                         style="height:30px;margin-top:-5px">
+                    <span ng-if="item.courseCommentStatus!='3'">{{item.studentName}}</span>
+                    &nbsp;&nbsp;
+                    <span>{{item.studentNo}}</span>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

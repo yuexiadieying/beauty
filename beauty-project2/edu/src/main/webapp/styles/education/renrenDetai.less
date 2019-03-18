@@ -1,0 +1,145 @@
+@import "../common/styles";
+
+.renrenDetail{
+  .com-color-bg;
+
+  .rrd-header{
+    .com-color-cbg;
+    .padding-t-r(16, 16);
+    position: relative;
+    text-align: center;
+    .com-color-fg;
+
+    span{
+
+      &:nth-child(1){
+        position: absolute;
+        .left(16);
+        color: @c-9b9b;
+        .font-size14;
+      }
+
+      &:nth-child(2){
+        color: @c-060d25;
+        .font-size16;
+      }
+      &:nth-child(3){
+        position: absolute;
+        .right(16);
+        color: @c-9b9b;
+        .font-size14;
+
+      }
+
+    }
+
+
+  }
+
+  .rrd-c-header{
+    .padding-t-r-b-l(32, 16, 10, 16);
+
+    img{
+      display: inline-block;
+      border-radius: 50%;
+      .height(48);
+      .margin-top(-30);
+    }
+
+    .rrd-h-name{
+      .margin-left(16);
+      display: inline-block;
+
+      span{
+        display: block;
+
+        &:nth-child(1){
+          color: @c-060d25;
+          .font-size16;
+        }
+        &:nth-child(2){
+          color: @c-9b9b;
+          .font-size14;
+          .margin-top(8);
+        }
+      }
+    }
+
+  }
+
+  .rrd-text{
+    color: @c-060d25;
+    .font-size16;
+    .padding-t-r(0, 16);
+  }
+
+  .rrd-content{
+    .com-color-cbg;
+
+    .rrd-icon{
+      .padding-t-r(10, 16);
+      .com-style-box;
+
+      img{
+        .com-style-box-flex(2);
+        .height(168);
+      }
+
+    }
+
+    .rrd-c-zan{
+      text-align: center;
+      .padding-t-r(32, 0);
+
+      span{
+        display: inline-block;
+        border-radius: 50%;
+        background-color: @c-060d25;
+        color: @c-fff;
+        .font-size14;
+        .padding-t-r(15, 20);
+        font-weight: 600;
+      }
+    }
+
+  }
+
+  .rrd-content-bottom{
+    .com-color-cbg;
+
+    .rrd-c-b-header{
+      .com-style-box;
+      color: @c-494951;
+      .com-color-cbg;
+      .com-color-fg;
+
+      .rrd-tab{
+        .com-style-box-flex(1);
+        .font-size16;
+        text-align: center;
+
+        .tab{
+          .padding-t-r(16, 0);
+          display: inline-block;
+          position: relative;
+        }
+      }
+
+      .tab-click{
+        border-bottom: 2px solid @c-060d25;
+        color: @c-060d25;
+      }
+    }
+
+    .rrd-input{
+      .padding-t-r(16, 16);
+      background-color: @c-9b9b;
+      input{
+        width: 100%;
+        .padding-t-r(10, 10);
+        .font-size16;
+      }
+    }
+
+  }
+}

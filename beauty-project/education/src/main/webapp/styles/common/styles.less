@@ -1,0 +1,209 @@
+@import "colors";
+@import "dimens";
+
+/*再用item样式时，改变为多行显示*/
+.com-style-more-show{
+  word-break:normal;
+  width:auto;
+  display:block;
+  white-space:pre-wrap;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+/*按钮阴影*/
+.com-style-box-shadow{
+  border-radius: 20px;
+  box-shadow: 0 0 3px @c-9b9b;
+  -webkit-box-shadow: 0 0 3px @c-9b9b;
+}
+
+
+/*搜索框*/
+.com-styles-search{
+  .com-color-cbg;
+  .com-color-fg;
+  .padding-t-r(10, 0);
+  .s_img{
+    float: left;
+    .width(20);
+    .height(20);
+    .margin-t-r-b-l(8, 0, 8, 16);
+  }
+  .s_content{
+    display: inline-block;
+    position: relative;
+    .margin-left(16);
+    width: 80%;
+    .search-icon{
+      position: absolute;
+      .width(18);
+      .height(18);
+      .left(10);
+      .top(9);
+    }
+    input{
+      display: inline-block;
+      border: 1px solid @c-e5e5;
+      .padding-left(32);
+      width: 100%;
+      .height(35);
+      color: @c-9b9b;
+      .com-color-bg;
+    }
+    .search-button{
+      position: absolute;
+      top: 0;
+      right: 0;
+      .font-size(14);
+      .padding(5);
+      background-color: @c-e5e5;
+      .line-height(24);
+    }
+    .help{
+      width: 100%;
+    }
+  }
+}
+
+//不用打开侧滑栏
+.com-style-search-no-left{
+  .com-color-cbg;
+  .com-color-fg;
+  .padding-t-r(10, 0);
+  .s_content{
+    display: inline-block;
+    position: relative;
+    width: 90%;
+    left: 5%;
+    .search-icon{
+      position: absolute;
+      .width(18);
+      .height(18);
+      .left(10);
+      .top(9);
+    }
+    input{
+      display: inline-block;
+      border: 1px solid @c-e5e5;
+      .padding-left(32);
+      width: 100%;
+      .height(35);
+      color: @c-9b9b;
+      .com-color-bg;
+    }
+    .search-button{
+      position: absolute;
+      top: 0;
+      right: 0;
+      .font-size(14);
+      .padding(5);
+      background-color: @c-e5e5;
+      .line-height(24);
+    }
+    .help{
+      width: 100%;
+    }
+  }
+}
+
+//单行显示
+.com-styles-single-over{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//多行显示
+.com-style-more-over(@n){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @n;
+  overflow: hidden;
+}
+
+//标题样式
+.com-style-title{
+  .font-size(16);
+  color: @c-060d25;
+  .com-styles-single-over;
+}
+
+//左侧导航栏
+.com-style-left{
+  .left-content{
+
+    .left-item{
+      width: 100%;
+
+      .item-inner{
+        .margin-top(23);
+        .margin-left(23);
+
+        .inner-ic{
+          float: left;
+          .width(16);
+          .height(16);
+          .margin-top(3)
+        }
+        .inner-t{
+          .font-size(16);
+          color: @c-060d25;
+          .margin-left(8)
+        }
+      }
+    }
+  }
+}
+
+//列表外层div
+.com-style-ul-li-div{
+  overflow: hidden;
+  height: 100%;
+  .com-color-fg;
+}
+
+//内容为空
+.com-style-null{
+  .margin-top(106);
+  text-align: center;
+  .null-icon{
+    .margin-bottom(53);
+    .width(117);
+    .height(117);
+  }
+  .null-title{
+    .font-size(16);
+    color: @c-060d25;
+  }
+}
+
+//背景浮层
+.com-style-float{
+  position: absolute;
+  background-color: @c-dc;
+  z-index: 222;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+//按份数平分
+.com-style-box{
+  display: -webkit-box;
+}
+.com-style-box-flex(@n){
+  display: block;
+  -webkit-box-flex: @n;
+}
+//图片垂直居中
+.com-style-img-middle{
+  vertical-align: middle;
+  .margin-top(-3);
+}
+//网格布局
+.com-style-grid-co-ro(@c-s,@r-s){
+  grid-column-start: @c-s;
+  grid-column-end: @c-s + 1;
+  grid-row-start: @r-s;
+  grid-row-end: @r-s + 1;
+}

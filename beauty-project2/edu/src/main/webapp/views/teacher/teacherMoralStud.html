@@ -1,0 +1,27 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item">
+                <span style="color:black">学生姓名： {{info.studentName}}</span>
+            </a>
+            <a class="item">
+                <textarea style="background:#f8f8f8;width:100%;height:100px;font-size: 15px;border:solid 1px #e5e5e5" ng-model="info.moralTitle"
+                          placeholder="学生德育量化评分的标题，如：积极参加班上的才艺活动"></textarea>
+            </a>
+            <a class="item">
+                <textarea style="background:#f8f8f8;width:100%;height:100px;font-size: 15px;border:solid 1px #e5e5e5" ng-model="info.moralContent"
+                          placeholder="自定义描述一下学生的表现，如： 才艺活动中表现突出，围棋下得很好，还能很耐心的指点学生，让同学对围棋都有了很多兴趣。"></textarea>
+            </a>
+            <a class="item" style="color: black">
+                <span>请输入学生德育分：</span>
+                <input type="number" ng-model="info.moralScore"
+                       style="background:#e5e5e5;width:35px;margin-left:250px;margin-top:-27px;font-size: 20px">
+            </a>
+            <a class="item">
+                <center>
+                    <button class="button button-positive" style="width:80%;border-radius:20px" ng-click="submitStudentMoral()">提交</button>
+                </center>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

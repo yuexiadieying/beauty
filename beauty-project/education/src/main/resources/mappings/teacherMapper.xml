@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.education.dao.TeacherDao">
+
+	<select id="getTeacherInfo" resultType="com.meixiang.beauty.webapp.education.dto.TeacherDTO">
+		SELECT
+		ssc.id schoolId,
+		ssc.name schoolName,
+		sst.id teacherId,
+		sst.name teacherName,
+		sst.no teacherNo,
+		sst.password password
+		FROM
+		sys_teacher sst,
+		school_teacher_rel str,
+		sys_school ssc
+		WHERE
+		1=1
+		AND
+		sst.id = str.teacher_id
+		AND
+		str.school_id = ssc.id
+		AND
+		str.school_id = ssc.id
+		<if test="teacherId != null and teacherId != ''">
+			AND
+			ssc.id = #{teacherId}
+		</if>
+		<if test="teacherNo != null and teacherNo != ''">
+			AND
+			sst.no = #{teacherNo}
+		</if>
+		<if test="schoolId != null and schoolId != ''">
+			AND
+			ssc.id = #{schoolId}
+		</if>
+		GROUP BY
+		sst.id
+	</select>
+
+	<select id="getTeacherClassList" resultType="com.meixiang.beauty.webapp.education.dto.ClassInfoDTO">
+		SELECT
+		scl.id as classId,
+		scl.name as className,
+		scl.semester as semester
+		FROM
+		sys_class scl,
+		sys_teacher stt,
+		class_course_rel ccr
+		WHERE
+		scl.id = ccr.class_id
+		AND
+		ccr.teacher_id = stt.id
+		AND
+		stt.id = #{teacherId}
+		GROUP BY
+		ccr.course_id
+	</select>
+
+	<select id="getTeacherCourseTableList"  resultType="com.meixiang.beauty.webapp.education.dto.CourseInfoDTO">
+			select
+			scc.id courseId,
+			scc.name courseName,
+			scs.id classId,
+			scs.name className,
+      		ccr.teacher_id teacherId,
+			ccr.place coursePlace
+			from
+			class_course_rel ccr,
+			sys_course scc,
+      		sys_class scs
+			WHERE
+      		ccr.course_id = scc.id
+			and scs.id = ccr.class_id
+			and teacher_id=#{teacherId}
+			and ccr.week=#{week}
+			order by ccr.week
+	</select>
+
+	<select id="getSchoolInfo" resultType="com.meixiang.beauty.webapp.education.dto.SchoolDTO">
+			SELECT ss.id as schoolId,ss.name as schoolName,ss.address as schoolAddress,ss.start_school_date as startSchoolDate
+	 		FROM sys_school ss LEFT JOIN school_teacher_rel str on ss.id=str.school_id where str.teacher_id=#{teacherId}
+	</select>
+
+	<insert id="saveTeacherCourseComment">
+		insert into
+		student_course_comment
+		(
+			id,
+			class_course_id,
+			student_id,
+			student_name,
+			student_no,
+			course_comment_status,
+			course_comment_msg,
+			course_comment_urls,
+			teacher_id,
+			create_date
+		)
+		values
+		(
+			#{id},
+			#{classCourseId},
+			#{studentId},
+			#{studentName},
+			#{studentNo},
+			#{courseCommentStatus},
+			#{courseCommentMsg},
+			#{courseCommentURLs},
+			#{teacherId},
+			#{courseCommentCreateDate}
+		  )
+	</insert>
+
+	<resultMap id="missionResult" type="com.meixiang.beauty.webapp.education.dto.StudentCourseMissionDTO">
+		<id property="id" column="missionBaseInfo.missionId" />
+		<result property="student_id" column="studentId" />
+		<result property="finish_time" column="missionBaseInfo.missionEndDate" />
+	</resultMap>
+
+	<select id="getStudentCourseMissionList" resultMap="missionResult">
+		select * from teacher_homework_rel thr LEFT JOIN sys_homework sh on sh.id = thr.homework_id where thr.teacher_id=#{teacherId}
+	</select>
+
+	<update id="processVacationApply">
+		update student_vacation set vacation_status=#{status} where id=#{vacationId}
+	</update>
+
+	<select id="getTeacherCourseMissionDetail" resultMap="missionResult">
+		SELECT * FROM sys_homework sh LEFT JOIN student_homework_rel shr on sh.id=shr.homework_id where sh.id=#{missionId} and student_id=#{studentId}
+	</select>
+
+	<select id="getTeacherCourseMissionList" resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		select
+		ppp.*,
+		shc.homework_comment_status homeWorkCommentStatus,
+    	shc.homework_comment_msg homeWorkCommentMsg
+		from
+		(SELECT
+    	sh.id homeWorkId,
+		shr.id homeWorkStudentRelId,
+		stu.id studentId,
+    	stu.name studentName,
+    	scl.id classId,
+    	scl.name className,
+    	sh.name homeWorkName,
+    	shr.status homeWorkStatus,
+    	shr.student_files homeWorkImgList,
+    	shr.commit_status commitStatus,
+    	shr.student_files missionContentList
+    	FROM
+		sys_homework sh,
+    	student_homework_rel shr,
+    	sys_student stu,
+    	sys_class scl,
+    	class_student_rel ctr
+		where
+		sh.id=shr.homework_id
+		AND
+		stu.id = shr.student_id
+		AND
+		scl.id = ctr.class_id
+		AND
+		ctr.student_id = stu.id
+		AND
+		sh.id=#{missionId}
+		) ppp
+		LEFT JOIN
+		student_homework_comment shc
+		ON
+		ppp.homeWorkId = shc.student_homework_id
+		GROUP BY
+		ppp.studentId
+	</select>
+
+	<select id="getCourseStudentHomeWorkListByTeacherId" resultType="com.meixiang.beauty.webapp.education.dto.CourseHomeWorkStudentDTO">
+		select
+		ppp.*,
+		shc.homework_comment_status homeWorkCommentStatus,
+		shc.homework_comment_msg homeWorkCommentMsg
+		from
+		(SELECT
+		sh.id homeWorkId,
+		shr.id homeWorkStudentRelId,
+		stu.id studentId,
+		stu.name studentName,
+		sst.name teacherName,
+		scl.id classId,
+		scl.name className,
+		sh.name homeWorkName,
+		shr.status homeWorkStatus,
+		shr.student_files homeWorkImgList,
+		shr.commit_status commitStatus,
+		shr.student_files missionContentList,
+		sh.create_date homeWorkCreateDate
+		FROM
+		sys_teacher sst,
+		sys_homework sh,
+		student_homework_rel shr,
+		sys_student stu,
+		sys_class scl,
+		class_student_rel ctr
+		where
+		sh.id=shr.homework_id
+		AND
+		stu.id = shr.student_id
+		AND
+		scl.id = ctr.class_id
+		AND
+		ctr.student_id = stu.id
+		AND
+		sh.teacher_id = #{teacherId}
+		AND
+		sst.id = sh.teacher_id
+		) ppp
+		LEFT JOIN
+		student_homework_comment shc
+		ON
+		ppp.homeWorkId = shc.student_homework_id
+		GROUP BY
+		ppp.studentId
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<insert id="saveSysHomework">
+		insert into sys_homework (id,name,finish_time,description,course_id,teacher_id) values (#{missionId},#{missionName},#{missionEndDate},#{missionDescription},#{courseId},#{teacherId})
+	</insert>
+
+	<select id="getCourseMissionComment">
+		SELECT * FROM sys_homework sh
+		LEFT JOIN student_homework_rel shr on shr.homework_id = sh.id
+		LEFT JOIN student_homework_comment shc on shc.studentHomeworkRelId = shr.id
+		where shr.student_id=#{studentId} and sh.teacher_id=#{teacherId}
+	</select>
+
+	<select id="getTeacherCommentStudentList">
+		select * from student_course_comment scc LEFT JOIN class_student_rel csr on scc.studentId=csr.student_id
+		where scc.teacherId=#{teacherId} and csr.class_id=#{classId} and scc.courseId=#{courseId}
+	</select>
+
+	<select id="getTeacherCourseMissionHistoryList" resultType="com.meixiang.beauty.webapp.education.dto.MissionBaseInfoDTO">
+		  select * from
+		  sys_homework sh
+		  left join student_homework_rel shr on shr.homework_id=sh.id
+		  LEFT JOIN class_student_rel csr on csr.student_id=shr.student_id
+		  where csr.class_id=#{classId} and sh.class_course_id=#{classCourseId} and sh.teacher_id=#{teacherId} group by sh.id
+	</select>
+
+	<insert id="saveTeacherHomeworkRel">
+		 insert into student_homework_rel(id,student_id,description,homework_id,student_files,status)
+		 values (#{id},#{studentId},#{missionBaseInfo.missionDescription},#{missionBaseInfo.missionId},#{missionContentList},#{commitStatus})
+	</insert>
+
+	<select id="getTeacherHomePageMissionList" resultType="com.meixiang.beauty.webapp.education.dto.TeacherMissionDTO">
+		select
+		shk.name courseMissionContent,
+		shk.finish_time courseMissionDate,
+ 		sce.`name` courseName,
+		scl.`name` courseMissionClass,
+ 		shk.id courseMissionId,
+ 		ccr.course_id courseId,
+ 		scl.id classId,
+ 		(select count(*) from student_homework_rel WHERE commit_status is NULL or commit_status='0' and homework_id=shk.id) notSubmitNum,
+ 		(select count(*) from student_homework_rel WHERE commit_status="1" or commit_status="2" and homework_id=shk.id) alreadySubmitNum
+		from
+		sys_homework shk,
+		sys_teacher ster,
+		sys_course sce,
+		sys_class scl,
+		class_course_rel ccr
+		WHERE
+		ster.id = #{teacherId}
+		AND
+		ster.id = shk.teacher_id
+ 		AND
+ 		ccr.teacher_id = shk.teacher_id
+ 		AND
+ 		ccr.class_id = scl.id
+ 		AND
+ 		ccr.course_id = sce.id
+		GROUP BY shk.id
+	</select>
+
+	<select id="getCoursePrepareList" resultType="com.meixiang.beauty.webapp.education.dto.CourseClassInfoDTO">
+		select ccr.course_id courseId,
+		scr.`name` courseName,
+		scl.id classId,
+		scl.`name` className,
+		ccr.week weekIndex,
+		ccr.place coursePlace
+		from
+		class_course_rel ccr,
+		sys_teacher ster,
+		sys_course scr,
+		sys_class scl
+		WHERE
+		ccr.teacher_id=#{teacherId}
+		AND
+		ster.id=ccr.teacher_id
+		AND
+		scr.id=ccr.course_id
+		AND
+		scl.id = ccr.class_id
+	</select>
+
+	<select id="getStudentListByClassId" resultType="com.meixiang.beauty.webapp.education.dto.StudentDTO">
+		select
+		 sst.id studentId,
+		 sst.name studentName,
+		 sst.no studyNo
+		from
+		sys_student sst,
+		sys_class scl,
+		class_student_rel ctr
+		WHERE
+		scl.id = #{classId}
+		AND
+		scl.id = ctr.class_id
+		AND
+		ctr.class_id = scl.id
+		AND
+		sst.id = ctr.student_id
+	</select>
+
+	<select id="getTeacherVacationApplyList" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+			select
+			stv.id vacationId,
+			stud.id studentId,
+		    stt.id teacherId,
+		    stt.name teacherName,
+			stud.name studentName,
+			stv.apply_date applyDate,
+			scl.id classId,
+			scl.name className,
+			stv.vacation_type vacationType,
+			stv.apply_reason applyReason,
+			stv.begin_date beginDate,
+			stv.end_date endDate,
+			stv.period period,
+			stv.vacation_place vacationPlace,
+		    stv.vacation_status vacationStatus
+			from
+			sys_teacher stt,
+			sys_class scl,
+			sys_student stud,
+			class_student_rel ctur,
+			class_teacher_rel cttr,
+			student_vacation stv
+			WHERE
+			stt.id = cttr.teacher_id
+			AND
+			scl.id = ctur.class_id
+			AND
+			scl.id = cttr.class_id
+			AND
+			stv.study_no = stud.no
+			AND
+			stud.id = ctur.student_id
+			<if test="teacherId != null and teacherId != ''">
+				AND
+				stt.id = #{teacherId}
+			</if>
+			<if test="vacationStatus != null and vacationStatus != ''">
+				AND
+				stv.vacation_status = #{vacationStatus}
+			</if>
+			GROUP BY
+			stud.id
+	</select>
+
+	<select id="getTeacherVacationApplyListByTeacherId" resultType="com.meixiang.beauty.webapp.education.dto.StudentVacationApplyDTO">
+		select
+		stv.id vacationId,
+		stud.id studentId,
+		stud.name studentName,
+		stt.id teacherId,
+		stt.name teacherName,
+		stv.apply_date applyDate,
+		scl.id classId,
+		scl.name className,
+		stv.vacation_type vacationType,
+		stv.apply_reason applyReason,
+		stv.begin_date beginDate,
+		stv.end_date endDate,
+		stv.period period,
+		stv.vacation_place vacationPlace,
+		stv.vacation_status vacationStatus
+		from
+		sys_teacher stt,
+		sys_class scl,
+		sys_student stud,
+		class_student_rel ctur,
+		class_teacher_rel cttr,
+		student_vacation stv
+		WHERE
+		stt.id = cttr.teacher_id
+		AND
+		scl.id = ctur.class_id
+		AND
+		scl.id = cttr.class_id
+		AND
+		stv.study_no = stud.no
+		AND
+		stud.id = ctur.student_id
+  		AND
+		stt.id = #{teacherId}
+		GROUP BY
+		stud.id
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<insert id="saveTeacherMoralStudent">
+		insert into student_morality(studentId,MoralityName,MoralityContent,MoralityScore,MoralityCreateDate,MoralityTeacherName)
+		values ()
+	</insert>
+
+	<insert id="createHomeWork">
+		insert
+		into
+		sys_homework
+		(
+			id,
+			name,
+			finish_time,
+			description,
+			files,
+			teacher_id,
+			week,
+			create_date,
+			class_course_id
+		)
+		values
+		(
+			#{homeWorkId},
+			#{homeWorkName},
+			#{homeWorkTime},
+			#{homeWorkDesc},
+			"",
+			#{teacherId},
+			#{weekIndex},
+			#{homeWorkCreateDate},
+			#{classCourseId}
+		)
+	</insert>
+
+	<insert id="createStudentHomeRelBatch">
+		INSERT
+		INTO
+		student_homework_rel
+		(
+			id,
+			student_id,
+			description,
+			seeFlag,
+			homework_id,
+			student_files,
+			status
+		)
+		VALUES
+		<foreach collection ="list" item="homework" separator =",">
+			(
+				#{homework.homeWorkStudentRelId},
+				#{homework.studentId},
+				#{homework.homeWorkName},
+				true,
+				#{homework.homeWorkId},
+				'',
+				'0'
+			)
+		</foreach >
+	</insert>
+
+	<select id="getTeacherDiscussStudentList" resultType="com.meixiang.beauty.webapp.education.dto.StudentCourseCommentDTO">
+		select ppp.*,
+		scc.course_comment_status courseCommentStatus,
+		scc.course_comment_msg courseCommentMsg,
+		scc.course_comment_urls courseCommentURLS,
+		scc.create_date courseCommentCreateDate
+		from
+    	(SELECT
+		ccr.id classCourseId,
+		stu.id studentId,
+		stu.name studentName,
+		stu.no studentNo
+		FROM
+		sys_teacher sst,
+		class_teacher_rel ctr,
+		class_student_rel csr,
+    	class_course_rel ccr,
+		sys_student stu
+		WHERE
+		1=1
+		AND
+		sst.id = #{teacherId}
+		and ccr.course_id = #{courseId}
+		AND ccr.class_id = #{classId}
+		AND ccr.week = #{weekIndex}
+		AND ccr.teacher_id = sst.id AND
+		sst.id = ctr.teacher_id AND
+		csr.class_id = ctr.class_id AND
+		stu.id = csr.student_id
+		GROUP BY
+		stu.id) ppp
+    	LEFT JOIN
+		student_course_comment scc ON ppp.studentId = scc.student_id
+	</select>
+
+	<select id="getTeacherCommentStudentListByTeacherId" resultType="com.meixiang.beauty.webapp.education.dto.StudentCourseCommentDTO">
+		select ppp.*,
+		scc.course_comment_status courseCommentStatus,
+		scc.course_comment_msg courseCommentMsg,
+		scc.course_comment_urls courseCommentURLS,
+		scc.create_date courseCommentCreateDate
+		from
+		(SELECT
+		ccr.id classCourseId,
+		scc.name courseName,
+		stu.id studentId,
+		stu.name studentName,
+		stu.no studentNo,
+	    sst.name teacherName
+		FROM
+		sys_teacher sst,
+		class_teacher_rel ctr,
+		class_student_rel csr,
+		class_course_rel ccr,
+		sys_student stu,
+		sys_course scc
+		WHERE
+		1=1
+		AND
+		sst.id = #{teacherId} AND
+		ccr.teacher_id = sst.id AND
+		sst.id = ctr.teacher_id AND
+		csr.class_id = ctr.class_id AND
+		stu.id = csr.student_id AND
+		scc.id = ccr.course_id
+		GROUP BY
+		stu.id) ppp
+		LEFT JOIN
+		student_course_comment scc ON ppp.studentId = scc.student_id
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="getClassCourseRelId" resultType="String">
+		SELECT
+		id
+		FROM
+		class_course_rel
+		WHERE
+		1=1
+		AND
+		teacher_id = #{teacherId}
+		AND
+		class_id = #{classId}
+		AND
+		course_id = #{courseId}
+		AND
+		week = #{weekIndex}
+	</select>
+
+	<insert id="saveTeacherHomeWorkComment">
+		insert
+		into
+		student_homework_comment
+		(
+		id,
+		student_homework_id,
+		student_id,
+		student_name,
+		homework_comment_status,
+		homework_comment_msg,
+		create_date
+		)
+		values
+		(
+		#{homeWorkCommentId},
+		#{homeWorkId},
+		#{studentId},
+		#{studentName},
+		#{homeWorkCommentStatus},
+		#{homeWorkCommentMsg},
+		#{homeWorkCommentCreateDate}
+		)
+	</insert>
+
+	<update id="saveTeacherHomeWorkStatus">
+		update
+		student_homework_rel
+		set
+		status = #{homeWorkStatus}
+		where
+		id = #{homeWorkStudentRelId}
+	</update>
+
+</mapper>

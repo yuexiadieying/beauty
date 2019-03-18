@@ -1,0 +1,51 @@
+<ion-view class="renrenDetail">
+    <div class="rrd-header">
+        <span>返回</span>
+        <span>动态详情</span>
+        <span>更多</span>
+    </div>
+    <ion-content style="top: 55px;">
+        <div class="rrd-content">
+            <div class="rrd-c-header">
+                <img src="images/rrt.png"/>
+                <span class="rrd-h-name">
+                    <span>啦啦啦</span>
+                    <span>23分钟前</span>
+                </span>
+            </div>
+            <div class="rrd-text">
+                终于攒到15000了，希望能如愿换到我要的自行车。
+            </div>
+            <div class="rrd-icon">
+                <img src="images/card1.png"/>
+                <img src="images/card1.png"/>
+            </div>
+            <div class="rrd-c-zan">
+                <span>赞</span>
+            </div>
+        </div>
+        <div class="rrd-content-bottom">
+            <div class="rrd-c-b-header">
+                <div class="rrd-tab" ng-click="selectStudentMessage('all')">
+                    <span ng-class="{'tab':!DetailType,'tab tab-click':DetailType}" id="tab-all">评论56</span>
+                </div>
+                <div class="rrd-tab" ng-click="selectStudentMessage('mine')">
+                    <span ng-class="{'tab':DetailType,'tab tab-click':!DetailType}" id="tab-my">赞34</span>
+                </div>
+            </div>
+            <div class="rrd-c-header">
+                <img src="images/rrt.png"/>
+                <span class="rrd-h-name">
+                    <span>啦啦啦</span>
+                    <span>23分钟前</span>
+                </span>
+            </div>
+            <div class="rrd-text">
+                终于攒到15000了，希望能如愿换到我要的自行车。
+            </div>
+            <div class="rrd-input">
+                <input placeholder="我想说~">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item">
+                <p style="font-weight:bold">任务名称</p>
+                <center style="margin-top:10px">
+                    <textarea style="background:#f8f8f8;width:95%;height:50px"
+                              ng-model="param.missionBaseInfo.missionName"></textarea>
+                </center>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item">
+                <p style="font-weight: bold">截止日期</p>
+                <p style="margin-top:10px;margin-left:10px">
+                    <input style="background:#e5e5e5;width:15%;height:30px"
+                           ng-model="param.month">&nbsp;月&nbsp;
+                    <input style="background:#e5e5e5;width:15%;height:30px"
+                           ng-model="param.day">&nbsp;日&nbsp;
+                    <input style="background:#e5e5e5;width:15%;height:30px"
+                           ng-model="param.hour">&nbsp;:&nbsp;
+                    <input style="background:#e5e5e5;width:15%;height:30px"
+                           ng-model="param.minute">
+                </p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goTeacherCourseMissionTable()">
+                <span class="item-note">去复制&nbsp;></span>
+                <span style="color: black">复制任务到其他课程</span>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item">
+                <p style="font-weight:bold">说明</p>
+                <center>
+                     <textarea placeholder="任务的详细介绍，标准要求，注意事项"
+                               style="margin-top:10px;background:#f8f8f8;width:95%;height:150px"
+                               ng-model="param.missionBaseInfo.missionDescription"></textarea>
+                </center>
+            </a>
+        </div>
+        <center>
+            <button class="button button-positive" style="width:80%;border-radius:20px" ng-click="pushMission()">发布任务</button>
+        </center>
+    </ion-content>
+</ion-view>

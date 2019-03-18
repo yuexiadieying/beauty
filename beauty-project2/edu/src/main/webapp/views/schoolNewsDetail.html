@@ -1,0 +1,13 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="item" style="color:black;word-break:normal;width:auto;display:block;
+                            white-space:pre-wrap;word-wrap: break-word;overflow: hidden;height:75px;font-size: 18px;font-weight: 600">{{param.schoolNewsDetail.schoolNewsTitle}}</div>
+        <div class="item" style="font-size:13px;padding: 10px">
+            {{param.schoolNewsDetail.schoolNewsDate|date:'yyyy-MM-dd'}}&nbsp;&nbsp;&nbsp;&nbsp;{{param.schoolNewsDetail.schoolNewsApartment}}
+        </div>
+        <div class="item" style="word-break:normal;width:auto;display:block;
+                            white-space:pre-wrap;word-wrap: break-word;overflow: hidden;color: #9b9b9b">
+        {{param.schoolNewsDetail.schoolNewsContent}}
+        </div>
+    </ion-content>
+</ion-view>

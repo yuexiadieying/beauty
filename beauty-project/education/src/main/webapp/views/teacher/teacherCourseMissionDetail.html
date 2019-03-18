@@ -1,0 +1,123 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div ng-if="!param.courseResultCommit">
+            <div class="list">
+                <a class="item">
+                    <p class="item-note" style="color: red"
+                       ng-if="teacherCourseMissionDetail.commitStatus=='0'&&teacherCourseMissionDetail.missionStatus=='1'">超时交</p>
+                    <p>
+                        <span style="font-weight:bold;font-size:18px">{{teacherCourseMissionDetail.studentName}}</span>
+                        &nbsp;&nbsp;
+                        <span style="color: #b2b2b2">{{teacherCourseMissionDetail.className}}</span>
+                    </p>
+                    <br><br>
+                    <p ng-if="teacherCourseMissionDetail.missionStatus=='0'">等待批改</p>
+                    <p ng-if="teacherCourseMissionDetail.missionStatus=='1'">已经批改</p>
+                </a>
+            </div>
+            <div class="list">
+                <a class="item">
+                    <p style="font-weight:bold;font-size:15px">{{teacherCourseMissionDetail.missionBaseInfo.missionName}}</p>
+                    <br>
+                    <video ng-src="{{item.playUrl}}" ng-repeat="item in teacherCourseMissionDetail.missionContentList"
+                           style="height:200px;width:100%; position: relative;z-index: 1"
+                           controls="controls"/>
+                </a>
+                <a class="item" ng-if="teacherCourseMissionDetail.missionStatus=='0'">
+                    <center>
+                        <button class="button button-small button-light" style="width:100px;border-radius:20px;border-color:black;color:blue">打回</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="button button-small button-light" style="width:100px;border-radius:20px;border-color:black;color:blue">分享</button>
+                    </center>
+                </a>
+            </div>
+            <div class="list">
+                <a class="item">
+                    <p>
+                        <i class="ion ion-ios-paper-outline"></i>
+                        &nbsp;
+                        <span style="font-weight:bold;font-size:15px">老师点评</span>
+                    </p>
+                </a>
+                <ion-list>
+                    <ion-checkbox ng-model="param.missionComment.great" ng-click="chooseLevel('great')">
+                        <span class="item-note">
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                        </span>
+                        <span>优秀</span>
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="param.missionComment.good" ng-click="chooseLevel('good')">
+                        <span class="item-note">
+                            <i class="ion ion-ios-star-outline"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                        </span>
+                        <span>优良</span>
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="param.missionComment.finish" ng-click="chooseLevel('finish')">
+                         <span class="item-note">
+                            <i class="ion ion-ios-star-outline"></i>
+                            <i class="ion ion-ios-star-outline"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                        </span>
+                        <span>完成</span>
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="param.missionComment.improve"  ng-click="chooseLevel('improve')">
+                         <span class="item-note">
+                            <i class="ion ion-ios-star-outline"></i>
+                            <i class="ion ion-ios-star-outline"></i>
+                            <i class="ion ion-ios-star-outline"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                        </span>
+                        <span>待改进</span>
+                    </ion-checkbox>
+                </ion-list>
+                <a class="item">
+                    <textarea placeholder="添加具体评估，学生们会更清楚作业的问题所在"
+                            ng-model="teacherCourseMissionDetail.homeWorkCommentMsg"
+                            style="width:90%;height:100px"></textarea>
+                </a>
+            </div>
+            <center>
+                <button class="button button-positive" style="width:80%;border-radius:20px"
+                        ng-click="commitCourseResult()">提交</button>
+            </center>
+        </div>
+        <div ng-if="param.courseResultCommit">
+            <div class="list">
+                <a class="item">
+                    <p style="font-weight:bold;font-size:15px">{{teacherCourseMissionDetail.missionBaseInfo.missionName}}</p>
+                    <br>
+                    <video ng-src="{{item.playUrl}}" ng-repeat="item in teacherCourseMissionDetail.missionContentList"
+                           style="height:200px;width:100%; position: relative;z-index: 1"
+                           controls="controls"/>
+                </a>
+            </div>
+            <div class="list">
+                <a class="item">
+                    <p>
+                        <i class="ion ion-ios-paper-outline"></i>
+                        &nbsp;
+                        <span style="font-weight:bold;font-size:15px">老师点评</span>
+                    </p>
+                </a>
+                <a class="item">
+                    <p ng-show="param.missionComment.great">“优秀！”</p>
+                    <p ng-show="param.missionComment.good">“优良！”</p>
+                    <p ng-show="param.missionComment.finish">“完成！”</p>
+                    <p ng-show="param.missionComment.improve">“待改进！”</p>
+                    <p>{{teacherCourseMissionDetail.homeWorkCommentMsg}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

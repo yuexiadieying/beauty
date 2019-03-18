@@ -1,0 +1,43 @@
+<ion-view class="login">
+    <ion-content>
+        <div class="myLogo">
+            <img src="https://mx-beauty.oss-cn-beijing.aliyuncs.com/%E5%A4%B4%E5%83%8F.png">
+        </div>
+        <div class="l-content" ng-show="!passwordFlag">
+            <div class="l-c-content">
+                <div class="l-c-c-pwd">
+                    <div>
+                        <input ng-model="info.educationNumber" placeholder="请输入学号/工号">
+                    </div>
+                    <div>
+                        <input ng-model="info.educationPassword" class="" placeholder="请输入登录密码" type="password">
+                    </div>
+                </div>
+                <div class="l-c-button" ng-click="goLogin()">登录</div>
+                <!--<div class="l-c-button" ng-click="changePassword()">修改密码</div>-->
+            </div>
+            <p>
+                如果忘记密码，可联系校管理员申请重置密码。
+            </p>
+        </div>
+        <div class="l-content" ng-show="passwordFlag">
+            <div class="l-c-content">
+                <div class="l-c-c-pwd">
+                    <div>
+                        <input ng-model="info.educationNumber" placeholder="请输入学号/工号">
+                    </div>
+                    <div>
+                        <input ng-model="info.educationPassword" placeholder="请输入老的登录密码" type="password">
+                    </div>
+                    <div>
+                        <input ng-model="info.newEducationPassword1" placeholder="请输入新的登录密码" type="password">
+                    </div>
+                    <div>
+                        <input ng-model="info.newEducationPassword2" placeholder="请再次确认新的登录密码" type="password">
+                    </div>
+                </div>
+                <div class="l-c-button" ng-click="confirmNewPassword()">确认修改</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

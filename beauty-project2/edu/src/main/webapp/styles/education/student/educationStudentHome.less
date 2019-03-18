@@ -1,0 +1,130 @@
+@import "../../common/styles";
+
+.educationStudentHome{
+  .com-color-bg;
+
+  //有无通知
+  .have_tongzhi{
+    .margin-top(138);
+  }
+  .no_tongzhi{
+    .margin-top(95);
+  }
+
+  //通知
+  .esh-tongzhi{
+    position: relative;
+    .com-style-linear-gradient(@c-73c5ff, @c-2f7eff);
+    .padding-t-r(10, 16);
+
+    .esh-tz-title-left-icon{
+      display: inline-block;
+      .margin-right(8);
+      .width(15);
+      .height(15);
+      .margin-top(-2);
+    }
+
+    span{
+      .font-size14;
+      color: @c-fff;
+    }
+
+    .esh-tz-content{
+
+    }
+    .esh-tz-button{
+      position: absolute;
+      .right(16);
+      .top(8);
+      border-radius: 20px;
+      border: 1px solid @c-fff;
+      .padding-t-r(2, 15);
+    }
+  }
+
+  //选择框
+  .esh-table{
+    .com-color-cbg;
+    .com-style-box;
+    .padding-t-r(10, 0);
+
+    .esh-t-item{
+      .com-style-box-flex(1);
+      text-align: center;
+      img{
+        display: inline-block;
+        .width(39);
+        .height(39);
+      }
+      div{
+        color: @c-060d25;
+        .font-size14;
+        .margin-top(8);
+      }
+    }
+  }
+
+  .title-left-icon{
+    display: inline-block;
+    .margin-left(-38);
+    .margin-right(15);
+    .width(15);
+    .height(15);
+    .margin-top(-2);
+  }
+
+
+  //德育
+  .esh-dy-content{
+    .margin(16);
+    .padding(16);
+    background: url("../../../images/bgpop.png") no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+
+    .c-title{
+      .t-left{
+        .font-size16;
+        color: @c-060d25;
+      }
+
+      .t-right{
+        float: right;
+
+        img{
+          display: inline-block;
+          .height(16);
+          .margin-right(4);
+          .margin-top(-8);
+        }
+        span{
+          .font-size16;
+          color: @c-060d25;
+        }
+      }
+    }
+
+    .c-content{
+      .font-size13;
+      color: @c-494951;
+      .margin-top(8);
+      .margin-bottom(8);
+    }
+
+    .c-time{
+      span{
+        color: @c-9b9b;
+        .font-size(12);
+
+        &:nth-child(1){
+          .margin-right(8);
+        }
+      }
+    }
+
+
+  }
+
+
+}

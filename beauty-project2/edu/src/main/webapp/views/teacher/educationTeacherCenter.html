@@ -1,0 +1,64 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item" style="height:220px">
+                <div class="row" style="margin-top:-15px;">
+                    <div class="col col-top col-20">
+                        <center>
+                            <img src="images/copper.png" style="width:55px">
+                            <p style="margin-top:-35px;color:black">6.00</p>
+                            <p style="margin-top:15px">点击备课</p>
+                        </center>
+                    </div>
+                    <div class="col col-center col-60" style="margin-top:-10px">
+                        <center>
+                            <img src="images/my.png" style="width:160px">
+                            <p style="margin-top: -60px;color: white;font-weight:bold">2.00<br>今日获得</p>
+                            <p style="margin-top:25px">智慧币30.00</p>
+                        </center>
+                    </div>
+                    <div class="col col-bottom col-20" style="margin-top:120px">
+                        <center>
+                            <img src="images/gold.png" style="width:55px">
+                            <p style="margin-top:-35px;color:black">2.00</p>
+                            <p style="margin-top:15px">签到赚取</p>
+                        </center>
+                    </div>
+                </div>
+            </a>
+            <a class="item item-avatar" ng-click="goTeacherInfo()">
+                <img src="https://mx-beauty.oss-cn-beijing.aliyuncs.com/%E5%A4%B4%E5%83%8F.png">
+                <h2>苗向阳</h2>
+                <p class="item-note">更多&nbsp;&nbsp;></p>
+                <p>育湖中学  语文老师</p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goTeacherReward()">
+                <p class="item-note">5></p>
+                <p>育湖奖励</p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goTeacherSet()">
+                <p class="item-note">></p>
+                <p>设定</p>
+            </a>
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goTeacherHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ng-click="goTeacherMessage()">
+            <i class="icon ion-ios-people"></i>
+            班级圈
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

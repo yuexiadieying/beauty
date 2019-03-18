@@ -1,0 +1,53 @@
+<ion-view class="courseMission">
+    <ion-content>
+        <div class="cm-up" ng-if="showCommentFlag">
+            <a class="cm-u-title">{{commentList[0].courseName}}</a>
+            <div class="cm-u-praise" ng-repeat="item in commentList">
+                <div class="p">
+                    <span>{{item.courseCommentMsg}}</span>
+                    <img src="images/praise.png" ng-if="item.courseCommentStatus == '0'"/>
+                    <img src="images/criticism.png" ng-if="item.courseCommentStatus == '1'"/>
+                    <img src="images/criticism.png" ng-if="item.courseCommentStatus == '2'"/>
+                </div>
+                <img src="images/classroom.jpg" style="width:45%">
+            </div>
+            <!--<div class="cm-u-praise">-->
+                <!--<div class="p">-->
+                    <!--<span>"差评"</span>-->
+                    <!--<img src="images/criticism.png"/>-->
+                <!--</div>-->
+                <!--<span class="file"></span>-->
+                <!--<span class="file"></span>-->
+            <!--</div>-->
+        </div>
+        <div class="cm-down" ng-if="showMissionFlag">
+            <div class="cm-d-title">
+                <img src="images/courseTask-icon.png"/>
+                <span>课程任务</span>
+            </div>
+            <div class="cm-d-content">
+                <div class="cm-d-c-title">
+                    <span>{{missionName}}</span>
+                    <span>{{createDate | date : 'yyyy-MM-dd HH:mm:ss'}}</span>
+                </div>
+                <div class="cm-d-c-content">
+                    {{missionDescription}}
+                </div>
+                <!--<div class="cm-d-c-file">-->
+                    <!--<img src="images/file-icon.png">-->
+                    <!--<span>附件（2）</span>-->
+                    <!--<div></div>-->
+                    <!--<div></div>-->
+                <!--</div>-->
+                <div class="cm-d-c-time">
+                    <img src="images/time-icon.png"/>
+                    <span>截止：{{missionEndDate | date : 'yyyy-MM-dd HH:mm:ss'}}</span>
+                </div>
+                <div class="cm-d-c-button">
+                    <span ng-click="commitMission()">提交任务</span>
+                </div>
+            </div>
+        </div>
+        <div class="cm-button" ng-click="goCourseDetail()">进入课程</div>
+    </ion-content>
+</ion-view>

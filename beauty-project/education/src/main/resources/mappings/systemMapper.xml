@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.education.dao.SystemDao">
+    
+	<insert id="saveRenren">
+		insert into sys_renren(id,userType,userId,title,content,pic)
+		values (#{id},#{userType},#{userId},#{title},#{content},#{picStr})
+	</insert>
+
+	<insert id="saveRenrenDiscuss">
+		insert into sys_renren_discuss(id,renrenId,userType,userId,content,dateTime)
+		values (#{id},#{renrenId},#{userType},#{userId},#{content},#{dateTime})
+	</insert>
+
+	<select id="getRenrenDetail" resultType="com.meixiang.beauty.webapp.education.dto.RenrenDTO">
+		select * from sys_renren where id=#{renrenId}
+	</select>
+
+	<select id="getRenrenList" resultType="com.meixiang.beauty.webapp.education.dto.RenrenDTO">
+		SELECT * FROM sys_renren where userType=#{userType}
+	</select>
+
+	<select id="getRenrenDiscussList">
+	  	SELECT * FROM sys_renren_discuss where renrenId=#{renrenId}
+	</select>
+
+	<select id="getSchoolInfoById" resultType="com.meixiang.beauty.webapp.education.dto.SchoolDTO">
+		SELECT ss.id as schoolId,ss.name as schoolName,ss.address as schoolAddress,ss.start_school_date as startSchoolDate
+	 		FROM sys_school ss where ss.id=#{schoolId}
+	</select>
+
+	<select id="getSchoolNewsList" resultType="com.meixiang.beauty.webapp.education.dto.SchoolNewsDTO">
+		SELECT
+		ssn.id schoolNewsId,
+		ssn.school_id schoolId,
+		ssn.title schoolNewsTitle,
+		ssn.apartment schoolNewsApartment,
+		ssn.content schoolNewsContent,
+		ssn.create_date schoolNewsDate
+		FROM
+		sys_school_news ssn
+		where
+		ssn.school_id=#{schoolId}
+		AND
+		ssn.status=#{status}
+	</select>
+
+	<select id="getSchoolNewsDetail" resultType="com.meixiang.beauty.webapp.education.dto.SchoolNewsDTO">
+		SELECT
+		ssn.id schoolNewsId,
+		ssn.school_id schoolId,
+		ssn.title schoolNewsTitle,
+		ssn.apartment schoolNewsApartment,
+		ssn.content schoolNewsContent,
+		ssn.create_date schoolNewsDate
+		FROM
+		sys_school_news ssn
+		where
+		ssn.id=#{newsId}
+	</select>
+
+	<insert id="saveMasterMessage">
+		insert into
+		sys_master_message
+		(id,school_id,student_id,teacher_id,message,create_date)
+		values
+		(#{id},#{schoolId},#{studentId},#{teacherId},#{message},#{createDate})
+	</insert>
+
+</mapper>

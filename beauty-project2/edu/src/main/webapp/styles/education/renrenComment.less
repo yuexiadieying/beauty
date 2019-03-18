@@ -1,0 +1,51 @@
+@import "../common/styles";
+
+.renrenComment{
+  .com-color-bg;
+
+  .rrc-header{
+    .com-color-cbg;
+    .padding-t-r(16, 16);
+    position: relative;
+    text-align: center;
+    .com-color-fg;
+
+    span{
+
+      &:nth-child(1){
+        position: absolute;
+        .left(16);
+        color: @c-9b9b;
+       .font-size14;
+      }
+
+      &:nth-child(2){
+        color: @c-060d25;
+        .font-size16;
+      }
+      &:nth-child(3){
+        position: absolute;
+        .right(16);
+        color: @c-9b9b;
+        .font-size14;
+
+      }
+
+    }
+
+
+  }
+
+  .rrc-text{
+    textarea{
+      .padding-t-r(16, 16);
+      color: @c-060d25;
+      .font-size16;
+      width: 100%;
+      height: -webkit-fill-available;
+      .line-height(20);
+    }
+  }
+
+
+}

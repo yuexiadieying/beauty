@@ -1,0 +1,49 @@
+<ion-view class="login">
+    <ion-content>
+        <div class="myLogo">
+            <img src="https://mx-beauty.oss-cn-beijing.aliyuncs.com/%E5%A4%B4%E5%83%8F.png">
+        </div>
+        <div class="l-content">
+            <div class="l-c-type" ng-click="changeLogin()">{{loginMothed}}</div>
+            <div class="l-c-content">
+                <div class="l-c-c-title">
+                    <span ng-click="changeSchool()">重选学校</span>
+                    <span>{{schoolName}}</span>
+                </div>
+                <div class="l-c-c-pwd" ng-if="showPwdFlag">
+                    <div>
+                        <input class="" placeholder="请输入学号/工号">
+                    </div>
+                    <div>
+                        <input class="" placeholder="请输入登录密码">
+                    </div>
+                </div>
+                <div class="l-c-c-code" ng-if="!showPwdFlag">
+                    <div class="code-phone">
+                        <span>+86</span>
+                        <input class="" placeholder="请输入手机号" ng-model="info.phone">
+                    </div>
+                    <div class="code-send">
+                        <input class="" placeholder="验证码" ng-model="info.code">
+                        <span ng-click="sendCode()">{{info.sendCode}}</span>
+                    </div>
+                </div>
+                <div class="l-c-button" ng-click="goHome()">登录</div>
+            </div>
+            <p>忘记密码，试试验证码登录</p>
+            <p>如手机号已更换或未绑定，可联系校管理员<span>申请重置默认密码</span>。</p>
+        </div>
+        <div class="user-agreement">
+            <span class="ua">
+                <span class="ua-toask">
+                    <span></span>
+                    已勾选
+                </span>
+                <span class="ua-checkbox">
+                    <input type="checkbox" ng-checked="true">
+                    <span>同意好夫子课堂用户协议</span>
+                </span>
+            </span>
+        </div>
+    </ion-content>
+</ion-view>

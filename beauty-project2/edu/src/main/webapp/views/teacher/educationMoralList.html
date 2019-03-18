@@ -1,0 +1,19 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list" style="color:black">
+            <div ng-repeat="item in info.classList" ng-click="goClassMoral(item)" ng-show="info.showClass">
+                <a class="item">
+                    <span>{{item.schoolName + "        " + item.className}}</span>
+                    <button class="item-note button button-small button-positive" style="width:90px;margin-top:-9px">去评分</button>
+                </a>
+            </div>
+            <div ng-repeat="item in info.studentList" ng-click="goMoralStudent(item)" ng-show="!info.showClass">
+                <a class="item">
+                    <span>{{item.studentName}}</span>
+                    &nbsp;&nbsp;
+                    <span>{{item.studentNo}}</span>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

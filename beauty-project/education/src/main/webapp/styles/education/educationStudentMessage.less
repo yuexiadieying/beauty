@@ -1,0 +1,100 @@
+@import "../common/styles";
+
+.educationStudentMessage{
+  .com-color-bg;
+
+  .esm-tabs{
+    .com-style-box;
+    color: @c-494951;
+    .com-color-cbg;
+    .com-color-fg;
+
+    .esm-tab{
+      .com-style-box-flex(1);
+      .font-size16;
+      text-align: center;
+
+      .tab{
+        .padding-t-r(16, 0);
+        display: inline-block;
+        position: relative;
+
+        .tab-red{
+          position: absolute;
+          .top(13);
+          .right(-10);
+          border-radius: 50%;
+          background-color: red;
+          width: 9px;
+          height: 10px;
+        }
+      }
+    }
+
+    .tab-click{
+      border-bottom: 2px solid @c-1d79e4;
+      color: @c-1d79e4;
+    }
+
+  }
+
+  .esm-content{
+    .com-color-cbg;
+    .padding-t-r-b-l(16, 0, 16, 16);
+
+    //一类型
+    .esm-c-type1{
+      .com-color-fg;
+      .padding-t-r-b-l(16, 16, 16, 0);
+
+      .type-title{
+
+        img{
+          .width(16);
+          .height(8);
+          display: inline-block;
+
+          &:nth-child(3){
+            float: right;
+            .margin-top(7);
+          }
+        }
+
+        span{
+          color: @c-060d25;
+          .font-size16;
+          .margin-left(8);
+        }
+
+      }
+
+      p{
+        .font-size(13);
+        color: @c-494951;
+      }
+
+      .type-footer{
+        .com-style-box;
+        img{
+          .com-style-box-flex(1);
+          .height(35);
+        }
+      }
+
+      .button{
+        .font-size(13);
+        .line-height(25);
+        min-height: 0;
+        min-width: 0;
+        border-radius: 20px;
+
+      }
+
+
+    }
+
+
+
+  }
+
+}

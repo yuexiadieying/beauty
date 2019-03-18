@@ -1,0 +1,38 @@
+<ion-view class="studentVacationDetail">
+    <ion-content>
+        <div class="detail">
+            <div class="d-type">
+                <span>{{details.vacationType}}</span>
+                <span ng-if="approveFlag">审批中</span>
+            </div>
+            <div class="d-content">
+                <p>请假去向&nbsp;&nbsp;&nbsp;&nbsp;{{details.vacationPlace}}</p>
+                <p>开始时间&nbsp;&nbsp;&nbsp;&nbsp;{{details.beginDate}}</p>
+                <p>结束时间&nbsp;&nbsp;&nbsp;&nbsp;{{details.endDate}}</p>
+                <p>请假时长&nbsp;&nbsp;&nbsp;&nbsp;{{details.period}}小时</p>
+                <p>请假原因&nbsp;&nbsp;&nbsp;&nbsp;{{details.applyReason}}</p>
+            </div>
+            <img class="d-icon" src=""/>
+        </div>
+        <div class="d-flow">
+            <div class="d-f-title">审批流程</div>
+            <div class="d-f-content">
+                <div class="result">
+                    <span class="item-note">{{ details.applyDate | date : 'yyyy-MM-dd HH:mm:ss'}}</span>
+                    <div class="r-icon"></div>
+                    <span class="r-title">请假提交成功</span>
+                </div>
+                <div class="d-f-border" ng-if="vacatedFlag"></div>
+                <div class="result" ng-if="vacatedFlag">
+                    <span class="item-note">{{ details.approvedTime | date : 'yyyy-MM-dd HH:mm:ss'}}</span>
+                    <div class="r-icon" ng-class="{true:'r-icon-agree', false:'r-icon-no-agree'}[agreeVacateFlag]"></div>
+                    <span class="r-title" ng-if="agreeVacateFlag">班主任同意</span>
+                    <span class="r-title" ng-if="!agreeVacateFlag">班主任拒绝</span>
+                    <div class="no-agree-reason" ng-if="!agreeVacateFlag">
+                        <span>【原因】</span>{{details.remark}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

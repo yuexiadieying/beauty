@@ -1,0 +1,244 @@
+@import "../../common/styles";
+
+.educationStudentCenter{
+
+  .com-color-bg;
+
+  .esc-header{
+    .com-color-cbg;
+
+    .esc-h-icon{
+      .padding-t-r(50, 32);
+      text-align: center;
+      .com-color-fg;
+      position: relative;
+
+      .esc-h-i-center{
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        background: url("../../../images/my.png") no-repeat;
+        background-size: cover;
+        height: 93px;
+        width: 128px;
+
+        .center-item{
+          display: inline-block;
+          .margin-top(45);
+          div{
+            color: @c-fff;
+
+            &:nth-child(1){
+              .font-size(20);
+              .margin-bottom(5);
+            }
+            &:nth-child(2){
+              .font-size(13);
+            }
+          }
+        }
+      }
+
+      .esc-h-i-bottom{
+        color: @c-494951;
+        .font-size13;
+        .margin-top(8);
+      }
+
+      .com-left-right{
+        background-size: cover;
+        width: 42px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        color: @c-060d25;
+        .font-size13;
+        display: inline-block;
+      }
+
+      .esc-h-i-left{
+        position: absolute;
+        top: 10px;
+        left: 32px;
+        /*animation-duration: 1s; !*动画时间*!
+        animation-fill-mode: both; !*播放后的状态*!
+        animation-iteration-count: infinite; !*动作循环的次数：infinite 无限循环*!*/
+
+        animation: shaking 2s linear infinite;
+        -webkit-animation: shaking 2s linear infinite;
+
+        .left-icon{
+          background: url("../../../images/copper.png") no-repeat;
+         .com-left-right;
+        }
+
+        .left-item{
+          color: @c-494951;
+          .font-size14;
+          .margin-top(8);
+        }
+
+      }
+
+      @keyframes shaking {
+        /*25% {
+          margin-top: -20px;
+        }*/
+        50% {
+          margin-top: 5px;
+        }
+        /*75% {
+          margin-top: 30px;
+        }*/
+        /*100% {
+          margin-top: 10px;
+        }*/
+      }
+
+      .esc-h-i-right{
+        position: absolute;
+        bottom: 10px;
+        right: 32px;
+        animation: shaking_right 2s linear infinite;
+        -webkit-animation: shaking_right 2s linear infinite;
+
+        .right-icon{
+          background: url("../../../images/gold.png") no-repeat;
+          .com-left-right;
+        }
+
+        .right-item{
+          color: @c-494951;
+          .font-size14;
+          .margin-top(8);
+        }
+      }
+
+      @keyframes shaking_right {
+
+        50% {
+          margin-bottom: 5px;
+        }
+
+      }
+    }
+
+    .esc-h-meg{
+
+    }
+  }
+
+  //竞争力
+  .esc-competitiveness{
+    .margin-top(10);
+    .padding-t-r-b-l(16, 16, 32, 16);
+    .com-color-cbg;
+    .margin-bottom(25);
+
+    .esc-c-title{
+      .font-size16;
+      color: @c-494951;
+      .margin-bottom(30);
+    }
+
+    .esc-c-content{
+      .padding-left(21);
+      .padding-right(32);
+      position: relative;
+
+      .esc-c-c-left{
+        position: absolute;
+        display: inline-block;
+        .height(21);
+        top: -2px;
+        left: 6px;
+
+      }
+
+      .esc-c-c-right{
+        position: absolute;
+        display: inline-block;
+        .height(32);
+        top: -8px;
+        right: 5px;
+      }
+
+      .esc-c-c-center{
+        width: 100%;
+
+        div{
+          display: inline-block;
+        }
+
+        .esc-c-c-c-change{
+          .com-style-linear-gradient(#56f2cf, #5595ff);
+          .padding-t-r(8, 0);
+          width: 60%;
+
+          i{
+            display: block;
+            width: 100%;
+            border: 1px dashed @c-fff;
+          }
+
+        }
+
+        .esc-c-c-c-change-other{
+          .padding-t-r(8, 0);
+          background-color: #f4f5f6;
+          position: relative;
+          width: 38%;
+
+          i{
+            display: block;
+            width: 100%;
+            border: 1px dashed @c-9b9b;
+          }
+
+          .jingzhengli{
+            position: absolute;
+            .width(25);
+            .height(25);
+            .top(-3);
+            .left(-14);
+          }
+        }
+
+      }
+    }
+  }
+
+  .right-show-icon{
+    .margin-right(16);
+    color: @c-9b9b;
+
+    &:after{
+      content: '';
+      background: url("../../../images/go-right-icon.png") no-repeat;
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      background-size: 12px 15px;
+      right: 16px;
+      top: 19px;
+    }
+
+  }
+
+  .right-show-icon2{
+    .margin-right(16);
+
+    &:after{
+      content: '';
+      background: url("../../../images/go-right-icon.png") no-repeat;
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      background-size: 12px 15px;
+      right: 16px;
+      top: 40px;
+    }
+
+  }
+
+}

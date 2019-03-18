@@ -1,0 +1,75 @@
+<ion-view style="background:#f8f8f8">
+    <div class="bar bar-header bar-light">
+        <button class="button" style="border-color:white;font-size:20px;" ng-click="chooseWeek()">
+            <span style="font-weight:bold">第{{param.weekIndex}}周</span>
+            <i class="ion ion-android-arrow-dropdown-circle" style="color:#b2b2b2"></i>
+        </button>
+        <h1 class="title"></h1>
+        <button class="button" style="border-color:white;color: #b2b2b2;font-size: 15px">
+            {{param.class}}&nbsp;{{param.semester}}
+        </button>
+    </div>
+    <div style="position:absolute;color: black;width: 100%;text-align: center;z-index: 999;margin-top: 45px;" ng-show="studentChooseWeek">
+        <div class="list">
+            <a class="item" style="height:10px" ng-click="preWeek()">
+                <i class="ion ion-ios-arrow-up" style="font-size:30px;margin-top:-10px"></i>
+            </a>
+            <div  ng-repeat="item in param.weekList" ng-click="confirmWeek(item)">
+                <a class="item" ng-if="item==param.weekIndex" style="background: blue">
+                    第{{item}}周
+                </a>
+                <a class="item" ng-if="item!=param.weekIndex" style="background: white">
+                    第{{item}}周
+                </a>
+            </div>
+            <a class="item" style="height:10px" ng-click="nextWeek()">
+                <i class="ion ion-ios-arrow-down" style="font-size:30px;margin-top:-20px"></i>
+            </a>
+        </div>
+    </div>
+    <ion-content style="margin-top:50px;height:680px">
+        <table style="width:100%;color:black;text-align:center;font-size:10px">
+            <tr style="background:#CAFFFF">
+                <td style="height:50px;vertical-align: middle;">{{param.month}}月</td>
+                <td style="vertical-align: middle" ng-repeat="item in param.courseTableList">
+                    {{item.weekName}}<br><span style="color: #999">{{item.weekDate}}</span>
+                </td>
+            </tr>
+            <tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]">
+                <td class="com-table-num">{{$index+1}}</td>
+                <td class="com-table-content" ng-repeat="item1 in param.courseTableList">
+                    <span ng-if="item2.coursePlace==$parent.$parent.$index+1&&(item2.classId==param.classId||param.classId=='all')"
+                          ng-repeat="item2 in item1.courseList">
+                        <span style="font-weight:bold;font-size:15px">{{item2.courseName}}</span>
+                        <br>
+                        <span style="font-size:1px;color:grey">{{item2.className}}</span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <br ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]">
+    </ion-content>
+    <div style="width: 50%;
+                margin-left: 45%;
+                position: absolute;
+                margin-top: 25%;
+                color: black;
+                text-align:center"
+            ng-show="teacherChooseClass">
+        <a class="item" style="background: blue;color:white"
+           ng-click="chooseClass('all','全部班级')" ng-if="param.classId=='all'">全部班级</a>
+        <a class="item" ng-click="chooseClass('all','全部班级')" ng-if="param.classId!='all'">全部班级</a>
+        <a class="item" ng-repeat="item in param.classList"  ng-if="param.classId==item.classId"
+                            style="background: blue;color:white"
+                        ng-click="chooseClass(item.classId,item.className)">
+            {{item.className}}
+        </a>
+        <a class="item" ng-repeat="item in param.classList"  ng-if="param.classId!=item.classId"
+           ng-click="chooseClass(item.classId,item.className)">
+            {{item.className}}
+        </a>
+    </div>
+    <div style="position:fixed;margin-top:150%;margin-left:75%;" ng-click="chooseTeacherClass()">
+        <img src="images/switchClass.png" style="width:60px">
+    </div>
+</ion-view>

@@ -1,0 +1,36 @@
+<ion-view style="background:#f8f8f8">
+    <div class="bar bar-header bar-light">
+        <h1 class="title">
+            <span style="font-weight: bold;">上周</span>
+            &nbsp;<i class="ion ion-ios-arrow-left" style="color:#b2b2b2"></i>&nbsp;
+            <span style="color:#b2b2b2">本周</span>
+            &nbsp;<i class="ion ion-ios-arrow-right" style="color:#b2b2b2"></i>&nbsp;
+            <span style="font-weight: bold;">下周</span>
+        </h1>
+    </div>
+    <ion-content style="margin-top:50px;height:680px">
+        <table style="width:100%;color:black;text-align:center;font-size:10px">
+            <tr style="background:#CAFFFF">
+                <td style="height:50px;vertical-align: middle;">{{param.month}}月</td>
+                <td style="vertical-align: middle" ng-repeat="item in param.courseTableList">
+                    {{item.weekName}}<br><span style="color: #999">{{item.weekDate}}</span>
+                </td>
+            </tr>
+            <tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]" style="background:white">
+                <td style="color:#b2b2b2;height:50px;vertical-align:middle">{{$index+1}}</td>
+                <td style="vertical-align: middle" ng-repeat="item1 in param.courseTableList">
+                    <span ng-if="item2.coursePlace==$parent.$parent.$index+1"
+                          ng-repeat="item2 in item1.courseList" ng-click="chooseCourse(item2,$parent.$parent)">
+                        <div style="position: absolute;background: rgba(35, 35, 35, 0.5);width: 15%;height:5.7%" ng-show="item2.chooseFlag">
+                            <img src="images/chooseButton.png" style="width: 20px;margin-left: 15px;margin-top: 10px;"></div>
+                        <span style="font-weight:bold;font-size:15px">{{item2.courseName}}</span>
+                        <br>
+                        <span style="font-size:1px;color:grey">{{item2.className}}</span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <br ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12]">
+    </ion-content>
+   <button class="button button-positive" style="width:100%;margin-top:160%" ng-show="chooseCourseFlag" ng-click="goTeacherPushMission()">确认</button>
+</ion-view>

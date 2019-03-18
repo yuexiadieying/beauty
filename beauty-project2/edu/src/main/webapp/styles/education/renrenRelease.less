@@ -1,0 +1,79 @@
+@import "../common/styles";
+
+.renrenRelease{
+  .com-color-bg;
+
+  .rrr-header{
+    .com-color-cbg;
+    .padding-t-r(16, 16);
+    position: relative;
+    text-align: center;
+    .com-color-fg;
+
+    span{
+
+      &:nth-child(1){
+        position: absolute;
+        .left(16);
+        color: @c-9b9b;
+        .font-size14;
+      }
+
+      &:nth-child(2){
+        color: @c-060d25;
+        .font-size16;
+      }
+      &:nth-child(3){
+        position: absolute;
+        .right(16);
+        color: @c-9b9b;
+        .font-size14;
+
+      }
+
+    }
+
+
+  }
+
+  .rrr-content{
+    .padding-t-r(16, 10);
+    position: relative;
+    .com-color-cbg;
+
+    textarea{
+      .font-size16;
+      color: @c-060d25;
+      .min-height(300);
+      width: 100%;
+      .padding(10);
+    }
+
+    span{
+      position: absolute;
+      display: inline-block;
+      .right(10);
+      .bottom(10);
+      color: @c-9b9b;
+      .font-size16;
+    }
+
+  }
+
+  .rrr-icon{
+    .com-color-cbg;
+    .padding(10);
+    .com-color-top-fg;
+
+    .add-icon{
+      display: inline-block;
+      background-color: @c-e5e5;
+      .padding(25);
+      color: @c-060d25;
+      .font-size16;
+      font-weight: 600;
+    }
+
+  }
+
+}

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.modules.system.dao.OperationDao">
+
+    <resultMap id="ProductResultMap" type="com.meixiang.beauty.common.dto.product.ProductDTO" >
+        <result column="id" property="id" jdbcType="VARCHAR" />
+        <result column="name" property="productName" jdbcType="VARCHAR" />
+        <result column="product_id" property="productId" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="TIMESTAMP" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="first_url" property="firstUrl" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="REAL" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <resultMap id="ExportOrderExcelMap" type="com.meixiang.beauty.common.dto.system.ExportOrderExcelDTO" >
+        <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+        <result column="product_id" property="productId" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+
+        <result column="id" property="id" jdbcType="VARCHAR" />
+        <result column="nickname" property="nickName" jdbcType="VARCHAR" />
+
+        <result column="pay_date" property="payDate" jdbcType="VARCHAR" />
+        <result column="brand" property="productBrand" jdbcType="VARCHAR" />
+        <result column="name" property="productName" jdbcType="VARCHAR" />
+
+        <result column="product_spec" property="productSpec" jdbcType="VARCHAR" />
+        <result column="product_num" property="productNum" jdbcType="VARCHAR" />
+        <result column="status" property="orderStatus" jdbcType="VARCHAR" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+
+        <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+        <result column="userAddress" property="userAddress" jdbcType="VARCHAR" />
+
+        <result column="amount" property="amount" jdbcType="VARCHAR" />
+        <result column="invoice" property="invoice" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <sql id="Base_Product_List">
+        p.id,p.name,p.product_id,p.brand,p.type,p.description,p.first_url,p.price,p.status,p.create_date,p.second_type
+    </sql>
+
+    <!--查询所有商品-->
+    <select id="queryAllProducts" resultMap="ProductResultMap"
+            resultType="com.meixiang.beauty.common.persistence.Page">
+        select
+        <include refid="Base_Product_List"/>
+        FROM business_product p
+        WHERE p.type = 'offline'
+        ORDER BY create_date DESC
+    </select>
+
+    <!--根据id查询商品-->
+    <select id="findProductById" resultMap="ProductResultMap">
+        select
+        <include refid="Base_Product_List"/>
+        FROM business_product p
+        WHERE p.product_id = #{id}
+    </select>
+
+    <!--条件查询商品Count-->
+    <select id="queryProductsCountByParameters" resultType="java.lang.Integer">
+        SELECT
+        count(1)
+        FROM business_product p
+        WHERE 1=1
+        <if test="requestData.productName != null and requestData.productName != ''">
+            AND p.name = #{requestData.productName}
+        </if>
+        <if test="requestData.productId != null and requestData.productId != ''">
+            AND p.product_id = #{requestData.productId}
+        </if>
+        <if test="requestData.type != null and requestData.type != ''">
+            AND p.type = #{requestData.type}
+        </if>
+        <if test="requestData.brand != null and requestData.brand != ''">
+            AND p.brand = #{requestData.brand}
+        </if>
+        <if test="requestData.status != null and requestData.status != ''">
+            AND p.status = #{requestData.status}
+        </if>
+    </select>
+
+    <!--条件查询商品-->
+    <select id="queryProductsByParameters" resultMap="ProductResultMap">
+        SELECT
+        <include refid="Base_Product_List"/>
+        FROM business_product p
+        WHERE 1=1
+        <if test="requestData.productName != null and requestData.productName != ''">
+            AND p.name LIKE "%${requestData.productName}%"
+        </if>
+        <if test="requestData.productId != null and requestData.productId != ''">
+            AND p.product_id = #{requestData.productId}
+        </if>
+        <if test="requestData.type != null and requestData.type != ''">
+            AND p.type = #{requestData.type}
+        </if>
+        <if test="requestData.brand != null and requestData.brand != ''">
+            AND p.brand = #{requestData.brand}
+        </if>
+        <if test="requestData.status != null and requestData.status != ''">
+            AND p.status = #{requestData.status}
+        </if>
+        ORDER BY p.create_date DESC
+        limit #{pageStartNo},#{pageSize}
+    </select>
+
+    <!--编辑商品 -->
+    <update id="updateProductByParameters">
+        UPDATE business_product
+        SET
+        <if test="productName != ''and productName != null">
+            name=#{productName}
+        </if>
+        <if test="brand != ''and brand != null">
+            ,brand=#{brand}
+        </if>
+        <if test="description != ''and description != null">
+            ,description=#{description}
+        </if>
+        <if test="firstUrl != ''and firstUrl != null">
+            ,first_url=#{firstUrl}
+        </if>
+        <if test="price != ''and price != null">
+            ,price=#{price}
+        </if>
+        <if test="status != ''and status != null">
+            ,status=#{status}
+        </if>
+        <if test="secondType != ''and secondType != null">
+            ,second_type=#{secondType}
+        </if>
+        WHERE 1=1
+        AND product_id = #{productId}
+    </update>
+
+    <!--编辑商品-上架-->
+    <update id="putAwayProductById">
+        UPDATE business_product p
+        SET p.status= 1
+        WHERE p.id = #{id}
+    </update>
+
+    <!--编辑商品-下架-->
+    <update id="delProductById">
+        UPDATE business_product p
+        SET p.status= 0
+        WHERE p.id = #{id}
+    </update>
+    <!--新增商品-->
+    <insert id="addOfflineProduct">
+        INSERT INTO business_product(
+        id,
+        name,
+        product_id,
+        brand,
+        type,
+        description,
+        first_url,
+        price,
+        status,
+        create_date,
+        second_type
+        ) VALUES (
+        #{id},
+        #{productName},
+        #{productId},
+        #{brand},
+        #{type},
+        #{description},
+        #{firstUrl},
+        #{price},
+        #{status},
+        #{createDate},
+        #{secondType}
+        )
+    </insert>
+    <!--查询导出订单Excel所需数据-->
+    <select id="selectExcelContent" resultMap="ExportOrderExcelMap">
+        select
+        ord.order_id,pro.product_id,pro.name,pro.brand,usr.id,usr.nickname,usr.mobile,pay.pay_date,pay.amount,pay.invoice,
+        opr.product_num,ord.status,opr.product_spec,ddr.user_name,ddr.user_phone,CONCAT(ddr.province," ",ddr.city," ",ddr.detail_address) as userAddress
+        FROM business_order ord,business_product pro,sys_user usr,pay_record pay,
+          order_product_relation opr,user_order_address ddr
+        WHERE ord.sys_user_id = usr.id AND ord.order_id = opr.business_order_id
+          AND opr.business_product_id = pro.product_id
+          AND ord.order_id = pay.order_id AND ord.user_order_address_id = ddr.id
+          AND pro.type = "offline" AND ord.status = "1" AND pay.status="1"
+          ORDER BY pay_date ASC
+    </select>
+
+
+    <!--导出订单  修改未发货订单为已发货-->
+    <update id="updateOrderStatusByExcelDTO">
+        UPDATE business_order o
+        SET
+            o.status=4
+        WHERE o.order_id = #{orderId}
+    </update>
+
+</mapper>

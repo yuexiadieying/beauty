@@ -1,0 +1,80 @@
+<ion-view class="educationStudentCenter">
+    <ion-content>
+        <div class="esc-header">
+            <div class="esc-h-icon">
+                <div class="esc-h-i-center">
+                    <span class="center-item">
+                        <div>2.00</div>
+                        <div>今日获得</div>
+                    </span>
+                </div>
+                <div class="esc-h-i-bottom">智慧币 &nbsp; 30.00</div>
+                <div class="esc-h-i-left">
+                    <div class="left-icon">
+                        6.00
+                    </div>
+                    <div class="left-item">
+                        点击备课
+                    </div>
+                </div>
+                <div class="esc-h-i-right">
+                    <div class="right-icon">
+                        6.00
+                    </div>
+                    <div class="right-item">
+                        签到赚钱
+                    </div>
+                </div>
+            </div>
+            <a class="item item-avatar" ng-click="goStudentInfo()">
+                <img src="images/user-icon.png">
+                <h2>{{studentInfo.studentName}}</h2>
+                <p class="item-note right-show-icon2">更多</p>
+                <p>{{studentInfo.schoolName}}  {{studentInfo.className}}</p>
+            </a>
+        </div>
+        <div class="esc-competitiveness">
+            <div class="esc-c-title">学业档案竞争力</div>
+            <div class="esc-c-content">
+                <img class="esc-c-c-left" src="images/competitiveness-left.png"/>
+                <div class="esc-c-c-center">
+                    <div class="esc-c-c-c-change">
+                        <i></i>
+                    </div>
+                    <div class="esc-c-c-c-change-other">
+                        <i></i>
+                        <img src="images/jingzhengli-icon.png" class="jingzhengli">
+                    </div>
+                </div>
+                <img class="esc-c-c-right" src="images/competitiveness-right.png">
+            </div>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goStudentReward()">
+                <p class="item-note right-show-icon">5</p>
+                <p>好课堂奖励</p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" ng-click="goStudentSet()">
+                <p class="item-note right-show-icon"></p>
+                <p>设定</p>
+            </a>
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goStudentHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ng-click="goStudentMessage()">
+            <i class="icon ion-ios-people"></i>
+            班级圈
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

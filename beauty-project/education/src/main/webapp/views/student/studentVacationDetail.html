@@ -1,0 +1,38 @@
+<ion-view class="studentVacationDetail">
+    <ion-content>
+        <div class="detail">
+            <div class="d-type">
+                <span>病假</span>
+                <span ng-if="approveFlag">审批中</span>
+            </div>
+            <div class="d-content">
+                <p>请假去向&nbsp;&nbsp;&nbsp;&nbsp;回宿舍</p>
+                <p>开始时间&nbsp;&nbsp;&nbsp;&nbsp;05-06 8:00</p>
+                <p>结束时间&nbsp;&nbsp;&nbsp;&nbsp;05-06 20:00</p>
+                <p>请假时长&nbsp;&nbsp;&nbsp;&nbsp;12小时</p>
+                <p>请假原因&nbsp;&nbsp;&nbsp;&nbsp;回宿舍休息</p>
+            </div>
+            <img class="d-icon" src=""/>
+        </div>
+        <div class="d-flow">
+            <div class="d-f-title">审批流程</div>
+            <div class="d-f-content">
+                <div class="result">
+                    <span class="item-note">05-07 8：00</span>
+                    <div class="r-icon"></div>
+                    <span class="r-title">请假提交成功</span>
+                </div>
+                <div class="d-f-border" ng-if="vacatedFlag"></div>
+                <div class="result" ng-if="vacatedFlag">
+                    <span class="item-note">05-07 8：00</span>
+                    <div class="r-icon" ng-class="{true:'r-icon-agree', false:'r-icon-no-agree'}[agreeVacateFlag]"></div>
+                    <span class="r-title" ng-if="agreeVacateFlag">班主任同意</span>
+                    <span class="r-title" ng-if="!agreeVacateFlag">班主任拒绝</span>
+                    <div class="no-agree-reason" ng-if="!agreeVacateFlag">
+                        <span>【原因】</span>开发老山街道四库六九分裤时代峻峰了老师快递费就隆盛科技的风口浪尖独守空房健康了第三季度
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

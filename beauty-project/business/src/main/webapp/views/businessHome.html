@@ -1,0 +1,44 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <!--轮播图部分-->
+        <ion-slide-box auto-play="true" does-continue="true" slide-interval=4000>
+            <ion-slide ng-repeat="item in param.bannerList">
+                <div class="box" style="height:3.98rem;width: 7.50rem">
+                    <a href="{{item.forward}}" ng-click="clickCarousel(item.id)"> <img ng-src="{{item.uri}}" style="height:3.98rem;width:7.50rem"/></a>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <!--商品部分-->
+        <div style="margin-top: 20px;height:5.16rem;width:7.50rem" ng-repeat="item in param.productList" ng-if="item.productId==param.promoteProductId" >
+            <img ng-src="{{item.firstUrl}}" ng-click="goPromoteProduct(item.productId)" style="width: 7.5rem;height: 5.30rem"/>
+        </div>
+        <div>
+            <div  style="margin-top: 20px;position: relative;" ng-repeat="item in param.product2List">
+                <!--<div style="width:2rem;height: 1rem;color: #333333;margin-bottom: 30px;position: absolute;top:20px;left:50%;margin-left:-1rem;text-align: center;font-size: 16px">{{item.name}}元专区</div>-->
+                <!--<div class="col col-50"  ng-repeat="item2 in item.data">-->
+                    <div ng-repeat="item2 in item.data">
+                        <div  ng-click="enterDetails(item2.productId)" ng-if="item2.productId!=param.promoteProductId">
+                            <img class="full-image" ng-src="{{item2.firstUrl}}">
+                            <!--<h1 style="font-size:0.26rem;font-weight: bold;color: #333333;">{{item2.productName}}</h1>-->
+                            <!--<p style="font-size:0.24rem;color: #666666">-->
+                                <!--{{item2.description}}-->
+                            <!--</p>-->
+                        </div>
+                        <!--<p>-->
+                            <!--<a class="subdued" style="color: #ff4a59;font-size:0.32rem;margin-top: 0.26rem;font-weight:bold;">￥{{item2.price}}</a>-->
+                            <!--<a  class="subdued" style="float:right;margin-top:-20px;margin-right: 0.22rem;margin-bottom: 0.2rem"><img src="images/businessHome/shoppingcart.png" style="width: 0.52rem;height: 0.52rem;"></a>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                        <!--<div  ng-repeat="item2 in item.data">-->
+                            <!--<div ui-sref="offlineProductDetail({productId:item2.productId})">-->
+                                <!--<img class="full-image" ng-src="{{item2.firstUrl}}">-->
+                                <!--&lt;!&ndash;<h1 style="font-size:0.26rem;font-weight: bold;color: #333333;">{{item2.productName}}</h1>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<p style="font-size:0.24rem;color: #666666">&ndash;&gt;-->
+                                <!--&lt;!&ndash;{{item2.description}}&ndash;&gt;-->
+                                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                            <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

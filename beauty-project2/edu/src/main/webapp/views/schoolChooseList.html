@@ -1,0 +1,18 @@
+<ion-view class="schoolChooseList">
+    <div class="scl-search">
+        <input class="" placeholder="输入学校名字">
+        <span>搜索</span>
+    </div>
+    <ion-content style="margin-top: 80px">
+        <div class="scl-content" >
+            <div class="scl-c-title">附件的学校</div>
+            <div class="scl-c-item" ng-repeat="item in schoolList" ng-click="changeSchool($index)">
+                <div class="item-school">
+                    <span class="school-name">{{item}}</span>
+                    <span class="school-long">330m</span>
+                </div>
+                <div class="item-address">第三方个地方官</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>n

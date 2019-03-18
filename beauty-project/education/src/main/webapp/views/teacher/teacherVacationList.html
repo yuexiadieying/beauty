@@ -1,0 +1,29 @@
+<ion-view style="background: #f2f5f9">
+    <div class="bar bar-header bar-calm" ng-show="true">
+        <h1 style="font-size:13px;color:white;margin-top:9px">&nbsp;&nbsp;需要查看以往的审批记录吗？</h1>
+        <h1 class="title"></h1>
+        <button class="button button-calm" style="border-color:white;border-radius:15px;height:0px;width:100px"
+                ng-click="goTeacherHistoryMissionList()">去看看</button>
+    </div>
+    <ion-content style="margin-top:30px">
+        <div class="list card" ng-repeat="item in [1,2,3]">
+            <a class="item" style="color:black">
+                <p class="item-note">05-04&nbsp;9:00</p>
+                <p><span style="font-weight:bold;font-size:18px">李正凯</span>&nbsp;&nbsp;初二2班</p>
+                <p style="margin-top:10px">请假类型：&nbsp;&nbsp;&nbsp;&nbsp;事假</p>
+                <p>请假原因：&nbsp;&nbsp;&nbsp;&nbsp;办理入学手续</p>
+                <p>开始时间：&nbsp;&nbsp;&nbsp;&nbsp;05-06 8:00</p>
+                <p>结束时间：&nbsp;&nbsp;&nbsp;&nbsp;05-06 20:00</p>
+                <p>请假时长：&nbsp;&nbsp;&nbsp;&nbsp;12小时</p>
+                <p>请假去向：&nbsp;&nbsp;&nbsp;&nbsp;回宿舍</p>
+                <p style="margin-top:10px">
+                   <button class="button button-small button-light"
+                           style="border-color:black;color:blue;border-radius:20px;width:120px;font-weight: bold">驳回</button>
+                    &nbsp;&nbsp;
+                    <button class="button button-small button-light"
+                            style="border-color:black;color:blue;border-radius:20px;width:120px;font-weight: bold">同意</button>
+                </p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

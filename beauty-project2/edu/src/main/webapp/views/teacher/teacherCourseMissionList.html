@@ -1,0 +1,40 @@
+<ion-view style="background: #f2f5f9">
+    <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive"
+         style="margin-top:-45px;position: relative">
+        <div class="tabs">
+            <a ng-class="{'tab-item active':param.tabChoose=='commit','tab-item':param.tabChoose=='unCommit'}" ng-click="chooseCommitStudent()">
+                已提交（{{param.commitMissionNum}}）
+            </a>
+            <a ng-class="{'tab-item active':param.tabChoose=='unCommit','tab-item':param.tabChoose=='commit'}" ng-click="chooseUnCommitStudent()">
+                未提交（{{param.unCommitMissionNum}}）
+            </a>
+        </div>
+    </div>
+    <ion-content style="margin-top:55px">
+        <div class="list">
+            <div class="item" ng-repeat="item in param.studentCourseMissionList"
+                 ng-if="(item.commitStatus=='1'||item.commitStatus=='2')&&param.tabChoose=='commit'"
+                 ng-click="goTeacherCourseMissionDetail(item)">
+                <p class="item-note" style="font-weight:bold;font-size:8px;color: red" ng-if="item.homeWorkStatus=='0'">未批改&nbsp;></p>
+                <p class="item-note" style="font-weight:bold;font-size:8px" ng-if="item.homeWorkStatus=='1'">已批改&nbsp;></p>
+                <p>
+                    <span style="font-weight:bold">{{item.studentName}}</span>
+                    &nbsp;&nbsp;
+                    <span style="font-size:8px;color:#b2b2b2">{{item.className}}</span>
+                    &nbsp;&nbsp;
+                    <span style="font-size:8px;color:red" ng-if="item.commitStatus=='2'">超时交</span>
+                </p>
+            </div>
+            <div class="item" ng-repeat="item in param.studentCourseMissionList"
+                 ng-if="item.commitStatus=='0'&&param.tabChoose=='unCommit'">
+                <p>
+                    <span style="font-weight:bold">{{item.studentName}}</span>
+                    &nbsp;&nbsp;
+                    <span style="font-size:8px;color:#b2b2b2">{{item.className}}</span>
+                    &nbsp;&nbsp;
+                    <span style="font-size:8px;color:red" ng-if="item.commitStatus=='0'">未提交</span>
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

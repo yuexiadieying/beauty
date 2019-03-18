@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.modules.product.dao.ProductDao">
+
+	<resultMap id="ProductResultMap" type="com.meixiang.beauty.common.dto.product.ProductDTO" >
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="productName" jdbcType="VARCHAR" />
+		<result column="product_id" property="productId" jdbcType="VARCHAR" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="TIMESTAMP" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="first_url" property="firstUrl" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="REAL" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="second_type" property="secondType" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="BusinessOrderResultMap" type="com.meixiang.beauty.common.dto.transaction.BusinessOrderDTO" >
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="sys_user_id" property="sysUserId" jdbcType="VARCHAR" />
+		<result column="order_id" property="businessOrderId" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="create_date" property="createDate" jdbcType="VARCHAR" />
+		<result column="update_date" property="updateDate" jdbcType="VARCHAR" />
+		<result column="user_order_address_id" property="userOrderAddressId" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getBusinessProductInfo"
+			resultMap="ProductResultMap">
+		select * from
+		business_product
+		where
+		1=1
+		AND
+		<if test="type != null and type != ''">
+			type=#{type}
+		</if>
+		AND
+		<if test="productId != null and productId != ''">
+			product_id=#{productId}
+		</if>
+	</select>
+
+	<select id="findOfflineProductList"
+			resultMap="ProductResultMap" parameterType="com.meixiang.beauty.common.dto.system.PageParamDTO">
+		select * from
+		business_product
+		where
+		type='offline' AND  status = '1'
+		ORDER BY
+		create_date DESC
+		limit #{pageNo},#{pageSize}
+	</select>
+
+	<select id="findTrainingProductList"
+			resultMap="ProductResultMap" parameterType="com.meixiang.beauty.common.dto.system.PageParamDTO">
+		select * from
+		business_product
+		where
+		type='training' AND  status = '1'
+		ORDER BY
+		create_date DESC
+		limit #{pageNo},#{pageSize}
+	</select>
+
+</mapper>

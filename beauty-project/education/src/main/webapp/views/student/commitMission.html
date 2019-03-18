@@ -1,0 +1,32 @@
+<ion-view class="commitMission">
+    <div class="cm-title">
+        老师已催缴任务，请尽快完成。
+    </div>
+    <ion-content style="margin-top:44px">
+        <a class="item" style="color:dimgrey">
+            <i class="ion ion-clock"></i>
+            &nbsp;
+            <span class="font-size13">截止：5月4号 20:00</span>
+        </a>
+        <div class="list" style="margin-top:6px">
+            <a class="item" style="color:black">
+                <span class="font-size16">说明</span>
+            </a>
+            <a class="item">
+                <textarea placeholder="补充说明任务的完成情况" style="width:90%;height:200px"></textarea>
+                <p class="item-note" style="color:lightgrey">(0/300)</p>
+            </a>
+            <a class="item">
+                <p class="font-size16">附件</p>
+                <i class="ion ion-folder" style="color:#11c1f3;font-size:48px"></i>
+                &nbsp;
+                <i class="ion ion-folder" style="color:#11c1f3;font-size:48px"></i>
+                &nbsp;
+                <i class="ion ion-android-add-circle" style="color:#999;font-size:48px"></i>
+            </a>
+        </div>
+        <center>
+            <button class="button button-positive" style="margin-top:16px;width:300px;border-radius:20px" ng-click="submitMission()">提交</button>
+        </center>
+    </ion-content>
+</ion-view>

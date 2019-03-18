@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	   http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+	<!-- 定时器配置
+	task:executor/@pool-size：可以指定执行线程池的初始大小、最大大小
+	task:executor/@queue-capacity：等待执行的任务队列的容量
+	task:executor/@rejection-policy：当等待队已满时的策略，分为丢弃、由任务执行器直接运行等方式
+	-->
+	<task:scheduler id="scheduler" pool-size="10" />
+	<task:executor id="executor" keep-alive="3600" pool-size="100-200"
+				   queue-capacity="500" rejection-policy="CALLER_RUNS" />
+	<task:annotation-driven executor="executor" scheduler="scheduler" />
+
+	<bean id="scheduledQuarz" class="com.meixiang.beauty.webapp.business.task.RunTimeTaskForBusiness" />
+
+	<!--==========================================webapp部分================================================-->
+
+	<bean id="updateWeixinTokenQuarzTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="scheduledQuarz"/>
+		<property name="targetMethod" value="updateWeixinToken"/>
+		<property name="concurrent" value="false"/>
+	</bean>
+	<!--&lt;!&ndash;&lt;!&ndash;事件触发时间点&ndash;&gt;&ndash;&gt;-->
+	<bean id="updateWeixinTokenQuarzCronTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="updateWeixinTokenQuarzTask" />
+		<property name="startDelay" value="0" />
+		<property name="repeatInterval" value="6000000" /><!-- 每隔60分钟执行-->
+	</bean>
+
+	<!--<bean id="processNoPayRecordDataQuarzTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+		<!--<property name="targetObject" ref="scheduledQuarz"/>-->
+		<!--<property name="targetMethod" value="processNoPayRecordData"/>-->
+		<!--<property name="concurrent" value="false"/>-->
+	<!--</bean>-->
+	<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;事件触发时间点&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+	<!--<bean id="processNoPayRecordDataCronTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">-->
+		<!--<property name="jobDetail" ref="processNoPayRecordDataQuarzTask" />-->
+		<!--<property name="startDelay" value="0" />-->
+		<!--<property name="repeatInterval" value="3000000" />&lt;!&ndash; 每隔30分钟执行&ndash;&gt;-->
+	<!--</bean>-->
+
+
+	<!--<bean id="autoTaskEveryDayInMorningnQuarzTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+		<!--<property name="targetObject" ref="scheduledQuarz"/>-->
+		<!--<property name="targetMethod" value="autoTaskEveryDayInMorning"/>-->
+		<!--<property name="concurrent" value="false"/>-->
+	<!--</bean>-->
+	<!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;事件触发时间点&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+	<!--&lt;!&ndash;<bean id="autoTaskEveryDayInMorningCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">&ndash;&gt;-->
+		<!--&lt;!&ndash;<property name="jobDetail" ref="autoTaskEveryDayInMorningnQuarzTask" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<property name="cronExpression" value="0 0 3 * * ?"/>&ndash;&gt;-->
+	<!--&lt;!&ndash;</bean>&ndash;&gt;-->
+	<!--<bean id="autoTaskEveryDayInMorningCronTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">-->
+		<!--<property name="jobDetail" ref="autoTaskEveryDayInMorningnQuarzTask" />-->
+		<!--<property name="startDelay" value="0" />-->
+		<!--<property name="repeatInterval" value="5000000" />&lt;!&ndash; 每隔5分钟执行&ndash;&gt;-->
+	<!--</bean>-->
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="updateWeixinTokenQuarzCronTrigger"/>
+				<!--<ref bean="autoTaskEveryDayInMorningCronTrigger"/>-->
+				<!--<ref bean="processNoPayRecordDataCronTrigger"/>-->
+			</list>
+		</property>
+		<property name="autoStartup" value="true"/>
+	</bean>
+
+</beans>

@@ -1,0 +1,41 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item">
+                <p style="font-weight:bold">{{param.courseInfo.courseName}}</p>
+                <p style="margin-top:10px;font-size:8px">
+                    <span style="font-weight:bold">教室</span>
+                    &nbsp;&nbsp;
+                    <spam>{{param.courseInfo.className}}</spam>
+                </p>
+                <p style="font-size:8px">
+                    <span style="font-weight:bold">周数</span>
+                    &nbsp;&nbsp;
+                    <spam>{{param.courseInfo.week}}</spam>
+                </p>
+                <p style="font-size:8px">
+                    <span style="font-weight:bold">节数</span>
+                    &nbsp;&nbsp;
+                    <spam>{{param.courseInfo.coursePlace}}</spam>
+                </p>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-15px">
+            <a class="item" style="color:black">课程任务</a>
+            <a class="item">
+                <div class="card" ng-repeat="item in param.courseInfo.courseMissionList"
+                     ng-click="goTeacherCourseMissionList()">
+                    <p style="margin-left:10px;margin-top:10px">{{item.courseMissionCreateDate}}</p>
+                    <p style="font-weight:bold;margin-left:10px;margin-top:10px">{{item.courseMissionContent}}</p>
+                    <p style="margin-left:10px;margin-top:10px">{{item.courseMissionDescription}}</p>
+                    <p style="margin-left:10px;margin-top:10px">截止：{{item.courseMissionDate}}</p>
+                    <p class="item-note">
+                        <span style="color:blue">已提交（{{item.alreadySubmitNum}}）</span>
+                        &nbsp;&nbsp;
+                        <span>未提交（{{item.notSubmitNum}}）</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

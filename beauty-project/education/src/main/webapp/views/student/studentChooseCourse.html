@@ -1,0 +1,39 @@
+<ion-view style="background: #f2f5f9">
+    <ion-content>
+        <div class="list">
+            <a class="item">
+                <span style="color:black;font-weight:bold">选课时间</span>
+                <br><br>
+                <span style="color:black">08月25日&nbsp;&nbsp;12:00&nbsp;-&nbsp;09月01日&nbsp;20:00</span>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-10px">
+            <a class="item">
+                <span style="color:black;font-weight:bold">选课说明</span>
+                <br><br>
+                <span style="color:black;font-size:10px">
+                    1、为适应新高考，请按照自己的实际情况选择3门学习课程。
+                </span>
+                <br>
+                <span style="color:black;font-size: 10px">
+                    2、在选课期间，可对选课结果进行修改。
+                </span>
+            </a>
+        </div>
+        <div class="list" style="margin-top:-10px">
+            <a class="item">
+                <span style="color:black;font-weight:bold">你的选课结果</span>
+                <br><br>
+                <!--<span style="color:black;font-size:10px">你还没有选择，请注意选定结束时间。</span>-->
+                <button class="button button-small button-calm" style="width:50px">语文</button>
+                <button class="button button-small button-calm" style="width:50px">数学</button>
+                <button class="button button-small button-calm" style="width:50px">英语</button>
+                <br><br>
+                <span style="color:black;font-size:10px">离选课结束还有：10天2小时0分</span>
+            </a>
+        </div>
+        <button class="button button-small button-calm"
+                style="margin-left:65%;width:100px;border-radius:20px"
+                ng-click="chooseCourse()">重新选课</button>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+  <div>
+    <enjoy-menu></enjoy-menu>
+    <nav-bar></nav-bar>
+    <div class="main_content">
+         <div class="content_box">
+
+             <div class="product_content_right">
+                 <div class="rightCenter">
+                     <div class="uploading_product_name">
+                         <label>课程编号：</label>321887997
+                     </div>
+                     <div class="uploading_product_name">
+                         <label>课程名称：</label>第一课
+                     </div>
+                     <div class="name_row blank">
+                         <label for="list_view">上传视频:</label>
+                         <input type="file" id="list_view">
+                         <img ng-src="{{hintPic1}}" class="hintPic" ng-show="hintPic1!=''?true:false">
+                     </div>
+                     <div id="list_viewPic"></div>
+                     <div class="name_row blank">
+                         <label for="introduction" style="vertical-align: top">添加描述:</label>
+                         <textarea cols="30" rows="7" id="introduction"> </textarea>
+                     </div>
+                     <input type="button" value="保存" class="submit_btn" ng-click="saveClass()">
+                 </div>
+            </div>
+             <div class="product_content_left">
+             </div>
+         </div>
+     </div>
+  </div>

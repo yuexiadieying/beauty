@@ -1,0 +1,94 @@
+<ion-view class="educationStudentMessage">
+    <div class="esm-tabs">
+        <div class="esm-tab" ng-click="selectTeacherMessage('all')">
+            <span ng-class="{'tab':teacherMessageType=='mine','tab tab-click':teacherMessageType=='all'}" id="tab-all">全部</span>
+        </div>
+    </div>
+    <ion-content style="margin-top:55px">
+        <ion-refresher pulling-text="下拉获取更多朋友圈信息" on-refresh="getMoreTeacherMessage()">
+        </ion-refresher>
+        <div class="esm-content" ng-show="teacherMessageType=='all'">
+            <div class="esm-c-type1" ng-repeat="item in param.classCircleMessageList">
+                <div ng-click="goCourseComment()" ng-if="item.messageType=='COURSE_COMMENT'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span>{{item.message.teacherName}}对{{item.message.studentName}}的课堂点评</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p maxlength="50">课堂点评：{{item.message.courseCommentMsg}}</p>
+                        <p><img src="images/praise.png" ng-if="item.message.courseCommentStatus=='0'" style="width:120px;height:30px"></p>
+                        <p><img src="images/criticism.png" ng-if="item.message.courseCommentStatus=='1'" style="width:120px;height:30px"></p>
+                        <!--<p><img src="images/praise.png" ng-if="item.message.courseCommentStatus=='2'" style="width:120px;height:30px"></p>-->
+                    </div>
+                </div>
+                <div ng-click="goVacateDetail(1)" ng-if="item.messageType=='VACATION_APPLY'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span ng-if="item.message.vacationStatus=='1'">{{item.message.studentName}}请假已同意</span>
+                        <span ng-if="item.message.vacationStatus=='2'">{{item.message.studentName}}请假已拒绝</span>
+                        <span ng-if="item.message.vacationStatus=='0'">{{item.message.studentName}}请假未处理</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p ng-if="item.message.vacationStatus=='1'">{{item.message.teacherName}}已同意{{item.message.studentName}}的{{item.message.vacationType}}申请</p>
+                        <p ng-if="item.message.vacationStatus=='2'">{{item.message.teacherName}}未同意{{item.message.studentName}}的{{item.message.vacationType}}申请</p>
+                        <p ng-if="item.message.vacationStatus=='0'">{{item.message.teacherName}}未处理{{item.message.studentName}}的{{item.message.vacationType}}申请</p>
+                        <p>开始时间：{{item.message.beginDate|date:'yyyy-MM-dd'}}</p>
+                        <p>结束时间：{{item.message.endDate|date:'yyyy-MM-dd'}}</p>
+                        <p>请假去向：{{item.message.applyReason}}</p>
+                    </div>
+                </div>
+                <div ng-click="goMissionDetail()" ng-if="item.messageType=='HOMEWORK_COMMENT'">
+                    <div class="type-title">
+                        <img style="margin-top:-5px;height:12px" src="images/message.png"/>
+                        <span>{{item.message.teacherName}}点评了{{item.message.studentName}}的作业任务</span>
+                        <img src="images/down.png">
+                    </div>
+                    <div style="margin-top:10px">
+                        <p>任务名称：{{item.message.homeWorkName}}</p>
+                        <p>任务点评：{{item.message.homeWorkCommentMsg}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="esm-c-type1">-->
+                <!--<div class="type-title">-->
+                    <!--<img style="margin-top:-5px;height:12px" src="images/message.png"/>-->
+                    <!--<span>付老师打回了王超同学的语文课程任务</span>-->
+                    <!--<img src="images/down.png">-->
+                <!--</div>-->
+                <!--<div style="margin-top:10px">-->
+                    <!--<p>任务名称：请家长督促背诵《背影》</p>-->
+                    <!--<p>任务点评：课程任务背诵不完整，且停顿次数过多，需要重新熟练的进行背诵。</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="esm-c-type1">-->
+                <!--<div class="type-title">-->
+                    <!--<img style="margin-top:-5px;height:12px" src="images/message.png"/>-->
+                    <!--<span>我发布了数学课程任务</span>-->
+                    <!--<img src="images/down.png">-->
+                <!--</div>-->
+                <!--<div style="margin-top:10px">-->
+                    <!--<p>任务名称：请家长督促预习三角函数</p>-->
+                    <!--<p>截止时间：2018年6月3日 18：00</p>-->
+                    <!--<button style="margin-top:10px;width:40%" class="button button-small button-outline button-positive" ng-click="goCourseDetail()">提交任务</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <br><br><br><br>
+    </ion-content>
+    <div class="tabs tabs-icon-top tabs-background-positive tabs-color-calm">
+        <a class="tab-item" ng-click="goTeacherHome()">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item active">
+            <i class="icon ion-ios-people"></i>
+            班级圈
+        </a>
+        <a class="tab-item" ng-click="goTeacherCenter()">
+            <i class="icon ion-android-person"></i>
+            我的
+        </a>
+    </div>
+</ion-view>

@@ -1,0 +1,84 @@
+<ion-view style="background:#f8f8f8">
+    <div class="bar bar-header bar-light">
+        <button class="button" style="border-color:white;font-size:20px;" ng-click="chooseWeek()">
+            <span style="font-weight:bold">第3周</span>
+            <i class="ion ion-android-arrow-dropdown-circle" style="color:#b2b2b2"></i>
+        </button>
+        <h1 class="title"></h1>
+        <button class="button" style="border-color:white;color: #b2b2b2;font-size: 15px">
+            初二&nbsp;第一学期
+        </button>
+    </div>
+    <div style="position:absolute;color: black;width: 100%;text-align: center;z-index: 999;margin-top: 45px;" ng-show="studentChooseWeek">
+        <div class="list">
+            <a class="item" style="height:10px">
+                <i class="ion ion-ios-arrow-up" style="font-size:30px;margin-top:-10px"></i>
+            </a>
+            <div  ng-repeat="item in [1,2,3,4]" ng-click="confirmWeek($index)">
+                <a class="item" ng-if="$index==2" style="background: blue">
+                    第{{$index+1}}周
+                </a>
+                <a class="item" ng-if="$index!=2" style="background: white">
+                    第{{$index+1}}周
+                </a>
+            </div>
+            <a class="item" style="height:10px">
+                <i class="ion ion-ios-arrow-down" style="font-size:30px;margin-top:-20px"></i>
+            </a>
+        </div>
+    </div>
+    <div class="list" ng-show="chooseCourseFlag" style="position: absolute;margin-top:100px;width:100%">
+        <a class="item">
+            <p style="font-weight: bold">点评详情</p>
+            <button class="button button-small button-calm" style="width:80px;border-radius:20px">
+                <i class="ion ion-happy-outline"></i>&nbsp;表扬
+            </button>
+            <p style="margin-top:5px">上课认真在听讲</p>
+            <br>
+            <p style="font-weight: bold">课后作业</p>
+            <p>作业名称：&nbsp;&nbsp;背诵《背影》1-3段</p>
+            <p>完成时间：&nbsp;&nbsp;本周三早上8:30</p>
+            <p>特别说明：&nbsp;&nbsp;需要把背诵的视频发送上来，独立完成</p>
+            <i class="ion ion-android-arrow-dropright-circle" ng-show="false" style="font-size: 60px;color:black"></i>
+            <br>
+            <button class="button button-small button-calm" style="width:80px;border-radius:20px" ng-click="commitMission()">提交作业</button>
+        </a>
+        <a class="item">
+            <center>
+                <button class="button button-small button-light"
+                        style="border-color:black;border-radius: 20px;width:40%"
+                        ng-click="closeCourse()">
+                    关闭
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="button button-small button-positive" style="border-radius: 20px;width:40%" ng-click="goCourseDetail()">
+                    进入课程
+                </button>
+            </center>
+        </a>
+    </div>
+    <ion-content style="margin-top:50px;height:680px">
+        <table style="width:100%;color:black;text-align:center;font-size:10px">
+            <tr style="background:#CAFFFF">
+                <td style="height:50px;vertical-align: middle;">05月</td>
+                <td style="vertical-align: middle">周一<br><span style="color: #999">23日</span></td>
+                <td style="vertical-align: middle">周二<br><span style="color: #999">24日</span></td>
+                <td style="vertical-align: middle">周三<br><span style="color: #999">25日</span></td>
+                <td style="vertical-align: middle">周四<br><span style="color: #999">26日</span></td>
+                <td style="vertical-align: middle">周五<br><span style="color: #999">27日</span></td>
+                <td style="vertical-align: middle">周六<br><span style="color: #999">28日</span></td>
+                <td style="vertical-align: middle">周日<br><span style="color: #999">29日</span></td>
+            </tr>
+            <tr ng-repeat="item in courseList" style="background:white">
+                <td style="height:50px;vertical-align: middle;color:#b2b2b2">{{$index+1}}</td>
+                <td style="vertical-align: middle;font-weight:bold" ng-repeat="ite in item.week" ng-click="chooseCourse(ite.courseName, ite.redFlag, ite.greenFlag, ite.yellowFlag)">
+                    {{ite.courseName}}
+                    <br>
+                    <i class="ion ion-record" style="font-size:1px;color:red" ng-if="ite.redFlag"></i>
+                    <i class="ion ion-record" style="font-size:1px;color:green" ng-if="ite.greenFlag"></i>
+                    <i class="ion ion-record" style="font-size:1px;color:yellow" ng-if="ite.yellowFlag"></i>
+                </td>
+            </tr>
+        </table>
+    </ion-content>
+</ion-view>
