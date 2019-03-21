@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <base href="/car/"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>机甲争霸</title>
+    <link rel="stylesheet" href="styles/car/fullcalendar.css?ver=1.1.3" type="text/css"/>
+    <link href="styles/lib/bootstrap.css" rel="stylesheet" />
+    <link href="styles/lib/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="styles/lib/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="styles/lib/font-awesome.css" rel="stylesheet" />
+    <link href="styles/lib/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="styles/lib/custom.css" rel="stylesheet" />
+    <link href="styles/lib/laydate.css" rel="stylesheet" />
+    <link href="styles/lib/layui.css" rel="stylesheet" />
+    <link href="styles/car/administrator.css" rel="stylesheet" />
+    <link href="styles/car/register.css" rel="stylesheet" />
+    <link href="styles/car/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/car/iconfont.css" />
+    <link rel="stylesheet" href="styles/car/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="js/libs/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+<div ui-view style="height:100%;"></div>
+</body>
+<script>
+    "use strict";
+    var require = {
+        waitSeconds: 15,
+        urlArgs: "ver=" + Math.random(),  //防止读取缓存，调试用
+        deps : ['js/mainCar']
+    };
+    var carVersion = Math.random();
+    var picVersion = Math.random();
+    var appName = 'mainCar';
+</script>
+<script type="text/javascript" src="js/libs/require.min.js"></script>
+<script src="js/libs/jquery-2.1.3.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/libs/laydate.js"></script>
+<script src="js/libs/layui.js"></script>
+</html>
+
