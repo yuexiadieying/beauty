@@ -988,6 +988,7 @@
 		<module>beauty-project/robot</module>
 		<module>beauty-project/education</module>
 		<module>beauty-project/car</module>
+		<module>beauty-project/vehicle</module>
 
 		<module>beauty-project2/edu</module>
     </modules>
