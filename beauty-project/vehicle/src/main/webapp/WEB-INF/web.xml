@@ -12,6 +12,7 @@
 		<param-value>
             classpath*:/spring-context.xml
             classpath*:/spring-context-sqlserver.xml
+            classpath*:/application-mq.xml
         </param-value>
 	</context-param>
 

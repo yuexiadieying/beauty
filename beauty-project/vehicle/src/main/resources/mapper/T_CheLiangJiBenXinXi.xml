@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.vehicle.dao.TransportDao">
+
+    <insert id="saveFailData" parameterType="Map">
+        INSERT INTO [fail_data] ([id], [table_name], [table_id], [fail_message])
+        VALUES (#{id,jdbcType=VARCHAR}, #{table_name,jdbcType=VARCHAR}, #{table_id,jdbcType=BINARY}, #{fail_message,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="getDataList" resultType="Map" parameterType="INTEGER">
+		select * from T_CheLiangJiBenXinXi where id BETWEEN #{start} and #{end}
+	</select>
+
+    <select id="getDataListbac" resultType="Map" parameterType="Map">
+        select * from(select * , row_number() over (order by Id)  as rownum from T_CheLiangJiBenXinXi)AAA where  AAA.rownum BETWEEN #{start} and #{end}
+    </select>
+
+    <insert id="insert_T_CheLiangJiBenXinXiBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_CheLiangJiBenXinXi on;
+        insert into T_CheLiangJiBenXinXi([id],
+        [companyid],
+        [address],
+        [vehicleno],
+        [platecolor],
+        [seats],
+        [brand],
+        [model],
+        [vehicletype],
+        [ownername],
+        [vehiclecolor],
+        [engineid],
+        [vin],
+        [certifydateA],
+        [fueltype],
+        [enginedisplace],
+        [photoid],
+        [certificate],
+        [transagency],
+        [transarea],
+        [transdatestart],
+        [transdatestop],
+        [certifydateb],
+        [fixstate],
+        [nextfixdate],
+        [checkstate],
+        [feeprintid],
+        [gpsbrand],
+        [gpsmodel],
+        [gpsimei],
+        [gpsinstalldate],
+        [registerdate],
+        [commercialtype],
+        [faretype],
+        [state],
+        [flag],
+        [updatetime],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[id],jdbcType=INTEGER},
+            #{item.[companyid],jdbcType=VARCHAR},
+            #{item.address,jdbcType=INTEGER},
+            #{item.vehicleno,jdbcType=VARCHAR},
+            #{item.platecolor,jdbcType=VARCHAR},
+            #{item.seats,jdbcType=INTEGER},
+            #{item.brand,jdbcType=VARCHAR},
+            #{item.model,jdbcType=VARCHAR},
+            #{item.vehicletype,jdbcType=VARCHAR},
+            #{item.ownername,jdbcType=VARCHAR},
+            #{item.vehiclecolor,jdbcType=VARCHAR},
+            #{item.engineid,jdbcType=VARCHAR},
+            #{item.vin,jdbcType=VARCHAR},
+            #{item.certifydateA,jdbcType=DECIMAL},
+            #{item.fueltype,jdbcType=VARCHAR},
+            #{item.enginedisplace,jdbcType=VARCHAR},
+            #{item.photoid,jdbcType=VARCHAR},
+            #{item.certificate,jdbcType=VARCHAR},
+            #{item.transagency,jdbcType=VARCHAR},
+            #{item.transarea,jdbcType=VARCHAR},
+            #{item.transdatestart,jdbcType=DECIMAL},
+            #{item.transdatestop,jdbcType=DECIMAL},
+            #{item.certifydateb,jdbcType=DECIMAL},
+            #{item.fixstate,jdbcType=VARCHAR},
+            #{item.nextfixdate,jdbcType=DECIMAL},
+            #{item.checkstate,jdbcType=VARCHAR},
+            #{item.feeprintid,jdbcType=VARCHAR},
+            #{item.gpsbrand,jdbcType=VARCHAR},
+            #{item.gpsmodel,jdbcType=VARCHAR},
+            #{item.gpsimei,jdbcType=VARCHAR},
+            #{item.gpsinstalldate,jdbcType=DECIMAL},
+            #{item.registerdate,jdbcType=DECIMAL},
+            #{item.commercialtype,jdbcType=SMALLINT},
+            #{item.faretype,jdbcType=VARCHAR},
+            #{item.state,jdbcType=SMALLINT},
+            #{item.flag,jdbcType=SMALLINT},
+            #{item.updatetime,jdbcType=DECIMAL},
+            #{item.reserved,jdbcType=VARCHAR},
+            #{item.receivetime,jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_CheLiangJiBenXinXi off;
+    </insert>
+
+</mapper>

@@ -1,6 +1,6 @@
 package com.meixiang.beauty.webapp.vehicle.service;
 
-import com.meixiang.beauty.webapp.vehicle.dao.VehicleDao;
+import com.meixiang.beauty.webapp.vehicle.dao.ApprovalDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,36 +8,36 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class VehicleService {
+public class ApprovalService {
 
     @Autowired
-    VehicleDao vehicleDao;
+    ApprovalDao approvalDao;
 
     public List<Map> getCheLiangList(String yesterday){
-        return vehicleDao.getCheLiangList(yesterday);
+        return approvalDao.getCheLiangList(yesterday);
     }
 
     public List<Map> getJiaShiYuanTaiZhangList(String yesterday){
-        return vehicleDao.getJiaShiYuanTaiZhangList(yesterday);
+        return approvalDao.getJiaShiYuanTaiZhangList(yesterday);
     }
 
     public List<Map> getYeHuList(String yesterday){
-        return vehicleDao.getYeHuList(yesterday);
+        return approvalDao.getYeHuList(yesterday);
     }
 
     public void saveCheLiangList(Map map){
-        vehicleDao.saveCheLiangList(map);
+        approvalDao.saveCheLiangList(map);
     }
 
     public void saveJiaShiYuanTaiZhangList(Map map){
-        vehicleDao.saveJiaShiYuanTaiZhangList(map);
+        approvalDao.saveJiaShiYuanTaiZhangList(map);
     }
 
     public void saveYeHuList(Map map){
-        vehicleDao.saveYeHuList(map);
+        approvalDao.saveYeHuList(map);
     }
 
     public void saveFailData(Map map){
-        vehicleDao.saveFailData(map);
+        approvalDao.saveFailData(map);
     }
 }

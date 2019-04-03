@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 @MyBatisDao
-public interface VehicleDao {
+public interface ApprovalDao {
 
     public List<Map> getCheLiangList(String yesterday);
 
@@ -21,5 +21,4 @@ public interface VehicleDao {
     public void saveYeHuList(Map map);
 
     void saveFailData(Map map);
-
 }

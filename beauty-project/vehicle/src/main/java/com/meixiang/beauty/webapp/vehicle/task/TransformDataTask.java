@@ -14,7 +14,7 @@ import java.util.*;
 public class TransformDataTask {
 
     @Autowired
-    VehicleService vehicleService;
+    ApprovalService approvalService;
 
     public void transformData(){
         DataSourceSwitch.setDataSourceType(DataSourceInstances.READ);
@@ -22,49 +22,49 @@ public class TransformDataTask {
         calendar.add(Calendar.DAY_OF_YEAR,-1);
         String yesterday = String.format("%tF%n",calendar.getTime());
         yesterday = "2018-12-03";
-        List<Map> CheLiang_list = vehicleService.getCheLiangList(yesterday);
-        List<Map> JiaShiYuanTaiZhang_list = vehicleService.getJiaShiYuanTaiZhangList(yesterday);
-        List<Map> YeHu_list = vehicleService.getYeHuList(yesterday);
+        List<Map> CheLiang_list = approvalService.getCheLiangList(yesterday);
+        List<Map> JiaShiYuanTaiZhang_list = approvalService.getJiaShiYuanTaiZhangList(yesterday);
+        List<Map> YeHu_list = approvalService.getYeHuList(yesterday);
 
         DataSourceSwitch.setDataSourceType(DataSourceInstances.WRITE);
         CheLiang_list.forEach(map -> {
             try{
-                vehicleService.saveCheLiangList(map);
+                approvalService.saveCheLiangList(map);
             }catch (Exception e){
                 Map failMap = new HashMap();
                 failMap.put("id", UUIDUtil.getUUID());
                 failMap.put("table_name","T_CheLiang");
                 failMap.put("table_id",map.get("Id"));
                 failMap.put("fail_message",e.getMessage().substring(0,e.getMessage().length()>200?200:e.getMessage().length()));
-                vehicleService.saveFailData(failMap);
+                approvalService.saveFailData(failMap);
             }finally {
                 return;
             }
         });
         JiaShiYuanTaiZhang_list.forEach(map -> {
             try{
-                vehicleService.saveJiaShiYuanTaiZhangList(map);
+                approvalService.saveJiaShiYuanTaiZhangList(map);
             }catch (Exception e){
                 Map failMap = new HashMap();
                 failMap.put("id", UUIDUtil.getUUID());
                 failMap.put("table_name","T_JiaShiYuanTaiZhang");
                 failMap.put("table_id",map.get("Id"));
                 failMap.put("fail_message",e.getMessage().substring(0,e.getMessage().length()>200?200:e.getMessage().length()));
-                vehicleService.saveFailData(failMap);
+                approvalService.saveFailData(failMap);
             }finally {
                 return;
             }
         });
         YeHu_list.forEach(map -> {
             try{
-                vehicleService.saveYeHuList(map);
+                approvalService.saveYeHuList(map);
             }catch (Exception e){
                 Map failMap = new HashMap();
                 failMap.put("id", UUIDUtil.getUUID());
                 failMap.put("table_name","T_JiaShiYuanTaiZhang");
                 failMap.put("table_id",map.get("Id"));
                 failMap.put("fail_message",e.getMessage().substring(0,e.getMessage().length()>200?200:e.getMessage().length()));
-                vehicleService.saveFailData(failMap);
+                approvalService.saveFailData(failMap);
             }finally {
                 return;
             }
