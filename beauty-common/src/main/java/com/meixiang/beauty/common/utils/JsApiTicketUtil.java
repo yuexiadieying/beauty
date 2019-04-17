@@ -8,8 +8,6 @@ package com.meixiang.beauty.common.utils;
 import com.meixiang.beauty.common.constant.ConfigConstant;
 import com.meixiang.beauty.common.dto.wexin.WeixinConfigDTO;
 import org.apache.log4j.Logger;
-import sun.security.krb5.Config;
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
