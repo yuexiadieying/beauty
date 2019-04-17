@@ -9,10 +9,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (#{id,jdbcType=VARCHAR}, #{table_name,jdbcType=VARCHAR}, #{table_id,jdbcType=BINARY}, #{fail_message,jdbcType=VARCHAR})
     </insert>
 
-    <select id="getDataList" resultType="Map" parameterType="INTEGER">
-		select * from T_CheLiangJiBenXinXi where id BETWEEN #{start} and #{end}
-	</select>
-
     <select id="getDataListbac" resultType="Map" parameterType="Map">
         select * from(select * , row_number() over (order by Id)  as rownum from T_CheLiangJiBenXinXi)AAA where  AAA.rownum BETWEEN #{start} and #{end}
     </select>

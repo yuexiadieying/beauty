@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test">
+
+    <insert id="insert_T_ChengKePingJiaXinXiBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_ChengKePingJiaXinXi on;
+        insert into T_ChengKePingJiaXinXi([companyid],
+        [orderid],
+        [evaluatetime],
+        [servicescore],
+        [driverscore],
+        [vehiclescore],
+        [detail],
+        [id],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[companyid],jdbcType=VARCHAR},
+            #{item.[orderid],jdbcType=VARCHAR},
+            #{item.[evaluatetime],jdbcType=DECIMAL},
+            #{item.[servicescore],jdbcType=SMALLINT},
+            #{item.[driverscore],jdbcType=SMALLINT},
+            #{item.[vehiclescore],jdbcType=SMALLINT},
+            #{item.[detail],jdbcType=VARCHAR},
+            #{item.[id],jdbcType=INTEGER},
+            #{item.[reserved],jdbcType=VARCHAR},
+            #{item.[receivetime],jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_ChengKePingJiaXinXi off;
+    </insert>
+
+    <insert id="insert_T_ChengKePingJiaXinXi_IrregularBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_ChengKePingJiaXinXi_Irregular on;
+        insert into T_ChengKePingJiaXinXi_Irregular([companyid],
+        [orderid],
+        [evaluatetime],
+        [servicescore],
+        [driverscore],
+        [vehiclescore],
+        [detail],
+        [id],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[companyid],jdbcType=VARCHAR},
+            #{item.[orderid],jdbcType=VARCHAR},
+            #{item.[evaluatetime],jdbcType=DECIMAL},
+            #{item.[servicescore],jdbcType=SMALLINT},
+            #{item.[driverscore],jdbcType=SMALLINT},
+            #{item.[vehiclescore],jdbcType=SMALLINT},
+            #{item.[detail],jdbcType=VARCHAR},
+            #{item.[id],jdbcType=INTEGER},
+            #{item.[reserved],jdbcType=VARCHAR},
+            #{item.[receivetime],jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_ChengKePingJiaXinXi_Irregular off;
+    </insert>
+
+</mapper>

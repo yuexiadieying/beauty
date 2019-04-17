@@ -16,20 +16,20 @@
 				   queue-capacity="500" rejection-policy="CALLER_RUNS" />
 	<task:annotation-driven executor="executor" scheduler="scheduler" />
 
-	<bean id="scheduledQuarz" class="com.meixiang.beauty.webapp.vehicle.task.TransformDataTask" />
+	<bean id="scheduledQuarz" class="com.meixiang.beauty.webapp.vehicle.task.VehicleEquipmentTask" />
 
 	<!--==========================================webapp部分================================================-->
 
 	<bean id="transformDataQuarzTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="scheduledQuarz"/>
-		<property name="targetMethod" value="transformData"/>
+		<property name="targetMethod" value="getVehicleEquipmentData"/>
 		<property name="concurrent" value="false"/>
 	</bean>
 	<!--&lt;!&ndash;&lt;!&ndash;事件触发时间点&ndash;&gt;&ndash;&gt;-->
 	<bean id="transformDataQuarzCronTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
 		<property name="jobDetail" ref="transformDataQuarzTask" />
 		<property name="startDelay" value="0" />
-		<property name="repeatInterval" value="30000" /><!-- 每隔60分钟执行-->
+		<property name="repeatInterval" value="3000" /><!-- 每隔60分钟执行-->
 	</bean>
 
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

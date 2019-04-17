@@ -19,8 +19,8 @@ public class TransportService {
     @Autowired
     TransportDao transportDao;
 
-    @Autowired
-    private AmqpTemplate rabbitTemplate;
+    //@Autowired
+    //private AmqpTemplate rabbitTemplate;
 
     public static final Date d = new Date();
 

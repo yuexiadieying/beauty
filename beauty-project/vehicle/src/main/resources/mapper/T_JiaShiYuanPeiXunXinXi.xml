@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test">
+
+    <insert id="insert_T_JiaShiYuanPeiXunXinXiBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_JiaShiYuanPeiXunXinXi on;
+        insert into T_JiaShiYuanPeiXunXinXi([id],
+        [companyid],
+        [address],
+        [licenseid],
+        [coursename],
+        [coursedate],
+        [starttime],
+        [stoptime],
+        [duration],
+        [flag],
+        [updatetime],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[id],jdbcType=INTEGER},
+            #{item.[companyid],jdbcType=VARCHAR},
+            #{item.[address],jdbcType=INTEGER},
+            #{item.[licenseid],jdbcType=VARCHAR},
+            #{item.[coursename],jdbcType=VARCHAR},
+            #{item.[coursedate],jdbcType=DECIMAL},
+            #{item.[starttime],jdbcType=VARCHAR},
+            #{item.[stoptime],jdbcType=VARCHAR},
+            #{item.[duration],jdbcType=BIGINT},
+            #{item.[flag],jdbcType=SMALLINT},
+            #{item.[updatetime],jdbcType=DECIMAL},
+            #{item.[reserved],jdbcType=VARCHAR},
+            #{item.[receivetime],jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_JiaShiYuanPeiXunXinXi off;
+    </insert>
+
+    <insert id="insert_T_JiaShiYuanPeiXunXinXi_IrregularBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_JiaShiYuanPeiXunXinXi_Irregular on;
+        insert into T_JiaShiYuanPeiXunXinXi_Irregular([id],
+        [companyid],
+        [address],
+        [licenseid],
+        [coursename],
+        [coursedate],
+        [starttime],
+        [stoptime],
+        [duration],
+        [flag],
+        [updatetime],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[id],jdbcType=INTEGER},
+            #{item.[companyid],jdbcType=VARCHAR},
+            #{item.[address],jdbcType=INTEGER},
+            #{item.[licenseid],jdbcType=VARCHAR},
+            #{item.[coursename],jdbcType=VARCHAR},
+            #{item.[coursedate],jdbcType=DECIMAL},
+            #{item.[starttime],jdbcType=VARCHAR},
+            #{item.[stoptime],jdbcType=VARCHAR},
+            #{item.[duration],jdbcType=BIGINT},
+            #{item.[flag],jdbcType=SMALLINT},
+            #{item.[updatetime],jdbcType=DECIMAL},
+            #{item.[reserved],jdbcType=VARCHAR},
+            #{item.[receivetime],jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_JiaShiYuanPeiXunXinXi_Irregular off;
+    </insert>
+
+</mapper>

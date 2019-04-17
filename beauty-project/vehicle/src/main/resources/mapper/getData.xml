@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test">
+
+    <select id="getDataList" resultType="Map" parameterType="Map">
+		select * from ${tableName} where id BETWEEN #{start} and #{end}
+	</select>
+
+	<select id="getDataListByTime" resultType="Map" parameterType="Map">
+		select * from ${tableName} where CONVERT(varchar(100), SYS_ChuangJianShiJian, 23) = #{yesterday}
+			or CONVERT(varchar(100), SYS_ZuiJinXiuGaiShiJian, 23) = #{yesterday}
+	</select>
+
+	<select id="getTableMin" resultType="INTEGER" parameterType="Map">
+		select min(id) from ${tableName}
+	</select>
+
+	<select id="getTableMax" resultType="INTEGER" parameterType="Map">
+		select max(id) from ${tableName}
+	</select>
+
+	<select id="getRegularJiaShiYuanJiaShiZhengHaoList" resultType="String">
+		SELECT JiaShiZhengHao FROM [dbo].[T_JiaShiYuanTaiZhang] where ZhuangTai='正常'
+	</select>
+
+	<select id="getRegularYeHuMingChenList" resultType="String">
+		SELECT YeHuMingCheng FROM [dbo].[T_YeHu] where ZhuangTai='营业' and GongSiLeiXing='本公司'
+	</select>
+
+	<select id="getRegularCompanyIdList" parameterType="List" resultType="String">
+		SELECT companyid FROM [dbo].[T_YeHuJiBenXinXi] where companyname in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+	</select>
+
+	<select id="getRegularChePaiHaoList" resultType="String">
+		SELECT ChePaiHao FROM [dbo].[T_CheLiang] where ZhuangTai = '营运'
+	</select>
+
+</mapper>

@@ -11,8 +11,8 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
             classpath*:/spring-context.xml
-            classpath*:/spring-context-sqlserver.xml
-            classpath*:/application-mq.xml
+            <!--classpath*:/spring-context-sqlserver.xml-->
+            <!--classpath*:/application-mq.xml-->
         </param-value>
 	</context-param>
 
@@ -21,6 +21,9 @@
 	</listener>
 	<listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>  
+	</listener>
+	<listener>
+		<listener-class>com.meixiang.beauty.webapp.vehicle.netty.StartupListener</listener-class>
 	</listener>
 	<!--<listener>
 		<listener-class>StartupListener</listener-class>

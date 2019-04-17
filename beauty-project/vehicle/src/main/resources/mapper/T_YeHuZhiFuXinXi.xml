@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test">
+
+    <insert id="insert_T_YeHuZhiFuXinXiBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_YeHuZhiFuXinXi on;
+        insert into T_YeHuZhiFuXinXi([id],
+        [companyid],
+        [payname],
+        [payid],
+        [paytype],
+        [payscope],
+        [preparebank],
+        [countdate],
+        [state],
+        [flag],
+        [updatetime],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[id],jdbcType=INTEGER},
+            #{item.[companyid],jdbcType=VARCHAR},
+            #{item.[payname],jdbcType=VARCHAR},
+            #{item.[payid],jdbcType=VARCHAR},
+            #{item.[paytype],jdbcType=VARCHAR},
+            #{item.[payscope],jdbcType=VARCHAR},
+            #{item.[preparebank],jdbcType=VARCHAR},
+            #{item.[countdate],jdbcType=BIGINT},
+            #{item.[state],jdbcType=SMALLINT},
+            #{item.[flag],jdbcType=SMALLINT},
+            #{item.[updatetime],jdbcType=DECIMAL},
+            #{item.[reserved],jdbcType=VARCHAR},
+            #{item.[receivetime],jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_YeHuZhiFuXinXi off;
+    </insert>
+
+    <insert id="insert_T_YeHuZhiFuXinXi_IrregularBatch" parameterType="java.util.Map">
+        set IDENTITY_INSERT T_YeHuZhiFuXinXi_Irregular on;
+        insert into T_YeHuZhiFuXinXi_Irregular([id],
+        [companyid],
+        [payname],
+        [payid],
+        [paytype],
+        [payscope],
+        [preparebank],
+        [countdate],
+        [state],
+        [flag],
+        [updatetime],
+        [reserved],
+        [receivetime])
+        VALUES
+        <foreach collection="list"  item="item" index="index" separator=",">
+            (#{item.[id],jdbcType=INTEGER},
+            #{item.[companyid],jdbcType=VARCHAR},
+            #{item.[payname],jdbcType=VARCHAR},
+            #{item.[payid],jdbcType=VARCHAR},
+            #{item.[paytype],jdbcType=VARCHAR},
+            #{item.[payscope],jdbcType=VARCHAR},
+            #{item.[preparebank],jdbcType=VARCHAR},
+            #{item.[countdate],jdbcType=BIGINT},
+            #{item.[state],jdbcType=SMALLINT},
+            #{item.[flag],jdbcType=SMALLINT},
+            #{item.[updatetime],jdbcType=DECIMAL},
+            #{item.[reserved],jdbcType=VARCHAR},
+            #{item.[receivetime],jdbcType=TIMESTAMP})
+        </foreach>
+        set IDENTITY_INSERT T_YeHuZhiFuXinXi_Irregular off;
+    </insert>
+
+</mapper>
