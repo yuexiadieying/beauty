@@ -2,11 +2,13 @@ package com.meixiang.beauty.webapp.vehicle.dao;
 
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
 @MyBatisDao
+@Repository
 public interface TransportDao {
 
     List<Map> getDataList(@Param("table") String table, @Param("start") int start, @Param("end") int end);

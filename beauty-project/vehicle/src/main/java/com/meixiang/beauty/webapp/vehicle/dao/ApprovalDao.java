@@ -1,24 +1,26 @@
 package com.meixiang.beauty.webapp.vehicle.dao;
 
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
 @MyBatisDao
+@Repository
 public interface ApprovalDao {
 
-    public List<Map> getCheLiangList(String yesterday);
+    List<Map> getCheLiangList(String yesterday);
 
-    public List<Map> getJiaShiYuanTaiZhangList(String yesterday);
+    List<Map> getJiaShiYuanTaiZhangList(String yesterday);
 
-    public List<Map> getYeHuList(String yesterday);
+    List<Map> getYeHuList(String yesterday);
 
-    public void saveCheLiangList(Map map);
+    void saveCheLiangList(Map map);
 
-    public void saveJiaShiYuanTaiZhangList(Map map);
+    void saveJiaShiYuanTaiZhangList(Map map);
 
-    public void saveYeHuList(Map map);
+    void saveYeHuList(Map map);
 
     void saveFailData(Map map);
 }
