@@ -5,7 +5,7 @@
  */
 angular.module('app')
   .run(
-    [          '$rootScope', '$state', '$stateParams',
+    ['$rootScope', '$state', '$stateParams',
       function ($rootScope,   $state,   $stateParams) {
           $rootScope.$state = $state;
           $rootScope.$stateParams = $stateParams;        
@@ -391,7 +391,6 @@ angular.module('app')
                   url: '/compose',
                   templateUrl: 'tpl/mail.new.html'
               })
-
               .state('layout', {
                   abstract: true,
                   url: '/layout',
@@ -505,27 +504,27 @@ angular.module('app')
                       }]
                   }
               })
-                .state('music.home', {
+              .state('music.home', {
                     url: '/home',
                     templateUrl: 'tpl/music.home.html'
                 })
-                .state('music.genres', {
+              .state('music.genres', {
                     url: '/genres',
                     templateUrl: 'tpl/music.genres.html'
                 })
-                .state('music.detail', {
+              .state('music.detail', {
                     url: '/detail',
                     templateUrl: 'tpl/music.detail.html'
                 })
-                .state('music.mtv', {
+              .state('music.mtv', {
                     url: '/mtv',
                     templateUrl: 'tpl/music.mtv.html'
                 })
-                .state('music.mtvdetail', {
+              .state('music.mtvdetail', {
                     url: '/mtvdetail',
                     templateUrl: 'tpl/music.mtv.detail.html'
                 })
-                .state('music.playlist', {
+              .state('music.playlist', {
                     url: '/playlist/{fold}',
                     templateUrl: 'tpl/music.playlist.html'
                 })
