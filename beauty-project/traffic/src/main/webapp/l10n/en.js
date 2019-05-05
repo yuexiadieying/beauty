@@ -16,7 +16,7 @@
 "aside" : {
   "nav" : {
     "HEADER" : "Navigation",
-    "DASHBOARD" : "Dashboard",
+    "DASHBOARD" : "省交通运输统计分析检测",
     "CALENDAR" : "Calendar",
     "EMAIL" : "Email",
     "WIDGETS" : "Widgets",

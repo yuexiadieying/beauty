@@ -17,13 +17,24 @@ angular.module('app')
       function ($stateProvider,   $urlRouterProvider) {
           
           $urlRouterProvider
-              .otherwise('/entry');
+              .otherwise('/app/statistic');
           $stateProvider
               .state('app', {
                   abstract: true,
                   url: '/app',
                   templateUrl: 'tra/app.html'
               })
+              .state('app.statistic', {
+                  url: '/statistic',
+                  templateUrl: 'tra/statistic.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/statistic.js']);
+                          }]
+                  }
+              })
+
               .state('login', {
                   url: '/login',
                   templateUrl: 'tra/login.html',
@@ -44,16 +55,8 @@ angular.module('app')
                           }]
                   }
               })
-              .state('app.statistic', {
-                  url: '/statistic',
-                  templateUrl: 'tra/statistic.html',
-                  resolve: {
-                      deps: ['$ocLazyLoad',
-                          function( $ocLazyLoad ){
-                              return $ocLazyLoad.load(['js/controllers/tra/statistic.js']);
-                          }]
-                  }
-              })
+
+
               .state('app.gsglllgc', {
                   url: '/gsglllgc',
                   templateUrl: 'tra/gljt/gsglllgc.html',

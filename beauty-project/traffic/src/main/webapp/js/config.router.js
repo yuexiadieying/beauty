@@ -17,13 +17,26 @@ angular.module('app')
       function ($stateProvider,   $urlRouterProvider) {
           
           $urlRouterProvider
-              .otherwise('/app/dashboard-v1');
+              .otherwise('/app/statistic');
           $stateProvider
               .state('app', {
                   abstract: true,
                   url: '/app',
                   templateUrl: 'tpl/app.html'
               })
+              .state('app.statistic', {
+                  url: '/statistic',
+                  templateUrl: 'tpl/tra/statistic.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/statistic.js']);
+                          }]
+                  }
+              })
+
+
+
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
                   templateUrl: 'tpl/app_dashboard_v1.html',
