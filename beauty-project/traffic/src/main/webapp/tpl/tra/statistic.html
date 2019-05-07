@@ -76,7 +76,23 @@
 
       <div class="col-lg-8">
         <div class="panel panel-default">
-          <div class="panel-body">col-lg-6</div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <spam>高速公路流量观测</spam>
+              </div>
+              <div class="col-md-8">
+                <span>查询月份</span>
+                <div class="input-group">
+                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+                         datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-4">
