@@ -1,6 +1,5 @@
 {
-
-"header" : {
+  "header" : {
   "navbar" : {
     "UPLOAD" : "Upload",
     "new" : {
