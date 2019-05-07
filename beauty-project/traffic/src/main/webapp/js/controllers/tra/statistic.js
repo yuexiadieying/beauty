@@ -35,11 +35,12 @@ app
       $scope.dateOptions = {
           formatYear: 'yy',
           startingDay: 1,
-          class: 'datepicker'
+          class: 'datepicker',
+          language: "zh-CN",
       };
 
-      $scope.initDate = new Date('2016-15-20');
-      $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+      $scope.initDate = new Date('2019-05');
+      $scope.formats = ['yyyy-mm','dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
       $scope.format = $scope.formats[0];
 
   }]);
