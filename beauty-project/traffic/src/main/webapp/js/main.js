@@ -12,7 +12,7 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: '常德交通信息平台',
+        name: '常德交通信息服务平台',
         version: '1.3.3',
         // for chart colors
         color: {
