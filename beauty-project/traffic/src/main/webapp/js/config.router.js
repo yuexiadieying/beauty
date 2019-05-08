@@ -34,7 +34,16 @@ angular.module('app')
                           }]
                   }
               })
-
+              .state('app.sjtystjfxjc-chenshikeyun', {
+                  url: '/sjtystjfxjc-chenshikeyun',
+                  templateUrl: 'tra/sjtystjfxjc/sjtystjfxjc_chenshikeyun.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/sjtystjfxjc/sjtystjfxjc_chenshikeyun.js']);
+                          }]
+                  }
+              })
 
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
