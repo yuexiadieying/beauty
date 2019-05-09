@@ -34,13 +34,13 @@ angular.module('app')
                           }]
                   }
               })
-              .state('app.sjtystjfxjc-chenshikeyun', {
-                  url: '/sjtystjfxjc-chenshikeyun',
-                  templateUrl: 'tra/sjtystjfxjc/sjtystjfxjc_chenshikeyun.html',
+              .state('app.sjtystjfxjc', {
+                  url: '/sjtystjfxjc',
+                  templateUrl: 'tra/sjtystjfxjc/sjtystjfxjc.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
-                              return $ocLazyLoad.load(['js/controllers/tra/sjtystjfxjc/sjtystjfxjc_chenshikeyun.js']);
+                              return $ocLazyLoad.load(['js/controllers/tra/sjtystjfxjc/sjtystjfxjc.js']);
                           }]
                   }
               })
