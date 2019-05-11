@@ -1248,13 +1248,43 @@
       <tab-heading>
         运输综合
       </tab-heading>
-      <ul class="list-group no-borders pull-in m-b-none" style="height: 2500px">
+      <ul class="list-group no-borders pull-in m-b-none" style="height: 4500px">
 
+        <div class="col-lg-6">
+          <div class="panel panel-default" style="height:420px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div class="label pull-right m-t-xs">
+                <span style="color: black">月份</span>
+                <input type="text" placeholder="2019-01" style="width: 100px;">~
+                <input type="text" placeholder="2019-06" style="width: 100px;">
+                <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+              </div>
+              <span>公路水路运输量月度统计基础情况（单位：万吨）</span>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:300px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-6">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <span class="label bg-danger pull-right m-t-xs">...</span>
-              公路水路运输量月度统计基础情况（单位：万吨）
+              高速公路车流量和通行费情况（单位：万量）
             </div>
             <br><br>
             <div class="panel-body">
@@ -1282,39 +1312,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="panel panel-default" style="height:420px">
-            <div class="panel-heading font-bold" style="height:65px">
-              <div class="label pull-right m-t-xs">
-                <span style="color: black">月份</span>
-                <input type="text" placeholder="2019-01" style="width: 100px;">~
-                <input type="text" placeholder="2019-06" style="width: 100px;">
-                <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
-              </div>
-              <span>高速公路车流量和通行费情况（单位：万量）</span>
-            </div>
-            <br>
-            <div class="panel-body">
-              <div ui-jq="plot" ui-options="
-                          [
-                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
-                          ],
-                          {
-                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
-                            series: { shadowSize: 2 },
-                            xaxis:{ font: { color: '#ccc' } },
-                            yaxis:{ font: { color: '#ccc' } },
-                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
-                            tooltip: true,
-                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
-                          }"
-                   style="height:300px;width: 95%;"></div>
-            </div>
-          </div>
-        </div>
+
 
         <div class="col-lg-8">
-          <div class="panel panel-default" style="height:330px">
+          <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <span class="label bg-danger pull-right m-t-xs">...</span>
               高速公路货车车流量和车货总重情况
@@ -1354,7 +1355,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="col-lg-8">
           <div class="panel panel-default" style="height:420px">
@@ -1457,7 +1457,7 @@
         </div>
 
         <div class="col-lg-8">
-          <div class="panel panel-default" style="height:330px">
+          <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <span class="label bg-danger pull-right m-t-xs">...</span>
               公路旅客货物运营车辆拥有量情况
@@ -1505,38 +1505,36 @@
 
         <div class="col-lg-6">
           <div class="panel panel-default" style="height:420px">
-            <div class="panel-heading font-bold">
-              <span class="label bg-danger pull-right m-t-xs">...</span>
-              公路桥梁隧道年底到达数情况
+            <div class="panel-heading font-bold" style="height:65px">
+              <div class="label pull-right m-t-xs">
+                <span style="color: black">月份</span>
+                <input type="text" placeholder="2019-01" style="width: 100px;">~
+                <input type="text" placeholder="2019-06" style="width: 100px;">
+                <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+              </div>
+              <span>公路桥梁隧道年底到达数情况</span>
             </div>
-            <br><br>
+            <br>
             <div class="panel-body">
               <div ui-jq="plot" ui-options="
-              [
-                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true, tension: 0.45, lineWidth: 5, fill: 0 } }
-              ],
-              {
-                colors: ['{{app.color.info}}'],
-                series: { shadowSize: 3 },
-                xaxis:{
-                  font: { color: '#ccc' },
-                  position: 'bottom',
-                  ticks: [
-                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6, 'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
-                  ]
-                },
-                yaxis:{ font: { color: '#ccc' } },
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
-              }
-            " style="height:240px;width: 100%" >
-              </div>
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:300px;width: 95%;"></div>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="panel panel-default" style="height:380px">
+          <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
               <div class="panel-heading">
                 <span class="label bg-danger pull-right m-t-xs">...</span>
@@ -1586,34 +1584,25 @@
         </div>
 
         <div class="col-lg-8">
-          <div class="panel panel-default" style="height:420px">
+          <div class="panel panel-default" style="height:380px">
             <div class="panel-heading font-bold">
               <span class="label bg-danger pull-right m-t-xs">...</span>
               内河航道通航里程年底达到量情况
             </div>
-            <br><br>
             <div class="panel-body">
               <div ui-jq="plot" ui-options="
               [
-                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true, tension: 0.45, lineWidth: 5, fill: 0 } }
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true, fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
               ],
               {
-                colors: ['{{app.color.info}}'],
-                series: { shadowSize: 3 },
-                xaxis:{
-                  font: { color: '#ccc' },
-                  position: 'bottom',
-                  ticks: [
-                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6, 'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
-                  ]
-                },
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
                 yaxis:{ font: { color: '#ccc' } },
                 grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
                 tooltip: true,
-                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
-              }
-            " style="height:240px;width: 100%" >
-              </div>
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+              }" style="height:240px;width:100%"></div>
             </div>
           </div>
         </div>
@@ -1659,38 +1648,36 @@
 
         <div class="col-lg-8">
           <div class="panel panel-default" style="height:420px">
-            <div class="panel-heading font-bold">
-              <span class="label bg-danger pull-right m-t-xs">...</span>
-              水路运输运输量情况（单位：万辆）
+            <div class="panel-heading font-bold" style="height:65px">
+              <div class="label pull-right m-t-xs">
+                <span style="color: black">月份</span>
+                <input type="text" placeholder="2019-01" style="width: 100px;">~
+                <input type="text" placeholder="2019-06" style="width: 100px;">
+                <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+              </div>
+              <span>水路运输运输量情况（单位：万辆）</span>
             </div>
-            <br><br>
+            <br>
             <div class="panel-body">
               <div ui-jq="plot" ui-options="
-              [
-                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true, tension: 0.45, lineWidth: 5, fill: 0 } }
-              ],
-              {
-                colors: ['{{app.color.info}}'],
-                series: { shadowSize: 3 },
-                xaxis:{
-                  font: { color: '#ccc' },
-                  position: 'bottom',
-                  ticks: [
-                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6, 'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
-                  ]
-                },
-                yaxis:{ font: { color: '#ccc' } },
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
-              }
-            " style="height:240px;width: 100%" >
-              </div>
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:300px;width: 95%;"></div>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="panel panel-default" style="height:380px">
+          <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
               <div class="panel-heading">
                 <span class="label bg-danger pull-right m-t-xs">...</span>
@@ -1730,7 +1717,7 @@
         </div>
 
         <div class="col-lg-6">
-          <div class="panel panel-default" style="height:330px">
+          <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <span class="label bg-danger pull-right m-t-xs">...</span>
               水路运输工具拥有量情况
@@ -1754,40 +1741,9 @@
         </div>
         <div class="col-lg-6">
           <div class="panel panel-default" style="height:420px">
-            <div class="panel-heading font-bold" style="height:65px">
-              <div class="label pull-right m-t-xs">
-                <span style="color: black">月份</span>
-                <input type="text" placeholder="2019-01" style="width: 100px;">~
-                <input type="text" placeholder="2019-06" style="width: 100px;">
-                <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
-              </div>
-              <span>营业性汽车运输效率和燃料消耗情况</span>
-            </div>
-            <br>
-            <div class="panel-body">
-              <div ui-jq="plot" ui-options="
-                          [
-                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
-                          ],
-                          {
-                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
-                            series: { shadowSize: 2 },
-                            xaxis:{ font: { color: '#ccc' } },
-                            yaxis:{ font: { color: '#ccc' } },
-                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
-                            tooltip: true,
-                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
-                          }"
-                   style="height:300px;width: 95%;"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-12">
-          <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <span class="label bg-danger pull-right m-t-xs">...</span>
-              营业性运输船舶燃料消耗情况数据（单位：%）
+              营业性汽车运输效率和燃料消耗情况
             </div>
             <br><br>
             <div class="panel-body">
@@ -1812,6 +1768,37 @@
               }
             " style="height:240px;width: 100%" >
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="panel panel-default" style="height:420px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div class="label pull-right m-t-xs">
+                <span style="color: black">月份</span>
+                <input type="text" placeholder="2019-01" style="width: 100px;">~
+                <input type="text" placeholder="2019-06" style="width: 100px;">
+                <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+              </div>
+              <span>营业性运输船舶燃料消耗情况数据（单位：%）</span>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:300px;width: 95%;"></div>
             </div>
           </div>
         </div>
