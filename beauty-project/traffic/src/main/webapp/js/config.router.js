@@ -44,7 +44,36 @@ angular.module('app')
                           }]
                   }
               })
-
+              .state('app.three_level_coordinated_management', {
+                  url: '/three_level_coordinated_management',
+                  templateUrl: 'tpl/tra/three_level_coordinated_management.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/three_level_coordinated_management.js']);
+                          }]
+                  }
+              })
+              .state('app.collaborative_management', {
+                  url: '/collaborative_management',
+                  templateUrl: 'tpl/tra/collaborative_management.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/collaborative_management.js']);
+                          }]
+                  }
+              })
+              .state('app.waterway_administration', {
+                  url: '/waterway_administration',
+                  templateUrl: 'tpl/tra/waterway_administration.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/waterway_administration.js']);
+                          }]
+                  }
+              })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
                   templateUrl: 'tpl/app_dashboard_v1.html',

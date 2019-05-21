@@ -34,7 +34,16 @@ angular.module('app')
                           }]
                   }
               })
-
+              .state('app.three_level_coordinated_management', {
+                  url: '/three_level_coordinated_management',
+                  templateUrl: 'tra/three_level_coordinated_management.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/three_level_coordinated_management.js']);
+                          }]
+                  }
+              })
               .state('login', {
                   url: '/login',
                   templateUrl: 'tra/login.html',
