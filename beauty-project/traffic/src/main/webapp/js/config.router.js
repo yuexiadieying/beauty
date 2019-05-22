@@ -74,6 +74,36 @@ angular.module('app')
                           }]
                   }
               })
+              .state('app.waterway_administration_list', {
+                  url: '/waterway_administration_list',
+                  templateUrl: 'tpl/tra/waterway_administration_list.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/waterway_administration_list.js']);
+                          }]
+                  }
+              })
+              .state('app.hunan_information_service', {
+                  url: '/hunan_information_service',
+                  templateUrl: 'tpl/tra/hunan_information_service.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/hunan_information_service.js']);
+                          }]
+                  }
+              })
+              .state('app.hunan_information_service_list', {
+                  url: '/hunan_information_service_list',
+                  templateUrl: 'tpl/tra/hunan_information_service_list.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/hunan_information_service_list.js']);
+                          }]
+                  }
+              })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
                   templateUrl: 'tpl/app_dashboard_v1.html',
