@@ -24,15 +24,15 @@ app.controller('Collaborative_managementCtrl', ['$scope', function($scope) {
      }
 
     $scope.folds = [
-        {name: 'Inbox', filter:''},
-        {name: 'Starred', filter:'starred'},
-        {name: 'Sent', filter:'sent'},
-        {name: 'Important', filter:'important'},
-        {name: 'Draft', filter:'draft'},
-        {name: 'Trash', filter:'trash'}
+        {name: '经营业户信息', filter:''},
+        {name: '营运车辆信息', filter:'starred'},
+        {name: '从业人员信息', filter:'sent'},
+        {name: '营运线路信息', filter:'important'},
+        {name: '道路运政执法信息', filter:'draft'},
+        {name: '道路运输管理机构信息', filter:'trash'}
     ];
 
-  }]);
+}]);
 
 app.controller('Collaborative_managementListCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;

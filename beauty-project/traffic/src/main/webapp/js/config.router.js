@@ -64,10 +64,15 @@ angular.module('app')
                           }]
                   }
               })
+
               .state('app.collaborative_management.list', {
-                  url: '/list/{fold}',
+                  url: '/inbox/{fold}',
                   templateUrl: 'tpl/tra/collaborative_management.list.html'
               })
+             /* .state('app.mail.list', {
+              url: '/inbox/{fold}',
+              templateUrl: 'tpl/mail.list.html'
+              })*/
 
               .state('app.waterway_administration', {
                   url: '/waterway_administration',
