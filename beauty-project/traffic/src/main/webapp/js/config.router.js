@@ -69,10 +69,7 @@ angular.module('app')
                   url: '/inbox/{fold}',
                   templateUrl: 'tpl/tra/collaborative_management.list.html'
               })
-             /* .state('app.mail.list', {
-              url: '/inbox/{fold}',
-              templateUrl: 'tpl/mail.list.html'
-              })*/
+
 
               .state('app.waterway_administration', {
                   url: '/waterway_administration',
@@ -84,15 +81,19 @@ angular.module('app')
                           }]
                   }
               })
-              .state('app.waterway_administration_list', {
-                  url: '/waterway_administration_list',
-                  templateUrl: 'tpl/tra/waterway_administration_list.html',
+              .state('app.waterwayYunZheng', {
+                  url: '/waterwayYunZheng',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
-                              return $ocLazyLoad.load(['js/controllers/tra/waterway_administration_list.js']);
+                              return $ocLazyLoad.load(['js/controllers/tra/waterwayYunZheng.js']);
                           }]
                   }
+              })
+              .state('app.waterwayYunZheng.list', {
+                  url: '/inbox/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.list.html'
               })
               .state('app.hunan_information_service', {
                   url: '/hunan_information_service',
