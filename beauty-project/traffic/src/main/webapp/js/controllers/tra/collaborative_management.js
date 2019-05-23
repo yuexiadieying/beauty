@@ -2,10 +2,8 @@
 
 /* Controllers */
 
-app.controller('Collaborative_managementCtrl', ['$scope','mails', function($scope,mails) {
-      mails.all().then(function(mails){
-          $scope.mails = mails;
-      });
+app.controller('Collaborative_managementCtrl', ['$scope', function($scope) {
+
      $scope.data={
          business:{
              secondLevel:['经营业户基本信息','道路运输经营许可证信息','经营业户质量信誉考核信息',' 经营业户工商注册信息','经营业户税务登记信息','道路客运站专项信息','机动车维修经营业户专项信息','机动车驾驶员培训业户专项信息','经营业户安全生产事故信息'],
@@ -25,4 +23,17 @@ app.controller('Collaborative_managementCtrl', ['$scope','mails', function($scop
          }
      }
 
+    $scope.folds = [
+        {name: 'Inbox', filter:''},
+        {name: 'Starred', filter:'starred'},
+        {name: 'Sent', filter:'sent'},
+        {name: 'Important', filter:'important'},
+        {name: 'Draft', filter:'draft'},
+        {name: 'Trash', filter:'trash'}
+    ];
+
   }]);
+
+app.controller('Collaborative_managementListCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+}]);

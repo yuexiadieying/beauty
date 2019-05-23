@@ -64,6 +64,11 @@ angular.module('app')
                           }]
                   }
               })
+              .state('app.collaborative_management.list', {
+                  url: '/list/{fold}',
+                  templateUrl: 'tpl/tra/collaborative_management.list.html'
+              })
+
               .state('app.waterway_administration', {
                   url: '/waterway_administration',
                   templateUrl: 'tpl/tra/waterway_administration.html',
