@@ -119,6 +119,33 @@ angular.module('app')
                   url: '/inbox/{fold}',
                   templateUrl: 'tpl/tra/hunan_information_service.list.html'
               })
+              .state('app.throughput', {
+                  url: '/throughput',
+                  templateUrl: 'tpl/tra/throughput.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/throughput.js']);
+                          }]
+                  }
+              })
+              .state('app.throughputNextLevel', {
+                  url: '/throughputNextLevel',
+                  templateUrl: 'tpl/tra/throughputNextLevel.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/throughputNextLevel.js']);
+                          }]
+                  }
+              })
+              .state('app.throughputNextLevel.list', {
+                  url: '/inbox/{fold}',
+                  templateUrl: 'tpl/tra/throughputNextLevel.list.html'
+              })
+
+
+
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
                   templateUrl: 'tpl/app_dashboard_v1.html',
