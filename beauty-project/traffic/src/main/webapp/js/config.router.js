@@ -95,6 +95,16 @@ angular.module('app')
                   url: '/inbox/{fold}',
                   templateUrl: 'tpl/tra/waterwayYunZheng.list.html'
               })
+              .state('app.hunan_transport', {
+                  url: '/hunan_transport',
+                  templateUrl: 'tpl/tra/hunan_transport.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/hunan_transport.js']);
+                          }]
+                  }
+              })
               .state('app.hunan_information_service', {
                   url: '/hunan_information_service',
                   templateUrl: 'tpl/tra/hunan_information_service.html',
@@ -105,15 +115,9 @@ angular.module('app')
                           }]
                   }
               })
-              .state('app.hunan_information_service_list', {
-                  url: '/hunan_information_service_list',
-                  templateUrl: 'tpl/tra/hunan_information_service_list.html',
-                  resolve: {
-                      deps: ['$ocLazyLoad',
-                          function( $ocLazyLoad ){
-                              return $ocLazyLoad.load(['js/controllers/tra/hunan_information_service_list.js']);
-                          }]
-                  }
+              .state('app.hunan_information_service.list', {
+                  url: '/inbox/{fold}',
+                  templateUrl: 'tpl/tra/hunan_information_service.list.html'
               })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
