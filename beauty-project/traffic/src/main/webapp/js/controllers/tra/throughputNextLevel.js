@@ -7,11 +7,10 @@ app.controller('ThroughputNextLevelCtrl', ['$scope', function($scope) {
     $scope.data={
         business:{
             secondLevel:[
-                ['机构编码','所在行政区划','机构全称','机构简称','机构负责人姓名','部门负责人','填报人姓名','联系电话']
+                ['表年份','归属港区编号','泊位代码','泊位名称','服务类型','货主类型','泊位长度','设计靠泊能力(吨级)','增加的报告期','报废的报告期','泊位状态','码头企业号']
             ]
         }
-    }
-
+    };
     $scope.folds = [
         {name: '全省泊位表', filter:''},
         {name: '港口企业和码头单位名录', filter:'starred'},
@@ -28,4 +27,5 @@ app.controller('ThroughputNextLevelCtrl', ['$scope', function($scope) {
 
 app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;
+    $scope.d = [ [1,6.5],[2,6.5],[3,7],[4,8],[5,7.5],[6,7],[7,6.8] ];
 }]);
