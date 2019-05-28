@@ -130,6 +130,7 @@ angular.module('app')
                   }
               })
               .state('app.throughputNextLevel', {
+                  abstract: true,
                   url: '/throughputNextLevel',
                   templateUrl: 'tpl/tra/throughputNextLevel.html',
                   resolve: {
@@ -143,8 +144,31 @@ angular.module('app')
                   url: '/inbox/{fold}',
                   templateUrl: 'tpl/tra/throughputNextLevel.list.html'
               })
+              .state('app.water_transportation', {
+                  url: '/water_transportation',
+                  templateUrl: 'tpl/tra/water_transportation.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/water_transportation.js']);
+                          }]
+                  }
+              })
+              .state('app.water_transportationSystem', {
+                  url: '/water_transportationSystem',
+                  templateUrl: 'tpl/tra/water_transportationSystem.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/water_transportationSystem.js']);
+                          }]
+                  }
+              })
 
-
+              .state('app.water_transportationSystem.list', {
+                  url: '/inbox/{fold},{index}',
+                  templateUrl: 'tpl/tra/water_transportationSystem.list.html'
+              })
 
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',

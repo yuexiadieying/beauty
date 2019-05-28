@@ -1,8 +1,8 @@
 <style>
   .throughput p{margin:0px;}
 </style>
-<div ng-controller="ThroughputNextLevelListCtrl">
-  <div class="wrapper bg-light lter b-b throughput">
+<div ng-controller="ThroughputNextLevelListCtrl" >
+  <div class="wrapper bg-light lter b-b throughput" >
     <div id="myTabContent" class="tab-content" >
       <div class="tab-pane fade in active" id="home">
         <div class="panel panel-default">
@@ -32,7 +32,7 @@
               </div>
             </div>
           </div>
-          <div>
+          <div ng-if="fold==''">
             <div class="panel panel-default" >
               <div class="panel-heading font-bold">全市泊位状况</div>
               <div class="row">
@@ -82,47 +82,109 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="table-responsive" style="overflow: auto">
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap">
-              <thead>
-              <tr>
-                <th>序号</th>
-                <th ng-repeat="info in data.business.secondLevel[0]">{{info}}</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in data.business.secondLevel[0]"></td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <footer class="panel-footer">
-            <div class="row">
-              <div class="col-sm-4 hidden-xs">
+            <div class="table-responsive" style="overflow: auto">
+              <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+                <thead>
+                <tr>
+                  <th>序号</th>
+                  <th ng-repeat="info in tableTitle[0]">{{info}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  ng-repeat="k in [0,1,2,3,4]">
+                  <td>1</td>
+                  <td ng-repeat="info in tableTitle[0]"></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <footer class="panel-footer">
+              <div class="row">
+                <div class="col-sm-4 hidden-xs">
 
-              </div>
-              <div class="col-sm-4 text-center">
+                </div>
+                <div class="col-sm-4 text-center">
 
+                </div>
+                <div class="col-sm-4 text-right text-center-xs">
+                  <ul class="pagination pagination-sm m-t-none m-b-none">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href>5</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="col-sm-4 text-right text-center-xs">
-                <ul class="pagination pagination-sm m-t-none m-b-none">
-                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                  <li><a href>1</a></li>
-                  <li><a href>2</a></li>
-                  <li><a href>3</a></li>
-                  <li><a href>4</a></li>
-                  <li><a href>5</a></li>
-                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
-                </ul>
+            </footer>
+          </div>
+
+          <div ng-if="fold=='express'">
+            <div class="panel panel-default">
+              <div class="panel-heading font-bold">港口快报吞吐量</div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: '进港吞吐量', points: { show: true }, lines: { show: true, tension: 0.45, lineWidth: 2, fill: 0 } },
+                { data: {{d0_2}}, label: '出港吞吐量', points: { show: true, radius: 4 },lines: { show: true, tension: 0.45, lineWidth: 2, fill: 0 }}
+              ],
+              {
+              ticks: [
+                    [ 1, '10:00' ], [ 2, '10:30' ], [ 3, '11:00' ], [ 4, '11:30' ], [ 5, '12:00' ], [ 6, '12:30' ], [ 7, '13:00' ]
+                  ],
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+              }
+            " style="height:240px"></div>
               </div>
             </div>
-          </footer>
+            <div class="table-responsive" style="overflow: auto">
+              <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+                <thead>
+                <tr>
+                  <th>序号</th>
+                  <th ng-repeat="info in tableTitle[1]">{{info}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  ng-repeat="k in [0,1,2,3,4]">
+                  <td>1</td>
+                  <td ng-repeat="info in tableTitle[1]"></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <footer class="panel-footer">
+              <div class="row">
+                <div class="col-sm-4 hidden-xs">
+
+                </div>
+                <div class="col-sm-4 text-center">
+
+                </div>
+                <div class="col-sm-4 text-right text-center-xs">
+                  <ul class="pagination pagination-sm m-t-none m-b-none">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href>5</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </footer>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
