@@ -55,6 +55,7 @@ angular.module('app')
                   }
               })
               .state('app.collaborative_management', {
+                  abstract: true,
                   url: '/collaborative_management',
                   templateUrl: 'tpl/tra/collaborative_management.html',
                   resolve: {
@@ -68,6 +69,10 @@ angular.module('app')
               .state('app.collaborative_management.list', {
                   url: '/inbox/{fold}',
                   templateUrl: 'tpl/tra/collaborative_management.list.html'
+              })
+              .state('app.collaborative_management.vehicle', {
+                  url: '/inbox1/{fold}',
+                  templateUrl: 'tpl/tra/collaborative_management.vehicle.html'
               })
 
 
