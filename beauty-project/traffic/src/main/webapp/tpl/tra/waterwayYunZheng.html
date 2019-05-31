@@ -6,7 +6,7 @@
             <div class="wrapper hidden-sm hidden-xs" id="email-menu">
                 <ul class="nav nav-pills nav-stacked nav-sm">
                     <li ng-repeat="fold in folds" ui-sref-active="active">
-                        <a ui-sref="app.waterwayYunZheng.list({fold:fold.filter})">
+                        <a ui-sref="app.waterwayYunZheng.{{fold.url}}({fold:fold.filter})">
                             {{fold.name}}
                         </a>
                     </li>

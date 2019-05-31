@@ -1,5 +1,5 @@
 
-<div ng-controller="WaterwayYunZhengListCtrl">
+<div ng-controller="WaterwayYunZhengWaterwayCtrl">
 
   <div class="wrapper bg-light lter b-b">
     <div id="myTabContent" class="tab-content" >
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="table-responsive" style="overflow: auto">
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold==''">
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='important'">
               <thead>
               <tr>
                 <th>序号</th>
@@ -38,7 +38,7 @@
               </tr>
               </tbody>
             </table>
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='starred'">
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='draft'">
               <thead>
               <tr>
                 <th>序号</th>
@@ -52,20 +52,7 @@
               </tr>
               </tbody>
             </table>
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='sent'">
-              <thead>
-              <tr>
-                <th>序号</th>
-                <th ng-repeat="info in tableTitle[2]">{{info}}</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[2]"></td>
-              </tr>
-              </tbody>
-            </table>
+
           </div>
           <footer class="panel-footer">
             <div class="row">

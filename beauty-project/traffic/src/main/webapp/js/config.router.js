@@ -112,8 +112,16 @@ angular.module('app')
                   }
               })
               .state('app.waterwayYunZheng.list', {
-                  url: '/inbox/{fold}',
+                  url: '/waterTransport/{fold}',
                   templateUrl: 'tpl/tra/waterwayYunZheng.list.html'
+              })
+              .state('app.waterwayYunZheng.waterway', {
+                  url: '/waterTransport1/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.waterway.html'
+              })
+              .state('app.waterwayYunZheng.auxiliary', {
+                  url: '/waterTransport2/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.auxiliary.html'
               })
               .state('app.hunan_transport', {
                   url: '/hunan_transport',
