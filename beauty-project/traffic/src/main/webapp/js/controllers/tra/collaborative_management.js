@@ -8,9 +8,9 @@ app.controller('Collaborative_managementCtrl', ['$scope', function($scope) {
         {name: '经营业户信息', filter:'',url:'list'},
         {name: '营运车辆信息', filter:'starred',url:'vehicle'},
         {name: '从业人员信息', filter:'sent',url:'personnel'},
-        {name: '营运线路信息', filter:'important',url:'list'},
-        {name: '道路运政执法信息', filter:'draft',url:'list'},
-        {name: '道路运输管理机构信息', filter:'trash',url:'list'}
+        {name: '营运线路信息', filter:'important',url:'line'},
+        {name: '道路运政执法信息', filter:'draft',url:'road'},
+        {name: '道路运输管理机构信息', filter:'trash',url:'transport'}
     ];
 
 }]);
@@ -84,6 +84,58 @@ app.controller('Collaborative_managementPersonnelCtrl', ['$scope', '$stateParams
                 ['省份行政区划代码','原省级系统从业人员ID','证件类型','证件号码','原系统黑名单Id','有效期起始日期','有效期截止日期','从业资格证号','原因','操作员','录时间','所属机构','所在部门'],
                 ['省份行政区划代码','原省级系统从业人员ID','证件类型','证件号码','从业人员申请ID','原从业资格证号','原从业资格类别','办理类型','审核状态','办理人隶属区县代码','受理地行政区划代码','健康状况代码','培训单位名称','办理机构代码','办理机构名称','驾驶证号','记录时间','操作员'],
                 ['省份行政区划代码','原省级系统从业人员ID','证件类型','证件号码','从业资格类别','从业资格证号','所属单位','鉴定日期','鉴定部门','考试时间','考试地点','鉴定结果','材料审核状态','办理时间','操作员']
+            ]
+        }
+    }
+    $scope.tabBtn = function (index) {
+        $scope.indexBtn = index
+    }
+}]);
+app.controller('Collaborative_managementLineCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.indexBtn = 0
+    $scope.data={
+        business:{
+            secondLevel:['物理线路信息','客运经营线路信息','线路标志牌信息'],
+            threeLevel:[
+                ['省份行政区划代码','物理线路ID','线路编码','客运班线经营区域','客运班线经营区域代码','起点地名','起点所在行政区划代码','讫点地名','讫点所在行政区划代码','途经主要地点或道路','途经主要经纬度坐标点','线路里程','线路高速里程','创建时间'],
+                ['省份行政区划代码','物理线路ID','经营线路ID','经营线路名称','原省级系统经营业户ID','客运班线类型','客运班线类型代码','始发客运站','始发客运站所在行政区划代码','讫点客运站','讫点客运站所在行政区划代码','客运班线途经主要站点','日发班次','营运里程','其中高速公路里程','客运班线经营区域','客运班线经营区域代码','是否农村班线','客运班线营运状态','客运班线营运状态代码','线路有效期始','线路有效期止','发放日期'],
+                ['省份行政区划代码','标志牌ID','经营线路ID','标志牌号','车牌颜色代码','车辆号牌','标志牌类型','有效起始日期','有效截止日期','发放日期']
+            ]
+        }
+    }
+    $scope.tabBtn = function (index) {
+        $scope.indexBtn = index
+    }
+}]);
+app.controller('Collaborative_managementRoadCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.indexBtn = 0
+    $scope.data={
+        business:{
+            secondLevel:['道路运政案件处罚立案信息','道路运政案件处罚决定信息','道路运政案件结案信息'],
+            threeLevel:[
+                ['省份行政区划代码','案件编号','案件来源','违法行为立案理由','案件来源代码','案件行政处罚程序','行政处罚对象','从业人员姓名','从业人员资格证编号','经营业户名称','省级系统经营业户ID','经营业户道路运输经营许可证号','案件发生时间','案件发生地点','违法类型','违法类型代码','违法内容','违法车辆号牌','违法车辆车牌颜色代码','违法车辆车籍地行政区划代码','立案日期','执法人员证件号码'],
+                ['省份行政区划代码','案件编号','行政处罚决定日期','处理决定类型','处理决定类型代码','行政处罚罚款金额','经营业户名称','经营业户道路运输经营许可证号','从业人员姓名','从业人员资格证编号','从业人员计分'],
+                ['省份行政区划代码','案件编号','案件结案原因','处罚执行状态','案件执行情况','案件结案日期']
+
+            ]
+        }
+    }
+    $scope.tabBtn = function (index) {
+        $scope.indexBtn = index
+    }
+}]);
+app.controller('Collaborative_managementTransportCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.indexBtn = 0
+    $scope.data={
+        business:{
+            secondLevel:['道路运输管理机构信息','执法人员信息'],
+            threeLevel:[
+                ['省份行政区划代码','原省级系统执法人员ID','执法人员姓名','所属道路运输管理机构代码','职务','参加工作日期','从事执法日','执法证件号码','执法证初领日期','有效期起','有效期止','执法证发证机关','执法证发证机关名称','执法岗位代码','执法岗位名称','执法证审验日期','执法证审验年度','执法证审验状态'],
+                ['省份行政区划代码','管理机构名称','管理机构代码','管理机构类型','管理机构类型代码','管理机构地址','管理机构行政区划','管理机构联系电话','管理机构应急值班电话','管理机构投诉电话','管理机构传真','管理机构负责人','管理机构曾用名']
+
             ]
         }
     }

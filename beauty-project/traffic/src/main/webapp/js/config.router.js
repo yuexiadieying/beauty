@@ -78,7 +78,18 @@ angular.module('app')
                   url: '/inbox2/{fold}',
                   templateUrl: 'tpl/tra/collaborative_management.personnel.html'
               })
-
+              .state('app.collaborative_management.line', {
+                  url: '/inbox3/{fold}',
+                  templateUrl: 'tpl/tra/collaborative_management.line.html'
+              })
+              .state('app.collaborative_management.road', {
+                  url: '/inbox4/{fold}',
+                  templateUrl: 'tpl/tra/collaborative_management.road.html'
+              })
+              .state('app.collaborative_management.transport', {
+                  url: '/inbox5/{fold}',
+                  templateUrl: 'tpl/tra/collaborative_management.transport.html'
+              })
 
               .state('app.waterway_administration', {
                   url: '/waterway_administration',
