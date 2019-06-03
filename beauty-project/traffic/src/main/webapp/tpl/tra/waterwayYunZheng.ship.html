@@ -1,5 +1,5 @@
 
-<div ng-controller="WaterwayYunZhengAuxiliaryCtrl">
+<div ng-controller="WaterwayYunZhengShipCtrl">
 
   <div class="wrapper bg-light lter b-b">
     <div id="myTabContent" class="tab-content" >
@@ -24,27 +24,45 @@
             </div>
           </div>
           <div class="table-responsive" style="overflow: auto">
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='trash'">
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='d'">
               <thead>
               <tr>
+                <th>序号</th>
                 <th ng-repeat="info in tableTitle[0]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
               <tr  ng-repeat="k in [0,1,2,3,4]">
+                <td>1</td>
                 <td ng-repeat="info in tableTitle[0]"></td>
               </tr>
               </tbody>
             </table>
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='y'">
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='e'">
               <thead>
               <tr>
+                <th>序号</th>
                 <th ng-repeat="info in tableTitle[1]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
               <tr  ng-repeat="k in [0,1,2,3,4]">
+                <td>1</td>
                 <td ng-repeat="info in tableTitle[1]"></td>
+              </tr>
+              </tbody>
+            </table>
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='i'">
+              <thead>
+              <tr>
+                <th>序号</th>
+                <th ng-repeat="info in tableTitle[2]">{{info}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr  ng-repeat="k in [0,1,2,3,4]">
+                <td>1</td>
+                <td ng-repeat="info in tableTitle[2]"></td>
               </tr>
               </tbody>
             </table>

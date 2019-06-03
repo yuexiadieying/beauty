@@ -123,6 +123,22 @@ angular.module('app')
                   url: '/waterTransport2/{fold}',
                   templateUrl: 'tpl/tra/waterwayYunZheng.auxiliary.html'
               })
+              .state('app.waterwayYunZheng.businessHouseholds', {
+                  url: '/waterTransport3/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.businessHouseholds.html'
+              })
+              .state('app.waterwayYunZheng.ship', {
+                  url: '/waterTransport4/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.ship.html'
+              })
+              .state('app.waterwayYunZheng.ship1', {
+                  url: '/waterTransport5/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.ship1.html'
+              })
+              .state('app.waterwayYunZheng.other', {
+                  url: '/waterTransport6/{fold}',
+                  templateUrl: 'tpl/tra/waterwayYunZheng.other.html'
+              })
               .state('app.hunan_transport', {
                   url: '/hunan_transport',
                   templateUrl: 'tpl/tra/hunan_transport.html',

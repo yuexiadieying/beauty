@@ -1,5 +1,5 @@
 
-<div ng-controller="WaterwayYunZhengAuxiliaryCtrl">
+<div ng-controller="WaterwayYunZhengOtherCtrl">
 
   <div class="wrapper bg-light lter b-b">
     <div id="myTabContent" class="tab-content" >
@@ -24,19 +24,21 @@
             </div>
           </div>
           <div class="table-responsive" style="overflow: auto">
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='trash'">
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='c'">
               <thead>
               <tr>
+                <th>序号</th>
                 <th ng-repeat="info in tableTitle[0]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
               <tr  ng-repeat="k in [0,1,2,3,4]">
+                <td>1</td>
                 <td ng-repeat="info in tableTitle[0]"></td>
               </tr>
               </tbody>
             </table>
-            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='y'">
+            <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='j'">
               <thead>
               <tr>
                 <th ng-repeat="info in tableTitle[1]">{{info}}</th>
@@ -44,11 +46,11 @@
               </thead>
               <tbody>
               <tr  ng-repeat="k in [0,1,2,3,4]">
+                <td>1</td>
                 <td ng-repeat="info in tableTitle[1]"></td>
               </tr>
               </tbody>
             </table>
-
           </div>
           <footer class="panel-footer">
             <div class="row">
