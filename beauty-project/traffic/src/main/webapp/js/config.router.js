@@ -160,8 +160,12 @@ angular.module('app')
                   }
               })
               .state('app.hunan_information_service.vehicle', {
-                  url: '/inbox/{fold}',
+                  url: '/hunan/{fold}',
                   templateUrl: 'tpl/tra/hunan_information_service.vehicle.html'
+              })
+              .state('app.hunan_information_service.complaint', {
+                  url: '/hunan1/{fold}',
+                  templateUrl: 'tpl/tra/hunan_information_service.complaint.html'
               })
               .state('app.throughput', {
                   url: '/throughput',

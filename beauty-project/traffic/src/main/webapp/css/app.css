@@ -908,12 +908,12 @@ body {
 @media (min-width: 768px) {
   .app-aside,
   .navbar-header {
-    width: 200px;
+    width: 243px;
   }
   .navbar-collapse,
   .app-content,
   .app-footer {
-    margin-left: 200px;
+    margin-left: 243px;
   }
   .app-aside-right {
     position: absolute;
@@ -1379,7 +1379,7 @@ html {
     padding-bottom: 0;
   }
   .app-aside-dock.app-aside-fixed.app-header-fixed {
-    padding-top: 115px;
+    padding-top: 194px;
   }
   .app-aside-dock.app-aside-fixed .app-aside {
     position: fixed;

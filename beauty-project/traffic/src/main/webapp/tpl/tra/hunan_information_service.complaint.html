@@ -1,4 +1,4 @@
-<div class="wrapper-md" ng-controller="Hunan_information_serviceVehicleCtrl">
+<div class="wrapper-md" ng-controller="Hunan_information_serviceComplaintCtrl">
 
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input type="text" class="input-sm form-control" placeholder="输入车牌号">
+                            <input type="text" class="input-sm form-control" placeholder="Search">
                             <span class="input-group-btn">
             <button class="btn btn-sm btn-default" type="button">搜索</button>
           </span>
@@ -22,21 +22,19 @@
                     </div>
                 </div>
                 <div class="table-responsive" style="overflow: auto">
-                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == ''">
+                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'important'">
                         <thead>
                         <tr>
-                            <th>序号</th>
                             <th ng-repeat="info in data.tables[0]">{{info}}</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td>1</td>
                             <td ng-repeat="info in data.tables[0]"></td>
                         </tr>
                         </tbody>
                     </table>
-                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'starred'">
+                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'draft'">
                         <thead>
                         <tr>
                             <th ng-repeat="info in data.tables[1]">{{info}}</th>
@@ -44,12 +42,11 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td>1</td>
                             <td ng-repeat="info in data.tables[1]"></td>
                         </tr>
                         </tbody>
                     </table>
-                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'sent'">
+                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'trash'">
                         <thead>
                         <tr>
                             <th ng-repeat="info in data.tables[2]">{{info}}</th>
@@ -57,7 +54,6 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td>1</td>
                             <td ng-repeat="info in data.tables[2]"></td>
                         </tr>
                         </tbody>
