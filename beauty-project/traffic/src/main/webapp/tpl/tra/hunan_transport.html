@@ -5,7 +5,7 @@
     <div class="wrapper-md" ng-controller="Hunan_transportCtrl">
         <div>
             <div class="row">
-                <a class="col-lg-4 " ui-sref="app.hunan_information_service.list" style="margin-top:30px;" ng-repeat="info in data.formList">
+                <a class="col-lg-4 " ng-repeat="(index,info) in data.formList" ui-sref="app.hunan_information_service.{{data.url[index]}}" style="margin-top:30px;" >
                     <div style="border: 1px gray dashed;height:80px;" class="text-center active">
                         <h3 style="height:40px;line-height: 40px;">{{info}}</h3>
                     </div>

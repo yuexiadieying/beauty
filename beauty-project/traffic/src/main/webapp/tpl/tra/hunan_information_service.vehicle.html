@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="table-responsive" style="overflow: auto">
-                    <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == ''">
                         <thead>
                         <tr>
                             <th>序号</th>
@@ -33,6 +33,32 @@
                         <tr ng-repeat="info in [0,1,2,3,4]">
                             <td>1</td>
                             <td ng-repeat="info in data.tables[0]"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'starred'">
+                        <thead>
+                        <tr>
+                            <th ng-repeat="info in data.tables[1]">{{info}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="info in [0,1,2,3,4]">
+                            <td>1</td>
+                            <td ng-repeat="info in data.tables[1]"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'sent'">
+                        <thead>
+                        <tr>
+                            <th ng-repeat="info in data.tables[2]">{{info}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="info in [0,1,2,3,4]">
+                            <td>1</td>
+                            <td ng-repeat="info in data.tables[2]"></td>
                         </tr>
                         </tbody>
                     </table>

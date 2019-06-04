@@ -159,9 +159,9 @@ angular.module('app')
                           }]
                   }
               })
-              .state('app.hunan_information_service.list', {
+              .state('app.hunan_information_service.vehicle', {
                   url: '/inbox/{fold}',
-                  templateUrl: 'tpl/tra/hunan_information_service.list.html'
+                  templateUrl: 'tpl/tra/hunan_information_service.vehicle.html'
               })
               .state('app.throughput', {
                   url: '/throughput',
