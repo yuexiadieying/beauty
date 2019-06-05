@@ -11,16 +11,17 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:/spring-context.xml
-			<!--classpath*:/spring-context-oracle.xml-->
-			classpath*:/spring-context-mysql.xml
-			classpath*:/spring-context-redis.xml
-			classpath*:/spring-context-mongodb.xml
+			classpath*:/spring-context-oracle.xml
+<!--			classpath*:/spring-context-mysql.xml-->
+<!--			classpath*:/spring-context-redis.xml-->
+<!--			classpath*:/spring-context-mongodb.xml-->
 		</param-value>
 	</context-param>
 
 	<listener>
 		<listener-class>com.meixiang.beauty.sys.listener.WebContextListener</listener-class>
 	</listener>
+
 	<listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>  
 	</listener>
