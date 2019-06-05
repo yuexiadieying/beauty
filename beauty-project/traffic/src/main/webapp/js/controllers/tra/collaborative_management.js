@@ -36,6 +36,44 @@ app.controller('Collaborative_managementListCtrl', ['$scope', '$stateParams', fu
             ]
         }
     }
+    $scope.responseData = {
+        basicInfo : [{
+            administrativeCode:'093850973598',
+            businessOwnerID:'21434',
+            operatingVehicleID:'235345',
+            licensePlateNumber:'092098493',
+            licensePlateColor:'黑',
+            licensePlateColorCode:'black',
+            vehicleBrand:'df',
+            vehicleBrandModel:'MS',
+            engineNo:'MS/S',
+            vehicleIdentificationVINCode:'122233',
+            vehicleType:"好车",
+            vehicleTypeCode:"good",
+            passengerCarLevelAndType:'好车一等',
+            manufactureDate:'2017-09-08',
+            registrationDate:'2016-09-08',
+            vehicleFuelTypeCode:'34322',
+            wheelbase:'2米',
+            vehicleCarWide:'1米',
+            highVehicleCar:'0.9米',
+            vehiclesAxlesNum:'2根',
+            totalMassOfQuasiTraction:'优',
+            enginePower:'3/w',
+            passengerDigit:'32位',
+            vehicleTotalMass :'2000KG',
+            vehicleTankVolume:'25m³',
+            accessSatelliteLocationName:'我是车',
+            accessSatelliteLocationCode:'MC9837',
+            accessSatelliteLocationType:'THPOI',
+            vehicleOperatingCondition:'正常',
+            vehicleOperatingConditionCode:'normal',
+            vehiclePhotoName:'车',
+            administrativeAreaCodeOfVehicleRegistration:'VD**',
+            creationTime:'2015-09-07',
+            updateTime:'2019-07-09'
+        }]
+    }
     $scope.tabBtn = function (index) {
         $scope.indexBtn = index
     }

@@ -13,9 +13,9 @@ app.controller('Hunan_information_serviceCtrl', ['$scope','$stateParams', functi
         {name: '违规上访表', filter:'a',url:'petition'},
         {name: '设备档案表', filter:'b',url:'petition'},
         {name: '电子签章申报内容表', filter:'c',url:'petition'},
-        {name: '设施档案表', filter:'d',url:'vehicle'},
-        {name: '政府运输任务表', filter:'e',url:'vehicle'},
-        {name: '经营违章表', filter:'f',url:'vehicle'},
+        {name: '设施档案表', filter:'d',url:'facilities'},
+        {name: '政府运输任务表', filter:'e',url:'facilities'},
+        {name: '经营违章表', filter:'f',url:'facilities'},
         {name: '企业荣誉表', filter:'g',url:'vehicle'},
         {name: '业户责令整改表', filter:'h',url:'vehicle'},
         {name: '整改内容表', filter:'i',url:'vehicle'},
@@ -48,8 +48,6 @@ app.controller('Hunan_information_serviceComplaintCtrl', ['$scope', '$stateParam
             ]
     }
 }]);
-
-
 app.controller('Hunan_information_servicePetitionCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;
     $scope.data={
@@ -60,3 +58,18 @@ app.controller('Hunan_information_servicePetitionCtrl', ['$scope', '$stateParams
            ]
     }
 }]);
+app.controller('Hunan_information_serviceFacilitiesCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.data={
+        tables:[
+            ['设施名称','设施数量','设施单位','标准数量','备注','时间戳','修改时间','修改日期','修改人','创建时间','创建日期','创建人','是否有效'],
+            ['任务号','任务说明','完成情况','投入运力','完成运量','下达部门','完成时间','备注','时间戳','修改时间','修改日期','修改人','创建时间','创建日期','创建人','是否有效'],
+            ['执法单号','违法日期','违法时间','责任人','违法地点','违法事实','处罚情况','违法处罚日期','记录人','执法人员1','执法证号1','执法人员2','执法证号2','备注','是否有效','创建人','创建日期','创建时间','修改人','修改日期','经营违章表','修改时间','时间戳','审核意见','从业资格证编号','审核机构','审核人','审核时间','信用信息来源','身份证号','驾驶员姓名']
+        ]
+    }
+}]);
+
+
+
+
+

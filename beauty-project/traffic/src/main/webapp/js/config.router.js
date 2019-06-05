@@ -171,6 +171,10 @@ angular.module('app')
                   url: '/hunan2/{fold}',
                   templateUrl: 'tpl/tra/hunan_information_service.petition.html'
               })
+              .state('app.hunan_information_service.facilities', {
+                  url: '/hunan3/{fold}',
+                  templateUrl: 'tpl/tra/hunan_information_service.facilities.html'
+              })
               .state('app.throughput', {
                   url: '/throughput',
                   templateUrl: 'tpl/tra/throughput.html',
