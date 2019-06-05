@@ -16,12 +16,12 @@ app.controller('Hunan_information_serviceCtrl', ['$scope','$stateParams', functi
         {name: '设施档案表', filter:'d',url:'facilities'},
         {name: '政府运输任务表', filter:'e',url:'facilities'},
         {name: '经营违章表', filter:'f',url:'facilities'},
-        {name: '企业荣誉表', filter:'g',url:'vehicle'},
-        {name: '业户责令整改表', filter:'h',url:'vehicle'},
-        {name: '整改内容表', filter:'i',url:'vehicle'},
-        {name: '规章制度表', filter:'j',url:'vehicle'},
-        {name: '恶性服务事件表', filter:'k',url:'vehicle'},
-        {name: '继续教育记录', filter:'l',url:'vehicle'},
+        {name: '企业荣誉表', filter:'g',url:'honor'},
+        {name: '业户责令整改表', filter:'h',url:'honor'},
+        {name: '整改内容表', filter:'i',url:'honor'},
+        {name: '规章制度表', filter:'j',url:'rules'},
+        {name: '恶性服务事件表', filter:'k',url:'rules'},
+        {name: '继续教育记录', filter:'l',url:'rules'},
         {name: '员工信息表', filter:'m',url:'vehicle'},
         {name: '先进事迹表', filter:'n',url:'vehicle'},
         {name: '申诉主表', filter:'o',url:'vehicle'}
@@ -68,8 +68,23 @@ app.controller('Hunan_information_serviceFacilitiesCtrl', ['$scope', '$statePara
         ]
     }
 }]);
-
-
-
-
-
+app.controller('Hunan_information_serviceHonorCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.data={
+        tables:[
+            ['荣誉级别','荣誉名称','荣誉描述','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳','审核状态','审核意见','获得日期','备注','是否有效','审核机构','审核人','审核时间'],
+            ['整改编号','整改标题','申请单号','检查人员','检查内容','开始整改日期','先进事迹表','结束整改日期','法律法规','整改报告','报告提交日期','验收时间','验收人员','下发日期','检查日期','检查机构','验收结果','整改状态','是否有效','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳','验收意见'],
+            ['整改内容','排序']
+        ]
+    }
+}]);
+app.controller('Hunan_information_serviceRulesCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.data={
+        tables:[
+            ['制度分类','制度标题','制度内容','执行日期','生效日期','发布日期','关键字','是否有效','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳'],
+            ['发生时间','发生日期','事件原因','发生地点','发生事实','记录人','责任人','车辆','备注','是否有效','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳','审核状态','审核意见','从业人员编号','从业资格证号','恶性服务事件表','审核机构','审核人','审核时间','信用信息来源','身份证号','驾驶员姓名','被媒体曝光'],
+            ['从业资格类别序号','证件号码','从业资格类别','继续教育机构','教育批次','开始时间','结束时间','继续教育原因','备注','姓名','性别','培训驾校','报名日期','结业日期','学时','考试成绩','培训结果','继续教育周期','继续教育记录','是否使用','图片1','图片2','从业资格证编号','考试日期','继续教育有效期起','继续教育有效期止','办理机构','办理人','办理日期','是否签注','签注人','签注时间','继续教育类型']
+        ]
+    }
+}]);
