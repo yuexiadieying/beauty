@@ -101,6 +101,18 @@ angular.module('app')
                           }]
                   }
               })
+
+              .state('app.zhgj', {
+                  url: '/zhgj',
+                  templateUrl: 'tpl/tra/zhgj.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/zhgj.js']);
+                          }]
+                  }
+              })
+
               .state('app.waterwayYunZheng', {
                   url: '/waterwayYunZheng',
                   templateUrl: 'tpl/tra/waterwayYunZheng.html',
