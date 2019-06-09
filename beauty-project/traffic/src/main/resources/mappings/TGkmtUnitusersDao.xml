@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TGkmtUnitusersDao">
+    <resultMap id="TGkmtUnitusersInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtUnitusersDTO" >
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+        <result column="UNIT_NO" property="unitNo" jdbcType="VARCHAR" />
+        <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
+        <result column="USER_RIGHT" property="userRight" jdbcType="VARCHAR" />
+        <result column="USER_CREATEDATE" property="userCreatedate" jdbcType="TIMESTAMP" />
+        <result column="USER_STATUS" property="userStatus" jdbcType="VARCHAR" />
+        <result column="USER_CHANGEPSWDATE" property="userChangepswdate" jdbcType="TIMESTAMP" />
+        <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+        <result column="USER_VERIFYCODE" property="userVerifycode" jdbcType="VARCHAR" />
+        <result column="USER_NO" property="userNo" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+        <result column="UNREGISTER_DATE" property="unregisterDate" jdbcType="TIMESTAMP" />
+
+</resultMap>
+
+    <!--获取总个数-->
+    <select id="getTGkmtUnitusersCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_GKMT_UNITUSERS
+    </select>
+
+    <select id="getTGkmtUnitusersCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_GKMT_UNITUSERS
+    </select>
+
+    <select id="getTGkmtUnitusersByPageable" resultMap="TGkmtUnitusersInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_UNITUSERS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+
+    <select id="getTGkmtUnitusersByParamsPageable" resultMap="TGkmtUnitusersInfoResultMap">
+        SELECT *
+        FROM (SELECT ROWNUM as rn, a.* from T_GKMT_UNITUSERS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+
+</mapper>

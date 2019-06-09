@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TGkmtPortsDao">
+    <resultMap id="TGkmtPortsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtPortsDTO" >
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+        <result column="PERIODKIND" property="periodkind" jdbcType="VARCHAR" />
+        <result column="PORT_OWNER" property="portOwner" jdbcType="VARCHAR" />
+        <result column="UNIT_NO" property="unitNo" jdbcType="VARCHAR" />
+        <result column="PORT_NAME" property="portName" jdbcType="VARCHAR" />
+        <result column="PORT_NO" property="portNo" jdbcType="VARCHAR" />
+
+</resultMap>
+
+    <!--获取总个数-->
+    <select id="getTGkmtPortsCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_GKMT_PORTS
+    </select>
+    <!--获取总个数-->
+    <select id="getTGkmtPortsCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_GKMT_PORTS
+    </select>
+
+    <select id="getTGkmtPortsByPageable" resultMap="TGkmtPortsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTGkmtPortsByParamsPageable" resultMap="TGkmtPortsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+
+</mapper>

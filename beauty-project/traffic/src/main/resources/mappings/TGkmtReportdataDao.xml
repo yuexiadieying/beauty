@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TGkmtReportdataDao">
+    <resultMap id="TGkmtReportdataInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtReportdataDTO" >
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+        <result column="DATA_IMPORT_OVERSEA" property="dataImportOversea" jdbcType="DOUBLE" />
+        <result column="DATA_IMPORT" property="dataImport" jdbcType="DOUBLE" />
+        <result column="DATA_EXPORT_OVERSEA" property="dataExportOversea" jdbcType="DOUBLE" />
+        <result column="BERTH_NO" property="berthNo" jdbcType="DOUBLE" />
+        <result column="DATA_SUM_OVERSEA" property="dataSumOversea" jdbcType="DOUBLE" />
+        <result column="DATA_SUM" property="dataSum" jdbcType="DOUBLE" />
+        <result column="ROW_NO" property="rowNo" jdbcType="VARCHAR" />
+        <result column="REPORT_PERIOD" property="reportPeriod" jdbcType="DOUBLE" />
+        <result column="DATA_EXPORT" property="dataExport" jdbcType="DOUBLE" />
+
+</resultMap>
+
+    <!--获取总个数-->
+    <select id="getTGkmtReportdataCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_GKMT_REPORTDATA
+    </select>
+    <!--获取总个数-->
+    <select id="getTGkmtReportdataCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_GKMT_REPORTDATA
+    </select>
+
+    <select id="getTGkmtReportdataByPageable" resultMap="TGkmtReportdataInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_REPORTDATA a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTGkmtReportdataByParamsPageable" resultMap="TGkmtReportdataInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_REPORTDATA a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+
+</mapper>

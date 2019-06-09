@@ -2,18 +2,60 @@ package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
-import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.*;
-import com.meixiang.beauty.webapp.traffic.dto.zhsy.OverallStatisticDataDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtBerthsService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtEnterprisesService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtEnterpriseusersService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtPortregionsService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtPortsService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtQuickreportdataService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtReportdataService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtUnitsService;
+import com.meixiang.beauty.webapp.traffic.service.TGkmtUnitusersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 //湖南省港口企业与码头单位吞吐量表
 @Controller
 @RequestMapping(value = "hlsgkqyymtdwttlbb")
 public class HnsgkqyymtdwttlbbController {
+
+    @Autowired
+    private TGkmtBerthsService tGkmtBerthsService;
+
+    @Autowired
+    private TGkmtEnterprisesService tGkmtEnterprisesService;
+
+    @Autowired
+    private TGkmtEnterpriseusersService tGkmtEnterpriseusersService;
+
+    @Autowired
+    private TGkmtPortregionsService tGkmtPortregionsService;
+
+    @Autowired
+    private TGkmtPortsService tGkmtPortsService;
+
+    @Autowired
+    private TGkmtQuickreportdataService tGkmtQuickreportdataService;
+
+    @Autowired
+    private TGkmtReportdataService tGkmtReportdataService;
+
+    @Autowired
+    private TGkmtUnitsService tGkmtUnitsService;
+
+    @Autowired
+    private TGkmtUnitusersService tGkmtUnitusersService;
 
     //todo 湖南省港口企业与码头单位吞吐量报表首页
     @RequestMapping(value = "ttlbb", method = {RequestMethod.POST, RequestMethod.GET})
@@ -52,15 +94,14 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "qsbwzk", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<List<QsbwzkDTO>> getQsbwzkDTO(@RequestParam String gkqy,
+    ResponseDTO<List<Map<String, Object>>> getQsbwzkDTO(@RequestParam String gkqy,
                                               @RequestParam String mtdw,
                                               @RequestParam String startDate,
                                               @RequestParam String endDate){
-        List<QsbwzkDTO> qsbwzkDTOList = new ArrayList<>();
-        ResponseDTO<List<QsbwzkDTO>> responseDTO = new ResponseDTO<>();
+        List<Map<String, Object>> qsbwzkDTOList = new ArrayList<>();
+        ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 qsbwzkDTOList
-
+        qsbwzkDTOList = tGkmtBerthsService.getTGkmtBerthsByPageable(0, 10000, gkqy, mtdw, startDate, endDate);
         responseDTO.setResponseData(qsbwzkDTOList);
         return  responseDTO;
     }
@@ -70,15 +111,14 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "gkqyml", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<GkqymlDTO>>> getGkqymlDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<GkqymlDTO> gkqymlDTOList = new ArrayList<>();
-        PageParamDTO<List<GkqymlDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<GkqymlDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getGkqymlDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> gkqymlDTOList = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 PageParamDTO<List<GkqymlDTO>>
+        gkqymlDTOList = tGkmtEnterprisesService.getTGkmtEnterprisesByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
 
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        paramDTO.setTotalCount(tGkmtEnterprisesService.getTGkmtEnterprisesCount());
         paramDTO.setResponseData(gkqymlDTOList);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
@@ -89,15 +129,14 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "qyczry", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<QyczryDTO>>> getQyczryDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<QyczryDTO> qyczryDTOS = new ArrayList<>();
-        PageParamDTO<List<QyczryDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<QyczryDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getQyczryDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> qyczryDTOS = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 PageParamDTO<List<QyczryDTO>>
+        qyczryDTOS = tGkmtEnterpriseusersService.getTGkmtEnterpriseusersByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
 
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        paramDTO.setTotalCount(tGkmtEnterpriseusersService.getTGkmtEnterpriseusersCount());
         paramDTO.setResponseData(qyczryDTOS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
@@ -108,15 +147,14 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "qsgqdbm", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<QsgqdbmDTO>>> getQsgqdbmDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<QsgqdbmDTO> qsgqdbmDTOS = new ArrayList<>();
-        PageParamDTO<List<QsgqdbmDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<QsgqdbmDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getQsgqdbmDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> qsgqdbmDTOS = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 PageParamDTO<List<QsgqdbmDTO>>
+        qsgqdbmDTOS = tGkmtPortregionsService.getTGkmtPortregionsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
 
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        paramDTO.setTotalCount(tGkmtPortregionsService.getTGkmtPortregionsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
@@ -127,15 +165,14 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "qsgkb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<QsgkbDTO>>> getQsgkbDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<QsgkbDTO> qsgqdbmDTOS = new ArrayList<>();
-        PageParamDTO<List<QsgkbDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<QsgkbDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getQsgkbDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> qsgqdbmDTOS = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 PageParamDTO<List<QsgkbDTO>>
+        qsgqdbmDTOS = tGkmtPortsService.getTGkmtPortsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
 
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        paramDTO.setTotalCount(tGkmtPortsService.getTGkmtPortsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
@@ -149,21 +186,21 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "gkkbttl", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<List<GkkbttlDTO>> getGkkbttlDTO(@RequestParam String gkqy,
+    ResponseDTO<List<Map<String, Object>>> getGkkbttlDTO(@RequestParam String gkqy,
                                               @RequestParam String mtdw,
                                               @RequestParam String startDate,
                                               @RequestParam String endDate){
-        List<GkkbttlDTO> gkkbttlDTOList = new ArrayList<>();
-        ResponseDTO<List<GkkbttlDTO>> responseDTO = new ResponseDTO<>();
+        List<Map<String, Object>> gkkbttlDTOList = new ArrayList<>();
+        ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 gkkbttlDTOList
+        gkkbttlDTOList = tGkmtQuickreportdataService.getTGkmtQuickreportdataByPageable(0, 10000, gkqy, mtdw, startDate, endDate);
 
         responseDTO.setResponseData(gkkbttlDTOList);
         return  responseDTO;
     }
 
 
-    //todo 港口快报吞吐量
+    //todo 港口吞吐量
     //todo 泊位编号 bwbh
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -171,53 +208,50 @@ public class HnsgkqyymtdwttlbbController {
     @RequestMapping(value = "gkttl", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<List<GkttlDTO>> getGkttlDTO(@RequestParam String bwbh,
+    ResponseDTO<List<Map<String, Object>>> getGkttlDTO(@RequestParam String bwbh,
                                                 @RequestParam String mtdw,
                                                 @RequestParam String startDate,
                                                 @RequestParam String endDate){
-        List<GkttlDTO> gkttlDTOList = new ArrayList<>();
-        ResponseDTO<List<GkttlDTO>> responseDTO = new ResponseDTO<>();
+        List<Map<String, Object>> gkttlDTOList = new ArrayList<>();
+        ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 gkkbttlDTOList
-
+        gkttlDTOList = tGkmtReportdataService.getTGkmtReportdataByPageable(0, 10000, bwbh, mtdw, startDate, endDate);
         responseDTO.setResponseData(gkttlDTOList);
         return  responseDTO;
     }
 
-    //todo 行政管理机构
+    //todo 行政管理机构 待测试
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzgljg", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<XzgljgDTO>>> getXzgljgDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<XzgljgDTO> xzgljgDTOList = new ArrayList<>();
-        PageParamDTO<List<XzgljgDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<XzgljgDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getXzgljgDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> xzgljgDTOList = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 PageParamDTO<List<XzgljgDTO>>
+        xzgljgDTOList = tGkmtUnitsService.getTGkmtUnitsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
 
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        paramDTO.setTotalCount(tGkmtUnitsService.getTGkmtUnitsCount());
         paramDTO.setResponseData(xzgljgDTOList);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
 
-    //todo 行政管理人员
+    //todo 行政管理人员 待测试
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzglry", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<XzglryDTO>>> getXzglryDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<XzglryDTO> xzglryDTOList = new ArrayList<>();
-        PageParamDTO<List<XzglryDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<XzglryDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getXzglryDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> xzglryDTOList = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 PageParamDTO<List<XzglryDTO>>
-
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        xzglryDTOList = tGkmtUnitusersService.getTGkmtUnitusersByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
         paramDTO.setResponseData(xzglryDTOList);
+
+        paramDTO.setTotalCount(tGkmtUnitusersService.getTGkmtUnitusersCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
