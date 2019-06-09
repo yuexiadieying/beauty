@@ -86,7 +86,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 全市泊位状况
+    //todo 全市泊位状况 待测试
     //todo 港口企业 gkqy
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -106,7 +106,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 港口企业和码头单位名录
+    //todo 港口企业和码头单位名录 待测试
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "gkqyml", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -124,7 +124,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 企业操作人员
+    //todo 企业操作人员 待测试
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qyczry", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -142,7 +142,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 全省港区代表码
+    //todo 全省港区代表码 待测试
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgqdbm", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -160,7 +160,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 全省港口表
+    //todo 全省港口表 待测试
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgkb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -178,7 +178,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 港口快报吞吐量
+    //todo 港口快报吞吐量 待测试
     //todo 港口企业 gkqy
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -200,7 +200,7 @@ public class HnsgkqyymtdwttlbbController {
     }
 
 
-    //todo 港口吞吐量
+    //todo 港口吞吐量 待测试
     //todo 泊位编号 bwbh
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
