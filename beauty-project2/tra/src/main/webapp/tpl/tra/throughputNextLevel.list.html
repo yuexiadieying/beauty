@@ -25,7 +25,7 @@
             <div class="col-sm-3">
               <div class="input-group">
                 <span style="line-height: 30px;display: inline-block">码头单位</span>
-                <input type="text" class="input-sm form-control" placeholder="Search" style="width:90px;float: right;margin-right:30px;">
+                <input type="text" class="input-sm form-control" placeholder="Search" style="width:90px;float: right;margin-right:15px;">
                 <span class="input-group-btn">
                     <button class="btn btn-sm btn-default" type="button">搜索</button>
                 </span>
@@ -121,9 +121,10 @@
             </footer>
           </div>
 
-          <div ng-if="fold=='express'">
+          <div ng-if="fold=='express'||fold=='a'">
             <div class="panel panel-default">
-              <div class="panel-heading font-bold">港口快报吞吐量</div>
+              <div class="panel-heading font-bold" ng-if="fold=='express'">港口快报吞吐量</div>
+              <div class="panel-heading font-bold" ng-if="fold=='a'">港口吞吐量</div>
               <div class="panel-body">
                 <div ui-jq="plot" ui-options="
               [
