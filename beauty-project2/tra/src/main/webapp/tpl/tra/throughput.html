@@ -1,0 +1,69 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = true;">
+    <div class="wrapper-md" ng-controller="ThroughputCtrl">
+        <div>
+            <div class="row">
+                <a class="col-lg-4 " ui-sref="app.throughputNextLevel.list" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">全省泊位表</h3>
+                        <p style="margin-top:30px;"><span>行政区：4个</span><span style="margin-left:50px;">机构：10个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.throughputNextLevel.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">港口企业和码头单位名录</h3>
+                        <p style="margin-top:30px;"><span>所在机构：4个 </span><span style="margin-left:50px;"> 人员：566名</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.throughputNextLevel.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">企业操作人员</h3>
+                        <p style="margin-top:30px;"><span>申请机构：3445个</span><span style="margin-left:50px;">机构等级：5级</span></p>
+                    </div>
+                </a>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <a class="col-lg-4 " ui-sref="app.throughputNextLevel.list" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">全省港区代码表</h3>
+                        <p style="margin-top:30px;"><span>港区：54个</span><span style="margin-left:50px;"> 港区管理单位：4个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.throughputNextLevel.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">全省港口表</h3>
+                        <p style="margin-top:30px;"><span>泊位：984个</span><span style="margin-left:50px;">增加报告：49个</span><span style="margin-left:50px;">  报废报告：16个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.throughputNextLevel.list({fold:'express'})">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">港口快报吞吐量</h3>
+                        <p style="margin-top:30px;"><span>企业：424个</span><span style="margin-left:50px;">注销：26个</span></p>
+                    </div>
+                </a>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <a class="col-lg-4 " ui-sref="app.throughputNextLevel.list" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">港口吞吐量</h3>
+                        <p style="margin-top:30px;"><span>人员：42424个</span><span style="margin-left:50px;">注销：10个 </span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.throughputNextLevel.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">行业管理机构</h3>
+                        <p style="margin-top:30px;"><span>港区：2424个</span><span style="margin-left:50px;">进港：566个 </span><span style="margin-left:50px;">出港：75个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.throughputNextLevel.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">行业管理人员</h3>
+                        <p style="margin-top:30px;"><span>港区：2424个</span><span style="margin-left:50px;">进港：566个 </span><span style="margin-left:50px;"> 出港：75个</span></p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

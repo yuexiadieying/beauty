@@ -1,0 +1,351 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = true;">
+  <div class="wrapper-md" ng-controller="StatisticCtrl">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div style="margin-left:2%">
+                          <i class="glyphicon glyphicon-stats icon text-primary-dker" style="font-size:35px;top: 20px"></i>
+                          <div style="margin-left:50px;margin-top: -35px">
+                              <span>最新统计数据</span>
+                              <br>
+                              <span style="font-size:30px">124,345</span>
+                              <br>
+                              <i class="glyphicon glyphicon-arrow-down icon" style="color: red"></i>
+                              <span style="color: red">10%</span>
+                              <span>同比上周</span>
+                          </div>
+                      </div>
+                      <div style="margin-left: 18%;
+                          position: absolute;
+                          margin-top: -85px;">
+                          <span style="font-size:50px">|</span>
+                      </div>
+                      <div style="margin-left:24%;margin-top:-80px;">
+                          <span>全港吞吐量</span>
+                          <br>
+                          <span style="font-size:30px">1200</span>
+                          <br>
+                          <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                          <span style="color: green">10%</span>
+                          <span>同比上周</span>
+                      </div>
+                      <div style="margin-left:40%;margin-top:-82px;">
+                          <span>高速车流量</span>
+                          <br>
+                          <span style="font-size:30px">680万辆</span>
+                          <br>
+                          <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                          <span style="color: green">26%</span>
+                          <span>同比上周</span>
+                      </div>
+                      <div style="margin-left:54%;margin-top:-82px;">
+                          <span>全市泊位</span>
+                          <br>
+                          <span style="font-size:30px">16324</span>
+                          <br>
+                          <i class="glyphicon glyphicon-arrow-down icon" style="color: red"></i>
+                          <span style="color: red">10%</span>
+                          <span>同比上周</span>
+                      </div>
+                      <div style="margin-left:68%;margin-top:-82px;">
+                          <span>智慧公交运营车辆（辆）</span>
+                          <br>
+                          <span style="font-size:30px">1200</span>
+                          <br>
+                          <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                          <span style="color: green">26%</span>
+                          <span>同比上周</span>
+                      </div>
+                      <div style="margin-left:82%;margin-top:-82px;">
+                          <span>城区站场视频监控（个）</span>
+                          <br>
+                          <span style="font-size:30px">680</span>
+                          <br>
+                          <i class="glyphicon glyphicon-arrow-down icon" style="color: green"></i>
+                          <span style="color: green">26%</span>
+                          <span>同比上周</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-8">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <span style="font-size:20px">高速公路流量观测</span>
+                          </div>
+                          <div class="col-md-8">
+                              <div class="input-group">
+                                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+                                         datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                  <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                              </div>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div>
+                                  <span>中小客车速</span>
+                                  <br>
+                                  <span><span style="font-size:30px">67</span><span>KM</span></span>
+                                  <br>
+                                  <i class="glyphicon glyphicon-arrow-down icon" style="color: green"></i>
+                                  <span style="color: green">26%</span>
+                                  <span>同比上月</span>
+                              </div>
+                              <br>
+                              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true, tension: 0.45, lineWidth: 5, fill: 0 } }
+                          ],
+                          {
+                            colors: ['{{app.color.info}}'],
+                            series: { shadowSize: 3 },
+                            xaxis:{
+                              font: { color: '#ccc' },
+                              position: 'bottom',
+                              ticks: [
+                                [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6, 'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                              ]
+                            },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }
+                        " style="height:240px" >
+                              </div>
+                          </div>
+                          <div style="background: lightgrey;
+                              width: 1px;
+                              position: absolute;
+                              margin-left: 48%;
+                              height: 320px;
+                              top: 18%;">
+                          </div>
+                          <div class="col-md-6">
+                              <div>
+                                  <span>中型车车速</span>
+                                  <br>
+                                  <span><span style="font-size:30px">68</span><span>KM</span></span>
+                                  <br>
+                                  <i class="glyphicon glyphicon-arrow-down icon" style="color: green"></i>
+                                  <span style="color: green">26%</span>
+                                  <span>同比上月</span>
+                              </div>
+                              <br>
+                              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true, tension: 0.45, lineWidth: 5, fill: 0 } }
+                          ],
+                          {
+                            colors: ['{{app.color.info}}'],
+                            series: { shadowSize: 3 },
+                            xaxis:{
+                              font: { color: '#ccc' },
+                              position: 'bottom',
+                              ticks: [
+                                [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6, 'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                              ]
+                            },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }
+                        " style="height:240px" >
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <span style="font-size:20px">调查站信息</span>
+                          </div>
+                          <div class="col-md-8">
+                              <span style="margin-left:95%">...</span>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="table-responsive">
+                          <table class="table table-striped b-t b-light">
+                              <thead>
+                              <tr>
+                                  <th>序号</th>
+                                  <th>年份</th>
+                                  <th>调查站标识</th>
+                                  <th>管理机构标识</th>
+                                  <th>路线标识</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr ng-repeat="item in [1,2,3,4,5,6,7,8]">
+                                  <td>{{$index+1}}</td>
+                                  <td>2019</td>
+                                  <td>有</td>
+                                  <td>无</td>
+                                  <td>--</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-12">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <span style="font-size:20px">全市泊位</span>
+                              <br><br>
+                              <div>
+                                  <span>港口泊位基础数据</span>
+                                  <br>
+                                  <span style="font-size:30px">42228</span>
+                                  <br>
+                                  <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                                  <span style="color: green">10%</span>
+                                  <span>同比上月</span>
+                              </div>
+                              <br><br>
+                              <div>
+                                  <span>设计靠泊能力（顿级）</span>
+                                  <br>
+                                  <span style="font-size:30px">51</span>
+                                  <br>
+                                  <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                                  <span style="color: green">8%</span>
+                                  <span>同比上月</span>
+                              </div>
+                              <br><br><br>
+                              <button class="btn m-b-xs w-xs btn-primary" style="width:110px">点击查看详情</button>
+                              <br>
+                          </div>
+                          <div style="background: lightgrey;
+                                width: 1px;
+                                position: absolute;
+                                margin-left: 17%;
+                                height: 390px;">
+                          </div>
+                          <div class="col-md-9">
+                              <div style="margin-left:-5%">
+                                  <span style="font-size:20px">港口快报吞吐量<span>（单位：万吨）</span></span>
+                                  <div class="input-group" style="margin-left:60%;margin-top:-2%">
+                                      <input type="text" class="form-control input-sm" placeholder="港口企业" style="width: 150px;">
+                                      <input type="text" class="form-control input-sm" placeholder="码头单位" style="width: 150px;margin-left: 5%;">
+                                      <span class="input-group-btn">
+                                  <button class="btn btn-small btn-primary" type="button" style="width:110px;height:35px;margin-top:-3%">查询</button>
+                              </span>
+                                  </div>
+                                  <br>
+                                  <div ui-jq="plot" ui-options="
+                      [
+                        { data: {{d0_1}}, label: '进港吞吐量', points: { show: true }, lines: { show: true, fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } },
+                        { data: {{d0_2}}, label: '出港吞吐量', points: { show: true }, lines: { show: true, fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+                      ],
+                      {
+                        colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                        series: { shadowSize: 2 },
+                        xaxis:{ font: { color: '#ccc' } },
+                        yaxis:{ font: { color: '#ccc' } },
+                        grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                        tooltip: true,
+                        tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                      }
+                    " style="height:300px;width: 95%;"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <span style="font-size:16px">城市客运<span>（客运量：万人次）</span></span>
+                          </div>
+                          <div class="col-md-8">
+                              <div style="margin-left:30%">
+                                  <span>月份</span>
+                                  <input type="text" placeholder="2019-01" style="width: 100px;">~
+                                  <input type="text" placeholder="2019-06" style="width: 100px;">
+                                  <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+                              </div>
+                          </div>
+                      </div>
+                      <br>
+                      <div ui-jq="plot" ui-options="
+                      [
+                        { label: '公共汽电车', data: {{d1_1}} },
+                        { label: '出租汽车', data: {{d1_2}} },
+                        { label: '轨道交通', data: {{d1_3}} }
+                      ],
+                      {
+                        bars: { show: true, fill: true, lineWidth: 1, order: 1, fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] } },
+                        colors: ['{{app.color.info}}', '{{app.color.success}}', '{{app.color.primary}}'],
+                        series: { shadowSize: 1 },
+                        xaxis:{ font: { color: '#ccc' } },
+                        yaxis:{ font: { color: '#ccc' } },
+                        grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                        tooltip: true
+                      }"
+                           style="height:300px;width: 95%;"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <span style="font-size:16px">省水运管理信息<span>（单位：艘）</span></span>
+                          </div>
+                          <div class="col-md-8">
+                              <div style="margin-left:30%">
+                                  <span>月份</span>
+                                  <input type="text" placeholder="2019-01" style="width: 100px;">~
+                                  <input type="text" placeholder="2019-06" style="width: 100px;">
+                                  <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+                              </div>
+                          </div>
+                      </div>
+                      <br>
+                      <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+                          }"
+                           style="height:300px;width: 95%;"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>

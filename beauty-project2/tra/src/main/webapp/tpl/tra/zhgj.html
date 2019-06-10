@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="http://www.nbmap.gov.cn/leaflet/leaflet.css" />
+<script src="http://www.nbmap.gov.cn/leaflet/leaflet.js"></script>
+<script src="http://nb.nbmap.gov.cn/scripts/lib/mapAPI/layer.wmts-src.js"></script>
+<script src="http://nb.nbmap.gov.cn/scripts/lib/mapAPI/layer.tdt-src.js"></script>
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = true;">
+  <div class="wrapper-md" ng-controller="ZhgjCtrl">
+    <p class="m-b-md"><strong>首页 / 其他交通 / 智慧公交 / 基础信息</strong></p>
+    <div id="mapDiv" style="width:600px;height:500px"></div>
+
+  </div>
+</div>
+<script>
+  //添加瓦片图层
+  var layers = [];
+  layers.push(new L.TileLayer.TDT.Vector());
+  layers.push(new L.TileLayer.TDT.VectorAnno());
+  map = new L.map('mapDiv', { layers: layers, attribution: false ,crs: L.CRS.CustomLevel});
+  map.setView([29.92831, 121.5484], 11);
+</script>

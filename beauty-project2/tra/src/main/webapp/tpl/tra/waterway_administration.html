@@ -1,0 +1,128 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = true;">
+    <div class="wrapper-md" ng-controller="Waterway_administrationCtrl">
+        <div>
+            <div class="row">
+                <a class="col-lg-4 " ui-sref="app.waterwayYunZheng.list" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">行政区划</h3>
+                        <p style="margin-top:30px;">行政区划：4244个</p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">管理机构</h3>
+                        <p style="margin-top:30px;"><span>管理机构：2214个</span><span style="margin-left:50px;">所在行政区划：89个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.list">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">许可申请记录</h3>
+                        <p style="margin-top:30px;"><span>申请机构：3445个</span><span style="margin-left:50px;">机构等级：5级</span></p>
+                    </div>
+                </a>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <a class="col-lg-4 " ui-sref="app.waterwayYunZheng.waterway" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">水路运输业户台帐</h3>
+                        <p style="margin-top:30px;"><span>经营管理机构：5255个</span><span style="margin-left:50px;">类型：76个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.waterway">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">水路运输企业人员</h3>
+                        <p style="margin-top:30px;"><span>人员：35535名</span><span style="margin-left:50px;">船员适任证类型：5类</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.auxiliary">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">运输辅助企业台帐</h3>
+                        <p style="margin-top:30px;"><span>企业：54646个</span><span style="margin-left:50px;">经营类型：21种</span></p>
+                    </div>
+                </a>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <a class="col-lg-4 " ui-sref="app.waterwayYunZheng.auxiliary" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">运输辅助企业人员</h3>
+                        <p style="margin-top:30px;">辅助人员：43447892名</p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.businessHouseholds">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">年度审验业户记录</h3>
+                        <p style="margin-top:30px;">2019年度至今年审企业：343420个</p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.businessHouseholds">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">注销退出业户记录</h3>
+                        <p style="margin-top:30px;"> 注销退出企业：4209家</p>
+                    </div>
+                </a>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <a class="col-lg-4 " ui-sref="app.waterwayYunZheng.other" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">企业违章记录</h3>
+                        <p style="margin-top:30px;"><span>奖励表彰：4637个</span><span style="margin-left:50px;"> 违章处罚：5601个</span></p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.ship">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">营运船舶信息</h3>
+                        <p style="margin-top:30px;">水运企业、个体业主：244448个</p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.ship">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">船舶类型代码</h3>
+                        <p style="margin-top:30px;">船舶类型：242个</p>
+                    </div>
+                </a>
+            </div>
+            <div class="row" style="margin-top:30px;">
+            <a class="col-lg-4 " ui-sref="app.waterwayYunZheng.ship1" >
+                <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                    <h3 style="margin-top:70px;">年度审验船舶记录</h3>
+                    <p style="margin-top:30px;">2019年至今船舶登记：5256363个</p>
+                </div>
+            </a>
+            <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.ship1">
+                <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                    <h3 style="margin-top:70px;">变更船舶记录</h3>
+                    <p style="margin-top:30px;">水累计变更船舶登记：865个</p>
+                </div>
+            </a>
+            <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.ship1">
+                <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                    <h3 style="margin-top:70px;">船舶违章记录</h3>
+                    <p style="margin-top:30px;">累计船舶违章：24207次</p>
+                </div>
+            </a>
+        </div>
+            <div class="row" style="margin-top:30px;">
+                <a class="col-lg-4 " ui-sref="app.waterwayYunZheng.ship1" >
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center active">
+                        <h3 style="margin-top:70px;">业户与船舶年审报数据</h3>
+                        <p style="margin-top:30px;">累计年审：523250次</p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.ship">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">运输船舶名录</h3>
+                        <p style="margin-top:30px;">累计运输船舶：7300艘</p>
+                    </div>
+                </a>
+                <a  class="col-lg-4" ui-sref="app.waterwayYunZheng.other">
+                    <div style="border: 1px gray dashed;height:220px;" class="text-center">
+                        <h3 style="margin-top:70px;">运政管理人员名录</h3>
+                        <p style="margin-top:30px;">在职人员：363098名</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
