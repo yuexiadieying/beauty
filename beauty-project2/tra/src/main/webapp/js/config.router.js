@@ -195,6 +195,10 @@ angular.module('app')
                   url: '/hunan5/{fold}',
                   templateUrl: 'tpl/tra/hunan_information_service.rules.html'
               })
+              .state('app.hunan_information_service.employee', {
+                  url: '/hunan6/{fold}',
+                  templateUrl: 'tpl/tra/hunan_information_service.employee.html'
+              })
               .state('app.throughput', {
                   url: '/throughput',
                   templateUrl: 'tpl/tra/throughput.html',
@@ -217,8 +221,16 @@ angular.module('app')
                   }
               })
               .state('app.throughputNextLevel.list', {
-                  url: '/inbox/{fold}',
+                  url: '/terminal/{fold}',
                   templateUrl: 'tpl/tra/throughputNextLevel.list.html'
+              })
+              .state('app.throughputNextLevel.port', {
+                  url: '/terminal1/{fold}',
+                  templateUrl: 'tpl/tra/throughputNextLevel.port.html'
+              })
+              .state('app.throughputNextLevel.management', {
+                  url: '/terminal2/{fold}',
+                  templateUrl: 'tpl/tra/throughputNextLevel.management.html'
               })
               .state('app.water_transportation', {
                   url: '/water_transportation',

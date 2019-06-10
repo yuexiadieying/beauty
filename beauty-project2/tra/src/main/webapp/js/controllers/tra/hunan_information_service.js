@@ -22,9 +22,9 @@ app.controller('Hunan_information_serviceCtrl', ['$scope','$stateParams', functi
         {name: '规章制度表', filter:'j',url:'rules'},
         {name: '恶性服务事件表', filter:'k',url:'rules'},
         {name: '继续教育记录', filter:'l',url:'rules'},
-        {name: '员工信息表', filter:'m',url:'vehicle'},
-        {name: '先进事迹表', filter:'n',url:'vehicle'},
-        {name: '申诉主表', filter:'o',url:'vehicle'}
+        {name: '员工信息表', filter:'m',url:'employee'},
+        {name: '先进事迹表', filter:'n',url:'employee'},
+        {name: '申诉主表', filter:'o',url:'employee'}
     ];
     $scope.fold = $stateParams.fold;
   }]);
@@ -88,3 +88,48 @@ app.controller('Hunan_information_serviceRulesCtrl', ['$scope', '$stateParams', 
         ]
     }
 }]);
+app.controller('Hunan_information_serviceEmployeeCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.fold = $stateParams.fold;
+    $scope.data={
+        tables:[
+            ['人员姓名','人员性别','出生日期','身份证号','民族','籍贯','联系电话','联系地址','电子邮件','邮政编码','文化程度','技术等级','健康状况','从业状态','驾驶证号','准驾车型','驾驶证初领时间','从业资格证号','从业资格类别','核发日期','有效期起','有效期止','证照状态','发证机关','补换证次数','管理机构','资格等级','档案号','考生区域','从业资格范围','时间戳','修改时间','修改日期','修改人','创建时间','创建日期','创建人','是否有效','职位','考核年度','考核等级','考核状态'],
+            ['从业资格证编号','先进事迹发生日期','先进事迹发生时间','当事人','当事人证件号码','联系方式','事迹类型','涉及物品','涉及金额','加分','先进事迹经过','是否有效','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳','从业人员编号','经办人','经办人电话'],
+            ['申诉号','申诉日期','申诉时间','申报类型','企业实体类型','申诉标题','申诉内容','申诉状态','是否有效','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳','管理机构编码','企业名称','申诉年份','申报状态']
+        ]
+    }
+}]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
