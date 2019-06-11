@@ -1,0 +1,17 @@
+
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = true;">
+    <div class="wrapper-md" ng-controller="Highway_project_managementCtrl">
+        <div>
+            <div class="row">
+                <a class="col-lg-4 " ng-repeat="(index,info) in data.formList" ui-sref="app.highway_project_management_platform.{{data.url[index]}}({fold:data.fold[index]})" style="margin-top:30px;" >
+                    <div style="border: 1px gray dashed;height:80px;" class="text-center active">
+                        <h3 style="height:40px;line-height: 40px;">{{info}}</h3>
+                    </div>
+                </a>
+
+            </div >
+        </div>
+    </div>
+</div>

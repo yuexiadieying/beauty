@@ -242,6 +242,7 @@ angular.module('app')
                           }]
                   }
               })
+
               .state('app.water_transportationSystem', {
                   url: '/water_transportationSystem',
                   templateUrl: 'tpl/tra/water_transportationSystem.html',
@@ -257,7 +258,61 @@ angular.module('app')
                   url: '/inbox/{fold},{index}',
                   templateUrl: 'tpl/tra/water_transportationSystem.list.html'
               })
-
+              .state('app.highway', {
+                  url: '/highway',
+                  templateUrl: 'tpl/tra/highway.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/highway.js']);
+                          }]
+                  }
+              })
+              .state('app.highway_project_management', {
+                  url: '/highway_project_management',
+                  templateUrl: 'tpl/tra/highway_project_management.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/highway_project_management.js']);
+                          }]
+                  }
+              })
+              .state('app.highway_project_management_platform', {
+                  abstract: true,
+                  url: '/highway_project_management_platform',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/highway_project_management_platform.js']);
+                          }]
+                  }
+              })
+              .state('app.highway_project_management_platform.project', {
+                  url: '/highwayProject/{fold}',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.project.html'
+              })
+              .state('app.highway_project_management_platform.block', {
+                  url: '/highwayProject1/{fold}',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.block.html'
+              })
+              .state('app.highway_project_management_platform.unit', {
+                  url: '/highwayProject2/{fold}',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.unit.html'
+              })
+              .state('app.highway_project_management_platform.completion', {
+                  url: '/highwayProject3/{fold}',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.completion.html'
+              })
+              .state('app.highway_project_management_platform.parameter', {
+                  url: '/highwayProject4/{fold}',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.parameter.html'
+              })
+              .state('app.highway_project_management_platform.engineering', {
+                  url: '/highwayProject5/{fold}',
+                  templateUrl: 'tpl/tra/highway_project_management_platform.engineering.html'
+              })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
                   templateUrl: 'tpl/app_dashboard_v1.html',
