@@ -997,6 +997,7 @@
 		<module>beauty-project/traffic</module>
 
 		<module>beauty-project2/edu</module>
+		<module>beauty-project2/tra</module>
     </modules>
 
 </project>
