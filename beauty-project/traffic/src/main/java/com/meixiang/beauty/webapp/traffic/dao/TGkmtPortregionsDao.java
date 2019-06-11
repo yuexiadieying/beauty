@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.dao;
 
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtPortregionsDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -37,5 +38,9 @@ public interface TGkmtPortregionsDao {
      */
     List<TGkmtPortregionsDTO> getTGkmtPortregionsByParamsPageable(@Param("start") int start,
                                                                   @Param("end") int end);
-
+    
+    /**
+     * 查询首页信息
+     */
+    TtlbbDTO getHomepageInfo();
 }

@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.dao;
 
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtReportdataDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -35,12 +36,16 @@ public interface TGkmtReportdataDao {
 	 * @param start
      * @param end
      */
-    //// TODO: 2019/6/10 xml待修改
     List<TGkmtReportdataDTO> getTGkmtReportdataByParamsPageable(@Param("start") int start,
                                                                 @Param("end") int end,
-                                                                @Param("bwbh") String bwbh,
+                                                                @Param("gkqy") String gkqy,
                                                                 @Param("mtdw") String mtdw,
                                                                 @Param("startDate") String startDate,
-                                                                @Param("endDate") String endDate);
-
+                                                                @Param("endDate") String endDate
+                                                                );
+    
+    /**
+     * 查询首页信息
+     */
+    TtlbbDTO getHomepageInfo();
 }

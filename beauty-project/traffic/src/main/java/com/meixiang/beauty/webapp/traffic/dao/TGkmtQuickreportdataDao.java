@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.dao;
 
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -41,6 +42,10 @@ public interface TGkmtQuickreportdataDao {
                                                                           @Param("mtdw") String mtdw,
                                                                           @Param("startDate") String startDate,
                                                                           @Param("endDate") String endDate
-                                                                          );
-
+    );
+    
+    /**
+     * 查询首页信息
+     */
+    TtlbbDTO getHomepageInfo();
 }
