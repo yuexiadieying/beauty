@@ -10,13 +10,13 @@
           </div>
           <div class="row wrapper">
             <div class="col-sm-5 m-b-xs">
-
             </div>
             <div class="col-sm-4">
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="Search">
+                <input type="text" class="input-sm form-control" placeholder="输入船舶记录号" ng-if="fold=='z'||fold=='f'">
+                <input type="text" class="input-sm form-control" placeholder="输入船舶编码" ng-if="fold=='g'||fold=='h'">
                 <span class="input-group-btn">
                     <button class="btn btn-sm btn-default" type="button">搜索</button>
                 </span>

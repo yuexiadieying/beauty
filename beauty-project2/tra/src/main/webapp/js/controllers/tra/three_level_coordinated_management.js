@@ -3,7 +3,7 @@
 /* Controllers */
 
 app
-  // Flot Chart controller 
+  //Flot Chart controller
   .controller('Three_level_coordinated_managementCtrl', ['$scope', function($scope) {
 
 
