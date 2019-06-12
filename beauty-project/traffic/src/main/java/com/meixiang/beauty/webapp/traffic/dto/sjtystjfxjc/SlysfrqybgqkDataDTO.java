@@ -2,7 +2,7 @@ package com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-//货运车辆更新情况
+//水路运输法人企业变更情况
 public class SlysfrqybgqkDataDTO {
 
     //名称
