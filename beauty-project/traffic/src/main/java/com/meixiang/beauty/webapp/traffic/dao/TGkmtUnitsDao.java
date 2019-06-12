@@ -1,10 +1,10 @@
 package com.meixiang.beauty.webapp.traffic.dao;
 
-import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtUnitsDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
+import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @MyBatisDao
@@ -38,5 +38,9 @@ public interface TGkmtUnitsDao {
      */
     List<TGkmtUnitsDTO> getTGkmtUnitsByParamsPageable(@Param("start") int start,
                                                       @Param("end") int end);
-
+    
+    /**
+     * 查询首页信息
+     */
+    TtlbbDTO getHomepageInfo();
 }

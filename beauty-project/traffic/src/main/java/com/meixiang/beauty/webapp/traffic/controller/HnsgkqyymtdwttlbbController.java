@@ -4,15 +4,16 @@ import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtBerthsService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtEnterprisesService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtEnterpriseusersService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtPortregionsService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtPortsService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtQuickreportdataService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtReportdataService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtUnitsService;
-import com.meixiang.beauty.webapp.traffic.service.TGkmtUnitusersService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.HomePageService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtBerthsService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtEnterprisesService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtPortregionsService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtPortsService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtQuickreportdataService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtReportdataService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtUnitsService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtUnitusersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,6 +58,9 @@ public class HnsgkqyymtdwttlbbController {
     @Autowired
     private TGkmtUnitusersService tGkmtUnitusersService;
 
+    @Autowired
+    private HomePageService homePageService;
+
     //todo 湖南省港口企业与码头单位吞吐量报表首页
     @RequestMapping(value = "ttlbb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -65,7 +69,7 @@ public class HnsgkqyymtdwttlbbController {
         List<TtlbbDTO> ttlbbDTOList = new ArrayList<>();
         ResponseDTO<List<TtlbbDTO>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 ttlbbDTOList
+        ttlbbDTOList = homePageService.getHomePageInfo();
 
         responseDTO.setResponseData(ttlbbDTOList);
         return  responseDTO;
