@@ -1,7 +1,8 @@
-package com.meixiang.beauty.webapp.traffic.controller;
+package com.meixiang.beauty.webapp.traffic.controller.gljt;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
+import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.DlkhzczjqkDataDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,17 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.List;
 
-//湖南省公路水路建设与运输市场信息服务系统
+//市公路工程项目管理
 @Controller
-@RequestMapping(value = "hnsglsljsyysscxxfwxt")
-public class HnsglsljsyysscxxfwxtController {
+@RequestMapping(value = "gljt")
+public class SglgcxmglController {
 
-    //todo 交通责任事故表
+    //todo 项目信息表
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "jtzrsgb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "xmxxb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jtzrsgb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> xmxxb(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -33,12 +34,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 车辆信用考核表
+    //todo 项目列表
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "clxykhb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "xmlb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> clxykhb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> xmlb(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -50,12 +51,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 车辆责令整改表
+    //todo 项目周期
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "clzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "xmzq", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> clzlzgb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> xmzq(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -67,12 +68,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 社会投诉表
+    //todo 标段周期
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "shtsb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "bdzq", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> shtsb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> bdzq(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -84,12 +85,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 业户考核申报表
+    //todo 标段列表
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "yhkhsbb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "bdlb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> yhkhsbb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> bdlb(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -101,12 +102,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 从业人员考核签注表
+    //todo 人员登记
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "cyrykhqzb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "rydj", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> cyrykhqzb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> rydj(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -118,12 +119,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 违规上访表
+    //todo 单位管理
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "wgsfb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "dwgl", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> wgsfb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> dwgl(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -135,12 +136,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 设备档案表
+    //todo 质量台账
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "sbdab", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "zltz", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> sbdab(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> zltz(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -152,12 +153,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 电子签章申报内容表
+    //todo 施工图审批
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "dzqzsbnrb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "sgtsp", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> dzqzsbnrb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> sgtsp(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -169,12 +170,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 设施档案表
+    //todo 交工信息
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "ssdab", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "jiaotongxinxi", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> ssdab(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jiaotongxinxi(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -186,12 +187,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 政府运输任务表
+    //todo 竣工信息
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "zfysrwb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "jungongxinxi", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> zfysrwb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jungongxinxi(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -203,12 +204,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 经营违章表
+    //todo 台账修正（工程部分）
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "jywzb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "gzxzgcbf", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jywzb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> gzxzgcbf(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -220,12 +221,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 企业荣誉表
+    //todo 台账修正（台账信息）
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "qyryb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "tzxztzxx", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> qyryb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> tzxztzxx(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -237,12 +238,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 业户责令整改表
+    //todo 台账修正
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "yhzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "tzxz", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> yhzlzgb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> tzxz(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -254,12 +255,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 整改内容表
+    //todo 工程台账（工程部分）
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "zgnrb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "gctzgcbf", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> zgnrb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> gctzgcbf(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -271,12 +272,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 规章制度表
+    //todo 工程台账（台账信息）
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "gzzdb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "gctztzxx", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> gzzdb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> gctztzxx(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -288,12 +289,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 恶性服务事件表
+    //todo 变更方案
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "exfwsjb", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "bgfa", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> exfwsjb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> bgfa(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
@@ -305,63 +306,12 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 继续教育记录
+    //todo 变更申请
     //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "jxjyjl", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "bgsq", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jxjyjl(@RequestBody PageParamDTO pageParamDTO){
-
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
-
-        //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
-        responseDTO.setResponseData(paramDTO);
-        return  responseDTO;
-    }
-
-    //todo 员工信息表
-    //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "ygxxb", method = {RequestMethod.POST, RequestMethod.GET})
-    public
-    @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> ygxxb(@RequestBody PageParamDTO pageParamDTO){
-
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
-
-        //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
-        responseDTO.setResponseData(paramDTO);
-        return  responseDTO;
-    }
-
-    //todo 先进事迹表
-    //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "xjsjb", method = {RequestMethod.POST, RequestMethod.GET})
-    public
-    @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> xjsjb(@RequestBody PageParamDTO pageParamDTO){
-
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
-
-        //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
-        responseDTO.setResponseData(paramDTO);
-        return  responseDTO;
-    }
-
-    //todo 申诉主表
-    //todo PageParamDTO里面的requestData为查询参数
-    @RequestMapping(value = "sszb", method = {RequestMethod.POST, RequestMethod.GET})
-    public
-    @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> sszb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> bgsq(@RequestBody PageParamDTO pageParamDTO){
 
         ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
         PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
