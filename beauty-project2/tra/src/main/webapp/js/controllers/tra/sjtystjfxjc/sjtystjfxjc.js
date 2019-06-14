@@ -26,4 +26,10 @@ app
 
       $scope.d1_3 = [ [10, 80],  [20, 40], [30, 30],  [40, 20] ];
 
+      $scope.getData = function (startDate,endDate) {
+          console.log(startDate);
+          console.log(endDate);
+      }
+
+
   }]);

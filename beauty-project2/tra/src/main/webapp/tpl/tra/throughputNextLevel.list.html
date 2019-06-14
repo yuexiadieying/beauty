@@ -9,12 +9,9 @@
         <div ng-if="fold==''">
           <div class="panel panel-default" >
             <div class="row wrapper">
-              <div class="col-sm-2  font-bold">全市泊位状况</div>
-              <div class="col-sm-4 m-b-xs">
-                <span>今日</span>
-                <span style="margin-left:8px;">本周</span>
-                <span style="margin-left:10px;" >本月</span>
-                <input type="text" class="input-sm form-control" placeholder="2018-10-23 ~ 2018-10-29" style="display: inline-block;margin-left: 20px;width:170px;">
+              <div class="col-sm-3  font-bold">全市泊位状况</div>
+              <div class="col-sm-3 m-b-xs">
+                <div sel-date index="qsbwzk"></div>
               </div>
               <div class="col-sm-3">
                 <div class="input-group">
@@ -121,13 +118,10 @@
         <div ng-if="fold=='express'||fold=='a'">
           <div class="panel panel-default">
             <div class="row wrapper">
-              <div class="col-sm-2 font-bold" ng-if="fold=='express'">港口快报吞吐量</div>
-              <div class="col-sm-2 font-bold" ng-if="fold=='a'">港口吞吐量</div>
-              <div class="col-sm-4 m-b-xs">
-                <span>今日</span>
-                <span style="margin-left:8px;">本周</span>
-                <span style="margin-left:10px;" >本月</span>
-                <input type="text" class="input-sm form-control" placeholder="2018-10-23 ~ 2018-10-29" style="display: inline-block;margin-left: 20px;width:170px;">
+              <div class="col-sm-3 font-bold" ng-if="fold=='express'">港口快报吞吐量</div>
+              <div class="col-sm-3 font-bold" ng-if="fold=='a'">港口吞吐量</div>
+              <div class="col-sm-3 m-b-xs">
+                 <div sel-date index="gktql"></div>
               </div>
               <div class="col-sm-3">
                 <div class="input-group">
