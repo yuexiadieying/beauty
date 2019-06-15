@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzUnitpersonsDao">
+    <resultMap id="TSlyzUnitpersonsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzUnitpersonsDTO" >
+        <result column="PERSONNO" property="personno" jdbcType="VARCHAR" />
+        <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />
+        <result column="PERSONNAME" property="personname" jdbcType="VARCHAR" />
+        <result column="SEXKIND" property="sexkind" jdbcType="VARCHAR" />
+        <result column="BRANCHANDJOB" property="branchandjob" jdbcType="VARCHAR" />
+        <result column="BIRTHYEAR" property="birthyear" jdbcType="INTEGER" />
+        <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+        <result column="ZFZNAMEANDNO" property="zfznameandno" jdbcType="VARCHAR" />
+        <result column="PERSONNOTE" property="personnote" jdbcType="VARCHAR" />
+        <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="LASTMODIFYDATE" property="lastmodifydate" jdbcType="TIMESTAMP" />
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+
+    </resultMap>
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.sslyzgl.SslyzglDTO" >
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="second_name" property="secondName" jdbcType="VARCHAR" />
+        <result column="second_value" property="secondValue" jdbcType="BIGINT" />
+        <result column="third_name" property="thirdName" jdbcType="VARCHAR" />
+        <result column="third_value" property="thirdValue" jdbcType="BIGINT" />
+        <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
+        <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
+    </resultMap>
+    <!--获取总个数-->
+    <select id="getTSlyzUnitpersonsCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_UNITPERSONS
+    </select>
+    <!--获取总个数-->
+    <select id="getTSlyzUnitpersonsCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_UNITPERSONS
+    </select>
+
+    <select id="getTSlyzUnitpersonsByPageable" resultMap="TSlyzUnitpersonsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_UNITPERSONS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTSlyzUnitpersonsByParamsPageable" resultMap="TSlyzUnitpersonsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_UNITPERSONS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
+      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
+      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
+      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_UNITPERSONS
+    </select>
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzShipenterprisesDao">
+    <resultMap id="TSlyzShipenterprisesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzShipenterprisesDTO" >
+        <result column="ENTERPRISENO" property="enterpriseno" jdbcType="VARCHAR" />
+        <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />
+        <result column="ENTERPRISENAME" property="enterprisename" jdbcType="VARCHAR" />
+        <result column="JJKIND" property="jjkind" jdbcType="VARCHAR" />
+        <result column="UNITENROLLCODE" property="unitenrollcode" jdbcType="VARCHAR" />
+        <result column="ENROLLMONEY" property="enrollmoney" jdbcType="DOUBLE" />
+        <result column="LAWMAN" property="lawman" jdbcType="VARCHAR" />
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+        <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+        <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+        <result column="FAXNO" property="faxno" jdbcType="VARCHAR" />
+        <result column="OPENDATE" property="opendate" jdbcType="TIMESTAMP" />
+        <result column="APPROVEUNITNO" property="approveunitno" jdbcType="VARCHAR" />
+        <result column="APPROVEDOCNO" property="approvedocno" jdbcType="VARCHAR" />
+        <result column="XKZNO" property="xkzno" jdbcType="VARCHAR" />
+        <result column="XKZPRINTDATE" property="xkzprintdate" jdbcType="TIMESTAMP" />
+        <result column="XKZPERIOD" property="xkzperiod" jdbcType="VARCHAR" />
+        <result column="XKZSTARTDATE" property="xkzstartdate" jdbcType="TIMESTAMP" />
+        <result column="XKZENDDATE" property="xkzenddate" jdbcType="TIMESTAMP" />
+        <result column="KYRUNKIND" property="kyrunkind" jdbcType="VARCHAR" />
+        <result column="HYRUNKIND" property="hyrunkind" jdbcType="VARCHAR" />
+        <result column="JYRUNKIND" property="jyrunkind" jdbcType="VARCHAR" />
+        <result column="RUNKINDS" property="runkinds" jdbcType="VARCHAR" />
+        <result column="LASTYEARCHECKDATE" property="lastyearcheckdate" jdbcType="TIMESTAMP" />
+        <result column="LASTYEARCHECKRESULT" property="lastyearcheckresult" jdbcType="VARCHAR" />
+        <result column="YLZT" property="ylzt" jdbcType="INTEGER" />
+        <result column="EXITDATE" property="exitdate" jdbcType="TIMESTAMP" />
+        <result column="APPLYNO" property="applyno" jdbcType="VARCHAR" />
+        <result column="APPLYSTATUS" property="applystatus" jdbcType="VARCHAR" />
+        <result column="NOTE" property="note" jdbcType="VARCHAR" />
+        <result column="DOCNO" property="docno" jdbcType="VARCHAR" />
+        <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="LASTMODIFYDATE" property="lastmodifydate" jdbcType="TIMESTAMP" />
+        <result column="GKKIND" property="gkkind" jdbcType="VARCHAR" />
+        <result column="GKENTERPRISENO" property="gkenterpriseno" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+
+    </resultMap>
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.sslyzgl.SslyzglDTO" >
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="second_name" property="secondName" jdbcType="VARCHAR" />
+        <result column="second_value" property="secondValue" jdbcType="BIGINT" />
+        <result column="third_name" property="thirdName" jdbcType="VARCHAR" />
+        <result column="third_value" property="thirdValue" jdbcType="BIGINT" />
+        <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
+        <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
+    </resultMap>
+    <!--获取总个数-->
+    <select id="getTSlyzShipenterprisesCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_SHIPENTERPRISES
+    </select>
+    <!--获取总个数-->
+    <select id="getTSlyzShipenterprisesCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_SHIPENTERPRISES
+    </select>
+
+    <select id="getTSlyzShipenterprisesByPageable" resultMap="TSlyzShipenterprisesInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPENTERPRISES a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTSlyzShipenterprisesByParamsPageable" resultMap="TSlyzShipenterprisesInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPENTERPRISES a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
+      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
+      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
+      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_SHIPENTERPRISES
+    </select>
+</mapper>

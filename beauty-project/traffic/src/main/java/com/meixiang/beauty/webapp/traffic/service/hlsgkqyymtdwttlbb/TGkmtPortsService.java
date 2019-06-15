@@ -1,7 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb;
 
 import com.aliyun.opensearch.sdk.dependencies.com.google.common.collect.Lists;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtPortsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortsDao;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtPortsDTO;
 import com.meixiang.beauty.webapp.traffic.utils.ClassUtil;
 import org.springframework.beans.factory.annotation.Autowired;

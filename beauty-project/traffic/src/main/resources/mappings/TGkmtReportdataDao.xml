@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TGkmtReportdataDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtReportdataDao">
     <resultMap id="TGkmtReportdataInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtReportdataDTO" >
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="DATA_IMPORT_OVERSEA" property="dataImportOversea" jdbcType="DOUBLE" />

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzShipsDao">
+    <resultMap id="TSlyzShipsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzShipsDTO" >
+        <result column="SHIPNO" property="shipno" jdbcType="VARCHAR" />
+        <result column="ENTERPRISENO" property="enterpriseno" jdbcType="VARCHAR" />
+        <result column="SHIPCHECKNO" property="shipcheckno" jdbcType="VARCHAR" />
+        <result column="SHIPENROLLNO" property="shipenrollno" jdbcType="VARCHAR" />
+        <result column="SHIPIDENTIFYNO" property="shipidentifyno" jdbcType="VARCHAR" />
+        <result column="PORTNAME" property="portname" jdbcType="VARCHAR" />
+        <result column="SHIPNAME" property="shipname" jdbcType="VARCHAR" />
+        <result column="SHIPOLDNAME" property="shipoldname" jdbcType="VARCHAR" />
+        <result column="KINDNO" property="kindno" jdbcType="VARCHAR" />
+        <result column="STANDARDKIND" property="standardkind" jdbcType="VARCHAR" />
+        <result column="MATERIAL" property="material" jdbcType="VARCHAR" />
+        <result column="FUEL" property="fuel" jdbcType="VARCHAR" />
+        <result column="TOTALTON" property="totalton" jdbcType="INTEGER" />
+        <result column="TOTALCARRY" property="totalcarry" jdbcType="INTEGER" />
+        <result column="TON" property="ton" jdbcType="INTEGER" />
+        <result column="CARPLACE" property="carplace" jdbcType="INTEGER" />
+        <result column="SEAT" property="seat" jdbcType="INTEGER" />
+        <result column="TEU" property="teu" jdbcType="INTEGER" />
+        <result column="VOLUME" property="volume" jdbcType="DOUBLE" />
+        <result column="MOTORCOUNT" property="motorcount" jdbcType="INTEGER" />
+        <result column="POWER" property="power" jdbcType="DOUBLE" />
+        <result column="LENGTH" property="length" jdbcType="DOUBLE" />
+        <result column="WIDTH" property="width" jdbcType="DOUBLE" />
+        <result column="EATWATER" property="eatwater" jdbcType="DOUBLE" />
+        <result column="SPEED" property="speed" jdbcType="DOUBLE" />
+        <result column="BUILDDATE" property="builddate" jdbcType="TIMESTAMP" />
+        <result column="REBUILDDATE" property="rebuilddate" jdbcType="TIMESTAMP" />
+        <result column="VOYAGEAREA" property="voyagearea" jdbcType="VARCHAR" />
+        <result column="NATIONKIND" property="nationkind" jdbcType="VARCHAR" />
+        <result column="CONTROLSTATUS" property="controlstatus" jdbcType="VARCHAR" />
+        <result column="OWNERNAME" property="ownername" jdbcType="VARCHAR" />
+        <result column="OWNERTELEPHONE" property="ownertelephone" jdbcType="VARCHAR" />
+        <result column="SHIPMANAGER" property="shipmanager" jdbcType="VARCHAR" />
+        <result column="SHIPMANAGERXKZNO" property="shipmanagerxkzno" jdbcType="VARCHAR" />
+        <result column="YYZUNITNO" property="yyzunitno" jdbcType="VARCHAR" />
+        <result column="YYZNO" property="yyzno" jdbcType="VARCHAR" />
+        <result column="YYZRUNKIND" property="yyzrunkind" jdbcType="VARCHAR" />
+        <result column="YYZPRINTDATE" property="yyzprintdate" jdbcType="TIMESTAMP" />
+        <result column="YYZENDDATE" property="yyzenddate" jdbcType="TIMESTAMP" />
+        <result column="XKZENDDATE" property="xkzenddate" jdbcType="TIMESTAMP" />
+        <result column="NSHGZDATE" property="nshgzdate" jdbcType="TIMESTAMP" />
+        <result column="NSHGZRESULT" property="nshgzresult" jdbcType="VARCHAR" />
+        <result column="LASTCHANGEDATE" property="lastchangedate" jdbcType="TIMESTAMP" />
+        <result column="LASTCHANGEKIND" property="lastchangekind" jdbcType="VARCHAR" />
+        <result column="APPLYNO" property="applyno" jdbcType="VARCHAR" />
+        <result column="APPLYSTATUS" property="applystatus" jdbcType="VARCHAR" />
+        <result column="SHIPNOTE" property="shipnote" jdbcType="VARCHAR" />
+        <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="LASTMODIFYDATE" property="lastmodifydate" jdbcType="TIMESTAMP" />
+        <result column="SHIPDOCNO" property="shipdocno" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+
+    </resultMap>
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.sslyzgl.SslyzglDTO" >
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="second_name" property="secondName" jdbcType="VARCHAR" />
+        <result column="second_value" property="secondValue" jdbcType="BIGINT" />
+        <result column="third_name" property="thirdName" jdbcType="VARCHAR" />
+        <result column="third_value" property="thirdValue" jdbcType="BIGINT" />
+        <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
+        <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
+    </resultMap>
+    <!--获取总个数-->
+    <select id="getTSlyzShipsCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_SHIPS
+    </select>
+    <!--获取总个数-->
+    <select id="getTSlyzShipsCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_SHIPS
+    </select>
+
+    <select id="getTSlyzShipsByPageable" resultMap="TSlyzShipsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTSlyzShipsByParamsPageable" resultMap="TSlyzShipsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
+      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
+      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
+      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_SHIPS
+    </select>
+</mapper>

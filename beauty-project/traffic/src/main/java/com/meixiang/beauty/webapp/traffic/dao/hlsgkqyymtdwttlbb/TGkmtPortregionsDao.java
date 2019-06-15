@@ -1,4 +1,4 @@
-package com.meixiang.beauty.webapp.traffic.dao;
+package com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb;
 
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtPortregionsDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;

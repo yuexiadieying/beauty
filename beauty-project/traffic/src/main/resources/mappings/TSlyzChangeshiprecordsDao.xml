@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzChangeshiprecordsDao">
+    <resultMap id="TSlyzChangeshiprecordsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzChangeshiprecordsDTO" >
+        <result column="CHANGENO" property="changeno" jdbcType="VARCHAR" />
+        <result column="SHIPNO" property="shipno" jdbcType="VARCHAR" />
+        <result column="SHIPCHECKNO" property="shipcheckno" jdbcType="VARCHAR" />
+        <result column="SHIPNAME" property="shipname" jdbcType="VARCHAR" />
+        <result column="KINDNO" property="kindno" jdbcType="VARCHAR" />
+        <result column="PORTNAME" property="portname" jdbcType="VARCHAR" />
+        <result column="TOTALTON" property="totalton" jdbcType="INTEGER" />
+        <result column="YYZNO" property="yyzno" jdbcType="VARCHAR" />
+        <result column="YYZRUNKIND" property="yyzrunkind" jdbcType="VARCHAR" />
+        <result column="YYZPRINTDATE" property="yyzprintdate" jdbcType="TIMESTAMP" />
+        <result column="ENTERPRISENAME" property="enterprisename" jdbcType="VARCHAR" />
+        <result column="OWNERNAME" property="ownername" jdbcType="VARCHAR" />
+        <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />
+        <result column="CHANGEDATE" property="changedate" jdbcType="TIMESTAMP" />
+        <result column="CHANGEKIND" property="changekind" jdbcType="VARCHAR" />
+        <result column="ZXDJZNO" property="zxdjzno" jdbcType="VARCHAR" />
+        <result column="ZXDJZPRINTDATE" property="zxdjzprintdate" jdbcType="TIMESTAMP" />
+        <result column="CHANGENOTE" property="changenote" jdbcType="VARCHAR" />
+        <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+
+    </resultMap>
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.sslyzgl.SslyzglDTO" >
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="second_name" property="secondName" jdbcType="VARCHAR" />
+        <result column="second_value" property="secondValue" jdbcType="BIGINT" />
+        <result column="third_name" property="thirdName" jdbcType="VARCHAR" />
+        <result column="third_value" property="thirdValue" jdbcType="BIGINT" />
+        <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
+        <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
+    </resultMap>
+    <!--获取总个数-->
+    <select id="getTSlyzChangeshiprecordsCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_CHANGESHIPRECORDS
+    </select>
+    <!--获取总个数-->
+    <select id="getTSlyzChangeshiprecordsCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SLYZ_CHANGESHIPRECORDS
+    </select>
+
+    <select id="getTSlyzChangeshiprecordsByPageable" resultMap="TSlyzChangeshiprecordsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_CHANGESHIPRECORDS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTSlyzChangeshiprecordsByParamsPageable" resultMap="TSlyzChangeshiprecordsInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_CHANGESHIPRECORDS a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
+      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
+      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
+      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_CHANGESHIPRECORDS
+    </select>
+</mapper>

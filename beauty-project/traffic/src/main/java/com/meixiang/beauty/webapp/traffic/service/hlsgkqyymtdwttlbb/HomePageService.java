@@ -1,14 +1,14 @@
 package com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb;
 
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtUnitsDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtUnitusersDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtReportdataDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtQuickreportdataDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtPortsDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtPortregionsDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtEnterpriseusersDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtEnterprisesDao;
-import com.meixiang.beauty.webapp.traffic.dao.TGkmtBerthsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtUnitsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtUnitusersDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtReportdataDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortregionsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterprisesDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtBerthsDao;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
