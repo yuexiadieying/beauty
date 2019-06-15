@@ -5,7 +5,10 @@ import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.GkqymlDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.SslyzglDTO;
+import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzUnitsHnDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.XzqhDTO;
+import com.meixiang.beauty.webapp.traffic.service.sslyzgl.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +18,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //省水路运政管理
 @Controller
 @RequestMapping(value = "sslyzgl")
 public class SslyzglController {
 
-    //todo 省水路运政管理首页
+    @Autowired
+    private HomePageService homePageService;
+
+    @Autowired
+    private TSlyzXzqhsService tSlyzXzqhsService;
+
+    @Autowired
+    private TSlyzUnitsHnService tSlyzUnitsHnService;
+
+    @Autowired
+    private TSlyzApproveapplyrecordsService tSlyzApproveapplyrecordsService;
+
+    @Autowired
+    private TSlyzChangeshiprecordsService tSlyzChangeshiprecordsService;
+
+    @Autowired
+    private TSlyzEnterpriseillegalrunrdService tSlyzEnterpriseillegalrunrdService;
+
+    @Autowired
+    private TSlyzExitenterpriserecordsService tSlyzExitenterpriserecordsService;
+
+    //todo 省水路运政管理首页 带测试
     @RequestMapping(value = "", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
@@ -29,7 +54,7 @@ public class SslyzglController {
         List<SslyzglDTO> sslyzglDTOList = new ArrayList<>();
         ResponseDTO<List<SslyzglDTO>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 sslyzglDTOList
+        sslyzglDTOList = homePageService.getHomePageInfo();
 
         responseDTO.setResponseData(sslyzglDTOList);
         return  responseDTO;
@@ -40,15 +65,15 @@ public class SslyzglController {
     @RequestMapping(value = "xzqh", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<XzqhDTO>>> getXzqhDTO(@RequestBody PageParamDTO pageParamDTO){
-        List<XzqhDTO> xzqhDTOList = new ArrayList<>();
-        PageParamDTO<List<XzqhDTO>> paramDTO = new PageParamDTO<>();
-        ResponseDTO<PageParamDTO<List<XzqhDTO>>> responseDTO = new ResponseDTO<>();
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getXzqhDTO(@RequestBody PageParamDTO pageParamDTO){
+        List<Map<String, Object>> xzqhDTOList = new ArrayList<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 PageParamDTO<List<XzqhDTO>>
+        xzqhDTOList = tSlyzXzqhsService.getTSlyzXzqhsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
 
-
-        paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
+        paramDTO.setTotalCount(tSlyzXzqhsService.getTSlyzXzqhsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(xzqhDTOList);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
