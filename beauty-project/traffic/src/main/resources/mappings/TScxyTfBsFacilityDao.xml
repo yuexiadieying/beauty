@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsFacilityDao">
+    <resultMap id="TScxyTfBsFacilityInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsFacilityDTO" >
+        <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
+        <result column="FACILITY_ID" property="facilityId" jdbcType="VARCHAR" />
+        <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
+        <result column="FACILITY_NAME" property="facilityName" jdbcType="VARCHAR" />
+        <result column="FACILITY_NUM" property="facilityNum" jdbcType="DOUBLE" />
+        <result column="FACILITY_UNIT" property="facilityUnit" jdbcType="VARCHAR" />
+        <result column="STANDARD_NUM" property="standardNum" jdbcType="DOUBLE" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="SYSOPERTIME" property="sysopertime" jdbcType="DOUBLE" />
+        <result column="EDITIME" property="editime" jdbcType="VARCHAR" />
+        <result column="EDIDATE" property="edidate" jdbcType="VARCHAR" />
+        <result column="EDIUSRCODE" property="ediusrcode" jdbcType="VARCHAR" />
+        <result column="CRETIME" property="cretime" jdbcType="VARCHAR" />
+        <result column="CREDATE" property="credate" jdbcType="VARCHAR" />
+        <result column="CREUSRCODE" property="creusrcode" jdbcType="VARCHAR" />
+        <result column="ISEFFECT" property="iseffect" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
+
+    </resultMap>
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.hnsglsljsyysscxxfwxt.DTO" >
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="second_name" property="secondName" jdbcType="VARCHAR" />
+        <result column="second_value" property="secondValue" jdbcType="BIGINT" />
+        <result column="third_name" property="thirdName" jdbcType="VARCHAR" />
+        <result column="third_value" property="thirdValue" jdbcType="BIGINT" />
+        <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
+        <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
+    </resultMap>
+    <!--获取总个数-->
+    <select id="getTScxyTfBsFacilityCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SCXY_TF_BS_FACILITY
+    </select>
+    <!--获取总个数-->
+    <select id="getTScxyTfBsFacilityCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SCXY_TF_BS_FACILITY
+    </select>
+
+    <select id="getTScxyTfBsFacilityByPageable" resultMap="TScxyTfBsFacilityInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_FACILITY a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getTScxyTfBsFacilityByParamsPageable" resultMap="TScxyTfBsFacilityInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_FACILITY a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+    </select>
+    <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
+      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
+      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
+      COUNT(DISTINCT ***) as fourth_value from T_SCXY_TF_BS_FACILITY
+    </select>
+</mapper>
