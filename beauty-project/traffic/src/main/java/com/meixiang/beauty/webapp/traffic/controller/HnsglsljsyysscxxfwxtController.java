@@ -2,13 +2,15 @@ package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
+import com.meixiang.beauty.webapp.traffic.service.hnsglsljsyysscxxfwxt.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 
 //湖南省公路水路建设与运输市场信息服务系统
@@ -16,19 +18,81 @@ import java.util.List;
 @RequestMapping(value = "hnsglsljsyysscxxfwxt")
 public class HnsglsljsyysscxxfwxtController {
 
+    @Autowired
+    private TScxyTfBsAccidentService tScxyTfBsAccidentService;
+
+    @Autowired
+    private TScxyTfBsAdvancedDeedService tScxyTfBsAdvancedDeedService;
+
+    @Autowired
+    private TScxyTfBsAppealReportService tScxyTfBsAppealReportService;
+
+    @Autowired
+    private TScxyTfBsBusCreditRecordService tScxyTfBsBusCreditRecordService;
+
+    @Autowired
+    private TScxyTfBsBusReformRecordService tScxyTfBsBusReformRecordService;
+
+    @Autowired
+    private TScxyTfBsComplaintService tScxyTfBsComplaintService;
+
+    @Autowired
+    private TScxyTfBsCreditReportService tScxyTfBsCreditReportService;
+
+    @Autowired
+    private TScxyTfBsDriverCreditService tScxyTfBsDriverCreditService;
+
+    @Autowired
+    private TScxyTfBsEntStabilityService tScxyTfBsEntStabilityService;
+
+    @Autowired
+    private TScxyTfBsEquipmentService tScxyTfBsEquipmentService;
+
+    @Autowired
+    private TScxyTfBsEsignCntRptService tScxyTfBsEsignCntRptService;
+
+    @Autowired
+    private TScxyTfBsFacilityService tScxyTfBsFacilityService;
+
+    @Autowired
+    private TScxyTfBsGovTransTaskService tScxyTfBsGovTransTaskService;
+
+    @Autowired
+    private TScxyTfBsIllegalService tScxyTfBsIllegalService;
+
+    @Autowired
+    private TScxyTfBsOwnerHonorService tScxyTfBsOwnerHonorService;
+
+    @Autowired
+    private TScxyTfBsOwnerReformService tScxyTfBsOwnerReformService;
+
+    @Autowired
+    private TScxyTfBsOwnerRfrmCntService tScxyTfBsOwnerRfrmCntService;
+
+    @Autowired
+    private TScxyTfBsOwnerRuleService tScxyTfBsOwnerRuleService;
+
+    @Autowired
+    private TScxyTfBsQualityEventService tScxyTfBsQualityEventService;
+
+    @Autowired
+    private TScxyTfPtPersonService tScxyTfPtPersonService;
+
     //todo 交通责任事故表
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jtzrsgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jtzrsgb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> jtzrsgb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
+        paramDTO.setRequestData(tScxyTfBsAccidentService
+                .getTScxyTfBsAccidentByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
 
-        paramDTO.setTotalCount(10);
+        paramDTO.setTotalCount(tScxyTfBsAccidentService.getTScxyTfBsAccidentCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -38,14 +102,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "clxykhb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> clxykhb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> clxykhb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsBusCreditRecordService
+                .getTScxyTfBsBusCreditRecordByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsBusCreditRecordService.getTScxyTfBsBusCreditRecordCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -55,14 +120,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "clzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> clzlzgb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> clzlzgb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsBusReformRecordService
+                .getTScxyTfBsBusReformRecordByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsBusReformRecordService.getTScxyTfBsBusReformRecordCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -72,14 +138,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "shtsb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> shtsb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> shtsb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsComplaintService
+                .getTScxyTfBsComplaintByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsComplaintService.getTScxyTfBsComplaintCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -89,14 +156,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "yhkhsbb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> yhkhsbb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> yhkhsbb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsCreditReportService
+                .getTScxyTfBsCreditReportByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsCreditReportService.getTScxyTfBsCreditReportCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -106,14 +174,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "cyrykhqzb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> cyrykhqzb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> cyrykhqzb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsDriverCreditService
+                .getTScxyTfBsDriverCreditByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsDriverCreditService.getTScxyTfBsDriverCreditCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -123,14 +192,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "wgsfb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> wgsfb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> wgsfb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsEntStabilityService
+                .getTScxyTfBsEntStabilityByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsEntStabilityService.getTScxyTfBsEntStabilityCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -140,14 +210,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "sbdab", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> sbdab(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> sbdab(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsEquipmentService
+                .getTScxyTfBsEquipmentByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -157,14 +228,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "dzqzsbnrb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> dzqzsbnrb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> dzqzsbnrb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsEsignCntRptService
+                .getTScxyTfBsEsignCntRptByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsEsignCntRptService.getTScxyTfBsEsignCntRptCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -174,14 +246,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "ssdab", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> ssdab(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> ssdab(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsEquipmentService
+                .getTScxyTfBsEquipmentByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -191,14 +264,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "zfysrwb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> zfysrwb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> zfysrwb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsGovTransTaskService
+                .getTScxyTfBsGovTransTaskByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsGovTransTaskService.getTScxyTfBsGovTransTaskCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -208,14 +282,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "jywzb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jywzb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> jywzb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsIllegalService
+                .getTScxyTfBsIllegalByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsIllegalService.getTScxyTfBsIllegalCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -225,14 +300,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "qyryb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> qyryb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> qyryb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsOwnerHonorService
+                .getTScxyTfBsOwnerHonorByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsOwnerHonorService.getTScxyTfBsOwnerHonorCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -242,14 +318,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "yhzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> yhzlzgb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> yhzlzgb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsOwnerReformService
+                .getTScxyTfBsOwnerReformByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsOwnerReformService.getTScxyTfBsOwnerReformCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -259,14 +336,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "zgnrb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> zgnrb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> zgnrb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsOwnerRfrmCntService
+                .getTScxyTfBsOwnerRfrmCntByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsOwnerRfrmCntService.getTScxyTfBsOwnerRfrmCntCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -276,14 +354,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "gzzdb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> gzzdb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> gzzdb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsOwnerRuleService
+                .getTScxyTfBsOwnerRuleByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsOwnerRuleService.getTScxyTfBsOwnerRuleCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -293,14 +372,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "exfwsjb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> exfwsjb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> exfwsjb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsQualityEventService
+                .getTScxyTfBsQualityEventByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsQualityEventService.getTScxyTfBsQualityEventCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -310,10 +390,10 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "jxjyjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> jxjyjl(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> jxjyjl(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
 
@@ -327,14 +407,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "ygxxb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> ygxxb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> ygxxb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfPtPersonService
+                .getTScxyTfPtPersonByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfPtPersonService.getTScxyTfPtPersonCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -344,14 +425,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "xjsjb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> xjsjb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> xjsjb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsAdvancedDeedService
+                .getTScxyTfBsAdvancedDeedByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsAdvancedDeedService.getTScxyTfBsAdvancedDeedCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -361,14 +443,15 @@ public class HnsglsljsyysscxxfwxtController {
     @RequestMapping(value = "sszb", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> sszb(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String,Object>>>> sszb(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<HashMap<String,Object>>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<HashMap<String,Object>>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
-
-        paramDTO.setTotalCount(10);
+        paramDTO.setRequestData(tScxyTfBsAppealReportService
+                .getTScxyTfBsAppealReportByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo()));
+        paramDTO.setTotalCount(tScxyTfBsAppealReportService.getTScxyTfBsAppealReportCount());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
