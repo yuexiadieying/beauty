@@ -21,15 +21,6 @@
         <result column="RULE_CONTENT" property="ruleContent" jdbcType="VARCHAR" />
 
     </resultMap>
-    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.DTO" >
-        <result column="name" property="name" jdbcType="VARCHAR" />
-        <result column="second_name" property="secondName" jdbcType="VARCHAR" />
-        <result column="second_value" property="secondValue" jdbcType="BIGINT" />
-        <result column="third_name" property="thirdName" jdbcType="VARCHAR" />
-        <result column="third_value" property="thirdValue" jdbcType="BIGINT" />
-        <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
-        <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
-    </resultMap>
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerRuleCount" resultType="java.lang.Integer">
         SELECT count(1) FROM T_SCXY_TF_BS_OWNER_RULE
