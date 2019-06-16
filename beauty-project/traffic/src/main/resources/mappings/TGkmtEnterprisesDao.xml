@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterprisesDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TGkmtEnterprisesDao">
     <resultMap id="TGkmtEnterprisesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtEnterprisesDTO" >
         <result column="REPORT_YEAR" property="reportYear" jdbcType="DOUBLE" />
         <result column="ENTERPRISE_NO" property="enterpriseNo" jdbcType="DOUBLE" />
@@ -15,7 +15,7 @@
         <result column="ENTERPRISE_TELEPHONE" property="enterpriseTelephone" jdbcType="VARCHAR" />
 
     </resultMap>
-    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.hlsgkqyymtdwttlbb.TtlbbDTO" >
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO" >
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="second_name" property="secondName" jdbcType="VARCHAR" />
         <result column="second_value" property="secondValue" jdbcType="BIGINT" />
@@ -35,11 +35,11 @@
 
     <select id="getTGkmtEnterprisesByPageable" resultMap="TGkmtEnterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_ENTERPRISES a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtEnterprisesByParamsPageable" resultMap="TGkmtEnterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_ENTERPRISES a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 

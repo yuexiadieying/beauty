@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TGkmtQuickreportdataDao">
     <resultMap id="TGkmtQuickreportdataInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDTO" >
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="DATA_IMPORT_OVERSEA" property="dataImportOversea" jdbcType="DOUBLE" />
@@ -14,7 +14,7 @@
         <result column="DATA_EXPORT" property="dataExport" jdbcType="DOUBLE" />
 
     </resultMap>
-    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.hlsgkqyymtdwttlbb.TtlbbDTO" >
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO" >
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="second_name" property="secondName" jdbcType="VARCHAR" />
         <result column="second_value" property="secondValue" jdbcType="BIGINT" />
@@ -34,11 +34,11 @@
 
     <select id="getTGkmtQuickreportdataByPageable" resultMap="TGkmtQuickreportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_QUICKREPORTDATA a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtQuickreportdataByParamsPageable" resultMap="TGkmtQuickreportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_QUICKREPORTDATA a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
