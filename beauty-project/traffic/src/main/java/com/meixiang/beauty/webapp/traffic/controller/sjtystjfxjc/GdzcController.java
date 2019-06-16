@@ -33,16 +33,16 @@ public class GdzcController {
     }
 
     //todo 新增生产力情况
-    @RequestMapping(value = "cskyzytjzbksnbxx", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "xzsclqk", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<List<HashMap<String,Object>>> cskyzytjzbksnbxx(){
-        List<HashMap<String,Object>> cskyzytjzbksnbxxList = new ArrayList<>();
+    ResponseDTO<List<HashMap<String,Object>>> xzsclqk(){
+        List<HashMap<String,Object>> xzsclqkList = new ArrayList<>();
         ResponseDTO<List<HashMap<String,Object>>> responseDTO = new ResponseDTO<>();
 
-        //todo 通过业务层获取 cskyzytjzbksnbxxList
+        //todo 通过业务层获取 xzsclqkList
 
-        responseDTO.setResponseData(cskyzytjzbksnbxxList);
+        responseDTO.setResponseData(xzsclqkList);
         return  responseDTO;
     }
 

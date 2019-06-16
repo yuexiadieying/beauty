@@ -30,7 +30,7 @@ import java.util.List;
  * Created by WY on 2019/6/11.
  */
 @Service
-public class HomePageService {
+public class SslyzglHomePageService {
     @Autowired
     private TSlyzApproveapplyrecordsDao tSlyzApproveapplyrecordsDao;
 

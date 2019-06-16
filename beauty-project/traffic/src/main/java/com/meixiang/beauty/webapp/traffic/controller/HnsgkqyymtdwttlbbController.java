@@ -4,7 +4,7 @@ import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
-import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.HomePageService;
+import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.HlsgkqyymtdwttlbbHomePageService;
 import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtBerthsService;
 import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtEnterprisesService;
 import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersService;
@@ -59,7 +59,7 @@ public class HnsgkqyymtdwttlbbController {
     private TGkmtUnitusersService tGkmtUnitusersService;
 
     @Autowired
-    private HomePageService homePageService;
+    private HlsgkqyymtdwttlbbHomePageService homePageService;
 
     //todo 湖南省港口企业与码头单位吞吐量报表首页
     @RequestMapping(value = "ttlbb", method = {RequestMethod.POST, RequestMethod.GET})

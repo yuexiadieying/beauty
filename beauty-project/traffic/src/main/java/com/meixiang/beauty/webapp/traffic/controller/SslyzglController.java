@@ -2,11 +2,7 @@ package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
-import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.GkqymlDTO;
-import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.SslyzglDTO;
-import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzUnitsHnDTO;
-import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.XzqhDTO;
 import com.meixiang.beauty.webapp.traffic.service.sslyzgl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +21,7 @@ import java.util.Map;
 public class SslyzglController {
 
     @Autowired
-    private HomePageService homePageService;
+    private SslyzglHomePageService homePageService;
 
     @Autowired
     private TSlyzXzqhsService tSlyzXzqhsService;

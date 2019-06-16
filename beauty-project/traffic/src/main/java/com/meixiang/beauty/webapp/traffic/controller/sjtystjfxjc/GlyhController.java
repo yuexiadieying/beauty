@@ -155,7 +155,7 @@ public class GlyhController {
     }
 
     //todo 公路应急储备物资统计
-    @RequestMapping(value = "gllhqk", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "glyjcbwztj", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
     ResponseDTO<List<HashMap<String,Object>>> glyjcbwztj(){
