@@ -37,7 +37,7 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
-    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.sslyzgl.SslyzglDTO" >
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.SslyzglDTO" >
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="second_name" property="secondName" jdbcType="VARCHAR" />
         <result column="second_value" property="secondValue" jdbcType="BIGINT" />
@@ -57,11 +57,11 @@
 
     <select id="getTSlyzServiceenterprisesByPageable" resultMap="TSlyzServiceenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzServiceenterprisesByParamsPageable" resultMap="TSlyzServiceenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 

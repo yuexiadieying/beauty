@@ -9,7 +9,7 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
-    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.common.dto.hnsglsljsyysscxxfwxt.DTO" >
+    <resultMap id="homepageInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.DTO" >
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="second_name" property="secondName" jdbcType="VARCHAR" />
         <result column="second_value" property="secondValue" jdbcType="BIGINT" />
@@ -29,15 +29,11 @@
 
     <select id="getTScxyTfBsOwnerRfrmCntByPageable" resultMap="TScxyTfBsOwnerRfrmCntInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsOwnerRfrmCntByParamsPageable" resultMap="TScxyTfBsOwnerRfrmCntInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM <= #{end}) WHERE rn > #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
-    <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SCXY_TF_BS_OWNER_RFRM_CNT
-    </select>
+
 </mapper>
