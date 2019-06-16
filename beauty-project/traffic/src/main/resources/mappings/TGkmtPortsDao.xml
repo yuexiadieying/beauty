@@ -37,8 +37,8 @@
       FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_GKMT_PORTS
+      select '全省港口表' AS name, '泊位' AS second_name, count(DISTINCT PORT_NO) as second_value,
+      '增加报告' as third_name, COUNT(DISTINCT PERIODKIND) as third_value, '报废报告' as fourth_name,
+      COUNT(DISTINCT PERIODKIND) as fourth_value from T_GKMT_PORTS
     </select>
 </mapper>

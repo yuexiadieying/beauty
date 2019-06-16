@@ -43,8 +43,8 @@
       FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_APPROVEAPPLYRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_APPROVEAPPLYRECORDS
+      select '许可申请记录' AS name, '申请机构' AS second_name, count(DISTINCT APPLYUNITNO) as second_value,
+      '机构等级' as third_name, COUNT(DISTINCT APPLYUNITNO) as third_value, '' as fourth_name,
+      0 as fourth_value from T_SLYZ_APPROVEAPPLYRECORDS
     </select>
 </mapper>

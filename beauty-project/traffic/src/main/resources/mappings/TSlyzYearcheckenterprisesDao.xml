@@ -51,8 +51,8 @@
       FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_YEARCHECKENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_YEARCHECKENTERPRISES
+      select '年度审验业户记录' AS name, '2019年度至今年审企业' AS second_name, count(DISTINCT ENTERPRISENO) as second_value,
+      '' as third_name, 0 as third_value, '0' as fourth_name,
+      0 as fourth_value from T_SLYZ_YEARCHECKENTERPRISES
     </select>
 </mapper>
