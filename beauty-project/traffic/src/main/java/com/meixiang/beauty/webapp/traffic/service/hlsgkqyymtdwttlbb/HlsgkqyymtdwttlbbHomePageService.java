@@ -49,7 +49,6 @@ public class HlsgkqyymtdwttlbbHomePageService {
     private TGkmtBerthsDao tGkmtBerthsDao;
 
 
-
     public List<TtlbbDTO> getHomePageInfo() {
         List<TtlbbDTO> res = new ArrayList<>();
         res.add(tGkmtUnitsDao.getHomepageInfo());
