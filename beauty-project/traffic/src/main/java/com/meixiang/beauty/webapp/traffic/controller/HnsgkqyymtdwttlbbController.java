@@ -106,6 +106,7 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
         qsbwzkDTOList = tGkmtBerthsService.getTGkmtBerthsByPageable(0, 10000, gkqy, mtdw, startDate, endDate);
+
         responseDTO.setResponseData(qsbwzkDTOList);
         return  responseDTO;
     }
