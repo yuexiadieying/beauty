@@ -25,6 +25,14 @@ public class TtlbbDTO {
     @JSONField(name = "thirdValue")
     private String thirdValue;
 
+    //四级名称，例如，机构，人员，港口管理单位，港区管理单位等。。。
+    @JSONField(name = "fourthName")
+    private String fourthName;
+
+    //四级名称对应的数据，例如，10个
+    @JSONField(name = "fourthValue")
+    private String fourthValue;
+
     public String getName() {
         return name;
     }
@@ -63,5 +71,21 @@ public class TtlbbDTO {
 
     public void setThirdValue(String thirdValue) {
         this.thirdValue = thirdValue;
+    }
+
+    public String getFourthName() {
+        return fourthName;
+    }
+
+    public void setFourthName(String fourthName) {
+        this.fourthName = fourthName;
+    }
+
+    public String getFourthValue() {
+        return fourthValue;
+    }
+
+    public void setFourthValue(String fourthValue) {
+        this.fourthValue = fourthValue;
     }
 }
