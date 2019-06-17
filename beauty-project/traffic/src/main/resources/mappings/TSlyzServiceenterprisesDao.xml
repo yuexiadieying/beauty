@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzServiceenterprisesDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzServiceenterprisesDao">
     <resultMap id="TSlyzServiceenterprisesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzServiceenterprisesDTO" >
         <result column="ENTERPRISENO" property="enterpriseno" jdbcType="VARCHAR" />
         <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />

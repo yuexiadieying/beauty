@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzPortsHnDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzPortsHnDao">
     <resultMap id="TSlyzPortsHnInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzPortsHnDTO" >
         <result column="PORTNO" property="portno" jdbcType="VARCHAR" />
         <result column="PORTNAME" property="portname" jdbcType="VARCHAR" />

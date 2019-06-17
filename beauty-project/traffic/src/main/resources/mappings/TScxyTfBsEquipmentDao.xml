@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsEquipmentDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsEquipmentDao">
     <resultMap id="TScxyTfBsEquipmentInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsEquipmentDTO" >
         <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
         <result column="EQUIP_ID" property="equipId" jdbcType="VARCHAR" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzYearcheckshipsDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzYearcheckshipsDao">
     <resultMap id="TSlyzYearcheckshipsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzYearcheckshipsDTO" >
         <result column="YEARCHECKNO" property="yearcheckno" jdbcType="VARCHAR" />
         <result column="SHIPNO" property="shipno" jdbcType="VARCHAR" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzShipkindsDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzShipkindsDao">
     <resultMap id="TSlyzShipkindsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzShipkindsDTO" >
         <result column="KINDNO" property="kindno" jdbcType="VARCHAR" />
         <result column="KINDNAME" property="kindname" jdbcType="VARCHAR" />

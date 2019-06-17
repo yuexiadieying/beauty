@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TSlyzTfBsRestudyrecordScDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzTfBsRestudyrecordScDao">
     <resultMap id="TSlyzTfBsRestudyrecordScInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzTfBsRestudyrecordScDTO" >
         <result column="RESTUDYID" property="restudyid" jdbcType="VARCHAR" />
         <result column="CERID" property="cerid" jdbcType="VARCHAR" />
