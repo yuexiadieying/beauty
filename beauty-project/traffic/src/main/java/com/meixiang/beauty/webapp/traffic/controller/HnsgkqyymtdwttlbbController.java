@@ -2,6 +2,8 @@ package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
+import com.meixiang.beauty.sys.annotation.LoginRequired;
+import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
 import com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb.HlsgkqyymtdwttlbbHomePageService;
@@ -63,6 +65,7 @@ public class HnsgkqyymtdwttlbbController {
 
     //todo 湖南省港口企业与码头单位吞吐量报表首页
     @RequestMapping(value = "ttlbb", method = {RequestMethod.POST, RequestMethod.GET})
+    @TrafficLoginRequired
     public
     @ResponseBody
     ResponseDTO<List<TtlbbDTO>> getTtlbbDTO(){
@@ -78,6 +81,7 @@ public class HnsgkqyymtdwttlbbController {
 
     //todo 全市泊位表中统计数据，包括了累计港口泊位数、增加的报告期、报废的报告期
     @RequestMapping(value = "qsbwbtjsj", method = {RequestMethod.POST, RequestMethod.GET})
+    @TrafficLoginRequired
     public
     @ResponseBody
     ResponseDTO<QsbwbtjsjDTO> getQsbwbtjsjDTO(){
@@ -96,6 +100,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo startDate 开始日期 2019-04-23
     //todo endDate 结束日期 2019-05-23
     @RequestMapping(value = "qsbwzk", method = {RequestMethod.POST, RequestMethod.GET})
+    @TrafficLoginRequired
     public
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getQsbwzkDTO(@RequestParam String gkqy,
