@@ -19,15 +19,30 @@ app.controller('ThroughputNextLevelCtrl', ['$scope','$stateParams', function($sc
 
 }]);
 
-app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams,$http) {
+
     $scope.fold = $stateParams.fold;
     $scope.d = [ [1,6.5],[2,6.5],[3,7],[4,8],[5,7.5],[6,7],[7,6.8],[8,7],[9,7.2],[10,7],[11,6.8],[12,7] ];
     $scope.d0_1 = [ [0,70],[1,60.5],[2,120.5],[3,70],[4,90],[5,60],[6,110],[7,60.5],[8,80],[9,70] ];
     $scope.d0_2 = [ [0,40],[1,40.5],[2,70],[3,40.5],[4,30],[5,30.5],[6,60],[7,30],[8,40],[9,30] ];
     $scope.tableTitle= [['表年份','归属港区编号','泊位代码','泊位名称','服务类型','货主类型','泊位长度','设计靠泊能力(吨级)','增加的报告期','报废的报告期','泊位状态','码头企业号'],['泊位编号','报表报告','报表行号','合计','外贸','出港数据','进港数据']]
 
+    if($scope.fold=='')
+    {
+        console.log($scope.fold);
+        $http.get('/traffic/hlsgkqyymtdwttlbb/qsbwbtjsj').then(function (resp) {
+
+            console.log(resp);
+
+        });
+
+    }
+
 }]);
-app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
+
+app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http', function($scope, $stateParams,$http) {
+
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
         ['唯一标识号','报表年份','辖机构编码','经济类型','联系电话','报表填报人(联系人)','创建报告期','注销时的报告期','企业状态'],
@@ -35,7 +50,19 @@ app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams', functio
         ['序号','全国统一港口编号','港口名称','港口归属机构编码','报告期类型','港口管理单位']
     ]
 
+    console.log($scope.fold)
+
+    if($scope.fold=='starred')
+    {
+        $http.get('/traffic/hlsgkqyymtdwttlbb/gkqyml',{}).then(function (resp) {
+
+            console.log(resp);
+
+        });
+    }
+
 }]);
+
 app.controller('ThroughputNextLevelManagementCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [

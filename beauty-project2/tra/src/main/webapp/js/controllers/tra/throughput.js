@@ -4,7 +4,12 @@
 
 app
   // Flot Chart controller 
-  .controller('ThroughputCtrl', ['$scope', function($scope) {
+  .controller('ThroughputCtrl', ['$scope', '$http', function($scope,$http) {
 
+    // $http.get('/traffic/hlsgkqyymtdwttlbb/ttlbb').then(function (resp) {
+    //
+    //     console.log(resp);
+    //
+    // });
 
   }]);
