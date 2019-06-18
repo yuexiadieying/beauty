@@ -24,24 +24,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtUnitsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_UNITS
+        SELECT count(1) FROM CDPRJ.T_GKMT_UNITS
     </select>
     <!--获取总个数-->
     <select id="getTGkmtUnitsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_UNITS
+        SELECT count(1) FROM CDPRJ.T_GKMT_UNITS
     </select>
 
     <select id="getTGkmtUnitsByPageable" resultMap="TGkmtUnitsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_UNITS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_UNITS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtUnitsByParamsPageable" resultMap="TGkmtUnitsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_UNITS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_UNITS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '行业管理机构' AS name, '港区' AS second_name, count(DISTINCT UNIT_NO) as second_value,
       '进港' as third_name, COUNT(DISTINCT UNIT_NO) as third_value, '出港' as fourth_name,
-      COUNT(DISTINCT UNIT_NO) as fourth_value from T_GKMT_UNITS
+      COUNT(DISTINCT UNIT_NO) as fourth_value from CDPRJ.T_GKMT_UNITS
     </select>
 </mapper>

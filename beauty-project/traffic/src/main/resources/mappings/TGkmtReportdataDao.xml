@@ -25,24 +25,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtReportdataCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_REPORTDATA
+        SELECT count(1) FROM CDPRJ.T_GKMT_REPORTDATA
     </select>
     <!--获取总个数-->
     <select id="getTGkmtReportdataCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_REPORTDATA
+        SELECT count(1) FROM CDPRJ.T_GKMT_REPORTDATA
     </select>
 
     <select id="getTGkmtReportdataByPageable" resultMap="TGkmtReportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtReportdataByParamsPageable" resultMap="TGkmtReportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '港口吞吐量' AS name, '人员' AS second_name, count(DISTINCT BERTH_NO) as second_value,
       '注销' as third_name, COUNT(DISTINCT BERTH_NO) as third_value, '' as fourth_name,
-      0 as fourth_value from T_GKMT_REPORTDATA
+      0 as fourth_value from CDPRJ.T_GKMT_REPORTDATA
     </select>
 </mapper>

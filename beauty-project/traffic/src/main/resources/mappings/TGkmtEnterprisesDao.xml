@@ -26,24 +26,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtEnterprisesCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_ENTERPRISES
+        SELECT count(1) FROM CDPRJ.T_GKMT_ENTERPRISES
     </select>
     <!--获取总个数-->
     <select id="getTGkmtEnterprisesCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_ENTERPRISES
+        SELECT count(1) FROM CDPRJ.T_GKMT_ENTERPRISES
     </select>
 
     <select id="getTGkmtEnterprisesByPageable" resultMap="TGkmtEnterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtEnterprisesByParamsPageable" resultMap="TGkmtEnterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '港口企业和码头单位名录' AS name, '所在机构' AS second_name, count(DISTINCT ENTERPRISE_NAME) as second_value,
       '人员' as third_name, COUNT(DISTINCT ENTERPRISE_REPORTER) as third_value, '' as fourth_name,
-      0 as fourth_value from T_GKMT_ENTERPRISES
+      0 as fourth_value from CDPRJ.T_GKMT_ENTERPRISES
     </select>
 </mapper>

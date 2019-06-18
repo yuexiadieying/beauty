@@ -31,24 +31,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtBerthsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_BERTHS
+        SELECT count(1) FROM CDPRJ.T_GKMT_BERTHS
     </select>
     <!--获取总个数-->
     <select id="getTGkmtBerthsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_BERTHS
+        SELECT count(1) FROM CDPRJ.T_GKMT_BERTHS
     </select>
 
     <select id="getTGkmtBerthsByPageable" resultMap="TGkmtBerthsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtBerthsByParamsPageable" resultMap="TGkmtBerthsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '全省泊位表' AS name, '行政区' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
       '机构' as third_name, COUNT(DISTINCT ENTERPRISE_NO) as third_value, '' as fourth_name,
-      0 as fourth_value from T_GKMT_BERTHS
+      0 as fourth_value from CDPRJ.T_GKMT_BERTHS
     </select>
 </mapper>

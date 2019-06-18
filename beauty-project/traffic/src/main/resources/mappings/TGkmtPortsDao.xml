@@ -21,24 +21,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtPortsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_PORTS
+        SELECT count(1) FROM CDPRJ.T_GKMT_PORTS
     </select>
     <!--获取总个数-->
     <select id="getTGkmtPortsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_PORTS
+        SELECT count(1) FROM CDPRJ.T_GKMT_PORTS
     </select>
 
     <select id="getTGkmtPortsByPageable" resultMap="TGkmtPortsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_PORTS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtPortsByParamsPageable" resultMap="TGkmtPortsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_PORTS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '全省港口表' AS name, '泊位' AS second_name, count(DISTINCT PORT_NO) as second_value,
       '增加报告' as third_name, COUNT(DISTINCT PERIODKIND) as third_value, '报废报告' as fourth_name,
-      COUNT(DISTINCT PERIODKIND) as fourth_value from T_GKMT_PORTS
+      COUNT(DISTINCT PERIODKIND) as fourth_value from CDPRJ.T_GKMT_PORTS
     </select>
 </mapper>

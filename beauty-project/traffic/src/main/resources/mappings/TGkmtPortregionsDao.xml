@@ -21,24 +21,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtPortregionsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_PORTREGIONS
+        SELECT count(1) FROM CDPRJ.T_GKMT_PORTREGIONS
     </select>
     <!--获取总个数-->
     <select id="getTGkmtPortregionsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_PORTREGIONS
+        SELECT count(1) FROM CDPRJ.T_GKMT_PORTREGIONS
     </select>
 
     <select id="getTGkmtPortregionsByPageable" resultMap="TGkmtPortregionsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTREGIONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_PORTREGIONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtPortregionsByParamsPageable" resultMap="TGkmtPortregionsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_PORTREGIONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_PORTREGIONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '全省港区代码表' AS name, '港区' AS second_name, count(DISTINCT PORTREGION_NAME) as second_value,
       '港区管理单位' as third_name, COUNT(DISTINCT PORTREGTION_OWNER) as third_value, '' as fourth_name,
-      0 as fourth_value from T_GKMT_PORTREGIONS
+      0 as fourth_value from CDPRJ.T_GKMT_PORTREGIONS
     </select>
 </mapper>

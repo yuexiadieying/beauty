@@ -25,24 +25,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtQuickreportdataCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_QUICKREPORTDATA
+        SELECT count(1) FROM CDPRJ.T_GKMT_QUICKREPORTDATA
     </select>
     <!--获取总个数-->
     <select id="getTGkmtQuickreportdataCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_GKMT_QUICKREPORTDATA
+        SELECT count(1) FROM CDPRJ.T_GKMT_QUICKREPORTDATA
     </select>
 
     <select id="getTGkmtQuickreportdataByPageable" resultMap="TGkmtQuickreportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtQuickreportdataByParamsPageable" resultMap="TGkmtQuickreportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '港口快报吞吐量' AS name, '企业' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
       '注销' as third_name, COUNT(DISTINCT PORTREGION_NO) as third_value, '' as fourth_name,
-      0 as fourth_value from T_GKMT_QUICKREPORTDATA
+      0 as fourth_value from CDPRJ.T_GKMT_QUICKREPORTDATA
     </select>
 </mapper>
