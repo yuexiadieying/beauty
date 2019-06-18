@@ -71,11 +71,10 @@ angular.module('app')
           replace: false,
           template:  '<form action="" class="form-horizontal"  role="form">'+
           '<div class="form-group">'+
-          '<label for="dtp_input2" class="col-md-6 control-label">开始时间</label>'+
           '<div class="input-group date  col-md-6" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
-          '<input id="start_time" name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="2019-06">'+
+          '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="2019-06" style="width:80px;background: #fff">'+
 
-      '<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>'+
+      '<span class="input-group-addon" style="background: #fff"><span class="glyphicon glyphicon-calendar"></span></span>'+
           '</div>'+
           '<input type="hidden" id="dtp_input2" value="" />'+
           '</div>'+
@@ -150,5 +149,67 @@ angular.module('app')
                 },500)
 
             }
+        }
+    }])
+    .directive('selSpacingm', ['$timeout', function($timeout) {
+        return {
+            restrict: 'EAC',
+            scope:{
+                index:'@',
+                index1:'@'
+            },
+            replace: false,
+            template:'<div style="display: flex;">'+
+                '<div class="input-group ">'+
+                '<input type="text" class="form-control content cursor-pointer" id="{{index}}"  readonly style="width:80px;background: #fff;" placeholder="2019-06" >'+
+                '</div>'+
+                '<div class="input-group "><span>&nbsp~&nbsp</span>'+
+                '<input type="text" class="form-control content cursor-pointer" id="{{index1}}"  readonly style="width:80px;float: none;background: #fff;" placeholder="2019-06">'+
+                '</div>'+
+            '</div>',
+            link: function (scope, element, attr) {
+                scope.init = function () {
+                    $("#"+scope.index).datetimepicker({
+                        format: 'yyyy-mm',
+                        weekStart: 1,
+                        autoclose: true,
+                        startView: 3,
+                        minView: 3,
+                        forceParse: false,
+                        defaultDate:'2019-06',
+                        language: 'zh-CN'
+                    }).on("click",function(){
+                        $("#"+scope.index).datetimepicker("setEndDate",$("#"+scope.index1).val());
+                    });
+
+                    $("#"+scope.index1).datetimepicker({
+                        format: 'yyyy-mm',
+                        weekStart: 1,
+                        autoclose: true,
+                        startView: 3,
+                        minView: 3,
+                        forceParse: false,
+                        defaultDate:'2019-06',
+                        language: 'zh-CN',
+                    }).on("click",function(){
+                        console.log(1);
+                        $("#"+scope.index1).datetimepicker("setStartDate",$("#"+scope.index).val());
+                    });
+
+                    $(document).on("click","#"+scope.index1,function(){
+                        $('#'+scope.index1).datetimepicker('show');
+                    });
+
+                    $(document).on("click","#"+scope.index,function(){
+                        $('#'+scope.index).datetimepicker('show');
+                    });
+                }
+                var time= $timeout(function(){
+                    scope.init()
+                    clearTimeout(time)
+                },500)
+
+            }
+
         }
     }])

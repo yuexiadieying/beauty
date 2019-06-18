@@ -75,19 +75,9 @@
           <div class="col-lg-8">
               <div class="panel panel-default">
                   <div class="panel-body">
-                      <div class="row">
-                          <div class="col-md-4">
-                              <span style="font-size:20px">高速公路流量观测</span>
-                          </div>
-                          <div class="col-md-8">
-                              <div class="input-group">
-                                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
-                                         datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                                  <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                      </span>
-                              </div>
-                          </div>
+                      <div style="display: flex;justify-content:space-between;">
+                          <div> 高速公路流量观测</div>
+                          <div style="margin-right:20px;"><div sel-month index="gsglll"></div></div>
                       </div>
                       <br>
                       <div class="row">
@@ -245,7 +235,7 @@
                           <div class="col-md-9">
                               <div style="margin-left:-5%">
                                   <span style="font-size:20px">港口快报吞吐量<span>（单位：万吨）</span></span>
-                                  <div class="input-group" style="margin-left:60%;margin-top:-2%">
+                                  <div class="input-group" style="margin-left:55%;margin-top:-2%">
                                       <input type="text" class="form-control input-sm" placeholder="港口企业" style="width: 150px;">
                                       <input type="text" class="form-control input-sm" placeholder="码头单位" style="width: 150px;margin-left: 5%;">
                                       <span class="input-group-btn">
@@ -278,19 +268,15 @@
           <div class="col-lg-6">
               <div class="panel panel-default">
                   <div class="panel-body">
-                      <div class="row">
-                          <div class="col-md-4">
-                              <span style="font-size:16px">城市客运<span>（客运量：万人次）</span></span>
-                          </div>
-                          <div class="col-md-8">
-                              <div style="margin-left:30%">
-                                  <span>月份</span>
-                                  <input type="text" placeholder="2019-01" style="width: 100px;">~
-                                  <input type="text" placeholder="2019-06" style="width: 100px;">
-                                  <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
-                              </div>
+                      <div style="display: flex;justify-content:space-between;">
+                          <div ><span style="font-size:16px">城市客运<span>（客运量：万人次）</span></span></div>
+                          <div>
+                              <p style="color: black" class="pull-left">月份</p>
+                              <div class="col-lg-8"><div sel-spacingm index="citykystart" index1="citykyend"></div></div>
+                              <button class="btn btn-small btn-primary pull-right" type="button" style="width:70px;height:35px;">查询</button>
                           </div>
                       </div>
+
                       <br>
                       <div ui-jq="plot" ui-options="
                       [
@@ -314,20 +300,18 @@
           <div class="col-lg-6">
               <div class="panel panel-default">
                   <div class="panel-body">
-                      <div class="row">
-                          <div class="col-md-4">
-                              <span style="font-size:16px">省水运管理信息<span>（单位：艘）</span></span>
-                          </div>
-                          <div class="col-md-8">
-                              <div style="margin-left:30%">
-                                  <span>月份</span>
-                                  <input type="text" placeholder="2019-01" style="width: 100px;">~
-                                  <input type="text" placeholder="2019-06" style="width: 100px;">
-                                  <button class="btn btn-small btn-primary" type="button" style="width:80px;height:35px;margin-top:-1%">查询</button>
+                      <div >
+                          <div style="display: flex;justify-content:space-between;">
+                              <div ><span style="font-size:16px">城市省水运管理信息客运<span>（单位：艘）</span></span></div>
+                              <div>
+                                  <p style="color: black" class="pull-left">月份</p>
+                                  <div class="col-lg-8"><div sel-spacingm index="citysyglstart" index1="citysyglend"></div></div>
+                                  <button class="btn btn-small btn-primary pull-right" type="button" style="width:70px;height:35px;">查询</button>
                               </div>
                           </div>
+
                       </div>
-                      <br>
+                        <br>
                       <div ui-jq="plot" ui-options="
                           [
                             { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth: 0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }

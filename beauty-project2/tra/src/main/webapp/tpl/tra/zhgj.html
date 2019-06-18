@@ -1,21 +1,163 @@
-<link rel="stylesheet" href="http://www.nbmap.gov.cn/leaflet/leaflet.css" />
-<script src="http://www.nbmap.gov.cn/leaflet/leaflet.js"></script>
-<script src="http://nb.nbmap.gov.cn/scripts/lib/mapAPI/layer.wmts-src.js"></script>
-<script src="http://nb.nbmap.gov.cn/scripts/lib/mapAPI/layer.tdt-src.js"></script>
-<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
-    app.settings.asideFolded = false;
-    app.settings.asideDock = true;">
+<style>
+  .leaflet-top {display: none;}
+  .leaflet-right{display: none; }
+  .column{width:220px;position: absolute;top:30px;left:0px;text-align: center;}
+  .column p {line-height: 35px;height: 35px;background: #fff;border-bottom: solid 1px #e6e6e6;margin:0px;cursor:pointer}
+  .infoRight{width:220px;border-radius: 5px;background: rgba(0,0,0,0.5);position: absolute;right:0;top:0;color:#fff}
+  .colf{color:#fff}
+  .infoRight .cont{width:95%;margin:10px auto;padding:10px;background: gray;}
+
+  .infoRight .tip{background: #0e161b;height:30px;line-height:30px;margin:0px;padding-left:10px;};
+</style>
+<div class="hbox hbox-auto-xs hbox-auto-sm" >
   <div class="wrapper-md" ng-controller="ZhgjCtrl">
     <p class="m-b-md"><strong>首页 / 其他交通 / 智慧公交 / 基础信息</strong></p>
-    <div id="mapDiv" style="width:600px;height:500px"></div>
+    <div style="position: relative;">
+      <div id="mapDiv" style="width:100%;height:600px"></div>
+      <div style="width:60px;height: 30px;line-height: 30px;font-weight: 700;border-bottom-right-radius: 15px;border-top-right-radius: 15px;position: absolute;top: 0px;left:0px;background: #000009;text-align: center" ng-click="showAndHide()">栏目</div>
+      <div class=" column" ng-if="param.flag">
+        <p style="background: #e6e6e6">智慧公交</p>
+        <p ng-click="btnChange(0)">基础信息</p>
+        <p ng-click="btnChange(1)">运营状态信息</p>
+        <p ng-click="btnChange(2)">运营信息</p>
+        <p ng-click="btnChange(3)">安全管理信息</p>
+      </div>
+      <div class="infoRight" ng-if="param.index == 0">
+        <h4 class="colf" style="text-align: center">基础信息</h4>
+        <div class="cont">
+          <p>企业基础数据：</p>
+          <p>车辆基础数据：</p>
+          <p>线路基础数据：</p>
+          <p>站点信息：</p>
+          <p>场站信息：</p>
+          <p>驾驶员基础数据：</p>
+          <p>运营计划数据：</p>
+        </div>
+        <div style="margin-bottom: 10px;margin-left:10px">
+          <input placeholder="输入公交路线" style="height:35px;"/>
+          <button class="btn btn-small btn-primary" type="button" style="width:60px;height:35px;margin-top:-3px;">查询</button>
+        </div>
+      </div>
+      <div class="infoRight" style="width:440px" ng-if="param.index == 1">
+        <h4 class="colf" style="text-align: center">运营状态信息</h4>
+        <div style="display: flex;">
+          <div style="width:50%">
+            <p class="tip">调度数据</p>
+            <div class="cont" style="margin:0 auto;">
+              <p>行车时刻表：</p>
+              <p>车辆定位数据：</p>
+              <p>车辆运行状态数据：</p>
+              <p>调度指令：</p>
+              <p>场站信息：</p>
+              <p>驾驶员基础数据：</p>
+              <p>运营计划数据：</p>
+            </div>
+          </div>
+
+          <div style="width:50%">
+            <p class="tip">车辆运行状态</p>
+            <div class="cont" style="margin:0 auto;">
+              <p>车牌号：</p>
+              <p>驾驶员信息：</p>
+              <p>位置：</p>
+              <p>速度：</p>
+              <p>方向：</p>
+              <p>距下一站距离：</p>
+              <p>计划执行情况：</p>
+              <p>线路当前车次执行情况：</p>
+            </div>
+          </div>
+        </div>
+        <p class="tip">视频状态监控</p>
+        <div class="cont" style="margin:0 auto;">
+          <p>监控点位置数据：</p>
+          <p>监控点位置数据：</p>
+          <p>报警数据：</p>
+        </div>
+        <div style="margin-bottom: 10px;margin-left:10px">
+          <input placeholder="输入公交车牌" style="height:35px;width:220px;"/>
+          <button class="btn btn-small btn-primary" type="button" style="width:60px;height:35px;margin-top:-3px;">查询</button>
+        </div>
+      </div>
+      <div class="infoRight" style="width:440px" ng-if="param.index == 2">
+        <h4 class="colf" style="text-align: center">运营信息</h4>
+        <div style="display: flex;">
+          <div style="width:50%">
+            <p class="tip">行车计划</p>
+            <div class="cont" style="margin:0 auto;">
+              <p>首末站信息：</p>
+              <p>发车时间：</p>
+              <p>到站时间：</p>
+              <p>单边运营时间：</p>
+              <p>单边运营时间：</p>
+              <p>线路车辆班次：</p>
+              <p>线路驾驶员班次：</p>
+            </div>
+          </div>
+
+          <div style="width:50%">
+            <p class="tip">计划调整</p>
+            <div class="cont" style="margin:0 auto;">
+              <p>换人：</p>
+              <p>换车：</p>
+              <p>调点：</p>
+              <p>添加车次：</p>
+              <p>删除车次：</p>
+              <p>故障处理记录：</p>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex">
+          <div style="width:50%">
+            <p class="tip">计划编制</p>
+            <div class="cont" style="margin:0 auto;">
+              <p>车辆行车时刻表：</p>
+              <p>车辆行车时刻表：</p>
+              <p>配车排班表：</p>
+            </div>
+          </div>
+          <div style="width:50%">
+            <p class="tip">车辆及人员状态</p>
+            <div class="cont" style="margin:0 auto;">
+              <p>请假状态：</p>
+              <p>工作状态：</p>
+              <p>车辆维修状态：</p>
+              <p>车辆保养状态：</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-bottom: 10px;margin-left:10px">
+          <input placeholder="输入线路或车牌" style="height:35px;width:220px;"/>
+          <button class="btn btn-small btn-primary" type="button" style="width:60px;height:35px;margin-top:-3px;">查询</button>
+        </div>
+      </div>
+      <div class="infoRight" ng-if="param.index == 3">
+        <h4 class="colf" style="text-align: center">安全管理信息</h4>
+        <p class="tip">异常状态监控</p>
+        <div class="cont">
+          <p>首末班车准点率异常：</p>
+          <p>在线车辆比例异常：</p>
+          <p>发车频率异常：</p>
+          <p>偏离线路：</p>
+          <p>车辆故障：</p>
+          <p>超速 ：</p>
+          <p>带速开/关门：</p>
+          <p>站点外开/关门：</p>
+          <p>越站：</p>
+          <p>串车：</p>
+          <p>久候：</p>
+          <p>路堵：</p>
+          <p>事故：</p>
+          <p>其它：</p>
+        </div>
+        <div style="margin-bottom: 10px;margin-left:10px">
+          <input placeholder="输入线路或车牌" style="height:35px;"/>
+          <button class="btn btn-small btn-primary" type="button" style="width:60px;height:35px;margin-top:-3px;">查询</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
   </div>
 </div>
-<script>
-  //添加瓦片图层
-  var layers = [];
-  layers.push(new L.TileLayer.TDT.Vector());
-  layers.push(new L.TileLayer.TDT.VectorAnno());
-  map = new L.map('mapDiv', { layers: layers, attribution: false ,crs: L.CRS.CustomLevel});
-  map.setView([29.92831, 121.5484], 11);
-</script>
