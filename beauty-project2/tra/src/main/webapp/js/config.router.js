@@ -313,6 +313,16 @@ angular.module('app')
                   url: '/highwayProject5/{fold}',
                   templateUrl: 'tpl/tra/highway_project_management_platform.engineering.html'
               })
+              .state('app.kylwsp', {
+                  url: '/kylwsp',
+                  templateUrl: 'tpl/tra/kylwsp.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/kylwsp.js']);
+                          }]
+                  }
+              })
               .state('app.dashboard-v1', {
                   url: '/dashboard-v1',
                   templateUrl: 'tpl/app_dashboard_v1.html',
