@@ -32,7 +32,7 @@ angular.module('app')
                 };
                 //初始化显示当前时间
 
-                $("#"+scope.index +" span").html(moment().subtract('hours', 1).format('YYYY-MM-DD') + ' - ' + moment().format('YYYY-MM-DD'));
+                $("#"+scope.index +" span").html(moment().subtract(3, 'days').format('YYYY-MM-DD') + ' - ' + moment().format('YYYY-MM-DD'))
                 //日期控件初始化
                 $("#"+scope.index).daterangepicker(
                     {
@@ -72,7 +72,7 @@ angular.module('app')
           template:  '<form action="" class="form-horizontal"  role="form">'+
           '<div class="form-group">'+
           '<div class="input-group date  col-md-6" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
-          '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="2019-06" style="width:80px;background: #fff">'+
+          '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="{{format_td}}" style="width:80px;background: #fff">'+
 
       '<span class="input-group-addon" style="background: #fff"><span class="glyphicon glyphicon-calendar"></span></span>'+
           '</div>'+
@@ -81,6 +81,8 @@ angular.module('app')
           '</form>',
           link: function (scope, element, attr) {
              scope.init=function () {
+                 var today = new Date();
+                 scope.format_td = today.getFullYear()+'-'+(today.getMonth()+1)
                  $('#'+scope.index).datetimepicker({
                      format: 'yyyy-mm',
                      weekStart: 1,
@@ -120,7 +122,7 @@ angular.module('app')
             '<div class="form-group">'+
             '<label for="dtp_input2" class="col-md-6 control-label">选择时间</label>'+
             '<div class="input-group date  col-md-6" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
-            '<input id="start_time" name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="2019" style="background: #fff;">'+
+            '<input id="start_time" name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="{{format_td}}" style="background: #fff;">'+
 
             '<span class="input-group-addon" style="background: #fff;"><span class="glyphicon glyphicon-calendar"></span></span>'+
             '</div>'+
@@ -129,6 +131,8 @@ angular.module('app')
             '</form>',
             link: function (scope, element, attr) {
                 scope.init=function () {
+                    var today = new Date();
+                    scope.format_td = today.getFullYear()
                     $('#'+scope.index).datetimepicker({
                         format: 'yyyy',
                         weekStart: 1,
@@ -161,14 +165,16 @@ angular.module('app')
             replace: false,
             template:'<div style="display: flex;">'+
                 '<div class="input-group ">'+
-                '<input type="text" class="form-control content cursor-pointer" id="{{index}}"  readonly style="width:80px;background: #fff;" placeholder="2019-06" >'+
+                '<input type="text" class="form-control content cursor-pointer" id="{{index}}"  readonly style="width:80px;background: #fff;" placeholder="{{format_td}}" >'+
                 '</div>'+
                 '<div class="input-group "><span>&nbsp~&nbsp</span>'+
-                '<input type="text" class="form-control content cursor-pointer" id="{{index1}}"  readonly style="width:80px;float: none;background: #fff;" placeholder="2019-06">'+
+                '<input type="text" class="form-control content cursor-pointer" id="{{index1}}"  readonly style="width:80px;float: none;background: #fff;" placeholder="{{format_td}}">'+
                 '</div>'+
             '</div>',
             link: function (scope, element, attr) {
                 scope.init = function () {
+                    var today = new Date();
+                    scope.format_td = today.getFullYear()+'-'+(today.getMonth()+1)
                     $("#"+scope.index).datetimepicker({
                         format: 'yyyy-mm',
                         weekStart: 1,
@@ -236,22 +242,20 @@ angular.module('app')
                     var today = new Date();
                     scope.format_td = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                     $('#'+scope.index).datetimepicker({
-                        minView: "month", //选择日期后，不会再跳转去选择时分秒
-
-                        format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
-
-                        language: 'zh-CN', //汉化
-
-                        autoclose:true, //选择日期后自动关闭
+                        minView: "month",
+                        format: "yyyy-mm-dd",
+                        language: 'zh-CN',
+                        autoclose:true,
                         startDate: scope.format_td,
                     }).on('changeDate',function(dateText, inst){
                         var myDate = dateText.date;//当前时间
                         var year = myDate.getFullYear();//当前年份
                         var month = myDate.getMonth() + 1;//当前月份
+                        var dd= myDate.getDate()
                         if(month<10){
                             var month = '0'+month
                         }
-                        var timeDate = year +'-'+month
+                        var timeDate = year +'-'+month + '-' +dd
                     });
                 }
                 var time= $timeout(function(){
