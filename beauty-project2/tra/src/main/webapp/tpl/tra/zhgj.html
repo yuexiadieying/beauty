@@ -21,6 +21,7 @@
         <p ng-click="btnChange(1)">运营状态信息</p>
         <p ng-click="btnChange(2)">运营信息</p>
         <p ng-click="btnChange(3)">安全管理信息</p>
+        <p ng-click="btnChange(4)">区站场视频监控</p>
       </div>
       <div class="infoRight" ng-if="param.index == 0">
         <h4 class="colf" style="text-align: center">基础信息</h4>
@@ -153,6 +154,56 @@
         <div style="margin-bottom: 10px;margin-left:10px">
           <input placeholder="输入线路或车牌" style="height:35px;"/>
           <button class="btn btn-small btn-primary" type="button" style="width:60px;height:35px;margin-top:-3px;">查询</button>
+        </div>
+      </div>
+      <div class="infoRight" ng-if="param.index == 4" style="height:600px;overflow-y: scroll;">
+        <h4 class="colf" style="text-align: center">区站场视频监控</h4>
+        <p class="tip">管理员信息</p>
+        <div class="cont" style="margin:0 auto;">
+          <p>管理员账号码：</p>
+          <p>姓名：</p>
+          <p>权限码ID：</p>
+        </div>
+        <p class="tip">管理权限信息</p>
+        <div class="cont" style="margin:0 auto;">
+          <p>权限码ID：</p>
+          <p>权限类型：</p>
+        </div>
+        <p class="tip">报警类型信息</p>
+        <div class="cont" style="margin:0 auto;">
+          <p>报警类型ID：</p>
+          <p>报警类型：</p>
+        </div>
+        <p class="tip">设备位置信息</p>
+        <div class="cont" style="margin:0 auto;">
+          <p>设备ID：</p>
+          <p>设备位置：</p>
+        </div>
+        <p class="tip">报警图片信息</p>
+        <div class="cont" style="margin:0 auto;">
+          <div style="display: flex;">
+            <p style="width: 50%">报警时间</p>
+            <p style="width: 50%"> 设备ID</p>
+          </div>
+          <div style="display: flex;">
+            <p style="width: 50%">存储路径</p>
+            <p style="width: 50%">报警ID</p>
+          </div>
+        </div>
+        <p class="tip">历史录像文件信息</p>
+        <div class="cont" style="margin:0 auto;">
+          <div style="display: flex;">
+            <p style="width: 50%">始录像时间</p>
+            <p style="width: 50%"> 设备ID</p>
+          </div>
+          <div style="display: flex;">
+            <p style="width: 50%">存储路径</p>
+            <p style="width: 50%">像结束时间</p>
+          </div>
+        </div>
+        <div style="margin-bottom: 10px;margin-left:10px">
+          <input placeholder="输入线路或车牌" style="height:35px;"/>
+          <button class="btn btn-small btn-primary" type="button" style="width:50px;height:35px;margin-top:-3px;margin-left:-10px;">查询</button>
         </div>
       </div>
     </div>
