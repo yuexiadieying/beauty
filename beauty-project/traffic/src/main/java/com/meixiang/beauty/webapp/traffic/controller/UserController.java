@@ -50,6 +50,21 @@ public class UserController {
         return  responseDTO;
     }
 
+    //todo 用户退出登录
+    @RequestMapping(value = "loginOut", method = {RequestMethod.POST, RequestMethod.GET})
+    public
+    @TrafficLoginRequired
+    @ResponseBody
+    ResponseDTO loginOut(HttpSession session){
+        ResponseDTO<UserInfoDTO> responseDTO = new ResponseDTO<>();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        Map<String, String> headerValue = getHeadersInfo(request);
+        String token = headerValue.get("logintoken");
+        session.removeAttribute(token);
+        responseDTO.setResult(StatusConstant.SUCCESS);
+        return  responseDTO;
+    }
+
     //todo 获取用户信息的接口
     @RequestMapping(value = "getUserInfo", method = {RequestMethod.POST, RequestMethod.GET})
     public
