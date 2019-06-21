@@ -323,9 +323,9 @@ angular.module('app')
                           }]
                   }
               })
-              .state('app.spjk', {
-                  url: '/spjk',
-                  templateUrl: 'tpl/tra/spjk.html',
+              .state('app.gsglll', {
+                  url: '/gsglll',
+                  templateUrl: 'tpl/tra/gsglll.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
