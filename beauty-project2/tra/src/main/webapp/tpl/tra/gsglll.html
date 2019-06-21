@@ -1,0 +1,159 @@
+<style>
+  .leaflet-top {display: none;}
+  .leaflet-right{display: none; }
+  .column{width:220px;position: absolute;top:30px;left:0px;text-align: center;}
+  .column p {line-height: 35px;height: 35px;background: #fff;border-bottom: solid 1px #e6e6e6;margin:0px;cursor:pointer}
+  .infoRight{width:220px;border-radius: 5px;background: rgba(0,0,0,0.5);position: absolute;right:0;top:0;color:#fff}
+  .colf{color:#fff}
+  .infoRight .cont{width:95%;margin:10px auto;padding:10px;background: gray;}
+
+  .infoRight .tip{background: #0e161b;height:30px;line-height:30px;margin:0px;padding-left:10px;}
+</style>
+<div class="hbox hbox-auto-xs hbox-auto-sm" >
+  <div class="wrapper-md" ng-controller="GsglllCtrl">
+    <p class="m-b-md"><strong>首页 / 公路交通  / 高速公路流量观测</strong></p>
+    <div style="position: relative;">
+      <div id="mapDiv" style="width:100%;height:400px"></div>
+      <div style="width:60px;height: 30px;line-height: 30px;font-weight: 700;border-bottom-right-radius: 15px;border-top-right-radius: 15px;position: absolute;top: 0px;left:0px;background: #000009;text-align: center" ng-click="showAndHide()" ng-if="param.index!=0">栏目</div>
+      <div class=" column" ng-if="param.flag&&param.index!=0">
+        <p style="background: #e6e6e6">高速公路流量观测</p>
+        <p ng-click="btnChange(1)">路线信息</p>
+        <p ng-click="btnChange(2)">管理机构信息</p>
+        <p ng-click="btnChange(3)">调查站信息</p>
+        <p ng-click="btnChange(4)">设备信息</p>
+        <p ng-click="btnChange(5)">流量信息</p>
+      </div>
+      <div style="position: absolute;top:80px;left:0;width: 100%;" ng-show="param.index==0">
+        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:30px;left:0" ng-click="btnChange(1)">
+          <p class="col-lg-4">
+            <a style="width:50px;height:50px;background: #e6e6e6;border-radius: 50%;margin-top:20px;display: inline-block;"> <span class="glyphicon glyphicon-calendar " style="font-size:25px;line-height: 50px;"></span></a>
+          </p>
+          <div class="col-lg-8" style=" margin-top: 20px; text-align: left;">
+            <p>路线</p>
+            <p style="font-size: 20px;font-weight: 500;">241</p>
+          </div>
+        </div>
+        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:180px;left:0" ng-click="btnChange(2)">
+          <p class="col-lg-4">
+            <a style="width:50px;height:50px;background: #e6e6e6;border-radius: 50%;margin-top:20px;display: inline-block;"> <span class="glyphicon glyphicon-comment " style="font-size:25px;line-height: 50px;"></span></a>
+          </p>
+          <div class="col-lg-8" style=" margin-top: 20px; text-align: left;">
+            <p>管理机构</p>
+            <p style="font-size: 20px;font-weight: 500;">72</p>
+          </div>
+        </div>
+        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:30px;right:0">
+          <p class="col-lg-4">
+            <a style="width:50px;height:50px;background: #e6e6e6;border-radius: 50%;margin-top:20px;display: inline-block;"> <span class="glyphicon glyphicon-pencil" style="font-size:25px;line-height: 50px;"></span></a>
+          </p>
+          <div class="col-lg-8" style=" margin-top: 20px; text-align: left;">
+            <p>调查站</p>
+            <p style="font-size: 20px;font-weight: 500;">120</p>
+          </div>
+        </div>
+        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:180px;right:0">
+          <p class="col-lg-4">
+            <a style="width:50px;height:50px;background: #e6e6e6;border-radius: 50%;margin-top:20px;display: inline-block;"> <span class="glyphicon glyphicon-th-list" style="font-size:25px;line-height: 50px;"></span></a>
+          </p>
+          <div class="col-lg-8" style=" margin-top: 20px; text-align: left;">
+            <p>设备 </p>
+            <p style="font-size: 20px;font-weight: 500;">307 <span style="font-size: 14px;">&nbsp&nbsp0.7%</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default" style="background: rgba(81, 92, 104, 1);color:#fff;" ng-show="param.index==0">
+        <div class="row " style="width:95%;margin:auto;padding-top:10px;">
+          <div style="display: flex;justify-content:space-between;">
+            <div> 流量信息</div>
+            <div><div sel-date index="llInfo"></div></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div style="margin-left:30px;">
+              <div style="margin-top:30px;">
+                <p>跟车百分比（%）</p>
+                <p style="font-size: 30px;">4320</p>
+                <p><span style="color:#ff6666">10%</span>&nbsp;&nbsp; 同比上周</p>
+              </div>
+              <div style="margin-top:30px;">
+                <p>时间占有率（%）</p>
+                <p style="font-size: 30px;">342</p>
+                <p><span style="color:#1e983b">10%</span>&nbsp;&nbsp; 同比上周</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6},splines: { show: true, fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } }  }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, '10-23周日' ], [ 2, '10-24周一' ], [ 3, '10-25周二' ], [ 4, '10-6周三' ], [ 5, '10-27周四' ], [ 6, '10-28周五' ], [ 7, '10-29周六' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0, y: 20 } }
+              }
+            " style="height:220px" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default" ng-show="param.index == 1">
+        <div class="panel-heading">路线信息</div>
+        <div class="table-responsive" style="overflow: auto">
+          <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+            <thead>
+            <tr>
+              <th>序号</th>
+              <th ng-repeat="info in param.tableTitle">{{info}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="k in [0,1,2,3,4]">
+              <td>1</td>
+              <td ng-repeat="info in param.tableTitle"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="panel-footer">
+          <div class="row">
+            <div class="col-sm-4 hidden-xs">
+
+            </div>
+            <div class="col-sm-4 text-center">
+
+            </div>
+            <div class="col-sm-4 text-right text-center-xs">
+              <ul class="pagination pagination-sm m-t-none m-b-none">
+                <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                <li><a href>1</a></li>
+                <li><a href>2</a></li>
+                <li><a href>3</a></li>
+                <li><a href>4</a></li>
+                <li><a href>5</a></li>
+                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+</div>
