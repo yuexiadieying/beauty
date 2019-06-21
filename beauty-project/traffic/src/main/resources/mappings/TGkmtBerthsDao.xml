@@ -47,8 +47,9 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '全省泊位表' AS name, '行政区' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
-      '机构' as third_name, COUNT(DISTINCT ENTERPRISE_NO) as third_value, '' as fourth_name,
-      0 as fourth_value from CDPRJ.T_GKMT_BERTHS
+        select '全省泊位表' AS name, '共计' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
+              '增加' as third_name, COUNT(ADD_REPORT_PERIOD) as third_value, '报废' as fourth_name,
+              COUNT(CASE WHEN DISCARD_REPORT_PERIOD=0 then null else DISCARD_REPORT_PERIOD END) as fourth_value
+        from CDPRJ.T_GKMT_BERTHS WHERE REPORT_YEAR= '#{year}';
     </select>
 </mapper>

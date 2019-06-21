@@ -10,10 +10,12 @@ import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterpriseu
 import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterprisesDao;
 import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtBerthsDao;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
+import org.apache.poi.hssf.util.HSSFColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,7 +61,7 @@ public class HlsgkqyymtdwttlbbHomePageService {
         res.add(tGkmtPortregionsDao.getHomepageInfo());
         res.add(tGkmtEnterpriseusersDao.getHomepageInfo());
         res.add(tGkmtEnterprisesDao.getHomepageInfo());
-        res.add(tGkmtBerthsDao.getHomepageInfo());
+        res.add(tGkmtBerthsDao.getHomepageInfo(new Date().getYear()));
 
         return res;
     }

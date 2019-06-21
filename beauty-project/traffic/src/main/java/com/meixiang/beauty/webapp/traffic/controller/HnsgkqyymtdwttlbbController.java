@@ -126,7 +126,9 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        gkqymlDTOList = tGkmtEnterprisesService.getTGkmtEnterprisesByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        gkqymlDTOList = tGkmtEnterprisesService.getTGkmtEnterprisesByPageable(
+                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
+                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterprisesService.getTGkmtEnterprisesCount());
         paramDTO.setResponseData(gkqymlDTOList);
@@ -144,7 +146,9 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        qyczryDTOS = tGkmtEnterpriseusersService.getTGkmtEnterpriseusersByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        qyczryDTOS = tGkmtEnterpriseusersService.getTGkmtEnterpriseusersByPageable(
+                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
+                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterpriseusersService.getTGkmtEnterpriseusersCount());
         paramDTO.setResponseData(qyczryDTOS);
@@ -162,8 +166,9 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        qsgqdbmDTOS = tGkmtPortregionsService.getTGkmtPortregionsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
-
+        qsgqdbmDTOS = tGkmtPortregionsService.getTGkmtPortregionsByPageable(
+                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
+                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortregionsService.getTGkmtPortregionsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
@@ -180,8 +185,9 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        qsgqdbmDTOS = tGkmtPortsService.getTGkmtPortsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
-
+        qsgqdbmDTOS = tGkmtPortsService.getTGkmtPortsByPageable(
+                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
+                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortsService.getTGkmtPortsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
@@ -240,7 +246,9 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        xzgljgDTOList = tGkmtUnitsService.getTGkmtUnitsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        xzgljgDTOList = tGkmtUnitsService.getTGkmtUnitsByPageable(
+                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
+                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtUnitsService.getTGkmtUnitsCount());
         paramDTO.setResponseData(xzgljgDTOList);
@@ -258,7 +266,10 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        xzglryDTOList = tGkmtUnitusersService.getTGkmtUnitusersByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        xzglryDTOList = tGkmtUnitusersService.getTGkmtUnitusersByPageable(
+                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
+                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+
         paramDTO.setResponseData(xzglryDTOList);
 
         paramDTO.setTotalCount(tGkmtUnitusersService.getTGkmtUnitusersCount());
