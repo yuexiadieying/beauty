@@ -29,7 +29,7 @@ angular.module('app')
         $translateProvider.useLocalStorage();
     }
    ])
-   .config(['$httpProvider','Global',function($httpProvider,Global) {
+   .config(['$httpProvider',function($httpProvider) {
         $httpProvider.interceptors.push(function($rootScope){
             return {
                 request: function(config){
