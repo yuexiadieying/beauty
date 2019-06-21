@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import jxl.write.DateTime;
 
 import java.util.Date;
+import java.util.List;
 
 public class UserInfoDTO {
 
@@ -13,8 +14,14 @@ public class UserInfoDTO {
     @JSONField(name = "nickname")
     private String nickname;
 
+    @JSONField(name = "loginName")
+    private String loginName;
+
     @JSONField(name = "password")
     private String password;
+
+    @JSONField(name = "userLevel")
+    private List<String> userLevel;
 
     @JSONField(name = "email")
     private String email;
@@ -173,4 +180,19 @@ public class UserInfoDTO {
         this.delFlag = delFlag;
     }
 
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
+    }
+
+    public List<String> getUserLevel() {
+        return userLevel;
+    }
+
+    public void setUserLevel(List<String> userLevel) {
+        this.userLevel = userLevel;
+    }
 }
