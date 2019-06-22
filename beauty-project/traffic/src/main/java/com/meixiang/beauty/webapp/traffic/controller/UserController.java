@@ -5,6 +5,7 @@ import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.common.dto.system.UserInfoDTO;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
+import com.meixiang.beauty.webapp.traffic.constant.UserLevelEnum;
 import com.meixiang.beauty.webapp.traffic.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,9 +40,20 @@ public class UserController {
 
         userInfoDTO.setLoginName(loginMap.get("username").toString());
         userInfoDTO.setPassword(loginMap.get("password").toString());
+        userInfoDTO.setNickname("刘主任");
+        List<String> userLevelList = new ArrayList<>();
+        userLevelList.add(UserLevelEnum.SJTYSTJFXJC.getValue());
+        userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
+        userLevelList.add(UserLevelEnum.GLJT.getValue());
+        userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
+        userLevelList.add(UserLevelEnum.ZHGJ.getValue());
+        userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
+        userLevelList.add(UserLevelEnum.HNSGKQYYMTDWTTLBB.getValue());
+        userLevelList.add(UserLevelEnum.SYAISXT.getValue());
+        userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
+        userInfoDTO.setUserLevel(userLevelList);
 
         String logintoken = UUID.randomUUID().toString();
-
         String userInfoStr = (new Gson()).toJson(userInfoDTO);
         session.setAttribute(logintoken, userInfoStr);
 

@@ -17,6 +17,7 @@ angular.module('app', [
     'pascalprecht.translate',
     'traGlobal'
 ]).run(function($rootScope,$http,$state,Global){
+
     $rootScope.loginOut = function(){
         $http.get('/traffic/user/loginOut')
             .then(function(response) {

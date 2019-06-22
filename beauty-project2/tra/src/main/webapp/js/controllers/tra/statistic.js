@@ -4,14 +4,13 @@
 
 app
   // Flot Chart controller 
-  .controller('StatisticCtrl', ['$scope', '$http', '$state','Global',function($scope, $http,$state,Global) {
-
+  .controller('StatisticCtrl', ['$scope', '$http', '$state','Global','$rootScope',function($scope, $http,$state,Global,$rootScope) {
 
       $http.get('/traffic/user/getUserInfo')
           .then(function(response) {
               if (response.data.result==Global.SUCCESS) {
-                  $scope.userInfo = response.data.responseData;
-                  console.log($scope.userInfo);
+                  $rootScope.userInfo = response.data.responseData;
+                  console.log($rootScope.userInfo);
               }else{
                   $state.go('access.signin');
               }
