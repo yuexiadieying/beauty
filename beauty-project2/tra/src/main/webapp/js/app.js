@@ -30,4 +30,15 @@ angular.module('app', [
                 $scope.authError = 'Server Error';
             });
     };
+
+    $rootScope.checkIfContain = function (userLevel) {
+        var value = false;
+        angular.forEach($rootScope.userInfo.userLevel,function (val,index) {
+            if(val==userLevel)
+            {
+                value = true;
+            }
+        })
+        return value;
+    }
 });

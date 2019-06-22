@@ -3,59 +3,58 @@
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
     <span translate="aside.nav.HEADER">Navigation</span>
   </li>
-  <li>
+  <li ng-if="checkIfContain('sjtystjfxjc')">
     <a href class="auto" ui-sref="app.sjtystjfxjc">
       <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
       <span class="font-bold" translate="aside.nav.DASHBOARD">省交通运输统计分析监测</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('sdlyssjxtgl')">
     <a href class="auto" ui-sref="app.three_level_coordinated_management">
       <b class="badge bg-info pull-right">3</b>
       <i class="glyphicon glyphicon-th"></i>
       <span >省道路运输三级协同管理</span>
     </a>
   </li>
-
-  <li>
+  <li ng-if="checkIfContain('gljt')">
     <a href class="auto" ui-sref="app.highway">
       <b class="badge bg-info pull-right">3</b>
       <i class="glyphicon glyphicon-th"></i>
       <span>公路交通</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('sslyzgl')">
     <a href class="auto" ui-sref="app.waterway_administration">
       <i class="glyphicon glyphicon-th"></i>
       <span>省水路运政管理</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('zhgj')">
     <a href class="auto" ui-sref="app.zhgj">
       <i class="glyphicon glyphicon-th-large icon text-success"></i>
       <span class="font-bold">智慧公交</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('hnsglsljsyysscxxfwxt')">
     <a href class="auto" ui-sref="app.hunan_transport">
       <i class="glyphicon glyphicon-th"></i>
       <span>湖南省公路水路建设与运输市场信息服务系统</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('hnsgkqyymtdwttlbb')">
     <a href class="auto" ui-sref="app.throughput">
       <b class="badge bg-info pull-right">3</b>
       <i class="glyphicon glyphicon-th"></i>
       <span>湖南省港口企业与码头单位吞吐量报表</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('syaisxt')">
     <a href class="auto" ui-sref="app.water_transportation">
       <i class="glyphicon glyphicon-th-large icon text-success"></i>
       <span class="font-bold">水运AIS系统</span>
     </a>
   </li>
-  <li>
+  <li ng-if="checkIfContain('skylwspxt')">
     <a href class="auto" ui-sref="app.kylwsp">
       <i class="glyphicon glyphicon-th-large icon text-success"></i>
       <span class="font-bold">省客运联网售票系统</span>
