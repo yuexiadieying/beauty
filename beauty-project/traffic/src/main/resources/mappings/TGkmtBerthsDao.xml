@@ -43,8 +43,11 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtBerthsByParamsPageable" resultMap="TGkmtBerthsInfoResultMap">
-      SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_BERTHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      SELECT *
+      FROM (SELECT ROWNUM as rn, b.* from CDPRJ.T_GKMT_BERTHS b
+      LEFT JOIN CDPRJ.T_GKMT_ENTERPRISES e on e.ENTERPRISE_NO=b.ENTERPRISE_NO
+      WHERE (e.ENTERPRISE_NAME like '%#{gkqy}%' OR e.ENTERPRISE_NAME like '%#{mtdw}%')
+      AND b.REPORT_YEAR &gt;= #{startDate} AND b.REPORT_YEAR &lt;= #{endDate} AND ROWNUM &lt;= #{end}) WHERE rn &gt; #{start};
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
         select '全省泊位表' AS name, '共计' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
