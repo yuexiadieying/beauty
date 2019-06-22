@@ -52,6 +52,7 @@ public class HlsgkqyymtdwttlbbHomePageService {
 
 
     public List<TtlbbDTO> getHomePageInfo() {
+        int year = new Date().getYear();
         List<TtlbbDTO> res = new ArrayList<>();
         res.add(tGkmtUnitsDao.getHomepageInfo());
         res.add(tGkmtUnitusersDao.getHomepageInfo());
@@ -60,8 +61,8 @@ public class HlsgkqyymtdwttlbbHomePageService {
         res.add(tGkmtPortsDao.getHomepageInfo());
         res.add(tGkmtPortregionsDao.getHomepageInfo());
         res.add(tGkmtEnterpriseusersDao.getHomepageInfo());
-        res.add(tGkmtEnterprisesDao.getHomepageInfo());
-        res.add(tGkmtBerthsDao.getHomepageInfo(new Date().getYear()));
+        res.add(tGkmtEnterprisesDao.getHomepageInfo(year));
+        res.add(tGkmtBerthsDao.getHomepageInfo(year));
 
         return res;
     }

@@ -42,8 +42,9 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_ENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '港口企业和码头单位名录' AS name, '所在机构' AS second_name, count(DISTINCT ENTERPRISE_NAME) as second_value,
-      '人员' as third_name, COUNT(DISTINCT ENTERPRISE_REPORTER) as third_value, '' as fourth_name,
-      0 as fourth_value from CDPRJ.T_GKMT_ENTERPRISES
+      select '港口企业和码头单位名录' AS name, '企业' AS second_name, count(DISTINCT ENTERPRISE_NAME) as second_value,
+      '增加' as third_name, COUNT(ADD_REPORT_PERIOD) as third_value, '注销' as fourth_name,
+      COUNT(case when UNREGISTER_REPORT_PERIOD=0 THEN null ELSE UNREGISTER_REPORT_PERIOD END) as fourth_value
+      from CDPRJ.T_GKMT_ENTERPRISES WHERE REPORT_YEAR= '#{year}';
     </select>
 </mapper>

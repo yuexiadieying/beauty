@@ -41,8 +41,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '港口吞吐量' AS name, '人员' AS second_name, count(DISTINCT BERTH_NO) as second_value,
-      '注销' as third_name, COUNT(DISTINCT BERTH_NO) as third_value, '' as fourth_name,
+      select '港口吞吐量' AS name, '泊位' AS second_name, count(DISTINCT BERTH_NO) as second_value,
+      '进港数据' as third_name, COUNT(DISTINCT BERTH_NO) as third_value, '出港数据' as fourth_name,
       0 as fourth_value from CDPRJ.T_GKMT_REPORTDATA
     </select>
 </mapper>

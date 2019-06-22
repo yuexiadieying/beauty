@@ -40,8 +40,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_UNITS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '行业管理机构' AS name, '港区' AS second_name, count(DISTINCT UNIT_NO) as second_value,
-      '进港' as third_name, COUNT(DISTINCT UNIT_NO) as third_value, '出港' as fourth_name,
-      COUNT(DISTINCT UNIT_NO) as fourth_value from CDPRJ.T_GKMT_UNITS
+      select '行业管理机构' AS name, '行政区' AS second_name, count(DISTINCT UNIT_XZQHNAME) as second_value,
+      '机构' as third_name, COUNT(DISTINCT UNIT_BRIEFNAME) as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_GKMT_UNITS
     </select>
 </mapper>

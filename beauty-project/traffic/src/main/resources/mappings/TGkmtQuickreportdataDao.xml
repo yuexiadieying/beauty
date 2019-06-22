@@ -41,8 +41,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '港口快报吞吐量' AS name, '企业' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
-      '注销' as third_name, COUNT(DISTINCT PORTREGION_NO) as third_value, '' as fourth_name,
+      select '港口快报吞吐量' AS name, '港区' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
+      '进港数据' as third_name, COUNT(DISTINCT PORTREGION_NO) as third_value, '出港数据' as fourth_name,
       0 as fourth_value from CDPRJ.T_GKMT_QUICKREPORTDATA
     </select>
 </mapper>
