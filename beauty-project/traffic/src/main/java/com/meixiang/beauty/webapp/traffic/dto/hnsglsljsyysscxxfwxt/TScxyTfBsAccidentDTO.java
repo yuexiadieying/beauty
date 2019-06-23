@@ -6,6 +6,13 @@ import java.util.Date;
 
 public class TScxyTfBsAccidentDTO {
 
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
     /**
      *事故编号
     **/

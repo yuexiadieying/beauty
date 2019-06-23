@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt;
 
 import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsOwnerReformDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.DTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public interface TScxyTfBsOwnerReformDao {
     /**
      * 根据条件查询业户责令整改表数据总个数
      */
-    Integer getTScxyTfBsOwnerReformCountByParams();
+    Integer getTScxyTfBsOwnerReformCountByParams(@Param("info") String info);
     
     /**
      * 分页获取业户责令整改表数据
@@ -36,6 +37,7 @@ public interface TScxyTfBsOwnerReformDao {
      * @param end
      */
     List<TScxyTfBsOwnerReformDTO> getTScxyTfBsOwnerReformByParamsPageable(@Param("start") int start,
-                                                                          @Param("end") int end);
+                                                                          @Param("end") int end,
+                                                                          @Param("info") String info);
 
 }

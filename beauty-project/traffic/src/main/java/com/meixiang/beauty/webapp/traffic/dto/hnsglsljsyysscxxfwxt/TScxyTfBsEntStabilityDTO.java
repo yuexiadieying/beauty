@@ -6,6 +6,13 @@ import java.util.List;
 
 public class TScxyTfBsEntStabilityDTO {
 
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
     /**
      *上访ID
     **/

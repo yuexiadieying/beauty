@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsAdvancedDeedDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsAdvancedDeedDao">
     <resultMap id="TScxyTfBsAdvancedDeedInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsAdvancedDeedDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="DEED_ID" property="deedId" jdbcType="VARCHAR" />
         <result column="CMVECID" property="cmvecid" jdbcType="VARCHAR" />
         <result column="ENBEWORRECORDID" property="enbeworrecordid" jdbcType="VARCHAR" />
@@ -30,6 +31,7 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsAdvancedDeedCount" resultType="java.lang.Integer">
         SELECT count(1) FROM T_SCXY_TF_BS_ADVANCED_DEED
@@ -45,7 +47,9 @@
     </select>
     <select id="getTScxyTfBsAdvancedDeedByParamsPageable" resultMap="TScxyTfBsAdvancedDeedInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ADVANCED_DEED a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ADVANCED_DEED a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

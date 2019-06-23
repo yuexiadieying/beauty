@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt;
 
 import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfPtPersonDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.DTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public interface TScxyTfPtPersonDao {
     /**
      * 根据条件查询员工信息表数据总个数
      */
-    Integer getTScxyTfPtPersonCountByParams();
+    Integer getTScxyTfPtPersonCountByParams(@Param("info") String info);
     
     /**
      * 分页获取员工信息表数据
@@ -36,6 +37,7 @@ public interface TScxyTfPtPersonDao {
      * @param end
      */
     List<TScxyTfPtPersonDTO> getTScxyTfPtPersonByParamsPageable(@Param("start") int start,
-                                                                @Param("end") int end);
+                                                                @Param("end") int end,
+                                                                @Param("info") String info);
 
 }

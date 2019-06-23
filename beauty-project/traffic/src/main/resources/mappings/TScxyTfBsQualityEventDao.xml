@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsQualityEventDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsQualityEventDao">
     <resultMap id="TScxyTfBsQualityEventInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsQualityEventDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="EVENT_ID" property="eventId" jdbcType="VARCHAR" />
         <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
         <result column="EVENT_TIME" property="eventTime" jdbcType="VARCHAR" />
@@ -35,6 +36,7 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsQualityEventCount" resultType="java.lang.Integer">
         SELECT count(1) FROM T_SCXY_TF_BS_QUALITY_EVENT
@@ -50,7 +52,9 @@
     </select>
     <select id="getTScxyTfBsQualityEventByParamsPageable" resultMap="TScxyTfBsQualityEventInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_QUALITY_EVENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_QUALITY_EVENT a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

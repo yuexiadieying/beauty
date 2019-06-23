@@ -26,7 +26,7 @@ public class TScxyTfBsComplaintService {
         if (params.length <= 0) {
             tScxyTfBsComplaintDTOs = tScxyTfBsComplaintDao.getTScxyTfBsComplaintByPageable(start, end);
         } else {
-            tScxyTfBsComplaintDTOs = tScxyTfBsComplaintDao.getTScxyTfBsComplaintByParamsPageable(start, end);
+            tScxyTfBsComplaintDTOs = tScxyTfBsComplaintDao.getTScxyTfBsComplaintByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsComplaintDTOs)) {
             for (TScxyTfBsComplaintDTO tScxyTfBsComplaintDTO : tScxyTfBsComplaintDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsComplaintService {
         if (params.length <= 0) {
             res = tScxyTfBsComplaintDao.getTScxyTfBsComplaintCount();
         } else {
-            res = tScxyTfBsComplaintDao.getTScxyTfBsComplaintCountByParams();
+            res = tScxyTfBsComplaintDao.getTScxyTfBsComplaintCountByParams(params[0]);
         }
         return res;
     }

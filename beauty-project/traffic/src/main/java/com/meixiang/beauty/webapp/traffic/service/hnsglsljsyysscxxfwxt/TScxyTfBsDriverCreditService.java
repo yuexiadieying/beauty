@@ -26,7 +26,7 @@ public class TScxyTfBsDriverCreditService {
         if (params.length <= 0) {
             tScxyTfBsDriverCreditDTOs = tScxyTfBsDriverCreditDao.getTScxyTfBsDriverCreditByPageable(start, end);
         } else {
-            tScxyTfBsDriverCreditDTOs = tScxyTfBsDriverCreditDao.getTScxyTfBsDriverCreditByParamsPageable(start, end);
+            tScxyTfBsDriverCreditDTOs = tScxyTfBsDriverCreditDao.getTScxyTfBsDriverCreditByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsDriverCreditDTOs)) {
             for (TScxyTfBsDriverCreditDTO tScxyTfBsDriverCreditDTO : tScxyTfBsDriverCreditDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsDriverCreditService {
         if (params.length <= 0) {
             res = tScxyTfBsDriverCreditDao.getTScxyTfBsDriverCreditCount();
         } else {
-            res = tScxyTfBsDriverCreditDao.getTScxyTfBsDriverCreditCountByParams();
+            res = tScxyTfBsDriverCreditDao.getTScxyTfBsDriverCreditCountByParams(params[0]);
         }
         return res;
     }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsOwnerRuleDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsOwnerRuleDao">
     <resultMap id="TScxyTfBsOwnerRuleInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsOwnerRuleDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
         <result column="RULE_ID" property="ruleId" jdbcType="VARCHAR" />
         <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
@@ -21,6 +22,7 @@
         <result column="RULE_CONTENT" property="ruleContent" jdbcType="VARCHAR" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerRuleCount" resultType="java.lang.Integer">
         SELECT count(1) FROM T_SCXY_TF_BS_OWNER_RULE
@@ -36,7 +38,9 @@
     </select>
     <select id="getTScxyTfBsOwnerRuleByParamsPageable" resultMap="TScxyTfBsOwnerRuleInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RULE a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RULE a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

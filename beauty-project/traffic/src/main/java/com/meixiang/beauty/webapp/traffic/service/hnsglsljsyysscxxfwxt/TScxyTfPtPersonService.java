@@ -26,7 +26,7 @@ public class TScxyTfPtPersonService {
         if (params.length <= 0) {
             tScxyTfPtPersonDTOs = tScxyTfPtPersonDao.getTScxyTfPtPersonByPageable(start, end);
         } else {
-            tScxyTfPtPersonDTOs = tScxyTfPtPersonDao.getTScxyTfPtPersonByParamsPageable(start, end);
+            tScxyTfPtPersonDTOs = tScxyTfPtPersonDao.getTScxyTfPtPersonByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfPtPersonDTOs)) {
             for (TScxyTfPtPersonDTO tScxyTfPtPersonDTO : tScxyTfPtPersonDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfPtPersonService {
         if (params.length <= 0) {
             res = tScxyTfPtPersonDao.getTScxyTfPtPersonCount();
         } else {
-            res = tScxyTfPtPersonDao.getTScxyTfPtPersonCountByParams();
+            res = tScxyTfPtPersonDao.getTScxyTfPtPersonCountByParams(params[0]);
         }
         return res;
     }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsBusCreditRecordDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsBusCreditRecordDao">
     <resultMap id="TScxyTfBsBusCreditRecordInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsBusCreditRecordDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="RECORD_ID" property="recordId" jdbcType="VARCHAR" />
         <result column="CMVECID" property="cmvecid" jdbcType="VARCHAR" />
         <result column="REPORT_YEAR" property="reportYear" jdbcType="VARCHAR" />
@@ -23,13 +24,16 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsBusCreditRecordCount" resultType="java.lang.Integer">
         SELECT count(1) FROM T_SCXY_TF_BS_BUS_CREDIT_RECORD
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsBusCreditRecordCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_BUS_CREDIT_RECORD
+        SELECT count(1) from T_SCXY_TF_BS_BUS_CREDIT_RECORD a
+        LEFT JOIN T_SCXY_TF_BS_APPEAL_REPORT b ON b.OWNER_ID=a.OWNER_ID
+        WHERE (b.OWNER_NAME like CONCAT('#', CONCAT(#{info},'#')))
     </select>
 
     <select id="getTScxyTfBsBusCreditRecordByPageable" resultMap="TScxyTfBsBusCreditRecordInfoResultMap">
@@ -38,7 +42,10 @@
     </select>
     <select id="getTScxyTfBsBusCreditRecordByParamsPageable" resultMap="TScxyTfBsBusCreditRecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_BUS_CREDIT_RECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_BUS_CREDIT_RECORD a
+      LEFT JOIN T_SCXY_TF_BS_APPEAL_REPORT b ON b.OWNER_ID=a.OWNER_ID
+      WHERE (b.OWNER_NAME like CONCAT('#', CONCAT(#{info},'#'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

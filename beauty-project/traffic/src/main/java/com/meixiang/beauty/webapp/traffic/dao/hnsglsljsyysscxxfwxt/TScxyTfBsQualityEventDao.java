@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt;
 
 import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsQualityEventDTO;
+import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.DTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public interface TScxyTfBsQualityEventDao {
     /**
      * 根据条件查询恶性服务事件表数据总个数
      */
-    Integer getTScxyTfBsQualityEventCountByParams();
+    Integer getTScxyTfBsQualityEventCountByParams(@Param("info") String info);
     
     /**
      * 分页获取恶性服务事件表数据
@@ -36,6 +37,7 @@ public interface TScxyTfBsQualityEventDao {
      * @param end
      */
     List<TScxyTfBsQualityEventDTO> getTScxyTfBsQualityEventByParamsPageable(@Param("start") int start,
-                                                                            @Param("end") int end);
+                                                                            @Param("end") int end,
+                                                                            @Param("info") String info);
 
 }
