@@ -53,6 +53,6 @@
         select '全省泊位表' AS name, '共计' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
               '增加' as third_name, COUNT(ADD_REPORT_PERIOD) as third_value, '报废' as fourth_name,
               COUNT(CASE WHEN DISCARD_REPORT_PERIOD=0 then null else DISCARD_REPORT_PERIOD END) as fourth_value
-        from CDPRJ.T_GKMT_BERTHS WHERE REPORT_YEAR= '#{year}';
+        from CDPRJ.T_GKMT_BERTHS WHERE REPORT_YEAR= #{year};
     </select>
 </mapper>
