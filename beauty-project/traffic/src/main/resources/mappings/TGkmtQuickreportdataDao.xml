@@ -38,7 +38,7 @@
     </select>
     <select id="getTGkmtQuickreportdataByParamsPageable" resultMap="TGkmtQuickreportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE REPORT_PERIOD &lt;= #{endDate} and REPORT_PERIOD &gt;= #{startDate}  and  ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '港口快报吞吐量' AS name, '港区' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
