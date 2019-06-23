@@ -220,7 +220,7 @@ public class HnsgkqyymtdwttlbbController {
     }
 
 
-    //todo 港口吞吐量 待测试
+    //todo 港口吞吐量 待联调
     //todo 泊位编号 bwbh
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -240,7 +240,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 行政管理机构 待测试
+    //todo 行政管理机构 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzgljg", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -262,7 +262,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 行政管理人员 待测试
+    //todo 行政管理人员 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzglry", method = {RequestMethod.POST, RequestMethod.GET})
     public
