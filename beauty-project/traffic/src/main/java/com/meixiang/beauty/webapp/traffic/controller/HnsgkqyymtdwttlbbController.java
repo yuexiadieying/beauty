@@ -93,7 +93,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 全市泊位状况 待测试
+    //todo 全市泊位状况 待联调
     //todo 港口企业 gkqy
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -126,8 +126,8 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         gkqymlDTOList = tGkmtEnterprisesService.getTGkmtEnterprisesByPageable(
-                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
-                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterprisesService.getTGkmtEnterprisesCount());
         paramDTO.setResponseData(gkqymlDTOList);
@@ -146,8 +146,8 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         qyczryDTOS = tGkmtEnterpriseusersService.getTGkmtEnterpriseusersByPageable(
-                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
-                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterpriseusersService.getTGkmtEnterpriseusersCount());
         paramDTO.setResponseData(qyczryDTOS);
@@ -166,8 +166,8 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         qsgqdbmDTOS = tGkmtPortregionsService.getTGkmtPortregionsByPageable(
-                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
-                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortregionsService.getTGkmtPortregionsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
@@ -185,8 +185,8 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         qsgqdbmDTOS = tGkmtPortsService.getTGkmtPortsByPageable(
-                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
-                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortsService.getTGkmtPortsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
@@ -246,8 +246,8 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         xzgljgDTOList = tGkmtUnitsService.getTGkmtUnitsByPageable(
-                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
-                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtUnitsService.getTGkmtUnitsCount());
         paramDTO.setResponseData(xzgljgDTOList);
@@ -266,8 +266,8 @@ public class HnsgkqyymtdwttlbbController {
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
         xzglryDTOList = tGkmtUnitusersService.getTGkmtUnitusersByPageable(
-                (pageParamDTO.getPageStartNo()-1)*pageParamDTO.getPageSize(),
-                pageParamDTO.getPageStartNo()*pageParamDTO.getPageSize());
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setResponseData(xzglryDTOList);
 

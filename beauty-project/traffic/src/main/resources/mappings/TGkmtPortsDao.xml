@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortsDao">
     <resultMap id="TGkmtPortsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtPortsDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="PERIODKIND" property="periodkind" jdbcType="VARCHAR" />
         <result column="PORT_OWNER" property="portOwner" jdbcType="VARCHAR" />
