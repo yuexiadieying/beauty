@@ -65,7 +65,7 @@ public class TGkmtBerthsService {
         String nowBerthNum = Objects.isNull(berthsMap.get(nowMonth)) ? "0" : berthsMap.get(nowMonth).getLjgkbws();
         String preBerthNum = Objects.isNull(berthsMap.get(preMonth)) ? "0" : berthsMap.get(nowMonth).getLjgkbws();
         res.setLjgkbws(nowBerthNum);
-        res.setLjgkbws(caculateRate(preBerthNum, nowBerthNum));
+        res.setLjgkbwsRate(caculateRate(preBerthNum, nowBerthNum));
 
         SimpleDateFormat formatDay = new SimpleDateFormat(format_day);
         String startWeekDay = formatDay.format(new DateTime(now.withDayOfWeek(1).getMillis() - 7*24*3600*1000).toDate());
@@ -80,7 +80,7 @@ public class TGkmtBerthsService {
 
         String preDiscardRep = Objects.isNull(reportsMap.get(startWeekDay)) ? "0" : reportsMap.get(startWeekDay).getBfdbgq();
         String nowDiscardRep = Objects.isNull(reportsMap.get(endWeekDay)) ? "0" : reportsMap.get(endWeekDay).getBfdbgq();
-        res.setBfdbgq(nowAddRep);
+        res.setBfdbgq(nowDiscardRep);
         res.setBfdbgqRate(caculateRate(preDiscardRep, nowDiscardRep));
         return res;
     }
