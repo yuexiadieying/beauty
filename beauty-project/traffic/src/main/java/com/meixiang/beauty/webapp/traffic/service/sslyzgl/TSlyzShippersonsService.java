@@ -26,7 +26,7 @@ public class TSlyzShippersonsService {
         if (params.length <= 0) {
             tSlyzShippersonsDTOs = tSlyzShippersonsDao.getTSlyzShippersonsByPageable(start, end);
         } else {
-            tSlyzShippersonsDTOs = tSlyzShippersonsDao.getTSlyzShippersonsByParamsPageable(start, end);
+            tSlyzShippersonsDTOs = tSlyzShippersonsDao.getTSlyzShippersonsByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzShippersonsDTOs)) {
             for (TSlyzShippersonsDTO tSlyzShippersonsDTO : tSlyzShippersonsDTOs) {

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 //省水路运政管理
 @Controller
@@ -91,7 +92,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 行政区划
+    //todo 行政区划 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzqh", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -115,7 +116,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 管理机构
+    //todo 管理机构 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "gljg", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -139,7 +140,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 许可申请记录
+    //todo 许可申请记录 待联调 数据库无数据
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xksqjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -163,7 +164,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 水路运输业户台账
+    //todo 水路运输业户台账 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "slysyhzt", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -187,7 +188,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 水路运输企业人员
+    //todo 水路运输企业人员 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "slysqyry", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -198,10 +199,13 @@ public class SslyzglController {
         ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
+        String param = Objects.isNull(pageParamDTO.getRequestData()) || "".equalsIgnoreCase(String.valueOf(pageParamDTO.getRequestData()))
+                ? "" : String.valueOf(pageParamDTO.getRequestData());
+
         slysqyryList = tSlyzShippersonsService
                 .getTSlyzShippersonsByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(), param);
 
         paramDTO.setTotalCount(tSlyzShippersonsService.getTSlyzShippersonsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(slysqyryList);
@@ -211,7 +215,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 运输辅助企业台账
+    //todo 运输辅助企业台账 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "ysfzqytz", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -220,12 +224,13 @@ public class SslyzglController {
         List<Map<String,Object>> ysfzqytzList = new ArrayList<>();
         PageParamDTO<List<Map<String,Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String,Object>>>> responseDTO = new ResponseDTO<>();
-
+        String param = Objects.isNull(pageParamDTO.getRequestData()) || "".equalsIgnoreCase(String.valueOf(pageParamDTO.getRequestData()))
+                ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         ysfzqytzList = tSlyzServiceenterprisesService
                 .getTSlyzServiceenterprisesByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(), param);
 
         paramDTO.setTotalCount(tSlyzServiceenterprisesService.getTSlyzServiceenterprisesCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(ysfzqytzList);
@@ -235,7 +240,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 运输辅助企业人员
+    //todo 运输辅助企业人员 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "ysfzqyry", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -259,7 +264,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 年度审验业户记录
+    //todo 年度审验业户记录 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "ndsyyhjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -283,7 +288,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 注销退出业户记录
+    //todo 注销退出业户记录 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "zxtcyhjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -308,7 +313,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 企业违章记录
+    //todo 企业违章记录 待联调，数据库无数据
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qywzjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -332,7 +337,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 运营船舶信息
+    //todo 运营船舶信息 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "yycbxx", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -356,7 +361,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 船舶类型代码
+    //todo 船舶类型代码 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "cblxdm", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -381,7 +386,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 年度审验船舶记录
+    //todo 年度审验船舶记录 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "ndsycbjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -405,7 +410,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 变更船舶记录
+    //todo 变更船舶记录 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "bgcbjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -429,7 +434,7 @@ public class SslyzglController {
         return  responseDTO;
     }
 
-    //todo 船舶违章记录
+    //todo 船舶违章记录 待联调 数据库无数据
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "cbwzjl", method = {RequestMethod.POST, RequestMethod.GET})
     public

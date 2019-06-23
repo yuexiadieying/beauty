@@ -45,7 +45,9 @@
     </select>
     <select id="getTSlyzShippersonsByParamsPageable" resultMap="TSlyzShippersonsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPPERSONS a
+      WHERE a.PERSONNAME like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '水路运输企业人员' AS name, '人员' AS second_name, count(DISTINCT PERSONNAME) as second_value,
