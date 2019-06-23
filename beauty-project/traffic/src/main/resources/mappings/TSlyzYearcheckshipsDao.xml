@@ -37,24 +37,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzYearcheckshipsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_YEARCHECKSHIPS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzYearcheckshipsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_YEARCHECKSHIPS
     </select>
 
     <select id="getTSlyzYearcheckshipsByPageable" resultMap="TSlyzYearcheckshipsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKSHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzYearcheckshipsByParamsPageable" resultMap="TSlyzYearcheckshipsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKSHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '年度审验船舶记录' AS name, '2019年至今船舶登记' AS second_name, count(DISTINCT SHIPNO) as second_value,
       '' as third_name, 0 as third_value, '' as fourth_name,
-      0 as fourth_value from CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS
+      0 as fourth_value from CDPRJ.T_SLYZ_YEARCHECKSHIPS
     </select>
 </mapper>
