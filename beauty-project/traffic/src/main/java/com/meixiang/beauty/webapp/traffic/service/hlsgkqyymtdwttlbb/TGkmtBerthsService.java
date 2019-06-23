@@ -86,8 +86,10 @@ public class TGkmtBerthsService {
     }
 
     private String caculateRate(String pre, String now) {
-        if ("0".equalsIgnoreCase(pre)) {
+        if ("0".equalsIgnoreCase(pre) && !"0".equalsIgnoreCase(now)) {
             return "100%";
+        } else if (pre.equalsIgnoreCase(now)) {
+            return "0%";
         }
         return String.valueOf((Integer.valueOf(now) - Integer.valueOf(pre)) * 100 / Integer.valueOf(pre)) + "%";
     }
