@@ -69,7 +69,7 @@
         COUNT(DISTINCT b.BERTH_NO) as BERTH_NUM, 0 as ADD_NUM, 0 as DISCARD_NUM from CDPRJ.T_GKMT_BERTHS b
         LEFT JOIN CDPRJ.T_GKMT_ENTERPRISES e on e.ENTERPRISE_NO=b.ENTERPRISE_NO
         WHERE (e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{gkqy},'%')) OR e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{mtdw},'%')))
-        AND TO_CHAR(b.INSERT_DATE,'yyyymm') in (#{preMon},#{nowMon}) GROUP BY TO_CHAR(b.INSERT_DATE,'yyyymm');
+        AND TO_CHAR(b.INSERT_DATE,'yyyymm') in (#{preMon},#{nowMon}) GROUP BY TO_CHAR(b.INSERT_DATE,'yyyymm')
     </select>
 
     <select id="getBerthsReportInWeeksByParams" resultMap="QsbwbtjsjResultMap">
@@ -84,6 +84,6 @@
         LEFT JOIN CDPRJ.T_GKMT_ENTERPRISES e on e.ENTERPRISE_NO=b.ENTERPRISE_NO
         WHERE (e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{gkqy},'%')) OR e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{mtdw},'%')))
         AND TO_CHAR(b.INSERT_DATE,'yyyymmdd') BETWEEN #{startDay} AND #{endDay}
-        ) GROUP BY time;
+        ) GROUP BY time
     </select>
 </mapper>
