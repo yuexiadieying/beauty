@@ -181,8 +181,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsComplaintService
                 .getTScxyTfBsComplaintByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsComplaintService.getTScxyTfBsComplaintCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsComplaintService.getTScxyTfBsComplaintCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -202,8 +202,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsCreditReportService
                 .getTScxyTfBsCreditReportByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsCreditReportService.getTScxyTfBsCreditReportCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsCreditReportService.getTScxyTfBsCreditReportCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -223,8 +223,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsDriverCreditService
                 .getTScxyTfBsDriverCreditByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsDriverCreditService.getTScxyTfBsDriverCreditCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsDriverCreditService.getTScxyTfBsDriverCreditCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -244,8 +244,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsEntStabilityService
                 .getTScxyTfBsEntStabilityByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsEntStabilityService.getTScxyTfBsEntStabilityCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsEntStabilityService.getTScxyTfBsEntStabilityCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -265,8 +265,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsEquipmentService
                 .getTScxyTfBsEquipmentByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -286,8 +286,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsEsignCntRptService
                 .getTScxyTfBsEsignCntRptByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsEsignCntRptService.getTScxyTfBsEsignCntRptCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsEsignCntRptService.getTScxyTfBsEsignCntRptCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -307,8 +307,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsFacilityService
                 .getTScxyTfBsFacilityByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -328,8 +328,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsGovTransTaskService
                 .getTScxyTfBsGovTransTaskByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsGovTransTaskService.getTScxyTfBsGovTransTaskCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsGovTransTaskService.getTScxyTfBsGovTransTaskCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -349,8 +349,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsIllegalService
                 .getTScxyTfBsIllegalByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsIllegalService.getTScxyTfBsIllegalCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsIllegalService.getTScxyTfBsIllegalCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -370,8 +370,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsOwnerHonorService
                 .getTScxyTfBsOwnerHonorByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsOwnerHonorService.getTScxyTfBsOwnerHonorCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsOwnerHonorService.getTScxyTfBsOwnerHonorCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -391,8 +391,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsOwnerReformService
                 .getTScxyTfBsOwnerReformByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsOwnerReformService.getTScxyTfBsOwnerReformCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsOwnerReformService.getTScxyTfBsOwnerReformCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -412,8 +412,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsOwnerRfrmCntService
                 .getTScxyTfBsOwnerRfrmCntByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsOwnerRfrmCntService.getTScxyTfBsOwnerRfrmCntCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsOwnerRfrmCntService.getTScxyTfBsOwnerRfrmCntCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -433,8 +433,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsOwnerRuleService
                 .getTScxyTfBsOwnerRuleByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsOwnerRuleService.getTScxyTfBsOwnerRuleCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsOwnerRuleService.getTScxyTfBsOwnerRuleCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -454,8 +454,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsQualityEventService
                 .getTScxyTfBsQualityEventByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsQualityEventService.getTScxyTfBsQualityEventCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsQualityEventService.getTScxyTfBsQualityEventCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -474,9 +474,9 @@ public class HnsglsljsyysscxxfwxtController {
         //todo 通过业务层获取 paramDTO
         paramDTO.setResponseData(tScxyTfBsRestudyrecordService.getTScxyTfBsRestudyrecordByPageable(
                 pageParamDTO.getPageStartNo(),
-                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
 
-        paramDTO.setTotalCount(tScxyTfBsRestudyrecordService.getTScxyTfBsRestudyrecordCount());
+        paramDTO.setTotalCount(tScxyTfBsRestudyrecordService.getTScxyTfBsRestudyrecordCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -496,8 +496,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfPtPersonService
                 .getTScxyTfPtPersonByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfPtPersonService.getTScxyTfPtPersonCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfPtPersonService.getTScxyTfPtPersonCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -517,8 +517,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsAdvancedDeedService
                 .getTScxyTfBsAdvancedDeedByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsAdvancedDeedService.getTScxyTfBsAdvancedDeedCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsAdvancedDeedService.getTScxyTfBsAdvancedDeedCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -538,8 +538,8 @@ public class HnsglsljsyysscxxfwxtController {
         paramDTO.setRequestData(tScxyTfBsAppealReportService
                 .getTScxyTfBsAppealReportByPageable(
                         pageParamDTO.getPageStartNo(),
-                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
-        paramDTO.setTotalCount(tScxyTfBsAppealReportService.getTScxyTfBsAppealReportCount());
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
+        paramDTO.setTotalCount(tScxyTfBsAppealReportService.getTScxyTfBsAppealReportCount(param));
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }

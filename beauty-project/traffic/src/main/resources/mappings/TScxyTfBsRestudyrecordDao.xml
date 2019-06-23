@@ -53,7 +53,8 @@
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsRestudyrecordCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_RESTUDYRECORD
+        SELECT count(1) FROM T_SCXY_TF_BS_RESTUDYRECORD a 
+      WHERE (a.CARDNO like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsRestudyrecordByPageable" resultMap="TScxyTfBsRestudyrecordInfoResultMap">
@@ -63,7 +64,7 @@
     <select id="getTScxyTfBsRestudyrecordByParamsPageable" resultMap="TScxyTfBsRestudyrecordInfoResultMap">
       SELECT * 
       FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_RESTUDYRECORD a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      WHERE (a.CARDNO like CONCAT('%', CONCAT(#{info},'%'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
