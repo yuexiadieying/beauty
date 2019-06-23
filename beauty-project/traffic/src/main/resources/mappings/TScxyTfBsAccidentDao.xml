@@ -63,7 +63,7 @@
     <select id="getTScxyTfBsAccidentByParamsPageable" resultMap="TScxyTfBsAccidentInfoResultMap">
       SELECT * 
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ACCIDENT a
-      LEFT JOIN CDPRJ.T_SJXT_TF_PT_OWNER b on a.OWNER_ID=b.OWNER_ID
+      LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b on a.OWNER_ID=b.OWNER_ID
       WHERE (a.BRANUM like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
