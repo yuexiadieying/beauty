@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzServiceenterprisesDao">
     <resultMap id="TSlyzServiceenterprisesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzServiceenterprisesDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="ENTERPRISENO" property="enterpriseno" jdbcType="VARCHAR" />
         <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />
         <result column="ENTERPRISENAME" property="enterprisename" jdbcType="VARCHAR" />

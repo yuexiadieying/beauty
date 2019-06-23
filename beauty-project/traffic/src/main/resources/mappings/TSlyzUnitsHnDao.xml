@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzUnitsHnDao">
     <resultMap id="TSlyzUnitsHnInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzUnitsHnDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />
         <result column="XZQHNO" property="xzqhno" jdbcType="VARCHAR" />
         <result column="UNITNAME" property="unitname" jdbcType="VARCHAR" />

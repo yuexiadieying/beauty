@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzShipnamesDao">
     <resultMap id="TSlyzShipnamesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzShipnamesDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="NAMENO" property="nameno" jdbcType="INTEGER" />
         <result column="REPORTYEAR" property="reportyear" jdbcType="INTEGER" />
         <result column="SHIPNO" property="shipno" jdbcType="VARCHAR" />

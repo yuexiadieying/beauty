@@ -7,6 +7,12 @@ import java.util.Date;
 public class TSlyzApproveapplyrecordsDTO {
 
     /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
+    /**
      *编号算法见ServerMaxNo说明
     **/
     @JSONField(name="applyno")

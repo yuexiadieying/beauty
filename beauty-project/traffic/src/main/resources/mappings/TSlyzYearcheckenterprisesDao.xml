@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzYearcheckenterprisesDao">
     <resultMap id="TSlyzYearcheckenterprisesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzYearcheckenterprisesDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="YEARCHECKNO" property="yearcheckno" jdbcType="VARCHAR" />
         <result column="YEARCHECKDATE" property="yearcheckdate" jdbcType="TIMESTAMP" />
         <result column="YEARCHECKRESULT" property="yearcheckresult" jdbcType="VARCHAR" />
