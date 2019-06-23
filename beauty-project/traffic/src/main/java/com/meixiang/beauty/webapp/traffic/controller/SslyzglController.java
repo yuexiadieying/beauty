@@ -79,7 +79,7 @@ public class SslyzglController {
     private TSlyzUnitpersonsService tSlyzUnitpersonsService;
 
     //todo 省水路运政管理首页 待联调
-    @RequestMapping(value = "", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "homePage", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
     ResponseDTO<List<SslyzglDTO>> getSslyzglDTO(){
