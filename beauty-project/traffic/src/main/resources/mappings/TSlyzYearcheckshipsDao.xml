@@ -53,8 +53,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS
+      select '年度审验船舶记录' AS name, '2019年至今船舶登记' AS second_name, count(DISTINCT SHIPNO) as second_value,
+      '' as third_name, 0 as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.CDPRJ.T_SLYZ_YEARCHECKSHIPS
     </select>
 </mapper>

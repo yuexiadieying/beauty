@@ -95,7 +95,7 @@ public class SslyzglHomePageService {
         res.add(tSlyzChangeshiprecordsDao.getHomepageInfo());
         res.add(tSlyzEnterpriseillegalrunrdDao.getHomepageInfo());
         res.add(tSlyzExitenterpriserecordsDao.getHomepageInfo());
-        res.add(tSlyzPortsHnDao.getHomepageInfo());
+//        res.add(tSlyzPortsHnDao.getHomepageInfo());
         res.add(tSlyzServiceenterprisesDao.getHomepageInfo());
         res.add(tSlyzServicepersonsDao.getHomepageInfo());
         res.add(tSlyzShipenterprisesDao.getHomepageInfo());
@@ -104,7 +104,7 @@ public class SslyzglHomePageService {
         res.add(tSlyzShipnamesDao.getHomepageInfo());
         res.add(tSlyzShippersonsDao.getHomepageInfo());
         res.add(tSlyzShipsDao.getHomepageInfo());
-        res.add(tSlyzTfBsRestudyrecordScDao.getHomepageInfo());
+//        res.add(tSlyzTfBsRestudyrecordScDao.getHomepageInfo());
         res.add(tSlyzUnitpersonsDao.getHomepageInfo());
         res.add(tSlyzUnitsHnDao.getHomepageInfo());
         res.add(tSlyzXzqhsDao.getHomepageInfo());

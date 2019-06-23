@@ -82,8 +82,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_SHIPS
+      select '营运船舶信息' AS name, '水运企业、个体业主' AS second_name, count(DISTINCT ENTERPRISENO) as second_value,
+      '' as third_name, 0 as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_SLYZ_SHIPS
     </select>
 </mapper>

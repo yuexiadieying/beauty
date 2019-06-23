@@ -44,8 +44,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_ENTERPRISEILLEGALRUNRD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_ENTERPRISEILLEGALRUNRD
+      select '企业违章记录' AS name, '奖励表彰' AS second_name, 0 as second_value,
+      '违章处罚' as third_name, 0 as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_SLYZ_ENTERPRISEILLEGALRUNRD
     </select>
 </mapper>
