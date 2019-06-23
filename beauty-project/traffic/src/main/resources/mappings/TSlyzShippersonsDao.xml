@@ -46,7 +46,7 @@
     <select id="getTSlyzShippersonsByParamsPageable" resultMap="TSlyzShippersonsInfoResultMap">
       SELECT * 
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPPERSONS a
-      WHERE a.PERSONNAME like CONCAT('%', CONCAT(#{info},'%'))) AND
+      WHERE (a.PERSONNAME like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
