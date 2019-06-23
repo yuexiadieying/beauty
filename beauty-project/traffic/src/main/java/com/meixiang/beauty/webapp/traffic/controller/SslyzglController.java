@@ -77,7 +77,7 @@ public class SslyzglController {
     @Autowired
     private TSlyzUnitpersonsService tSlyzUnitpersonsService;
 
-    //todo 省水路运政管理首页 带测试
+    //todo 省水路运政管理首页 待联调
     @RequestMapping(value = "", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
@@ -103,10 +103,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<List<XzqhDTO>>
         xzqhDTOList = tSlyzXzqhsService
-                .getTSlyzXzqhsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzXzqhsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzXzqhsService.getTSlyzXzqhsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(xzqhDTOList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -123,10 +127,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<HashMap<String,Object>>
         gljgList = tSlyzUnitsHnService
-                .getTSlyzUnitsHnByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo());
+                .getTSlyzUnitsHnByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzUnitsHnService.getTSlyzUnitsHnCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(gljgList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -143,10 +151,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         xksqjlList = tSlyzApproveapplyrecordsService
-                .getTSlyzApproveapplyrecordsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzApproveapplyrecordsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzApproveapplyrecordsService.getTSlyzApproveapplyrecordsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(xksqjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -163,10 +175,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         slysyhztList = tSlyzShipenterprisesService
-                .getTSlyzShipenterprisesByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzShipenterprisesByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzShipenterprisesService.getTSlyzShipenterprisesCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(slysyhztList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -183,10 +199,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         slysqyryList = tSlyzShippersonsService
-                .getTSlyzShippersonsByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo());
+                .getTSlyzShippersonsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzShippersonsService.getTSlyzShippersonsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(slysqyryList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -203,10 +223,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         ysfzqytzList = tSlyzServiceenterprisesService
-                .getTSlyzServiceenterprisesByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo());
+                .getTSlyzServiceenterprisesByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzServiceenterprisesService.getTSlyzServiceenterprisesCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(ysfzqytzList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -223,10 +247,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         ysfzqyryList = tSlyzServicepersonsService
-                .getTSlyzServicepersonsByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo());
+                .getTSlyzServicepersonsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzServicepersonsService.getTSlyzServicepersonsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(ysfzqyryList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -243,10 +271,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         ndsyyhjlList = tSlyzYearcheckenterprisesService
-                .getTSlyzYearcheckenterprisesByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzYearcheckenterprisesByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzYearcheckenterprisesService.getTSlyzYearcheckenterprisesCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(ndsyyhjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -263,11 +295,15 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         zxtcyhjlList = tSlyzExitenterpriserecordsService
-                .getTSlyzExitenterpriserecordsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzExitenterpriserecordsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
 
         paramDTO.setTotalCount(tSlyzExitenterpriserecordsService.getTSlyzExitenterpriserecordsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(zxtcyhjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -284,10 +320,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         qywzjlList = tSlyzEnterpriseillegalrunrdService
-                .getTSlyzEnterpriseillegalrunrdByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo() );
+                .getTSlyzEnterpriseillegalrunrdByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzEnterpriseillegalrunrdService.getTSlyzEnterpriseillegalrunrdCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(qywzjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -304,10 +344,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         yycbxxList = tSlyzShipsService
-                .getTSlyzShipsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzShipsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzShipsService.getTSlyzShipsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(yycbxxList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -324,11 +368,15 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         cblxdmList = tSlyzShipkindsService
-                .getTSlyzShipkindsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzShipkindsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
 
         paramDTO.setTotalCount(tSlyzShipkindsService.getTSlyzShipkindsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(cblxdmList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -345,10 +393,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         ndsycbjlList = tSlyzYearcheckshipsService
-                .getTSlyzYearcheckshipsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzYearcheckshipsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzYearcheckshipsService.getTSlyzYearcheckshipsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(ndsycbjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -365,10 +417,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         bgcbjlList = tSlyzChangeshiprecordsService
-                .getTSlyzChangeshiprecordsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzChangeshiprecordsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzChangeshiprecordsService.getTSlyzChangeshiprecordsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(bgcbjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -385,10 +441,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         cbwzjlList = tSlyzShipillegalrunrecordsService
-                .getTSlyzShipillegalrunrecordsByPageable(pageParamDTO.getPageStartNo(),pageParamDTO.getPageNo() );
+                .getTSlyzShipillegalrunrecordsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzShipillegalrunrecordsService.getTSlyzShipillegalrunrecordsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(cbwzjlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -424,10 +484,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         yscbmlList = tSlyzShipnamesService
-                .getTSlyzShipnamesByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzShipnamesByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzShipnamesService.getTSlyzShipnamesCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(yscbmlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -444,10 +508,14 @@ public class SslyzglController {
 
         //todo 通过业务层获取 PageParamDTO<Map<String,Object>>
         yzglrymlList = tSlyzUnitpersonsService
-                .getTSlyzUnitpersonsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageNo());
+                .getTSlyzUnitpersonsByPageable(
+                        pageParamDTO.getPageStartNo(),
+                        pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tSlyzUnitpersonsService.getTSlyzUnitpersonsCount());//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(yzglrymlList);
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
