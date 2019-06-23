@@ -41,7 +41,9 @@
     </select>
     <select id="getTSlyzUnitpersonsByParamsPageable" resultMap="TSlyzUnitpersonsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_UNITPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_UNITPERSONS a
+      WHERE (a.PERSONNAME like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '运政管理人员名录' AS name, '在职人员' AS second_name, count(DISTINCT PERSONNAME) as second_value,

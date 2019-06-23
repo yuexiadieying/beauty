@@ -42,7 +42,9 @@
     </select>
     <select id="getTSlyzEnterpriseillegalrunrdByParamsPageable" resultMap="TSlyzEnterpriseillegalrunrdInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_ENTERPRISEILLEGALRUNRD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_ENTERPRISEILLEGALRUNRD a
+      WHERE (a.ENTERPRISENO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '企业违章记录' AS name, '奖励表彰' AS second_name, 0 as second_value,

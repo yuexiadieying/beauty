@@ -26,7 +26,7 @@ public class TSlyzShipillegalrunrecordsService {
         if (params.length <= 0) {
             tSlyzShipillegalrunrecordsDTOs = tSlyzShipillegalrunrecordsDao.getTSlyzShipillegalrunrecordsByPageable(start, end);
         } else {
-            tSlyzShipillegalrunrecordsDTOs = tSlyzShipillegalrunrecordsDao.getTSlyzShipillegalrunrecordsByParamsPageable(start, end);
+            tSlyzShipillegalrunrecordsDTOs = tSlyzShipillegalrunrecordsDao.getTSlyzShipillegalrunrecordsByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzShipillegalrunrecordsDTOs)) {
             for (TSlyzShipillegalrunrecordsDTO tSlyzShipillegalrunrecordsDTO : tSlyzShipillegalrunrecordsDTOs) {

@@ -26,7 +26,7 @@ public class TSlyzYearcheckshipsService {
         if (params.length <= 0) {
             tSlyzYearcheckshipsDTOs = tSlyzYearcheckshipsDao.getTSlyzYearcheckshipsByPageable(start, end);
         } else {
-            tSlyzYearcheckshipsDTOs = tSlyzYearcheckshipsDao.getTSlyzYearcheckshipsByParamsPageable(start, end);
+            tSlyzYearcheckshipsDTOs = tSlyzYearcheckshipsDao.getTSlyzYearcheckshipsByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzYearcheckshipsDTOs)) {
             for (TSlyzYearcheckshipsDTO tSlyzYearcheckshipsDTO : tSlyzYearcheckshipsDTOs) {

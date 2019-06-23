@@ -51,7 +51,9 @@
     </select>
     <select id="getTSlyzYearcheckshipsByParamsPageable" resultMap="TSlyzYearcheckshipsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKSHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKSHIPS a
+      WHERE (a.SHIPNO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '年度审验船舶记录' AS name, '2019年至今船舶登记' AS second_name, count(DISTINCT SHIPNO) as second_value,

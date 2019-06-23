@@ -26,7 +26,7 @@ public class TSlyzServicepersonsService {
         if (params.length <= 0) {
             tSlyzServicepersonsDTOs = tSlyzServicepersonsDao.getTSlyzServicepersonsByPageable(start, end);
         } else {
-            tSlyzServicepersonsDTOs = tSlyzServicepersonsDao.getTSlyzServicepersonsByParamsPageable(start, end);
+            tSlyzServicepersonsDTOs = tSlyzServicepersonsDao.getTSlyzServicepersonsByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzServicepersonsDTOs)) {
             for (TSlyzServicepersonsDTO tSlyzServicepersonsDTO : tSlyzServicepersonsDTOs) {

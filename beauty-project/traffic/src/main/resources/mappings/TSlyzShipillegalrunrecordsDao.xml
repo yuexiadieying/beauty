@@ -44,7 +44,9 @@
     </select>
     <select id="getTSlyzShipillegalrunrecordsByParamsPageable" resultMap="TSlyzShipillegalrunrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS a
+      WHERE (a.SHIPNO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '船舶违章记录' AS name, '累计船舶违章' AS second_name, count(DISTINCT KIND) as second_value,

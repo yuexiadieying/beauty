@@ -49,7 +49,9 @@
     </select>
     <select id="getTSlyzYearcheckenterprisesByParamsPageable" resultMap="TSlyzYearcheckenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKENTERPRISES a
+      WHERE (a.ENTERPRISENO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '年度审验业户记录' AS name, '2019年度至今年审企业' AS second_name, count(DISTINCT ENTERPRISENO) as second_value,

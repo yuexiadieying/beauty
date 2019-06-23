@@ -37,7 +37,8 @@ public interface TSlyzShipkindsDao {
      * @param end
      */
     List<TSlyzShipkindsDTO> getTSlyzShipkindsByParamsPageable(@Param("start") int start,
-                                                              @Param("end") int end);
+                                                              @Param("end") int end,
+                                                              @Param("info") String info);
     
     /**
      * 查询首页信息

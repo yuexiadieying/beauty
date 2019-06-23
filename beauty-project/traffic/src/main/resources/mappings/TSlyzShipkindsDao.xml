@@ -31,8 +31,12 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPKINDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzShipkindsByParamsPageable" resultMap="TSlyzShipkindsInfoResultMap">
-      SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPKINDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+        SELECT *
+        FROM (
+        SELECT ROWNUM as rn, b.* from CDPRJ.T_SLYZ_SHIPS a
+        LEFT JOIN CDPRJ.T_SLYZ_SHIPKINDS b on a.KINDNO=b.KINDNO
+        WHERE (a.SHIPNAME like CONCAT('%', CONCAT(#{info},'%'))) AND
+        ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '船舶类型代码' AS name, '船舶类型' AS second_name, count(DISTINCT KINDNO) as second_value,

@@ -80,7 +80,9 @@
     </select>
     <select id="getTSlyzShipsByParamsPageable" resultMap="TSlyzShipsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPS a
+      WHERE (a.ENTERPRISENO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '营运船舶信息' AS name, '水运企业、个体业主' AS second_name, count(DISTINCT ENTERPRISENO) as second_value,
