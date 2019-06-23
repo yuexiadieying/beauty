@@ -27,24 +27,24 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsBusCreditRecordCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_BUS_CREDIT_RECORD
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_BUS_CREDIT_RECORD
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsBusCreditRecordCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) from T_SCXY_TF_BS_BUS_CREDIT_RECORD a
-        LEFT JOIN T_SCXY_TF_BS_APPEAL_REPORT b ON b.OWNER_ID=a.OWNER_ID
-        WHERE (b.OWNER_NAME like CONCAT('#', CONCAT(#{info},'#')))
+        SELECT count(1) from CDPRJ.T_SCXY_TF_BS_BUS_CREDIT_RECORD a
+        LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
+        WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsBusCreditRecordByPageable" resultMap="TScxyTfBsBusCreditRecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_BUS_CREDIT_RECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_BUS_CREDIT_RECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsBusCreditRecordByParamsPageable" resultMap="TScxyTfBsBusCreditRecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_BUS_CREDIT_RECORD a
-      LEFT JOIN T_SCXY_TF_BS_APPEAL_REPORT b ON b.OWNER_ID=a.OWNER_ID
-      WHERE (b.OWNER_NAME like CONCAT('#', CONCAT(#{info},'#'))) AND
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_BUS_CREDIT_RECORD a
+      LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
+      WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

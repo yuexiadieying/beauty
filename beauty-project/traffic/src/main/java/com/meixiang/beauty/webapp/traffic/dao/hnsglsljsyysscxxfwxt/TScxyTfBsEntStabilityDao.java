@@ -1,7 +1,6 @@
 package com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt;
 
 import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsEntStabilityDTO;
-import com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.DTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

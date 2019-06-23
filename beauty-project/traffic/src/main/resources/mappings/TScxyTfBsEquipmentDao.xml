@@ -34,21 +34,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsEquipmentCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_EQUIPMENT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_EQUIPMENT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsEquipmentCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_EQUIPMENT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_EQUIPMENT a
+      WHERE (a.EQUIP_CODE like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsEquipmentByPageable" resultMap="TScxyTfBsEquipmentInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_EQUIPMENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_EQUIPMENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsEquipmentByParamsPageable" resultMap="TScxyTfBsEquipmentInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_EQUIPMENT a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_EQUIPMENT a 
+      WHERE (a.EQUIP_CODE like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

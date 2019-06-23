@@ -49,21 +49,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsAccidentCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ACCIDENT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ACCIDENT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsAccidentCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ACCIDENT WHERE (CMVECID like CONCAT('%', CONCAT(#{info},'%')))
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ACCIDENT WHERE (BRANUM like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsAccidentByPageable" resultMap="TScxyTfBsAccidentInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ACCIDENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ACCIDENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsAccidentByParamsPageable" resultMap="TScxyTfBsAccidentInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ACCIDENT a 
-      WHERE (a.CMVECID like CONCAT('%', CONCAT(#{info},'%'))) AND
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ACCIDENT a
+      LEFT JOIN CDPRJ.T_SJXT_TF_PT_OWNER b on a.OWNER_ID=b.OWNER_ID
+      WHERE (a.BRANUM like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

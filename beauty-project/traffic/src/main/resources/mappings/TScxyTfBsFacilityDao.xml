@@ -25,21 +25,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsFacilityCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_FACILITY
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_FACILITY
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsFacilityCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_FACILITY
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_FACILITY a
+      WHERE (a.FACILITY_NAME like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsFacilityByPageable" resultMap="TScxyTfBsFacilityInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_FACILITY a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_FACILITY a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsFacilityByParamsPageable" resultMap="TScxyTfBsFacilityInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_FACILITY a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_FACILITY a 
+      WHERE (a.FACILITY_NAME like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

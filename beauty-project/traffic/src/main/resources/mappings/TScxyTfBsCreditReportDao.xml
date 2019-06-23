@@ -61,21 +61,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsCreditReportCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_CREDIT_REPORT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_CREDIT_REPORT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsCreditReportCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_CREDIT_REPORT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_CREDIT_REPORT
+        WHERE (REPORT_ID like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsCreditReportByPageable" resultMap="TScxyTfBsCreditReportInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_CREDIT_REPORT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_CREDIT_REPORT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsCreditReportByParamsPageable" resultMap="TScxyTfBsCreditReportInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_CREDIT_REPORT a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_CREDIT_REPORT a 
+      WHERE (a.REPORT_ID like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

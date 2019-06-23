@@ -29,21 +29,24 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerHonorCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_OWNER_HONOR
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_OWNER_HONOR
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerHonorCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_OWNER_HONOR
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_OWNER_HONOR a
+      WHERE (a.HONOR_LEVEL like CONCAT('%', CONCAT(#{info},'%'))
+      or a.HONOR_TITLE like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsOwnerHonorByPageable" resultMap="TScxyTfBsOwnerHonorInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_HONOR a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_OWNER_HONOR a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsOwnerHonorByParamsPageable" resultMap="TScxyTfBsOwnerHonorInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_HONOR a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_OWNER_HONOR a 
+      WHERE (a.HONOR_LEVEL like CONCAT('%', CONCAT(#{info},'%'))
+      or a.HONOR_TITLE like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

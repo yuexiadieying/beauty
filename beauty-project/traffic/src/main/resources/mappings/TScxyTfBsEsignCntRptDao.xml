@@ -23,21 +23,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsEsignCntRptCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ESIGN_CNT_RPT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsEsignCntRptCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ESIGN_CNT_RPT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT a
+      WHERE (a.ESIGN_CONTENT like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsEsignCntRptByPageable" resultMap="TScxyTfBsEsignCntRptInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ESIGN_CNT_RPT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsEsignCntRptByParamsPageable" resultMap="TScxyTfBsEsignCntRptInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ESIGN_CNT_RPT a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT a 
+      WHERE (a.ESIGN_CONTENT like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

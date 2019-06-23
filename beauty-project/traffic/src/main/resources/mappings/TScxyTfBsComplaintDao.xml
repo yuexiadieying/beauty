@@ -53,21 +53,24 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsComplaintCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_COMPLAINT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_COMPLAINT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsComplaintCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_COMPLAINT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_COMPLAINT
+        LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
+        WHERE (a.OWNER_NAME like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsComplaintByPageable" resultMap="TScxyTfBsComplaintInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_COMPLAINT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_COMPLAINT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsComplaintByParamsPageable" resultMap="TScxyTfBsComplaintInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_COMPLAINT a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_COMPLAINT a
+        LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
+      WHERE (a.UNITNO like CONCAT('%', CONCAT(#{info},'%'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

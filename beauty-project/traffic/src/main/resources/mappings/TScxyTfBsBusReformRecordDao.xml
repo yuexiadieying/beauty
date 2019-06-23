@@ -37,21 +37,24 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsBusReformRecordCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_BUS_REFORM_RECORD
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_BUS_REFORM_RECORD
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsBusReformRecordCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_BUS_REFORM_RECORD
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_BUS_REFORM_RECORD
+        LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
+        WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsBusReformRecordByPageable" resultMap="TScxyTfBsBusReformRecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_BUS_REFORM_RECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_BUS_REFORM_RECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsBusReformRecordByParamsPageable" resultMap="TScxyTfBsBusReformRecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_BUS_REFORM_RECORD a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_BUS_REFORM_RECORD a
+      LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
+      WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

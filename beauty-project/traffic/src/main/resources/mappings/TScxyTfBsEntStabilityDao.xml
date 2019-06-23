@@ -38,21 +38,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsEntStabilityCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ENT_STABILITY
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ENT_STABILITY
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsEntStabilityCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ENT_STABILITY
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ENT_STABILITY a
+        WHERE (a.STAB_ID like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsEntStabilityByPageable" resultMap="TScxyTfBsEntStabilityInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ENT_STABILITY a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ENT_STABILITY a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsEntStabilityByParamsPageable" resultMap="TScxyTfBsEntStabilityInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ENT_STABILITY a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ENT_STABILITY a 
+      WHERE (a.STAB_ID like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

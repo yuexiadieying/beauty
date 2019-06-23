@@ -55,21 +55,24 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfPtPersonCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_PT_PERSON
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_PT_PERSON
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfPtPersonCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_PT_PERSON
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_PT_PERSON a 
+      WHERE (a.NAME like CONCAT('%', CONCAT(#{info},'%'))
+      or a.CARDNO like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfPtPersonByPageable" resultMap="TScxyTfPtPersonInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_PT_PERSON a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_PT_PERSON a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfPtPersonByParamsPageable" resultMap="TScxyTfPtPersonInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_PT_PERSON a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_PT_PERSON a 
+      WHERE (a.NAME like CONCAT('%', CONCAT(#{info},'%'))
+      or a.CARDNO like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

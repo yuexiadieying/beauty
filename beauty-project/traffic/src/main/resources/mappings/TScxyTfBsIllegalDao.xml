@@ -50,21 +50,24 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsIllegalCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ILLEGAL
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ILLEGAL
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsIllegalCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ILLEGAL
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ILLEGAL a
+      WHERE (a.CASE_NO like CONCAT('%', CONCAT(#{info},'%'))
+      or a.ILLEGAL_PLACE like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsIllegalByPageable" resultMap="TScxyTfBsIllegalInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ILLEGAL a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ILLEGAL a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsIllegalByParamsPageable" resultMap="TScxyTfBsIllegalInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ILLEGAL a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ILLEGAL a 
+      WHERE (a.CASE_NO like CONCAT('%', CONCAT(#{info},'%'))
+      or a.ILLEGAL_PLACE like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

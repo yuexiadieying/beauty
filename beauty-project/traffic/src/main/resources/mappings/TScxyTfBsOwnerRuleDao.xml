@@ -25,21 +25,22 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerRuleCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_OWNER_RULE
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_OWNER_RULE
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerRuleCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_OWNER_RULE
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_OWNER_RULE a 
+      WHERE (a.RULE_TITLE like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsOwnerRuleByPageable" resultMap="TScxyTfBsOwnerRuleInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RULE a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_OWNER_RULE a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsOwnerRuleByParamsPageable" resultMap="TScxyTfBsOwnerRuleInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RULE a 
-      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_OWNER_RULE a 
+      WHERE (a.RULE_TITLE like CONCAT('%', CONCAT(#{info},'%'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
