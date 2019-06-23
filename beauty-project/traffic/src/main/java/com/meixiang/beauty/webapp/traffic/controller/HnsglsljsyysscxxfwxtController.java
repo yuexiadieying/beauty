@@ -460,7 +460,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 继续教育记录
+    //todo 继续教育记录 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jxjyjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
