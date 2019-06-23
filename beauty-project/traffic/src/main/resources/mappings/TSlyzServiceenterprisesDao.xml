@@ -62,7 +62,9 @@
     </select>
     <select id="getTSlyzServiceenterprisesByParamsPageable" resultMap="TSlyzServiceenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SERVICEENTERPRISES a
+      WHERE (a.UNITNO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '运输辅助企业台帐' AS name, '企业' AS second_name, count(DISTINCT ENTERPRISENAME) as second_value,
