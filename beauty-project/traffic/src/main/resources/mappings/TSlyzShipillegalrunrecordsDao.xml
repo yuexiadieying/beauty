@@ -30,24 +30,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzShipillegalrunrecordsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPILLEGALRUNRECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzShipillegalrunrecordsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPILLEGALRUNRECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS
     </select>
 
     <select id="getTSlyzShipillegalrunrecordsByPageable" resultMap="TSlyzShipillegalrunrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzShipillegalrunrecordsByParamsPageable" resultMap="TSlyzShipillegalrunrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
       '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_SHIPILLEGALRUNRECORDS
+      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS
     </select>
 </mapper>

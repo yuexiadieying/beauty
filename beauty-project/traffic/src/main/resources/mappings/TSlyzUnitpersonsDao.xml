@@ -27,24 +27,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzUnitpersonsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_UNITPERSONS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_UNITPERSONS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzUnitpersonsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_UNITPERSONS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_UNITPERSONS
     </select>
 
     <select id="getTSlyzUnitpersonsByPageable" resultMap="TSlyzUnitpersonsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_UNITPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_UNITPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzUnitpersonsByParamsPageable" resultMap="TSlyzUnitpersonsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_UNITPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_UNITPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
       '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_UNITPERSONS
+      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_UNITPERSONS
     </select>
 </mapper>

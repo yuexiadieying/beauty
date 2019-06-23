@@ -35,24 +35,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzYearcheckenterprisesCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_YEARCHECKENTERPRISES
+        SELECT count(1) FROM CDPRJ.T_SLYZ_YEARCHECKENTERPRISES
     </select>
     <!--获取总个数-->
     <select id="getTSlyzYearcheckenterprisesCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_YEARCHECKENTERPRISES
+        SELECT count(1) FROM CDPRJ.T_SLYZ_YEARCHECKENTERPRISES
     </select>
 
     <select id="getTSlyzYearcheckenterprisesByPageable" resultMap="TSlyzYearcheckenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_YEARCHECKENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzYearcheckenterprisesByParamsPageable" resultMap="TSlyzYearcheckenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_YEARCHECKENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_YEARCHECKENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '年度审验业户记录' AS name, '2019年度至今年审企业' AS second_name, count(DISTINCT ENTERPRISENO) as second_value,
       '' as third_name, 0 as third_value, '0' as fourth_name,
-      0 as fourth_value from T_SLYZ_YEARCHECKENTERPRISES
+      0 as fourth_value from CDPRJ.T_SLYZ_YEARCHECKENTERPRISES
     </select>
 </mapper>

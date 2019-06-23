@@ -18,24 +18,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzXzqhsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_XZQHS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_XZQHS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzXzqhsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_XZQHS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_XZQHS
     </select>
 
     <select id="getTSlyzXzqhsByPageable" resultMap="TSlyzXzqhsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_XZQHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_XZQHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzXzqhsByParamsPageable" resultMap="TSlyzXzqhsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_XZQHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_XZQHS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '行政区划' AS name, '行政区划' AS second_name, count(DISTINCT XZQHNO) as second_value,
       '' as third_name, 0 as third_value, '' as fourth_name,
-      0 as fourth_value from T_SLYZ_XZQHS
+      0 as fourth_value from CDPRJ.T_SLYZ_XZQHS
     </select>
 </mapper>

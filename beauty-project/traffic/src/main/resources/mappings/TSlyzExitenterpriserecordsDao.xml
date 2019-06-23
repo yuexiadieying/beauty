@@ -31,24 +31,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzExitenterpriserecordsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_EXITENTERPRISERECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_EXITENTERPRISERECORDS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzExitenterpriserecordsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_EXITENTERPRISERECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_EXITENTERPRISERECORDS
     </select>
 
     <select id="getTSlyzExitenterpriserecordsByPageable" resultMap="TSlyzExitenterpriserecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_EXITENTERPRISERECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_EXITENTERPRISERECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzExitenterpriserecordsByParamsPageable" resultMap="TSlyzExitenterpriserecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_EXITENTERPRISERECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_EXITENTERPRISERECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '注销退出业户记录' AS name, '注销退出企业' AS second_name, count(DISTINCT ENTERPRISENO) as second_value,
       '' as third_name, 0 as third_value, '' as fourth_name,
-      0 as fourth_value from T_SLYZ_EXITENTERPRISERECORDS
+      0 as fourth_value from CDPRJ.T_SLYZ_EXITENTERPRISERECORDS
     </select>
 </mapper>

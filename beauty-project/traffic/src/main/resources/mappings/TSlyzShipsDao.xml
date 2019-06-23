@@ -66,24 +66,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzShipsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzShipsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPS
     </select>
 
     <select id="getTSlyzShipsByPageable" resultMap="TSlyzShipsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzShipsByParamsPageable" resultMap="TSlyzShipsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
       '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_SHIPS
+      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_SHIPS
     </select>
 </mapper>

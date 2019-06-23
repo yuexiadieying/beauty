@@ -27,24 +27,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzApproveapplyrecordsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_APPROVEAPPLYRECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_APPROVEAPPLYRECORDS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzApproveapplyrecordsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_APPROVEAPPLYRECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_APPROVEAPPLYRECORDS
     </select>
 
     <select id="getTSlyzApproveapplyrecordsByPageable" resultMap="TSlyzApproveapplyrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_APPROVEAPPLYRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_APPROVEAPPLYRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzApproveapplyrecordsByParamsPageable" resultMap="TSlyzApproveapplyrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_APPROVEAPPLYRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_APPROVEAPPLYRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '许可申请记录' AS name, '申请机构' AS second_name, count(DISTINCT APPLYUNITNO) as second_value,
       '机构等级' as third_name, COUNT(DISTINCT APPLYUNITNO) as third_value, '' as fourth_name,
-      0 as fourth_value from T_SLYZ_APPROVEAPPLYRECORDS
+      0 as fourth_value from CDPRJ.T_SLYZ_APPROVEAPPLYRECORDS
     </select>
 </mapper>

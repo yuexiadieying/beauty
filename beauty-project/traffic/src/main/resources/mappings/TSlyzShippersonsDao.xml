@@ -31,24 +31,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzShippersonsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPPERSONS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPPERSONS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzShippersonsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPPERSONS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPPERSONS
     </select>
 
     <select id="getTSlyzShippersonsByPageable" resultMap="TSlyzShippersonsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzShippersonsByParamsPageable" resultMap="TSlyzShippersonsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPPERSONS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '水路运输企业人员' AS name, '人员' AS second_name, count(DISTINCT PERSONNAME) as second_value,
       '船员适任证类型' as third_name, COUNT(DISTINCT SRZSHIPKIND) as third_value, '' as fourth_name,
-      0 as fourth_value from T_SLYZ_SHIPPERSONS
+      0 as fourth_value from CDPRJ.T_SLYZ_SHIPPERSONS
     </select>
 </mapper>

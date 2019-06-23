@@ -56,24 +56,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzTfBsRestudyrecordScCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_TF_BS_RESTUDYRECORD_SC
+        SELECT count(1) FROM CDPRJ.T_SLYZ_TF_BS_RESTUDYRECORD_SC
     </select>
     <!--获取总个数-->
     <select id="getTSlyzTfBsRestudyrecordScCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_TF_BS_RESTUDYRECORD_SC
+        SELECT count(1) FROM CDPRJ.T_SLYZ_TF_BS_RESTUDYRECORD_SC
     </select>
 
     <select id="getTSlyzTfBsRestudyrecordScByPageable" resultMap="TSlyzTfBsRestudyrecordScInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_TF_BS_RESTUDYRECORD_SC a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_TF_BS_RESTUDYRECORD_SC a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzTfBsRestudyrecordScByParamsPageable" resultMap="TSlyzTfBsRestudyrecordScInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_TF_BS_RESTUDYRECORD_SC a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_TF_BS_RESTUDYRECORD_SC a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
       '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_TF_BS_RESTUDYRECORD_SC
+      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_TF_BS_RESTUDYRECORD_SC
     </select>
 </mapper>

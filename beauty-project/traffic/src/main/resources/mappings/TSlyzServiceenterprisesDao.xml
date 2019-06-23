@@ -48,24 +48,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzServiceenterprisesCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SERVICEENTERPRISES
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SERVICEENTERPRISES
     </select>
     <!--获取总个数-->
     <select id="getTSlyzServiceenterprisesCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SERVICEENTERPRISES
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SERVICEENTERPRISES
     </select>
 
     <select id="getTSlyzServiceenterprisesByPageable" resultMap="TSlyzServiceenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzServiceenterprisesByParamsPageable" resultMap="TSlyzServiceenterprisesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SERVICEENTERPRISES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '运输辅助企业台帐' AS name, '企业' AS second_name, count(DISTINCT ENTERPRISENAME) as second_value,
       '经营类型' as third_name, COUNT(DISTINCT JJKIND) as third_value, '' as fourth_name,
-      0 as fourth_value from T_SLYZ_SERVICEENTERPRISES
+      0 as fourth_value from CDPRJ.T_SLYZ_SERVICEENTERPRISES
     </select>
 </mapper>
