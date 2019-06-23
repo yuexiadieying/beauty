@@ -49,21 +49,21 @@
 
     <!--获取总个数-->
     <select id="getTScxyTfBsRestudyrecordCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_RESTUDYRECORD
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_RESTUDYRECORD
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsRestudyrecordCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_RESTUDYRECORD a 
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_RESTUDYRECORD a
       WHERE (a.CARDNO like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsRestudyrecordByPageable" resultMap="TScxyTfBsRestudyrecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_RESTUDYRECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_RESTUDYRECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsRestudyrecordByParamsPageable" resultMap="TScxyTfBsRestudyrecordInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_RESTUDYRECORD a 
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_RESTUDYRECORD a
       WHERE (a.CARDNO like CONCAT('%', CONCAT(#{info},'%'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>

@@ -70,7 +70,7 @@
       SELECT * 
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_COMPLAINT a
         LEFT JOIN CDPRJ.T_SCXY_TF_PT_PERSON b ON b.OWNER_ID=a.OWNER_ID
-      WHERE (a.UNITNO like CONCAT('%', CONCAT(#{info},'%'))) AND 
+      WHERE (a.COMP_ID like CONCAT('%', CONCAT(#{info},'%'))) AND
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 

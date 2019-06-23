@@ -102,7 +102,7 @@ public class HnsglsljsyysscxxfwxtController {
     @Autowired
     private TScxyTfBsRestudyrecordService tScxyTfBsRestudyrecordService;
 
-    //todo 交通责任事故表
+    //todo 交通责任事故表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jtzrsgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -124,7 +124,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 车辆信用考核表
+    //todo 车辆信用考核表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "clxykhb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -145,7 +145,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 车辆责令整改表
+    //todo 车辆责令整改表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "clzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -187,7 +187,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 业户考核申报表
+    //todo 业户考核申报表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "yhkhsbb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -229,7 +229,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 违规上访表
+    //todo 违规上访表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "wgsfb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -250,7 +250,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 设备档案表
+    //todo 设备档案表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "sbdab", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -271,7 +271,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 电子签章申报内容表
+    //todo 电子签章申报内容表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "dzqzsbnrb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -292,7 +292,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 设施档案表
+    //todo 设施档案表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "ssdab", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -313,7 +313,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 政府运输任务表
+    //todo 政府运输任务表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "zfysrwb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -334,7 +334,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 经营违章表
+    //todo 经营违章表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jywzb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -355,7 +355,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 企业荣誉表
+    //todo 企业荣誉表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "qyryb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -376,7 +376,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 业户责令整改表
+    //todo 业户责令整改表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "yhzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -397,7 +397,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 整改内容表
+    //todo 整改内容表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "zgnrb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -418,7 +418,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 规章制度表
+    //todo 规章制度表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "gzzdb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -439,7 +439,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 恶性服务事件表
+    //todo 恶性服务事件表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "exfwsjb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -481,7 +481,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 员工信息表
+    //todo 员工信息表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "ygxxb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -502,7 +502,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 先进事迹表
+    //todo 先进事迹表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "xjsjb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -523,7 +523,7 @@ public class HnsglsljsyysscxxfwxtController {
         return  responseDTO;
     }
 
-    //todo 申诉主表
+    //todo 申诉主表 待联调
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "sszb", method = {RequestMethod.POST, RequestMethod.GET})
     public
