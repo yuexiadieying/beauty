@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtBerthsDao">
     <resultMap id="TGkmtBerthsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtBerthsDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="ENTERPRISE_NO_OLD" property="enterpriseNoOld" jdbcType="DOUBLE" />
         <result column="BERTH_STATUS" property="berthStatus" jdbcType="VARCHAR" />
