@@ -2,7 +2,6 @@ package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
-import com.meixiang.beauty.sys.annotation.LoginRequired;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
@@ -63,7 +62,7 @@ public class HnsgkqyymtdwttlbbController {
     @Autowired
     private HlsgkqyymtdwttlbbHomePageService homePageService;
 
-    //todo 湖南省港口企业与码头单位吞吐量报表首页
+    //todo 湖南省港口企业与码头单位吞吐量报表首页  待联调
     @RequestMapping(value = "ttlbb", method = {RequestMethod.POST, RequestMethod.GET})
     @TrafficLoginRequired
     public
