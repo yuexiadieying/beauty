@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.TScxyTfBsCreditReportDao">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsCreditReportDao">
     <resultMap id="TScxyTfBsCreditReportInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsCreditReportDTO" >
        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
