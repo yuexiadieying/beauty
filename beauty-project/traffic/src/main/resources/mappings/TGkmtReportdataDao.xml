@@ -38,8 +38,13 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTGkmtReportdataByParamsPageable" resultMap="TGkmtReportdataInfoResultMap">
-      SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_REPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+        SELECT *
+        FROM (
+        SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_REPORTDATA a
+        LEFT JOIN CDPRJ.T_GKMT_BERTHS t on t.BERTH_NO=a.BERTH_NO
+        LEFT JOIN CDPRJ.T_GKMT_ENTERPRISES e on e.ENTERPRISE_NO=t.ENTERPRISE_NO
+        WHERE (e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{gkqy},'%')) OR e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{mtdw},'%')))
+        AND a.REPORT_PERIOD &lt;= #{endDate} AND a.REPORT_PERIOD &gt;= #{startDate} AND ROWNUM &lt;= #{end} ) WHERE rn > #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '港口吞吐量' AS name, '泊位' AS second_name, count(DISTINCT BERTH_NO) as second_value,

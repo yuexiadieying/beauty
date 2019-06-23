@@ -78,7 +78,7 @@ public class HnsgkqyymtdwttlbbController {
     }
 
 
-    //todo 全市泊位表中统计数据，包括了累计港口泊位数、增加的报告期、报废的报告期
+    //todo 全市泊位表中统计数据，包括了累计港口泊位数、增加的报告期、报废的报告期 待联调
     @RequestMapping(value = "qsbwbtjsj", method = {RequestMethod.POST, RequestMethod.GET})
     @TrafficLoginRequired
     public
@@ -114,7 +114,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 港口企业和码头单位名录 待测试
+    //todo 港口企业和码头单位名录  待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "gkqyml", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -130,11 +130,13 @@ public class HnsgkqyymtdwttlbbController {
 
         paramDTO.setTotalCount(tGkmtEnterprisesService.getTGkmtEnterprisesCount());
         paramDTO.setResponseData(gkqymlDTOList);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
 
-    //todo 企业操作人员 待测试
+    //todo 企业操作人员  待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qyczry", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -149,12 +151,14 @@ public class HnsgkqyymtdwttlbbController {
                 pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterpriseusersService.getTGkmtEnterpriseusersCount());
-        paramDTO.setResponseData(qyczryDTOS);
         responseDTO.setResponseData(paramDTO);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setResponseData(qyczryDTOS);
         return  responseDTO;
     }
 
-    //todo 全省港区代表码 待测试
+    //todo 全省港区代表码 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgqdbm", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -168,12 +172,14 @@ public class HnsgkqyymtdwttlbbController {
                 pageParamDTO.getPageStartNo(),
                 pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortregionsService.getTGkmtPortregionsCount());
-        paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setResponseData(qsgqdbmDTOS);
         return  responseDTO;
     }
 
-    //todo 全省港口表 待测试
+    //todo 全省港口表 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgkb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -192,7 +198,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 港口快报吞吐量 待测试
+    //todo 港口快报吞吐量 待联调
     //todo 港口企业 gkqy
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -250,6 +256,8 @@ public class HnsgkqyymtdwttlbbController {
 
         paramDTO.setTotalCount(tGkmtUnitsService.getTGkmtUnitsCount());
         paramDTO.setResponseData(xzgljgDTOList);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
