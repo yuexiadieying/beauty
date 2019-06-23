@@ -65,4 +65,8 @@ public class HlsgkqyymtdwttlbbHomePageService {
 
         return res;
     }
+
+    public static void main(String[] args) {
+        System.out.println(new DateTime().getWeekOfWeekyear());
+    }
 }

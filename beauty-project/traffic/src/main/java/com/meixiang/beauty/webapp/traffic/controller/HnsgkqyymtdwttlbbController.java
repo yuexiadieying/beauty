@@ -84,12 +84,11 @@ public class HnsgkqyymtdwttlbbController {
     public
     @ResponseBody
     ResponseDTO<QsbwbtjsjDTO> getQsbwbtjsjDTO(){
-        QsbwbtjsjDTO qsbwbtjsjDTO = new QsbwbtjsjDTO();
         ResponseDTO<QsbwbtjsjDTO> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 qsbwbtjsjDTO
 
-        responseDTO.setResponseData(qsbwbtjsjDTO);
+        responseDTO.setResponseData(tGkmtBerthsService.getgetQsbwbtjsjDTO());
         return  responseDTO;
     }
 

@@ -30,6 +30,13 @@
         <result column="fourth_name" property="fourthName" jdbcType="VARCHAR" />
         <result column="fourth_value" property="fourthValue" jdbcType="BIGINT" />
     </resultMap>
+
+    <resultMap id="QsbwbtjsjResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO" >
+        <result column="time" property="time" jdbcType="VARCHAR" />
+        <result column="BERTH_NUM" property="ljgkbws" jdbcType="BIGINT" />
+        <result column="ADD_NUM" property="zjdbgq" jdbcType="BIGINT" />
+        <result column="DISCARD_NUM" property="bfdbgq" jdbcType="BIGINT" />
+    </resultMap>
     <!--获取总个数-->
     <select id="getTGkmtBerthsCount" resultType="java.lang.Integer">
         SELECT count(1) FROM CDPRJ.T_GKMT_BERTHS
@@ -55,5 +62,28 @@
               '增加' as third_name, COUNT(ADD_REPORT_PERIOD) as third_value, '报废' as fourth_name,
               COUNT(CASE WHEN DISCARD_REPORT_PERIOD=0 then null else DISCARD_REPORT_PERIOD END) as fourth_value
         from CDPRJ.T_GKMT_BERTHS WHERE REPORT_YEAR= #{year}
+    </select>
+
+    <select id="getBerthsNumInMonthsByParams" resultMap="QsbwbtjsjResultMap">
+        SELECT TO_CHAR(b.INSERT_DATE,'yyyymm') as time,
+        COUNT(DISTINCT b.BERTH_NO) as BERTH_NUM, 0 as ADD_NUM, 0 as DISCARD_NUM from CDPRJ.T_GKMT_BERTHS b
+        LEFT JOIN CDPRJ.T_GKMT_ENTERPRISES e on e.ENTERPRISE_NO=b.ENTERPRISE_NO
+        WHERE (e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{gkqy},'%')) OR e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{mtdw},'%')))
+        AND TO_CHAR(b.INSERT_DATE,'yyyymm') in (#{preMon},#{nowMon}) GROUP BY TO_CHAR(b.INSERT_DATE,'yyyymm');
+    </select>
+
+    <select id="getBerthsReportInWeeksByParams" resultMap="QsbwbtjsjResultMap">
+        select time, 0 as BERTH_NUM,
+        COUNT(case when DISCARD_REPORT_PERIOD=0 then ADD_REPORT_PERIOD else null end) as ADD_NUM,
+        COUNT(case when DISCARD_REPORT_PERIOD=0 then null else DISCARD_REPORT_PERIOD end) as DISCARD_NUM
+        from (
+        select
+        (case when TO_CHAR(b.INSERT_DATE,'yyyymmdd') &lt; #{middleDay} then #{startDay} else #{endDay} end) as time,
+        b.DISCARD_REPORT_PERIOD, b.ADD_REPORT_PERIOD
+        from CDPRJ.T_GKMT_BERTHS b
+        LEFT JOIN CDPRJ.T_GKMT_ENTERPRISES e on e.ENTERPRISE_NO=b.ENTERPRISE_NO
+        WHERE (e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{gkqy},'%')) OR e.ENTERPRISE_NAME like CONCAT('%', CONCAT(#{mtdw},'%')))
+        AND TO_CHAR(b.INSERT_DATE,'yyyymmdd') BETWEEN #{startDay} AND #{endDay}
+        ) GROUP BY time;
     </select>
 </mapper>
