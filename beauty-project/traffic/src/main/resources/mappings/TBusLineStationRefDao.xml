@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.zhgj.TBusLineStationRefDao">
+    <resultMap id="TBusLineStationRefInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.zhgj.TBusLineStationRefDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="SEQUENCE" property="sequence" jdbcType="DOUBLE" />
+        <result column="STATION_NAME" property="stationName" jdbcType="VARCHAR" />
+        <result column="STATION_CODE" property="stationCode" jdbcType="DOUBLE" />
+        <result column="STATION_ID" property="stationId" jdbcType="VARCHAR" />
+        <result column="DISPLAY_NAME" property="displayName" jdbcType="VARCHAR" />
+        <result column="GPRS_ID" property="gprsId" jdbcType="DOUBLE" />
+        <result column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="PID" property="pid" jdbcType="VARCHAR" />
+        <result column="DIRECTION" property="direction" jdbcType="VARCHAR" />
+        <result column="TO_NEXT_TIME" property="toNextTime" jdbcType="DOUBLE" />
+        <result column="BY_START_DISTANCE" property="byStartDistance" jdbcType="DOUBLE" />
+        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+        <result column="LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+        <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="SYS_FLAG" property="sysFlag" jdbcType="CHAR" />
+        <result column="EXIT_LATITUDE" property="exitLatitude" jdbcType="VARCHAR" />
+        <result column="EXIT_LONGITUDE" property="exitLongitude" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTBusLineStationRefCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_LINE_STATION_REF
+    </select>
+    <!--获取总个数-->
+    <select id="getTBusLineStationRefCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_LINE_STATION_REF
+    </select>
+
+    <select id="getTBusLineStationRefByPageable" resultMap="TBusLineStationRefInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_LINE_STATION_REF a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTBusLineStationRefByParamsPageable" resultMap="TBusLineStationRefInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_LINE_STATION_REF a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

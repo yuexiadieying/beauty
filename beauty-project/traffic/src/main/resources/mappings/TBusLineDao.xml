@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.zhgj.TBusLineDao">
+    <resultMap id="TBusLineInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.zhgj.TBusLineDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="DOWN_FIRST_TIME" property="downFirstTime" jdbcType="VARCHAR" />
+        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+        <result column="UP_FIRST_TIME" property="upFirstTime" jdbcType="VARCHAR" />
+        <result column="TICKET_PRICE" property="ticketPrice" jdbcType="DOUBLE" />
+        <result column="GPRS_ID" property="gprsId" jdbcType="DOUBLE" />
+        <result column="LINE_NAME" property="lineName" jdbcType="VARCHAR" />
+        <result column="LINE_ID" property="lineId" jdbcType="VARCHAR" />
+        <result column="PID" property="pid" jdbcType="VARCHAR" />
+        <result column="DOWN_END_TIME" property="downEndTime" jdbcType="VARCHAR" />
+        <result column="SYS_FLAG" property="sysFlag" jdbcType="CHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+        <result column="LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+        <result column="UP_END_TIME" property="upEndTime" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTBusLineCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_LINE
+    </select>
+    <!--获取总个数-->
+    <select id="getTBusLineCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_LINE
+    </select>
+
+    <select id="getTBusLineByPageable" resultMap="TBusLineInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_LINE a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTBusLineByParamsPageable" resultMap="TBusLineInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_LINE a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

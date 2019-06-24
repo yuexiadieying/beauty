@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.zhgj.TBusTopicGisHdDao">
+    <resultMap id="TBusTopicGisHdInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.zhgj.TBusTopicGisHdDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="PID" property="pid" jdbcType="VARCHAR" />
+        <result column="DEV_SN" property="devSn" jdbcType="VARCHAR" />
+        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+        <result column="LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+        <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="SYS_FLAG" property="sysFlag" jdbcType="CHAR" />
+        <result column="IN_OUT_FLAG" property="inOutFlag" jdbcType="VARCHAR" />
+        <result column="STATION_REPORT" property="stationReport" jdbcType="VARCHAR" />
+        <result column="STATION_FLAG" property="stationFlag" jdbcType="VARCHAR" />
+        <result column="BUS_STATION_NO" property="busStationNo" jdbcType="DOUBLE" />
+        <result column="OUT_TIME" property="outTime" jdbcType="VARCHAR" />
+        <result column="IN_TIME" property="inTime" jdbcType="VARCHAR" />
+        <result column="VEHICLE_STATUS" property="vehicleStatus" jdbcType="VARCHAR" />
+        <result column="NEXT_STATION_NO" property="nextStationNo" jdbcType="DOUBLE" />
+        <result column="DEV_ID" property="devId" jdbcType="VARCHAR" />
+        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+        <result column="COMPANY_CODE" property="companyCode" jdbcType="VARCHAR" />
+        <result column="LINE_ID" property="lineId" jdbcType="VARCHAR" />
+        <result column="GPS_TIME" property="gpsTime" jdbcType="VARCHAR" />
+        <result column="LON" property="lon" jdbcType="VARCHAR" />
+        <result column="LAT" property="lat" jdbcType="VARCHAR" />
+        <result column="SPEED" property="speed" jdbcType="DOUBLE" />
+        <result column="DISTANCE" property="distance" jdbcType="DOUBLE" />
+        <result column="ANGLE" property="angle" jdbcType="DOUBLE" />
+        <result column="ALTITUDE" property="altitude" jdbcType="DOUBLE" />
+        <result column="DIRECTION" property="direction" jdbcType="VARCHAR" />
+        <result column="DIS_NEXT" property="disNext" jdbcType="DOUBLE" />
+        <result column="TIME_NEXT" property="timeNext" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTBusTopicGisHdCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_TOPIC_GIS_HD
+    </select>
+    <!--获取总个数-->
+    <select id="getTBusTopicGisHdCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_TOPIC_GIS_HD
+    </select>
+
+    <select id="getTBusTopicGisHdByPageable" resultMap="TBusTopicGisHdInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_TOPIC_GIS_HD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTBusTopicGisHdByParamsPageable" resultMap="TBusTopicGisHdInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_TOPIC_GIS_HD a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>
