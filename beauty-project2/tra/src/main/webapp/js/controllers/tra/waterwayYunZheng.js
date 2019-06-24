@@ -104,18 +104,20 @@ app.controller('WaterwayYunZhengListCtrl', ['$scope', '$stateParams','traUtil','
 app.controller('WaterwayYunZhengWaterwayCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
-       ['编号','经营者管理机构编码','经营者名称','经营者的经济类型','组织机构代码','注册资金','法人代表','详细地址','邮政编码','联系电话','传真号码','首次发证日期','批准机关','批准文号','许可证号','最近发证日期','经营期限','有效期的开始日期','有效期的截止日期','经营范围：客运','经营范围：货运',' 经营范围：兼营','经营范围分类','最近年审日期（冗余）','最近年审结果（冗余）','盈利状态（冗余）','注销日期（冗余）','许可申请号','许可申请状态','简要说明','台帐档案号'],
-       ['人员编号','企业编号','人员姓名','性别','学历','职务类别','职务名称','身份证号','船员适任证号','船员适任证类型','适任证船员类型','船员适任证书等级','简要说明']
+       ['序号','经营者管理机构编码','经营者名称','经营者的经济类型','组织机构代码','注册资金','法人代表','详细地址','邮政编码','联系电话','传真号码','首次发证日期','批准机关','批准文号','许可证号','最近发证日期','经营期限','有效期的开始日期','有效期的截止日期','经营范围：客运','经营范围：货运',' 经营范围：兼营','经营范围分类','最近年审日期（冗余）','最近年审结果（冗余）','盈利状态（冗余）','注销日期（冗余）','许可申请号','许可申请状态','简要说明','台帐档案号'],
+       ['序号','人员编号','企业编号','人员姓名','性别','学历','职务类别','职务名称','身份证号','船员适任证号','船员适任证类型','适任证船员类型','船员适任证书等级','简要说明']
     ]
 
     traUtil.getUserInfo();
 
-    console.log("1234556666");
-    console.log($scope.fold);
-
     $scope.pageParam = {
         pageNo : 1,
-        pageSize:10
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
     }
 
     $scope.loadPageData = function(){
@@ -126,9 +128,20 @@ app.controller('WaterwayYunZhengWaterwayCtrl', ['$scope', '$stateParams','traUti
                 .then(function(response) {
                     if (response.data.result==Global.SUCCESS) {
                         $scope.sslyzgl_slysyhzt = response.data.responseData.responseData;
-                        console.log($scope.sslyzgl_slysyhzt);
                     }
                 });
+        }
+        else if($scope.fold=='draft')
+        {
+            $scope.sslyzgl_slysqyry = [];
+            $http.post('/traffic/sslyzgl/slysqyry',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_slysqyry = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_slysqyry);
+                    }
+                });
+
         }
     }
 

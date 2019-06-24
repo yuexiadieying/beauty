@@ -14,9 +14,9 @@
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="输入企业人员编号或姓名">
+                <input type="text" class="input-sm form-control" placeholder="输入企业人员编号或姓名" ng-model="pageParam.requestData">
                 <span class="input-group-btn">
-                    <button class="btn btn-sm btn-default" type="button">搜索</button>
+                    <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
                 </span>
               </div>
             </div>
@@ -25,79 +25,86 @@
             <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='important'">
               <thead>
               <tr>
-                <th>序号</th>
                 <th ng-repeat="info in tableTitle[0]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
               <tr  ng-repeat="k in sslyzgl_slysyhzt">
-                <td>{{$index+1}}</td>
+                <td>{{k.serialNo}}</td><!--序号-->
                 <td>{{k.unitno}}</td><!--经营者管理机构编码-->
                 <td>{{k.enterprisename}}</td><!--经营者名称-->
                 <td>{{k.jjkind}}</td><!--经营者的经济类型-->
-                <td>{{k.enterpriseno}}</td><!--组织机构代码-->
-                <td></td><!--注册资金-->
+                <td>{{k.unitenrollcode}}</td><!--组织机构代码-->
+                <td>{{k.enrollmoney}}</td><!--注册资金-->
                 <td>{{k.lawman}}</td><!--法人代表-->
                 <td>{{k.address}}</td><!--详细地址-->
                 <td>{{k.postcode}}</td><!--邮政编码-->
                 <td>{{k.telephone}}</td><!--联系电话-->
                 <td>{{k.faxno}}</td><!--传真号码-->
-                <td></td><!--首次发证日期-->
-                <td></td><!--批准机关-->
-                <td></td><!--批准文号-->
-                <td></td><!--许可证号-->
-                <td></td><!--最近发证日期-->
-                <td></td><!--经营期限-->
-                <td></td><!--有效期的开始日期-->
-                <td></td><!--有效期的截止日期-->
-                <td></td><!--经营范围：客运-->
-                <td></td><!--经营范围：货运-->
-                <td></td><!--经营范围：兼营-->
-                <td>{{k.gkkind}}</td><!--经营范围分类-->
-                <td></td><!--最近年审日期（冗余）-->
-                <td></td><!--最近年审结果（冗余）-->
-                <td></td><!--盈利状态（冗余）-->
-                <td></td><!--注销日期（冗余）-->
-                <td></td><!--许可申请号-->
-                <td></td><!--许可申请状态-->
-                <td></td><!--简要说明-->
-                <td></td><!--台帐档案号-->
+                <td>{{k.opendate|date:'yyyy-MM-dd'}}</td><!--首次发证日期-->
+                <td>{{k.approveunitno}}</td><!--批准机关-->
+                <td>{{k.approvedocno}}</td><!--批准文号-->
+                <td>{{k.xkzno}}</td><!--许可证号-->
+                <td>{{k.xkzprintdate|date:'yyyy-MM-dd'}}</td><!--最近发证日期-->
+                <td>{{k.xkzperiod}}</td><!--经营期限-->
+                <td>{{xkzstartdate|date:'yyyy-MM-dd'}}</td><!--有效期的开始日期-->
+                <td>{{k.xkzenddate|date:'yyyy-MM-dd'}}</td><!--有效期的截止日期-->
+                <td>{{k.kyrunkind}}</td><!--经营范围：客运-->
+                <td>{{k.hyrunkind}}</td><!--经营范围：货运-->
+                <td>{{k.jyrunkind}}</td><!--经营范围：兼营-->
+                <td>{{k.runkinds}}</td><!--经营范围分类-->
+                <td>{{k.lastyearcheckdate|date:'yyyy-MM-dd'}}</td><!--最近年审日期（冗余）-->
+                <td>{{k.lastyearcheckresult}}</td><!--最近年审结果（冗余）-->
+                <td>{{k.ylzt}}</td><!--盈利状态（冗余）-->
+                <td>{{k.exitdate|date:'yyyy-MM-dd'}}</td><!--注销日期（冗余）-->
+                <td>{{k.applyno}}</td><!--许可申请号-->
+                <td>{{k.applystatus}}</td><!--许可申请状态-->
+                <td>{{k.note}}</td><!--简要说明-->
+                <td>{{k.docno}}</td><!--台帐档案号-->
               </tr>
               </tbody>
             </table>
             <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='draft'">
               <thead>
               <tr>
-                <th>序号</th>
                 <th ng-repeat="info in tableTitle[1]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[1]"></td>
+              <tr  ng-repeat="k in sslyzgl_slysqyry">
+                <td>{{k.serialNo}}</td>
+                <td>{{k.personno}}</td>
+                <td>{{k.enterpriseno}}</td>
+                <td>{{k.personname}}</td>
+                <td>{{k.sexkind}}</td>
+                <td>{{k.educationgrade}}</td>
+                <td>{{k.jobkind}}</td>
+                <td>{{k.jobname}}</td>
+                <td>{{k.sfzno}}</td>
+                <td>{{k.srzno}}</td>
+                <td>{{k.srzkind}}</td>
+                <td>{{k.srzshipkind}}</td>
+                <td>{{k.srzgrade}}</td>
+                <td>{{k.personnote}}</td>
               </tr>
               </tbody>
             </table>
-
           </div>
           <footer class="panel-footer">
             <div class="row">
               <div class="col-sm-4 hidden-xs">
-
               </div>
               <div class="col-sm-4 text-center">
-
               </div>
               <div class="col-sm-4 text-right text-center-xs">
                 <ul class="pagination pagination-sm m-t-none m-b-none">
-                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                  <li><a href>1</a></li>
-                  <li><a href>2</a></li>
-                  <li><a href>3</a></li>
-                  <li><a href>4</a></li>
-                  <li><a href>5</a></li>
-                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                  <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                 </ul>
               </div>
             </div>

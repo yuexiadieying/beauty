@@ -204,6 +204,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "slysqyry", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> slysqyry(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> slysqyryList = new ArrayList<>();
@@ -223,6 +224,7 @@ public class SslyzglController {
         paramDTO.setResponseData(slysqyryList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
