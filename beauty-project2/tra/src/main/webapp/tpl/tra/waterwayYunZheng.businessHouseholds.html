@@ -16,9 +16,9 @@
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="输入企业编号">
+                <input type="text" class="input-sm form-control" placeholder="输入企业编号" ng-model="pageParam.requestData">
                 <span class="input-group-btn">
-                    <button class="btn btn-sm btn-default" type="button">搜索</button>
+                    <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
                 </span>
               </div>
             </div>
@@ -31,8 +31,25 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[0]"></td>
+              <tr  ng-repeat="k in sslyzgl_ndsyyhjl">
+                <td>{{k.serialNo}}</td>
+                <td>{{k.yearcheckdate|date:'yyyy-MM-dd'}}</td>
+                <td>{{k.yearcheckresult}}</td>
+                <td>{{k.serialNo}}</td>
+                <td>{{k.enterpriseno}}</td>
+                <td>{{k.enterprisekind}}</td>
+                <td>{{k.enterprisename}}</td>
+                <td>{{k.lawman}}</td>
+                <td>{{k.jjkind}}</td>
+                <td>{{k.address}}</td>
+                <td>{{k.telephone}}</td>
+                <td>{{k.xkzno}}</td>
+                <td>{{k.xkzprintdate|date:'yyyy-MM-dd'}}</td>
+                <td>{{k.xkzenddate|date:'yyyy-MM-dd'}}</td>
+                <td>{{k.runkinds}}</td>
+                <td>{{k.runincome}}</td>
+                <td>{{k.runcost}}</td>
+                <td>{{k.yearchecknote}}</td>
               </tr>
               </tbody>
             </table>

@@ -16,10 +16,10 @@
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="输入企业管理机构编号" ng-if="fold=='trash'">
-                <input type="text" class="input-sm form-control" placeholder="输入从业人员姓名" ng-if="fold=='y'">
+                <input type="text" class="input-sm form-control" placeholder="输入企业管理机构编号" ng-if="fold=='trash'" ng-model="pageParam.requestData">
+                <input type="text" class="input-sm form-control" placeholder="输入从业人员姓名" ng-if="fold=='y'" ng-model="pageParam.requestData">
                 <span class="input-group-btn">
-                    <button class="btn btn-sm btn-default" type="button">搜索</button>
+                    <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
                 </span>
               </div>
             </div>
@@ -32,8 +32,38 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[0]"></td>
+              <tr  ng-repeat="k in sslyzgl_ysfzqytz">
+                <td>{{k.serialNo}}</td><!--编号-->
+                <td>{{k.enterpriseno}}</td><!--企业管理机构编码-->
+                <td>{{k.enterprisename}}</td><!--企业名称-->
+                <td>{{k.jjkind}}</td><!--经济类型-->
+                <td>{{k.unitno}}</td><!--组织机构代码-->
+                <td>{{k.docno}}</td><!--非个体经营者都有该代码-->
+                <td>{{k.enrollmoney}}</td><!--注册资金-->
+                <td>{{k.lawman}}</td><!--法人代表-->
+                <td>{{k.address}}</td><!--企业详细地-->
+                <td>{{k.postcode}}</td><!--邮政编码-->
+                <td>{{k.telephone}}</td><!--联系电话-->
+                <td>{{k.faxno}}</td><!--传真号码-->
+                <td>{{k.opendate|date:'yyyy-MM-dd'}}</td><!--首次发证日期-->
+                <td>{{k.xkzno}}</td><!--批准机关-->
+                <td>{{k.approvedocno}}</td><!--批准文号-->
+                <td>{{k.approveunitno}}</td><!--许可证号-->
+                <td>{{k.xkzperiod}}</td><!--经营期限-->
+                <td>{{k.xkzprintdate|date:'yyyy-MM-dd'}}</td><!--最近发证日期-->
+                <td>{{k.xkzstartdate|date:'yyyy-MM-dd'}}</td><!--有效期起始日期-->
+                <td>{{k.xkzenddate|date:'yyyy-MM-dd'}}</td><!--有效期截止日期-->
+                <td>{{k.runkinds}}</td><!--经营项目分类-->
+                <td>{{k.runitems}}</td><!--经营项目（船舶管理许可证的经营范围）-->
+                <td>{{k.runarea}}</td><!--行政区划范围-->
+                <td>{{k.lastyearcheckdate|date:'yyyy-MM-dd'}}</td><!--最近年审日期（冗余）-->
+                <td>{{k.lastyearcheckresult}}</td><!--最近年审结果（冗余）-->
+                <td></td><!--盈利状态（冗余）-->
+                <td>{{k.exitdate|date:'yyyy-MM-dd'}}</td><!--注销日期-->
+                <td>{{k.applyno}}</td><!--许可申请号-->
+                <td>{{k.applystatus}}</td><!--许可申请状态-->
+                <td>{{k.note}}</td><!--简要说明-->
+                <td>{{k.ylzt}}</td><!--台帐档案号-->
               </tr>
               </tbody>
             </table>
@@ -44,8 +74,17 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[1]"></td>
+              <tr  ng-repeat="k in sslyzgl_ysfzqyry">
+                <td>{{k.serialNo}}</td>
+                <td>{{k.enterpriseno}}</td>
+                <td>{{k.personname}}</td>
+                <td>{{k.jobkind}}</td>
+                <td>{{k.jobname}}</td>
+                <td>{{k.sexkind}}</td>
+                <td>{{k.educationgrade}}</td>
+                <td>{{k.sfzno}}</td>
+                <td>{{k.personnote}}</td>
+                <td></td>
               </tr>
               </tbody>
             </table>

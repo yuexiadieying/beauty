@@ -167,21 +167,134 @@ app.controller('WaterwayYunZhengWaterwayCtrl', ['$scope', '$stateParams','traUti
 
 }]);
 
-app.controller('WaterwayYunZhengAuxiliaryCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('WaterwayYunZhengAuxiliaryCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
        ['编号','企业管理机构编码','企业名称','经济类型','组织机构代码','非个体经营者都有该代码','注册资金','法人代表','企业详细地','邮政编码','联系电话','传真号码','首次发证日期','批准机关','批准文号','许可证号','经营期限','最近发证日期','有效期起始日期','有效期截止日期','经营项目分类','经营项目（船舶管理许可证的经营范围）','行政区划范围','最近年审日期（冗余）','最近年审结果（冗余）','盈利状态（冗余）','注销日期','许可申请号','许可申请状态','简要说明','台帐档案号'],
        ['编号','企业编号','人员姓名','职务类别','职务名称','性别','学历','身份证号','资格或从业培训证书名及编号号','简要说明','图片与资料文件夹']
     ]
 
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='trash')
+        {
+            $scope.sslyzgl_ysfzqytz = [];
+            $http.post('/traffic/sslyzgl/ysfzqytz',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_ysfzqytz = response.data.responseData.responseData;
+                    }
+                });
+        }
+        else if($scope.fold=='y')
+        {
+            $scope.sslyzgl_ysfzqyry = [];
+            $http.post('/traffic/sslyzgl/ysfzqyry',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_ysfzqyry = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_ysfzqyry);
+                    }
+                });
+        }
+
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
 }]);
 
-app.controller('WaterwayYunZhengBusinessHouseholdsCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('WaterwayYunZhengBusinessHouseholdsCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
         ['编号','年审日期','年审结论','管辖机构编号','（水运或服务）企业编号','企业类别','经营者名称','法人代表','经济类型','注册地址','联系电话','许可证号','许可证发证日期','许可证有效截期','经营范围分类','运输或营业收入（万元）','运输或营业成本（万元）','备注'],
         ['共享ChangeNo','企业（含个体与服务业）编号','经营者类别','经营者名称','经营者地址','许可证编号','最近发证日期','经营范围分类','管理机构','注销原因','退出日期','简要说明','台账档案号']
     ]
+
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='a')
+        {
+            $scope.sslyzgl_ndsyyhjl = [];
+            $http.post('/traffic/sslyzgl/ndsyyhjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_ndsyyhjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_ndsyyhjl);
+                    }
+                });
+        }
+        else if($scope.fold=='b')
+        {
+            $scope.sslyzgl_zxtcyhjl = [];
+            $http.post('/traffic/sslyzgl/zxtcyhjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_zxtcyhjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_zxtcyhjl);
+                    }
+                });
+        }
+
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
 
 }]);
 app.controller('WaterwayYunZhengShipCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
