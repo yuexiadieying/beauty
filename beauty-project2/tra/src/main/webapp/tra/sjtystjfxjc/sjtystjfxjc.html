@@ -63,7 +63,6 @@
           <div class="panel panel-default" style="height:380px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 城市客运主要统计指标快速年报信息
               </div>
               <div class="panel-body">
@@ -212,7 +211,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:470px">
             <div class="panel-heading">
-              <span class="label bg-danger pull-right m-t-xs">4 left</span>
+              <span class="label bg-danger pull-right m-t-xs">...</span>
               道路客户站场增减情况
             </div>
             <table class="table table-striped m-b-none">
@@ -288,7 +287,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading">
-              <span class="label bg-danger pull-right m-t-xs">4 left</span>
+              <span class="label bg-danger pull-right m-t-xs">...</span>
               道路从业人员数据
             </div>
             <table class="table table-striped m-b-none">
@@ -365,7 +364,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading">
-              <span class="label bg-danger pull-right m-t-xs">4 left</span>
+              <span class="label bg-danger pull-right m-t-xs">...</span>
               道路运输经理人数据
             </div>
             <table class="table table-striped m-b-none">
@@ -414,7 +413,7 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div> 港澳台及外商投资道路运输业情况数据（单位：%）</div>
-                <div><div sel-year index="wstzdlycy"></div></div>
+                <div style="width:30%"><div sel-year index="wstzdlycy"></div></div>
               </div>
             </div>
             <div class="panel-body">
@@ -446,7 +445,7 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
+
                 道路经营业户数据
               </div>
               <div class="panel-body">
@@ -494,7 +493,7 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
+
                 公路客运企业运输量调查
               </div>
               <div class="panel-body">
@@ -597,10 +596,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <div style="display: flex;justify-content:space-between;">
-                  <div> 国际分航线进出港旅客人数情况</div>
-                  <div><div sel-date index="gjfhxjclkrs"></div></div>
-                </div>
+                国际分航线进出港旅客人数情况
               </div>
               <br>
               <div class="panel-body">
@@ -622,7 +618,10 @@
         <div class="col-lg-8">
           <div class="panel panel-default" style="height:330px">
             <div class="panel-heading font-bold">
-              国际分航线进出港旅客人数情况
+              <div style="display: flex;justify-content:space-between;">
+                <div> 国内分航线进出港旅客人数情况</div>
+                <div><div sel-date index="gnfhxjclkrs"></div></div>
+              </div>
             </div>
             <div class="panel-body">
               <div ui-jq="plot" ui-options="
@@ -645,7 +644,6 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 内贸情况
               </div>
               <div class="panel-body">
@@ -696,7 +694,6 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 内贸出港情况
               </div>
               <br>
@@ -721,7 +718,7 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div> 国际航线进出港集装箱吞吐</div>
-                <div style="margin-right:10px;"><div sel-year index="gjhxjcgjzxdt"></div></div>
+                <div style="margin-right:10px;width:50%"><div sel-year index="gjhxjcgjzxdt"></div></div>
               </div>
             </div>
             <div class="panel-body">
@@ -753,7 +750,6 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 外贸情况
               </div>
               <div class="panel-body">
@@ -801,7 +797,6 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 外贸出港情况
               </div>
               <div class="panel-body">
@@ -946,7 +941,6 @@
           <div class="panel panel-default" style="height:380px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 港口码头单位数据
               </div>
               <div class="panel-body">
@@ -979,6 +973,20 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div>路段平均日交通量统计（单位：万台）</div>
+                <div>
+                  <span class='full-left' style="margin-right: 10px;">路段</span>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown">
+                      默认 <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">功能</a></li>
+                      <li><a href="#">另一个功能</a></li>
+                      <li><a href="#">其他</a></li>
+                    </ul>
+                  </div>
+                </div>
                 <div><div sel-date index="trafficNum"></div></div>
               </div>
             </div>
@@ -1068,7 +1076,7 @@
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
                 <div> 分叉辅助段基础数据</div>
-                <div style="margin-right:10px;"><div sel-month index="bifurcationAuxiliarySection"></div></div>
+                <div style="margin-right:10px;width:20%;"><div sel-month index="bifurcationAuxiliarySection"></div></div>
               </div>
             </div>
             <br>
@@ -1094,7 +1102,6 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 过河建筑物基础数据
               </div>
               <br>
@@ -1118,7 +1125,7 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div>  航段基础数据（单位：万元）</div>
-                <div style="margin-right: 10px;"><div sel-month index="hdjcsj"></div></div>
+                <div style="margin-right: 10px;width:30%;"><div sel-month index="hdjcsj"></div></div>
               </div>
             </div>
             <br><br>
@@ -1201,6 +1208,7 @@
           <div class="panel panel-default" style="height:380px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
+                <span class="label bg-danger pull-right m-t-xs">...</span>
                 枢纽基础数据等数据
               </div>
               <table class="table table-striped m-b-none">
@@ -1261,7 +1269,7 @@
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
                 <div> 公路水路运输量月度统计基础情况（单位：万吨）</div>
-                <div><div sel-month index="waterwayTraffic"></div></div>
+                <div style="width:26%;"><div sel-month index="waterwayTraffic"></div></div>
               </div>
             </div>
             <br>
@@ -1286,9 +1294,11 @@
         <div class="col-lg-6">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
+              <p><span class="label bg-danger pull-right m-t-xs">...</span>
+                高速公路车流量和通行费情况</p>
               <div style="display: flex;justify-content:space-between;">
-                <div>  高速公路车流量和通行费情况（单位：万量）</div>
-                <div><div sel-date-single index="tolls"></div></div>
+                <div>  <a class="active" style="  padding: 5px 10px;  border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color: #7893fd;">车流量</a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-radius: 10px;border-top-right-radius: 10px;color: #666;">通行费</a></div>
+                <div style="width:30%"><div sel-date-single index="tolls"></div></div>
               </div>
             </div>
             <br><br>
@@ -1326,6 +1336,7 @@
                 <div>高速公路货车车流量和车货总重情况</div>
                 <div><div sel-date index="traffics"></div></div>
               </div>
+              <P>单位：万量 <span style="margin-left: 30px;"> <a class="active" style="  padding: 5px 10px;  border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color: #7893fd;">车流量</a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-radius: 10px;border-top-right-radius: 10px;color: #666;">通行费</a></span></P>
             </div>
             <div class="panel-body">
               <div ui-jq="plot" ui-options="
@@ -1414,7 +1425,7 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div> 海事签字情况（单位：%）</div>
-                <div style="margin-right:10px;"><div sel-year index="hsqzqk"></div></div>
+                <div style="margin-right:10px;width:30%;"><div sel-year index="hsqzqk"></div></div>
               </div>
             </div>
             <br><br>
@@ -1491,7 +1502,6 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 公路密度情况
               </div>
               <br>
@@ -1541,8 +1551,7 @@
         <div class="col-lg-6">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
-              <div class="panel-heading">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
+              <div class="panel-heading font-bold">
                 公路运输法人企业情况
               </div>
               <table class="table table-striped m-b-none">
@@ -1616,8 +1625,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:380px">
             <div class="panel-body">
-              <div class="panel-heading">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
+              <div class="panel-heading font-bold">
                 货运车辆更新情况
               </div>
               <table class="table table-striped m-b-none">
@@ -1683,8 +1691,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-body">
-              <div class="panel-heading">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
+              <div class="panel-heading font-bold">
                 水路运输法人企业变更情况
               </div>
               <table class="table table-striped m-b-none">
@@ -1724,7 +1731,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
-                <div>水路运输工具拥有量情况</div>
+                <div>水路运输工具拥有量情况(单位：万吨)</div>
                 <div><div sel-date index="waterTransport"></div></div>
               </div>
             </div>
@@ -1750,8 +1757,9 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div> 营业性汽车运输效率和燃料消耗情况</div>
-                <div><div sel-date-single index="efficiency"></div></div>
+                <div style="width:30%;"><div sel-date-single index="efficiency"></div></div>
               </div>
+              <P><a class="active" style="  padding: 5px 10px;  border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color: #7893fd;">运输效率</a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-radius: 10px;border-top-right-radius: 10px;color: #666;">燃料消耗情况</a></P>
             </div>
             <br><br>
             <div class="panel-body">

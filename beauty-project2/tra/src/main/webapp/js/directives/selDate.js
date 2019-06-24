@@ -71,8 +71,8 @@ angular.module('app')
           replace: false,
           template:  '<form action="" class="form-horizontal"  role="form">'+
           '<div class="form-group">'+
-          '<div class="input-group date  col-md-6" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
-          '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="{{format_td}}" style="width:80px;background: #fff">'+
+          '<div class="input-group date " data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
+          '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="{{format_td}}" style="background: #fff">'+
 
       '<span class="input-group-addon" style="background: #fff"><span class="glyphicon glyphicon-calendar"></span></span>'+
           '</div>'+
@@ -82,7 +82,12 @@ angular.module('app')
           link: function (scope, element, attr) {
              scope.init=function () {
                  var today = new Date();
-                 scope.format_td = today.getFullYear()+'-'+(today.getMonth()+1)
+                 var year = today.getFullYear();
+                 var month = today.getMonth() + 1;
+                 if(month<10){
+                     var month = '0'+month
+                 }
+                 scope.format_td = year +'-'+month
                  $('#'+scope.index).datetimepicker({
                      format: 'yyyy-mm',
                      weekStart: 1,
@@ -99,7 +104,7 @@ angular.module('app')
                      if(month<10){
                          var month = '0'+month
                      }
-                     var timeDate = year +'-'+month
+                     scope.format_td = year +'-'+month
                  });
              }
               var time= $timeout(function(){
@@ -229,8 +234,8 @@ angular.module('app')
             replace: false,
             template:  '<form action="" class="form-horizontal"  role="form">'+
             '<div class="form-group">'+
-            '<div class="input-group date  col-md-6" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
-            '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="{{format_td}}" style="width:100px;background: #fff">'+
+            '<div class="input-group date " data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" id="{{index}}">'+
+            '<input  name="start_time" class="form-control" size="16" type="text" value="" readonly placeholder="{{format_td}}" style="background: #fff">'+
 
             '<span class="input-group-addon" style="background: #fff"><span class="glyphicon glyphicon-calendar"></span></span>'+
             '</div>'+

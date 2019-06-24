@@ -42,7 +42,7 @@
             <p style="font-size: 20px;font-weight: 500;">72</p>
           </div>
         </div>
-        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:30px;right:0">
+        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:30px;right:0"  ng-click="btnChange(3)">
           <p class="col-lg-4">
             <a style="width:50px;height:50px;background: #e6e6e6;border-radius: 50%;margin-top:20px;display: inline-block;"> <span class="glyphicon glyphicon-pencil" style="font-size:25px;line-height: 50px;"></span></a>
           </p>
@@ -51,7 +51,7 @@
             <p style="font-size: 20px;font-weight: 500;">120</p>
           </div>
         </div>
-        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:180px;right:0">
+        <div  class="btn  btn-lg" class="row" style="width:300px;height:120px;color: #fff;background: rgba(81, 92, 104, 1);position:absolute;top:180px;right:0"  ng-click="btnChange(4)">
           <p class="col-lg-4">
             <a style="width:50px;height:50px;background: #e6e6e6;border-radius: 50%;margin-top:20px;display: inline-block;"> <span class="glyphicon glyphicon-th-list" style="font-size:25px;line-height: 50px;"></span></a>
           </p>
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div class="panel panel-default" style="background: rgba(81, 92, 104, 1);color:#fff;" ng-show="param.index==0">
+      <div class="panel panel-default" style="background: rgba(81, 92, 104, 1);color:#fff;" ng-show="param.index==0"  ng-click="btnChange(5)">
         <div class="row " style="width:95%;margin:auto;padding-top:10px;">
           <div style="display: flex;justify-content:space-between;">
             <div> 流量信息</div>
@@ -117,13 +117,13 @@
             <thead>
             <tr>
               <th>序号</th>
-              <th ng-repeat="info in param.tableTitle">{{info}}</th>
+              <th ng-repeat="info in param.tableTitle[0]">{{info}}</th>
             </tr>
             </thead>
             <tbody>
             <tr  ng-repeat="k in [0,1,2,3,4]">
               <td>1</td>
-              <td ng-repeat="info in param.tableTitle"></td>
+              <td ng-repeat="info in param.tableTitle[0]"></td>
             </tr>
             </tbody>
           </table>
@@ -150,10 +150,181 @@
           </div>
         </footer>
       </div>
+      <div class="panel panel-default" ng-show="param.index == 2">
+        <div class="panel-heading">管理机构信息</div>
+        <div class="table-responsive" style="overflow: auto">
+          <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+            <thead>
+            <tr>
+              <th>序号</th>
+              <th ng-repeat="info in param.tableTitle[1]">{{info}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="k in [0,1,2,3,4]">
+              <td>1</td>
+              <td ng-repeat="info in param.tableTitle[1]"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="panel-footer">
+          <div class="row">
+            <div class="col-sm-4 hidden-xs">
 
+            </div>
+            <div class="col-sm-4 text-center">
+
+            </div>
+            <div class="col-sm-4 text-right text-center-xs">
+              <ul class="pagination pagination-sm m-t-none m-b-none">
+                <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                <li><a href>1</a></li>
+                <li><a href>2</a></li>
+                <li><a href>3</a></li>
+                <li><a href>4</a></li>
+                <li><a href>5</a></li>
+                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="panel panel-default" ng-show="param.index == 3">
+        <div class="panel-heading">调查站信息</div>
+        <div class="table-responsive" style="overflow: auto">
+          <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+            <thead>
+            <tr>
+              <th>序号</th>
+              <th ng-repeat="info in param.tableTitle[2]">{{info}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="k in [0,1,2,3,4]">
+              <td>1</td>
+              <td ng-repeat="info in param.tableTitle[2]"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="panel-footer">
+          <div class="row">
+            <div class="col-sm-4 hidden-xs">
+
+            </div>
+            <div class="col-sm-4 text-center">
+
+            </div>
+            <div class="col-sm-4 text-right text-center-xs">
+              <ul class="pagination pagination-sm m-t-none m-b-none">
+                <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                <li><a href>1</a></li>
+                <li><a href>2</a></li>
+                <li><a href>3</a></li>
+                <li><a href>4</a></li>
+                <li><a href>5</a></li>
+                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="panel panel-default" ng-show="param.index == 4">
+        <div class="panel-heading">设备信息</div>
+        <div class="table-responsive" style="overflow: auto">
+          <table class="table table-bordered b-t b-light" style="white-space: nowrap">
+            <thead>
+            <tr>
+              <th>序号</th>
+              <th ng-repeat="info in param.tableTitle[3]">{{info}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="k in [0,1,2,3,4]">
+              <td>1</td>
+              <td ng-repeat="info in param.tableTitle[3]"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="panel-footer">
+          <div class="row">
+            <div class="col-sm-4 hidden-xs">
+
+            </div>
+            <div class="col-sm-4 text-center">
+
+            </div>
+            <div class="col-sm-4 text-right text-center-xs">
+              <ul class="pagination pagination-sm m-t-none m-b-none">
+                <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                <li><a href>1</a></li>
+                <li><a href>2</a></li>
+                <li><a href>3</a></li>
+                <li><a href>4</a></li>
+                <li><a href>5</a></li>
+                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="panel panel-default" ng-show="param.index == 5">
+        <div class="panel-heading">流量信息</div>
+        <div class="table-responsive" style="overflow: auto">
+          <table class="table  table-striped table-bordered table-hover table-condensed b-t b-light" style="white-space: nowrap;border: 1px solid #ddd;">
+            <thead>
+            <tr>
+              <th ng-repeat="(index,info) in param.trafficInfo[0] track by index">{{info}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th class='text-center' ng-repeat="info in param.trafficInfo[1]">{{info}}</th>
+            </tr>
+            <tr ng-repeat="k in [0,1,2,3]">
+              <td class='text-center' ng-repeat="info in param.trafficInfo[1]"></td>
+            </tr>
+            </tbody>
+          </table>
+          <table class="table  table-striped table-bordered table-hover table-condensed b-t b-light" style="white-space: nowrap;border: 1px solid #ddd;margin-top:20px;">
+            <thead>
+            <tr>
+              <th ng-repeat="(index,info) in param.trafficInfo[2] track by index">{{info}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th class='text-center' ng-repeat="info in param.trafficInfo[3] track by $index">{{info}}</th>
+            </tr>
+            <tr ng-repeat="k in [0,1,2,3]">
+              <td class='text-center' ng-repeat="info in param.trafficInfo[3] track by $index"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="panel-footer">
+          <div class="row">
+            <div class="col-sm-4 hidden-xs">
+            </div>
+            <div class="col-sm-4 text-center">
+            </div>
+            <div class="col-sm-4 text-right text-center-xs">
+              <ul class="pagination pagination-sm m-t-none m-b-none">
+                <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                <li><a href>1</a></li>
+                <li><a href>2</a></li>
+                <li><a href>3</a></li>
+                <li><a href>4</a></li>
+                <li><a href>5</a></li>
+                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
-
   </div>
-
   </div>
 </div>
