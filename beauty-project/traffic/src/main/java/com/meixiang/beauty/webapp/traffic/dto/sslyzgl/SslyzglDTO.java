@@ -25,6 +25,12 @@ public class SslyzglDTO {
     @JSONField(name = "thirdValue")
     private String thirdValue;
 
+    @JSONField(name = "fourthName")
+    private String fourthName;
+
+    @JSONField(name = "fourthValue")
+    private String fourthValue;
+
     public String getName() {
         return name;
     }
@@ -63,5 +69,21 @@ public class SslyzglDTO {
 
     public void setThirdValue(String thirdValue) {
         this.thirdValue = thirdValue;
+    }
+
+    public String getFourthName() {
+        return fourthName;
+    }
+
+    public void setFourthName(String fourthName) {
+        this.fourthName = fourthName;
+    }
+
+    public String getFourthValue() {
+        return fourthValue;
+    }
+
+    public void setFourthValue(String fourthValue) {
+        this.fourthValue = fourthValue;
     }
 }

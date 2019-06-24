@@ -42,5 +42,5 @@ public interface TGkmtEnterprisesDao {
     /**
      * 查询首页信息
      */
-    TtlbbDTO getHomepageInfo();
+    TtlbbDTO getHomepageInfo(@Param("year") int year);
 }

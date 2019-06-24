@@ -1,10 +1,17 @@
 package com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt;
 
 import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
-import java.util.List;
 
 public class TScxyTfPtPersonDTO {
+
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
 
     /**
      *OWNER_ID

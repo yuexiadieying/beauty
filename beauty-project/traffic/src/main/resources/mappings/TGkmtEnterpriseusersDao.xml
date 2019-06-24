@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersDao">
     <resultMap id="TGkmtEnterpriseusersInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="ENTERPRISE_NO" property="enterpriseNo" jdbcType="DOUBLE" />
         <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
         <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
@@ -43,8 +44,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_ENTERPRISEUSERS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '企业操作人员' AS name, '港口' AS second_name, count(DISTINCT ENTERPRISE_NO) as second_value,
-      '港口管理单位' as third_name, COUNT(DISTINCT ENTERPRISE_NO) as third_value, '' as fourth_name,
-      0 as fourth_value from CDPRJ.T_GKMT_ENTERPRISEUSERS
+      select '企业操作人员' AS name, '共计' AS second_name, count(DISTINCT ENTERPRISE_NO) as second_value,
+      '增加' as third_name, COUNT(DISTINCT USER_CREATEDATE) as third_value, '注销' as fourth_name,
+      COUNT(DISTINCT UNREGISTER_DATE) as fourth_value from CDPRJ.T_GKMT_ENTERPRISEUSERS
     </select>
 </mapper>

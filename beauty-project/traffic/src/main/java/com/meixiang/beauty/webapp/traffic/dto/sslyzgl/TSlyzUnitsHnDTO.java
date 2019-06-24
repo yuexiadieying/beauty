@@ -1,10 +1,16 @@
 package com.meixiang.beauty.webapp.traffic.dto.sslyzgl;
 
 import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
-import java.util.List;
 
 public class TSlyzUnitsHnDTO {
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
 
     /**
      *机构编码，见说明

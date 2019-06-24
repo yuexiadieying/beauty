@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzShipnamesDao">
     <resultMap id="TSlyzShipnamesInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzShipnamesDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="NAMENO" property="nameno" jdbcType="INTEGER" />
         <result column="REPORTYEAR" property="reportyear" jdbcType="INTEGER" />
         <result column="SHIPNO" property="shipno" jdbcType="VARCHAR" />
@@ -37,24 +38,26 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzShipnamesCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPNAMES
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPNAMES
     </select>
     <!--获取总个数-->
     <select id="getTSlyzShipnamesCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPNAMES
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPNAMES
     </select>
 
     <select id="getTSlyzShipnamesByPageable" resultMap="TSlyzShipnamesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPNAMES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPNAMES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzShipnamesByParamsPageable" resultMap="TSlyzShipnamesInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPNAMES a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPNAMES a
+      WHERE (a.SHIPNO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_SHIPNAMES
+      select '运输船舶名录' AS name, '累计运输船舶' AS second_name, count(DISTINCT SHIPNO) as second_value,
+      '' as third_name, 0 as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_SLYZ_SHIPNAMES
     </select>
 </mapper>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsOwnerRfrmCntDao">
     <resultMap id="TScxyTfBsOwnerRfrmCntInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsOwnerRfrmCntDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="REFORM_ID" property="reformId" jdbcType="VARCHAR" />
         <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
         <result column="REFORM_CONTENT" property="reformContent" jdbcType="VARCHAR" />
@@ -9,22 +10,26 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerRfrmCntCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_OWNER_RFRM_CNT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_OWNER_RFRM_CNT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsOwnerRfrmCntCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_OWNER_RFRM_CNT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_OWNER_RFRM_CNT a
+      WHERE (a.REFORM_CONTENT like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsOwnerRfrmCntByPageable" resultMap="TScxyTfBsOwnerRfrmCntInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsOwnerRfrmCntByParamsPageable" resultMap="TScxyTfBsOwnerRfrmCntInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_OWNER_RFRM_CNT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_OWNER_RFRM_CNT a 
+      WHERE (a.REFORM_CONTENT like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDao">
     <resultMap id="TGkmtQuickreportdataInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="DATA_IMPORT_OVERSEA" property="dataImportOversea" jdbcType="DOUBLE" />
         <result column="DATA_IMPORT" property="dataImport" jdbcType="DOUBLE" />
@@ -38,11 +39,11 @@
     </select>
     <select id="getTGkmtQuickreportdataByParamsPageable" resultMap="TGkmtQuickreportdataInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_QUICKREPORTDATA a WHERE REPORT_PERIOD &lt;= #{endDate} and REPORT_PERIOD &gt;= #{startDate}  and  ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '港口快报吞吐量' AS name, '企业' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
-      '注销' as third_name, COUNT(DISTINCT PORTREGION_NO) as third_value, '' as fourth_name,
+      select '港口快报吞吐量' AS name, '港区' AS second_name, count(DISTINCT PORTREGION_NO) as second_value,
+      '进港数据' as third_name, COUNT(DISTINCT PORTREGION_NO) as third_value, '出港数据' as fourth_name,
       0 as fourth_value from CDPRJ.T_GKMT_QUICKREPORTDATA
     </select>
 </mapper>

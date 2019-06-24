@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsEquipmentDao">
     <resultMap id="TScxyTfBsEquipmentInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsEquipmentDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
         <result column="EQUIP_ID" property="equipId" jdbcType="VARCHAR" />
         <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
@@ -30,22 +31,26 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsEquipmentCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_EQUIPMENT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_EQUIPMENT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsEquipmentCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_EQUIPMENT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_EQUIPMENT a
+      WHERE (a.EQUIP_CODE like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsEquipmentByPageable" resultMap="TScxyTfBsEquipmentInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_EQUIPMENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_EQUIPMENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsEquipmentByParamsPageable" resultMap="TScxyTfBsEquipmentInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_EQUIPMENT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_EQUIPMENT a 
+      WHERE (a.EQUIP_CODE like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

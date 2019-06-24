@@ -7,6 +7,12 @@ import java.util.Date;
 public class TGkmtBerthsDTO {
 
     /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
+    /**
      *加载时间
     **/
     @JSONField(name="insertDate")

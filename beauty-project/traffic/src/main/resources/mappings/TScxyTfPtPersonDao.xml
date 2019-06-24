@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfPtPersonDao">
     <resultMap id="TScxyTfPtPersonInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfPtPersonDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
         <result column="CMPSNID" property="cmpsnid" jdbcType="VARCHAR" />
         <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
@@ -51,22 +52,28 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfPtPersonCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_PT_PERSON
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_PT_PERSON
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfPtPersonCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_PT_PERSON
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_PT_PERSON a 
+      WHERE (a.NAME like CONCAT('%', CONCAT(#{info},'%'))
+      or a.CARDNO like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfPtPersonByPageable" resultMap="TScxyTfPtPersonInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_PT_PERSON a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_PT_PERSON a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfPtPersonByParamsPageable" resultMap="TScxyTfPtPersonInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_PT_PERSON a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_PT_PERSON a 
+      WHERE (a.NAME like CONCAT('%', CONCAT(#{info},'%'))
+      or a.CARDNO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

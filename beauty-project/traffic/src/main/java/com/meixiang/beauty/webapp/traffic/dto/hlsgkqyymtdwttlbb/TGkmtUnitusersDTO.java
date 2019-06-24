@@ -7,6 +7,12 @@ import java.util.Date;
 public class TGkmtUnitusersDTO {
 
     /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
+    /**
      *操作者名
     **/
     @JSONField(name="userName")

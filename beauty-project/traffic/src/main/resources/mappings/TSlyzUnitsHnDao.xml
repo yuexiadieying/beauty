@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzUnitsHnDao">
     <resultMap id="TSlyzUnitsHnInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzUnitsHnDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="UNITNO" property="unitno" jdbcType="VARCHAR" />
         <result column="XZQHNO" property="xzqhno" jdbcType="VARCHAR" />
         <result column="UNITNAME" property="unitname" jdbcType="VARCHAR" />
@@ -24,24 +25,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzUnitsHnCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_UNITS_HN
+        SELECT count(1) FROM CDPRJ.T_SLYZ_UNITS_HN
     </select>
     <!--获取总个数-->
     <select id="getTSlyzUnitsHnCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_UNITS_HN
+        SELECT count(1) FROM CDPRJ.T_SLYZ_UNITS_HN
     </select>
 
     <select id="getTSlyzUnitsHnByPageable" resultMap="TSlyzUnitsHnInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_UNITS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_UNITS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzUnitsHnByParamsPageable" resultMap="TSlyzUnitsHnInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_UNITS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_UNITS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '管理机构' AS name, '管理机构' AS second_name, count(DISTINCT UNITNO) as second_value,
       '所在行政区划' as third_name, COUNT(DISTINCT XZQHNO) as third_value, '' as fourth_name,
-      0 as fourth_value from T_SLYZ_UNITS_HN
+      0 as fourth_value from CDPRJ.T_SLYZ_UNITS_HN
     </select>
 </mapper>

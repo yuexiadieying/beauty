@@ -10,11 +10,11 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', 'Global',fu
     $scope.login = function() {
       $scope.authError = null;
       // Try to login
-      $http.post('/traffic/login', {username: $scope.user.username, password: $scope.user.password})
-      .then(function(data) {
-          if(data.result==Global.SUCCESS)
+      $http.post('/traffic/user/login', {username: $scope.user.username, password: $scope.user.password})
+      .then(function(response) {
+          if(response.data.result==Global.SUCCESS)
           {
-              window.localStorage.setItem("logintoken",data.responseData);
+              window.localStorage.setItem("logintoken",response.data.responseData);
               $state.go('app.statistic');
           }
       }, function(x) {

@@ -26,7 +26,7 @@ public class TSlyzChangeshiprecordsService {
         if (params.length <= 0) {
             tSlyzChangeshiprecordsDTOs = tSlyzChangeshiprecordsDao.getTSlyzChangeshiprecordsByPageable(start, end);
         } else {
-            tSlyzChangeshiprecordsDTOs = tSlyzChangeshiprecordsDao.getTSlyzChangeshiprecordsByParamsPageable(start, end);
+            tSlyzChangeshiprecordsDTOs = tSlyzChangeshiprecordsDao.getTSlyzChangeshiprecordsByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzChangeshiprecordsDTOs)) {
             for (TSlyzChangeshiprecordsDTO tSlyzChangeshiprecordsDTO : tSlyzChangeshiprecordsDTOs) {

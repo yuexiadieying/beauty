@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsDriverCreditDao">
     <resultMap id="TScxyTfBsDriverCreditInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsDriverCreditDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="DC_ID" property="dcId" jdbcType="VARCHAR" />
         <result column="CREDIT_YEAR" property="creditYear" jdbcType="VARCHAR" />
         <result column="START_DATE" property="startDate" jdbcType="VARCHAR" />
@@ -30,22 +31,28 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsDriverCreditCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_DRIVER_CREDIT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_DRIVER_CREDIT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsDriverCreditCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_DRIVER_CREDIT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_DRIVER_CREDIT
+        LEFT JOIN CDPRJ.T_SJXT_TF_PT_CMPSN b on b.CMPSNID=a.CMPSNID
+        WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsDriverCreditByPageable" resultMap="TScxyTfBsDriverCreditInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_DRIVER_CREDIT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_DRIVER_CREDIT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsDriverCreditByParamsPageable" resultMap="TScxyTfBsDriverCreditInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_DRIVER_CREDIT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_DRIVER_CREDIT a
+      LEFT JOIN CDPRJ.T_SJXT_TF_PT_CMPSN b on b.CMPSNID=a.CMPSNID
+      WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

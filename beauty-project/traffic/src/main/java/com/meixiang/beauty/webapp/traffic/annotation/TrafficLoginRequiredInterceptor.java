@@ -14,6 +14,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,7 @@ public class TrafficLoginRequiredInterceptor implements MethodInterceptor {
             ResponseDTO<String> responseDto = new ResponseDTO<>();
 
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            HttpSession session = request.getSession();
 
             Map<String, String> headerValue = getHeadersInfo(request);
 
@@ -51,7 +53,7 @@ public class TrafficLoginRequiredInterceptor implements MethodInterceptor {
                 }
             }
 
-            String userInfoStr = userService.getUserInfoFromToken(token);
+            String userInfoStr = userService.getUserInfoFromToken(token,session);
 
             UserInfoDTO userInfoDTO = (new Gson()).fromJson(userInfoStr,UserInfoDTO.class);
 

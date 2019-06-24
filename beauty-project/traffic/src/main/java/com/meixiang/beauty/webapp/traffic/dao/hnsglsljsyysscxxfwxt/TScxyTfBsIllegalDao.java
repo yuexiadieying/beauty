@@ -20,7 +20,7 @@ public interface TScxyTfBsIllegalDao {
     /**
      * 根据条件查询经营违章表数据总个数
      */
-    Integer getTScxyTfBsIllegalCountByParams();
+    Integer getTScxyTfBsIllegalCountByParams(@Param("info") String info);
     
     /**
      * 分页获取经营违章表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsIllegalDao {
      * @param end
      */
     List<TScxyTfBsIllegalDTO> getTScxyTfBsIllegalByParamsPageable(@Param("start") int start,
-                                                                  @Param("end") int end);
+                                                                  @Param("end") int end,
+                                                                  @Param("info") String info);
 
 }

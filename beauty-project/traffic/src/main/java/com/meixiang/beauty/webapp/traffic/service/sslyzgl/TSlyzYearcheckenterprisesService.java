@@ -26,7 +26,7 @@ public class TSlyzYearcheckenterprisesService {
         if (params.length <= 0) {
             tSlyzYearcheckenterprisesDTOs = tSlyzYearcheckenterprisesDao.getTSlyzYearcheckenterprisesByPageable(start, end);
         } else {
-            tSlyzYearcheckenterprisesDTOs = tSlyzYearcheckenterprisesDao.getTSlyzYearcheckenterprisesByParamsPageable(start, end);
+            tSlyzYearcheckenterprisesDTOs = tSlyzYearcheckenterprisesDao.getTSlyzYearcheckenterprisesByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzYearcheckenterprisesDTOs)) {
             for (TSlyzYearcheckenterprisesDTO tSlyzYearcheckenterprisesDTO : tSlyzYearcheckenterprisesDTOs) {

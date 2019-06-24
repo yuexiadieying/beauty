@@ -6,6 +6,13 @@ import java.util.List;
 
 public class TScxyTfBsOwnerHonorDTO {
 
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
     /**
      *HONOR_ID
     **/

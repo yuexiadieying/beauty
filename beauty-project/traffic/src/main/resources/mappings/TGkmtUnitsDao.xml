@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtUnitsDao">
     <resultMap id="TGkmtUnitsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtUnitsDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="UNIT_XZQHNAME" property="unitXzqhname" jdbcType="VARCHAR" />
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="UNIT_NO" property="unitNo" jdbcType="VARCHAR" />
@@ -40,8 +41,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_UNITS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '行业管理机构' AS name, '港区' AS second_name, count(DISTINCT UNIT_NO) as second_value,
-      '进港' as third_name, COUNT(DISTINCT UNIT_NO) as third_value, '出港' as fourth_name,
-      COUNT(DISTINCT UNIT_NO) as fourth_value from CDPRJ.T_GKMT_UNITS
+      select '行业管理机构' AS name, '行政区' AS second_name, count(DISTINCT UNIT_XZQHNAME) as second_value,
+      '机构' as third_name, COUNT(DISTINCT UNIT_BRIEFNAME) as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_GKMT_UNITS
     </select>
 </mapper>

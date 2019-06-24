@@ -20,7 +20,7 @@ public interface TScxyTfPtPersonDao {
     /**
      * 根据条件查询员工信息表数据总个数
      */
-    Integer getTScxyTfPtPersonCountByParams();
+    Integer getTScxyTfPtPersonCountByParams(@Param("info") String info);
     
     /**
      * 分页获取员工信息表数据
@@ -36,6 +36,7 @@ public interface TScxyTfPtPersonDao {
      * @param end
      */
     List<TScxyTfPtPersonDTO> getTScxyTfPtPersonByParamsPageable(@Param("start") int start,
-                                                                @Param("end") int end);
+                                                                @Param("end") int end,
+                                                                @Param("info") String info);
 
 }

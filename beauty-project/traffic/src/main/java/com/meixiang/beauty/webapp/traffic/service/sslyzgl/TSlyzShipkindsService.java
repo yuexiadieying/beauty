@@ -26,7 +26,7 @@ public class TSlyzShipkindsService {
         if (params.length <= 0) {
             tSlyzShipkindsDTOs = tSlyzShipkindsDao.getTSlyzShipkindsByPageable(start, end);
         } else {
-            tSlyzShipkindsDTOs = tSlyzShipkindsDao.getTSlyzShipkindsByParamsPageable(start, end);
+            tSlyzShipkindsDTOs = tSlyzShipkindsDao.getTSlyzShipkindsByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzShipkindsDTOs)) {
             for (TSlyzShipkindsDTO tSlyzShipkindsDTO : tSlyzShipkindsDTOs) {

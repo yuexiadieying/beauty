@@ -2,7 +2,6 @@ package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
-import com.meixiang.beauty.sys.annotation.LoginRequired;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
@@ -63,7 +62,7 @@ public class HnsgkqyymtdwttlbbController {
     @Autowired
     private HlsgkqyymtdwttlbbHomePageService homePageService;
 
-    //todo 湖南省港口企业与码头单位吞吐量报表首页
+    //todo 湖南省港口企业与码头单位吞吐量报表首页  待联调
     @RequestMapping(value = "ttlbb", method = {RequestMethod.POST, RequestMethod.GET})
     @TrafficLoginRequired
     public
@@ -79,22 +78,21 @@ public class HnsgkqyymtdwttlbbController {
     }
 
 
-    //todo 全市泊位表中统计数据，包括了累计港口泊位数、增加的报告期、报废的报告期
+    //todo 全市泊位表中统计数据，包括了累计港口泊位数、增加的报告期、报废的报告期 待联调
     @RequestMapping(value = "qsbwbtjsj", method = {RequestMethod.POST, RequestMethod.GET})
     @TrafficLoginRequired
     public
     @ResponseBody
     ResponseDTO<QsbwbtjsjDTO> getQsbwbtjsjDTO(){
-        QsbwbtjsjDTO qsbwbtjsjDTO = new QsbwbtjsjDTO();
         ResponseDTO<QsbwbtjsjDTO> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 qsbwbtjsjDTO
 
-        responseDTO.setResponseData(qsbwbtjsjDTO);
+        responseDTO.setResponseData(tGkmtBerthsService.getgetQsbwbtjsjDTO());
         return  responseDTO;
     }
 
-    //todo 全市泊位状况 待测试
+    //todo 全市泊位状况 待联调
     //todo 港口企业 gkqy
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -116,7 +114,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 港口企业和码头单位名录 待测试
+    //todo 港口企业和码头单位名录  待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "gkqyml", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -126,15 +124,19 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        gkqymlDTOList = tGkmtEnterprisesService.getTGkmtEnterprisesByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        gkqymlDTOList = tGkmtEnterprisesService.getTGkmtEnterprisesByPageable(
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterprisesService.getTGkmtEnterprisesCount());
         paramDTO.setResponseData(gkqymlDTOList);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
 
-    //todo 企业操作人员 待测试
+    //todo 企业操作人员  待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qyczry", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -144,15 +146,19 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        qyczryDTOS = tGkmtEnterpriseusersService.getTGkmtEnterpriseusersByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        qyczryDTOS = tGkmtEnterpriseusersService.getTGkmtEnterpriseusersByPageable(
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtEnterpriseusersService.getTGkmtEnterpriseusersCount());
-        paramDTO.setResponseData(qyczryDTOS);
         responseDTO.setResponseData(paramDTO);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setResponseData(qyczryDTOS);
         return  responseDTO;
     }
 
-    //todo 全省港区代表码 待测试
+    //todo 全省港区代表码 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgqdbm", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -162,15 +168,18 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        qsgqdbmDTOS = tGkmtPortregionsService.getTGkmtPortregionsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
-
+        qsgqdbmDTOS = tGkmtPortregionsService.getTGkmtPortregionsByPageable(
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortregionsService.getTGkmtPortregionsCount());
-        paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
+        paramDTO.setResponseData(qsgqdbmDTOS);
         return  responseDTO;
     }
 
-    //todo 全省港口表 待测试
+    //todo 全省港口表 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgkb", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -180,15 +189,16 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        qsgqdbmDTOS = tGkmtPortsService.getTGkmtPortsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
-
+        qsgqdbmDTOS = tGkmtPortsService.getTGkmtPortsByPageable(
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortsService.getTGkmtPortsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
 
-    //todo 港口快报吞吐量 待测试
+    //todo 港口快报吞吐量 待联调
     //todo 港口企业 gkqy
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -210,7 +220,7 @@ public class HnsgkqyymtdwttlbbController {
     }
 
 
-    //todo 港口吞吐量 待测试
+    //todo 港口吞吐量 待联调
     //todo 泊位编号 bwbh
     //todo 码头单位 mtdw
     //todo startDate 开始日期 2019-04-23
@@ -230,7 +240,7 @@ public class HnsgkqyymtdwttlbbController {
         return  responseDTO;
     }
 
-    //todo 行政管理机构 待测试
+    //todo 行政管理机构 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzgljg", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -240,15 +250,19 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        xzgljgDTOList = tGkmtUnitsService.getTGkmtUnitsByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        xzgljgDTOList = tGkmtUnitsService.getTGkmtUnitsByPageable(
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
 
         paramDTO.setTotalCount(tGkmtUnitsService.getTGkmtUnitsCount());
         paramDTO.setResponseData(xzgljgDTOList);
+        paramDTO.setPageNo(pageParamDTO.getPageNo());
+        paramDTO.setPageSize(pageParamDTO.getPageSize());
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
 
-    //todo 行政管理人员 待测试
+    //todo 行政管理人员 待联调
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzglry", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -258,7 +272,10 @@ public class HnsgkqyymtdwttlbbController {
         PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
         ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
 
-        xzglryDTOList = tGkmtUnitusersService.getTGkmtUnitusersByPageable(pageParamDTO.getPageStartNo(), pageParamDTO.getPageSize());
+        xzglryDTOList = tGkmtUnitusersService.getTGkmtUnitusersByPageable(
+                pageParamDTO.getPageStartNo(),
+                pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
+
         paramDTO.setResponseData(xzglryDTOList);
 
         paramDTO.setTotalCount(tGkmtUnitusersService.getTGkmtUnitusersCount());

@@ -26,7 +26,7 @@ public class TScxyTfBsIllegalService {
         if (params.length <= 0) {
             tScxyTfBsIllegalDTOs = tScxyTfBsIllegalDao.getTScxyTfBsIllegalByPageable(start, end);
         } else {
-            tScxyTfBsIllegalDTOs = tScxyTfBsIllegalDao.getTScxyTfBsIllegalByParamsPageable(start, end);
+            tScxyTfBsIllegalDTOs = tScxyTfBsIllegalDao.getTScxyTfBsIllegalByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsIllegalDTOs)) {
             for (TScxyTfBsIllegalDTO tScxyTfBsIllegalDTO : tScxyTfBsIllegalDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsIllegalService {
         if (params.length <= 0) {
             res = tScxyTfBsIllegalDao.getTScxyTfBsIllegalCount();
         } else {
-            res = tScxyTfBsIllegalDao.getTScxyTfBsIllegalCountByParams();
+            res = tScxyTfBsIllegalDao.getTScxyTfBsIllegalCountByParams(params[0]);
         }
         return res;
     }

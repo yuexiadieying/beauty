@@ -20,7 +20,7 @@ public interface TScxyTfBsOwnerHonorDao {
     /**
      * 根据条件查询企业荣誉表数据总个数
      */
-    Integer getTScxyTfBsOwnerHonorCountByParams();
+    Integer getTScxyTfBsOwnerHonorCountByParams(@Param("info") String info);
     
     /**
      * 分页获取企业荣誉表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsOwnerHonorDao {
      * @param end
      */
     List<TScxyTfBsOwnerHonorDTO> getTScxyTfBsOwnerHonorByParamsPageable(@Param("start") int start,
-                                                                        @Param("end") int end);
+                                                                        @Param("end") int end,
+                                                                        @Param("info") String info);
 
 }

@@ -26,7 +26,7 @@ public class TScxyTfBsOwnerReformService {
         if (params.length <= 0) {
             tScxyTfBsOwnerReformDTOs = tScxyTfBsOwnerReformDao.getTScxyTfBsOwnerReformByPageable(start, end);
         } else {
-            tScxyTfBsOwnerReformDTOs = tScxyTfBsOwnerReformDao.getTScxyTfBsOwnerReformByParamsPageable(start, end);
+            tScxyTfBsOwnerReformDTOs = tScxyTfBsOwnerReformDao.getTScxyTfBsOwnerReformByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsOwnerReformDTOs)) {
             for (TScxyTfBsOwnerReformDTO tScxyTfBsOwnerReformDTO : tScxyTfBsOwnerReformDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsOwnerReformService {
         if (params.length <= 0) {
             res = tScxyTfBsOwnerReformDao.getTScxyTfBsOwnerReformCount();
         } else {
-            res = tScxyTfBsOwnerReformDao.getTScxyTfBsOwnerReformCountByParams();
+            res = tScxyTfBsOwnerReformDao.getTScxyTfBsOwnerReformCountByParams(params[0]);
         }
         return res;
     }

@@ -20,7 +20,7 @@ public interface TScxyTfBsAdvancedDeedDao {
     /**
      * 根据条件查询先进事迹表数据总个数
      */
-    Integer getTScxyTfBsAdvancedDeedCountByParams();
+    Integer getTScxyTfBsAdvancedDeedCountByParams(@Param("info") String info);
     
     /**
      * 分页获取先进事迹表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsAdvancedDeedDao {
      * @param end
      */
     List<TScxyTfBsAdvancedDeedDTO> getTScxyTfBsAdvancedDeedByParamsPageable(@Param("start") int start,
-                                                                            @Param("end") int end);
+                                                                            @Param("end") int end,
+                                                                            @Param("info") String info);
 
 }

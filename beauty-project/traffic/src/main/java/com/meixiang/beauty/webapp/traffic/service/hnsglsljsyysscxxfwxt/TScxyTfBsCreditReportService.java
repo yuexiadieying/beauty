@@ -26,7 +26,7 @@ public class TScxyTfBsCreditReportService {
         if (params.length <= 0) {
             tScxyTfBsCreditReportDTOs = tScxyTfBsCreditReportDao.getTScxyTfBsCreditReportByPageable(start, end);
         } else {
-            tScxyTfBsCreditReportDTOs = tScxyTfBsCreditReportDao.getTScxyTfBsCreditReportByParamsPageable(start, end);
+            tScxyTfBsCreditReportDTOs = tScxyTfBsCreditReportDao.getTScxyTfBsCreditReportByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsCreditReportDTOs)) {
             for (TScxyTfBsCreditReportDTO tScxyTfBsCreditReportDTO : tScxyTfBsCreditReportDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsCreditReportService {
         if (params.length <= 0) {
             res = tScxyTfBsCreditReportDao.getTScxyTfBsCreditReportCount();
         } else {
-            res = tScxyTfBsCreditReportDao.getTScxyTfBsCreditReportCountByParams();
+            res = tScxyTfBsCreditReportDao.getTScxyTfBsCreditReportCountByParams(params[0]);
         }
         return res;
     }

@@ -20,7 +20,7 @@ public interface TScxyTfBsEquipmentDao {
     /**
      * 根据条件查询设备档案表数据总个数
      */
-    Integer getTScxyTfBsEquipmentCountByParams();
+    Integer getTScxyTfBsEquipmentCountByParams(@Param("info") String info);
     
     /**
      * 分页获取设备档案表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsEquipmentDao {
      * @param end
      */
     List<TScxyTfBsEquipmentDTO> getTScxyTfBsEquipmentByParamsPageable(@Param("start") int start,
-                                                                      @Param("end") int end);
+                                                                      @Param("end") int end,
+                                                                      @Param("info") String info);
 
 }

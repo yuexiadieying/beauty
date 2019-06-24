@@ -20,7 +20,7 @@ public interface TScxyTfBsOwnerRuleDao {
     /**
      * 根据条件查询规章制度表数据总个数
      */
-    Integer getTScxyTfBsOwnerRuleCountByParams();
+    Integer getTScxyTfBsOwnerRuleCountByParams(@Param("info") String info);
     
     /**
      * 分页获取规章制度表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsOwnerRuleDao {
      * @param end
      */
     List<TScxyTfBsOwnerRuleDTO> getTScxyTfBsOwnerRuleByParamsPageable(@Param("start") int start,
-                                                                      @Param("end") int end);
+                                                                      @Param("end") int end,
+                                                                      @Param("info") String info);
 
 }

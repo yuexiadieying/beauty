@@ -26,7 +26,7 @@ public class TScxyTfBsOwnerRfrmCntService {
         if (params.length <= 0) {
             tScxyTfBsOwnerRfrmCntDTOs = tScxyTfBsOwnerRfrmCntDao.getTScxyTfBsOwnerRfrmCntByPageable(start, end);
         } else {
-            tScxyTfBsOwnerRfrmCntDTOs = tScxyTfBsOwnerRfrmCntDao.getTScxyTfBsOwnerRfrmCntByParamsPageable(start, end);
+            tScxyTfBsOwnerRfrmCntDTOs = tScxyTfBsOwnerRfrmCntDao.getTScxyTfBsOwnerRfrmCntByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsOwnerRfrmCntDTOs)) {
             for (TScxyTfBsOwnerRfrmCntDTO tScxyTfBsOwnerRfrmCntDTO : tScxyTfBsOwnerRfrmCntDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsOwnerRfrmCntService {
         if (params.length <= 0) {
             res = tScxyTfBsOwnerRfrmCntDao.getTScxyTfBsOwnerRfrmCntCount();
         } else {
-            res = tScxyTfBsOwnerRfrmCntDao.getTScxyTfBsOwnerRfrmCntCountByParams();
+            res = tScxyTfBsOwnerRfrmCntDao.getTScxyTfBsOwnerRfrmCntCountByParams(params[0]);
         }
         return res;
     }

@@ -6,6 +6,13 @@ import java.util.List;
 
 public class TScxyTfBsDriverCreditDTO {
 
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
     /**
      *从业人员考核ID
     **/

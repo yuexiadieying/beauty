@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsEsignCntRptDao">
     <resultMap id="TScxyTfBsEsignCntRptInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsEsignCntRptDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="ESIGN_CNT_ID" property="esignCntId" jdbcType="VARCHAR" />
         <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
         <result column="ESIGN_CONFIG_ID" property="esignConfigId" jdbcType="VARCHAR" />
@@ -19,22 +20,26 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsEsignCntRptCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ESIGN_CNT_RPT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsEsignCntRptCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_ESIGN_CNT_RPT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT a
+      WHERE (a.ESIGN_CONTENT like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsEsignCntRptByPageable" resultMap="TScxyTfBsEsignCntRptInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ESIGN_CNT_RPT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsEsignCntRptByParamsPageable" resultMap="TScxyTfBsEsignCntRptInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_ESIGN_CNT_RPT a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_ESIGN_CNT_RPT a 
+      WHERE (a.ESIGN_CONTENT like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

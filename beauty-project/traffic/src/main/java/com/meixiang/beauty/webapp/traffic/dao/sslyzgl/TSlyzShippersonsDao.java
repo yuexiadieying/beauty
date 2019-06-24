@@ -37,7 +37,8 @@ public interface TSlyzShippersonsDao {
      * @param end
      */
     List<TSlyzShippersonsDTO> getTSlyzShippersonsByParamsPageable(@Param("start") int start,
-                                                                  @Param("end") int end);
+                                                                  @Param("end") int end,
+                                                                  @Param("info") String info);
     
     /**
      * 查询首页信息

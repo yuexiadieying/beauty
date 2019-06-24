@@ -7,6 +7,12 @@ import java.util.Date;
 public class TGkmtUnitsDTO {
 
     /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
+    /**
      *机构所在行政区划名称
     **/
     @JSONField(name="unitXzqhname")

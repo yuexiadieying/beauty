@@ -5,6 +5,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 //全市泊位表中的统计数据
 public class QsbwbtjsjDTO {
 
+    //时间
+    @JSONField(name = "time")
+    private String time;
+
     //累计港口泊位数，4320
     @JSONField(name = "ljgkbws")
     private String ljgkbws;
@@ -75,5 +79,13 @@ public class QsbwbtjsjDTO {
 
     public void setBfdbgqRate(String bfdbgqRate) {
         this.bfdbgqRate = bfdbgqRate;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

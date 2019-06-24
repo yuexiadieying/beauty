@@ -26,7 +26,7 @@ public class TScxyTfBsBusCreditRecordService {
         if (params.length <= 0) {
             tScxyTfBsBusCreditRecordDTOs = tScxyTfBsBusCreditRecordDao.getTScxyTfBsBusCreditRecordByPageable(start, end);
         } else {
-            tScxyTfBsBusCreditRecordDTOs = tScxyTfBsBusCreditRecordDao.getTScxyTfBsBusCreditRecordByParamsPageable(start, end);
+            tScxyTfBsBusCreditRecordDTOs = tScxyTfBsBusCreditRecordDao.getTScxyTfBsBusCreditRecordByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsBusCreditRecordDTOs)) {
             for (TScxyTfBsBusCreditRecordDTO tScxyTfBsBusCreditRecordDTO : tScxyTfBsBusCreditRecordDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsBusCreditRecordService {
         if (params.length <= 0) {
             res = tScxyTfBsBusCreditRecordDao.getTScxyTfBsBusCreditRecordCount();
         } else {
-            res = tScxyTfBsBusCreditRecordDao.getTScxyTfBsBusCreditRecordCountByParams();
+            res = tScxyTfBsBusCreditRecordDao.getTScxyTfBsBusCreditRecordCountByParams(params[0]);
         }
         return res;
     }

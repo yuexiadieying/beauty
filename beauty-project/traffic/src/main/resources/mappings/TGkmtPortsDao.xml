@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortsDao">
     <resultMap id="TGkmtPortsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtPortsDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
         <result column="PERIODKIND" property="periodkind" jdbcType="VARCHAR" />
         <result column="PORT_OWNER" property="portOwner" jdbcType="VARCHAR" />
@@ -37,8 +38,8 @@
       FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_GKMT_PORTS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '全省港口表' AS name, '泊位' AS second_name, count(DISTINCT PORT_NO) as second_value,
-      '增加报告' as third_name, COUNT(DISTINCT PERIODKIND) as third_value, '报废报告' as fourth_name,
-      COUNT(DISTINCT PERIODKIND) as fourth_value from CDPRJ.T_GKMT_PORTS
+      select '全省港口表' AS name, '共计' AS second_name, count(DISTINCT PORT_NO) as second_value,
+      '港口管理单位' as third_name, COUNT(DISTINCT PORT_OWNER) as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_GKMT_PORTS
     </select>
 </mapper>

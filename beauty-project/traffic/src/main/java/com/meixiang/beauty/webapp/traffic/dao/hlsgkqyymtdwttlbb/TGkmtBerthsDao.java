@@ -1,10 +1,12 @@
 package com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb;
 
+import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
+import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.QsbwbtjsjDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TGkmtBerthsDTO;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
-import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 @MyBatisDao
@@ -47,5 +49,18 @@ public interface TGkmtBerthsDao {
     /**
      * 查询首页信息
      */
-    TtlbbDTO getHomepageInfo();
+    TtlbbDTO getHomepageInfo(@Param("year") int year);
+
+    List<QsbwbtjsjDTO> getBerthsNumInMonthsByParams(
+            @Param("gkqy") String gkqy,
+            @Param("mtdw") String mtdw,
+            @Param("preMon") String preMon,
+            @Param("nowMon") String nowMon);
+
+    List<QsbwbtjsjDTO> getBerthsReportInWeeksByParams(
+            @Param("gkqy") String gkqy,
+            @Param("mtdw") String mtdw,
+            @Param("startDay") String startDay,
+            @Param("endDay") String endDay,
+            @Param("middleDay") String middleDay);
 }

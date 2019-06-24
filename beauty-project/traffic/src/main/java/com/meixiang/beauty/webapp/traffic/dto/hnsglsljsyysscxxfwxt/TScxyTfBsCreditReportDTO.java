@@ -6,6 +6,13 @@ import java.util.List;
 
 public class TScxyTfBsCreditReportDTO {
 
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
     /**
      *申报ID
     **/

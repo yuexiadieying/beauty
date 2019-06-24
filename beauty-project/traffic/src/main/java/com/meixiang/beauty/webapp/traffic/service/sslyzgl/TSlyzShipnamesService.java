@@ -26,7 +26,7 @@ public class TSlyzShipnamesService {
         if (params.length <= 0) {
             tSlyzShipnamesDTOs = tSlyzShipnamesDao.getTSlyzShipnamesByPageable(start, end);
         } else {
-            tSlyzShipnamesDTOs = tSlyzShipnamesDao.getTSlyzShipnamesByParamsPageable(start, end);
+            tSlyzShipnamesDTOs = tSlyzShipnamesDao.getTSlyzShipnamesByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzShipnamesDTOs)) {
             for (TSlyzShipnamesDTO tSlyzShipnamesDTO : tSlyzShipnamesDTOs) {

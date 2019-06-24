@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzShipillegalrunrecordsDao">
     <resultMap id="TSlyzShipillegalrunrecordsInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzShipillegalrunrecordsDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="ILLEGALRECORDNO" property="illegalrecordno" jdbcType="VARCHAR" />
         <result column="SHIPNO" property="shipno" jdbcType="VARCHAR" />
         <result column="SHIPNAME" property="shipname" jdbcType="VARCHAR" />
@@ -30,24 +31,26 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzShipillegalrunrecordsCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPILLEGALRUNRECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS
     </select>
     <!--获取总个数-->
     <select id="getTSlyzShipillegalrunrecordsCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_SHIPILLEGALRUNRECORDS
+        SELECT count(1) FROM CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS
     </select>
 
     <select id="getTSlyzShipillegalrunrecordsByPageable" resultMap="TSlyzShipillegalrunrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzShipillegalrunrecordsByParamsPageable" resultMap="TSlyzShipillegalrunrecordsInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_SHIPILLEGALRUNRECORDS a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS a
+      WHERE (a.SHIPNO like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
-      select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
-      '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_SHIPILLEGALRUNRECORDS
+      select '船舶违章记录' AS name, '累计船舶违章' AS second_name, count(DISTINCT KIND) as second_value,
+      '' as third_name, 0 as third_value, '' as fourth_name,
+      0 as fourth_value from CDPRJ.T_SLYZ_SHIPILLEGALRUNRECORDS
     </select>
 </mapper>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sslyzgl.TSlyzPortsHnDao">
     <resultMap id="TSlyzPortsHnInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sslyzgl.TSlyzPortsHnDTO" >
+        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="PORTNO" property="portno" jdbcType="VARCHAR" />
         <result column="PORTNAME" property="portname" jdbcType="VARCHAR" />
         <result column="XZQHNO" property="xzqhno" jdbcType="VARCHAR" />
@@ -19,24 +20,24 @@
     </resultMap>
     <!--获取总个数-->
     <select id="getTSlyzPortsHnCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_PORTS_HN
+        SELECT count(1) FROM CDPRJ.T_SLYZ_PORTS_HN
     </select>
     <!--获取总个数-->
     <select id="getTSlyzPortsHnCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SLYZ_PORTS_HN
+        SELECT count(1) FROM CDPRJ.T_SLYZ_PORTS_HN
     </select>
 
     <select id="getTSlyzPortsHnByPageable" resultMap="TSlyzPortsHnInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_PORTS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_PORTS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTSlyzPortsHnByParamsPageable" resultMap="TSlyzPortsHnInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SLYZ_PORTS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SLYZ_PORTS_HN a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getHomepageInfo" resultMap="homepageInfoResultMap">
       select '***' AS name, '***' AS second_name, count(DISTINCT ***) as second_value, 
       '***' as third_name, COUNT(DISTINCT ***) as third_value, '***' as fourth_name, 
-      COUNT(DISTINCT ***) as fourth_value from T_SLYZ_PORTS_HN
+      COUNT(DISTINCT ***) as fourth_value from CDPRJ.T_SLYZ_PORTS_HN
     </select>
 </mapper>

@@ -26,7 +26,7 @@ public class TScxyTfBsAdvancedDeedService {
         if (params.length <= 0) {
             tScxyTfBsAdvancedDeedDTOs = tScxyTfBsAdvancedDeedDao.getTScxyTfBsAdvancedDeedByPageable(start, end);
         } else {
-            tScxyTfBsAdvancedDeedDTOs = tScxyTfBsAdvancedDeedDao.getTScxyTfBsAdvancedDeedByParamsPageable(start, end);
+            tScxyTfBsAdvancedDeedDTOs = tScxyTfBsAdvancedDeedDao.getTScxyTfBsAdvancedDeedByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tScxyTfBsAdvancedDeedDTOs)) {
             for (TScxyTfBsAdvancedDeedDTO tScxyTfBsAdvancedDeedDTO : tScxyTfBsAdvancedDeedDTOs) {
@@ -41,7 +41,7 @@ public class TScxyTfBsAdvancedDeedService {
         if (params.length <= 0) {
             res = tScxyTfBsAdvancedDeedDao.getTScxyTfBsAdvancedDeedCount();
         } else {
-            res = tScxyTfBsAdvancedDeedDao.getTScxyTfBsAdvancedDeedCountByParams();
+            res = tScxyTfBsAdvancedDeedDao.getTScxyTfBsAdvancedDeedCountByParams(params[0]);
         }
         return res;
     }

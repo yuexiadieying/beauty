@@ -20,7 +20,7 @@ public interface TScxyTfBsBusReformRecordDao {
     /**
      * 根据条件查询车辆责令整改表数据总个数
      */
-    Integer getTScxyTfBsBusReformRecordCountByParams();
+    Integer getTScxyTfBsBusReformRecordCountByParams(@Param("info") String info);
     
     /**
      * 分页获取车辆责令整改表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsBusReformRecordDao {
      * @param end
      */
     List<TScxyTfBsBusReformRecordDTO> getTScxyTfBsBusReformRecordByParamsPageable(@Param("start") int start,
-                                                                                  @Param("end") int end);
+                                                                                  @Param("end") int end,
+                                                                                  @Param("info") String info);
 
 }

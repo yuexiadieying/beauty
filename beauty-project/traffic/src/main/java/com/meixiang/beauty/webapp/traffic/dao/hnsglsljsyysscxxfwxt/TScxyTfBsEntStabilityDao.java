@@ -20,7 +20,7 @@ public interface TScxyTfBsEntStabilityDao {
     /**
      * 根据条件查询违规上访表数据总个数
      */
-    Integer getTScxyTfBsEntStabilityCountByParams();
+    Integer getTScxyTfBsEntStabilityCountByParams(@Param("info") String info);
     
     /**
      * 分页获取违规上访表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsEntStabilityDao {
      * @param end
      */
     List<TScxyTfBsEntStabilityDTO> getTScxyTfBsEntStabilityByParamsPageable(@Param("start") int start,
-                                                                            @Param("end") int end);
+                                                                            @Param("end") int end,
+                                                                            @Param("info") String info);
 
 }

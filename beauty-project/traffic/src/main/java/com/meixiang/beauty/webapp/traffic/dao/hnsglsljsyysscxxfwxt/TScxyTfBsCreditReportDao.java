@@ -20,7 +20,7 @@ public interface TScxyTfBsCreditReportDao {
     /**
      * 根据条件查询业户考核申报表数据总个数
      */
-    Integer getTScxyTfBsCreditReportCountByParams();
+    Integer getTScxyTfBsCreditReportCountByParams(@Param("info") String info);
     
     /**
      * 分页获取业户考核申报表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsCreditReportDao {
      * @param end
      */
     List<TScxyTfBsCreditReportDTO> getTScxyTfBsCreditReportByParamsPageable(@Param("start") int start,
-                                                                            @Param("end") int end);
+                                                                            @Param("end") int end,
+                                                                            @Param("info") String info);
 
 }

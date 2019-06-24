@@ -1,15 +1,16 @@
 package com.meixiang.beauty.webapp.traffic.service.hlsgkqyymtdwttlbb;
 
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtBerthsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterprisesDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortregionsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortsDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDao;
+import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtReportdataDao;
 import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtUnitsDao;
 import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtUnitusersDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtReportdataDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtQuickreportdataDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortsDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtPortregionsDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterpriseusersDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtEnterprisesDao;
-import com.meixiang.beauty.webapp.traffic.dao.hlsgkqyymtdwttlbb.TGkmtBerthsDao;
 import com.meixiang.beauty.webapp.traffic.dto.hlsgkqyymtdwttlbb.TtlbbDTO;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +51,7 @@ public class HlsgkqyymtdwttlbbHomePageService {
 
 
     public List<TtlbbDTO> getHomePageInfo() {
+        int year = new DateTime().getYear();
         List<TtlbbDTO> res = new ArrayList<>();
         res.add(tGkmtUnitsDao.getHomepageInfo());
         res.add(tGkmtUnitusersDao.getHomepageInfo());
@@ -58,9 +60,13 @@ public class HlsgkqyymtdwttlbbHomePageService {
         res.add(tGkmtPortsDao.getHomepageInfo());
         res.add(tGkmtPortregionsDao.getHomepageInfo());
         res.add(tGkmtEnterpriseusersDao.getHomepageInfo());
-        res.add(tGkmtEnterprisesDao.getHomepageInfo());
-        res.add(tGkmtBerthsDao.getHomepageInfo());
+        res.add(tGkmtEnterprisesDao.getHomepageInfo(year));
+        res.add(tGkmtBerthsDao.getHomepageInfo(year));
 
         return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new DateTime().getWeekOfWeekyear());
     }
 }

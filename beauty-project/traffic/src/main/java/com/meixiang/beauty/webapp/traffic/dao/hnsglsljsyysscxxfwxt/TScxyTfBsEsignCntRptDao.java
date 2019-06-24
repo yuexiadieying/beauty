@@ -20,7 +20,7 @@ public interface TScxyTfBsEsignCntRptDao {
     /**
      * 根据条件查询电子签章申报内容表数据总个数
      */
-    Integer getTScxyTfBsEsignCntRptCountByParams();
+    Integer getTScxyTfBsEsignCntRptCountByParams(@Param("info") String info);
     
     /**
      * 分页获取电子签章申报内容表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsEsignCntRptDao {
      * @param end
      */
     List<TScxyTfBsEsignCntRptDTO> getTScxyTfBsEsignCntRptByParamsPageable(@Param("start") int start,
-                                                                          @Param("end") int end);
+                                                                          @Param("end") int end,
+                                                                          @Param("info") String info);
 
 }

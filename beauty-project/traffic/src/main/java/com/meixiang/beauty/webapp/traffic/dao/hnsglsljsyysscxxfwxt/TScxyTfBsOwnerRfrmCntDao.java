@@ -20,7 +20,7 @@ public interface TScxyTfBsOwnerRfrmCntDao {
     /**
      * 根据条件查询整改内容表数据总个数
      */
-    Integer getTScxyTfBsOwnerRfrmCntCountByParams();
+    Integer getTScxyTfBsOwnerRfrmCntCountByParams(@Param("info") String info);
     
     /**
      * 分页获取整改内容表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsOwnerRfrmCntDao {
      * @param end
      */
     List<TScxyTfBsOwnerRfrmCntDTO> getTScxyTfBsOwnerRfrmCntByParamsPageable(@Param("start") int start,
-                                                                            @Param("end") int end);
+                                                                            @Param("end") int end,
+                                                                            @Param("info") String info);
 
 }

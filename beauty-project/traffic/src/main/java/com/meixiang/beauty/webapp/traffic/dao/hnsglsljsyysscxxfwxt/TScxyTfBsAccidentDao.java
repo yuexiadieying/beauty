@@ -21,7 +21,7 @@ public interface TScxyTfBsAccidentDao {
     /**
      * 根据条件查询交通责任事故表数据总个数
      */
-    Integer getTScxyTfBsAccidentCountByParams();
+    Integer getTScxyTfBsAccidentCountByParams(@Param("info") String info);
     
     /**
      * 分页获取交通责任事故表数据
@@ -37,6 +37,7 @@ public interface TScxyTfBsAccidentDao {
      * @param end
      */
     List<TScxyTfBsAccidentDTO> getTScxyTfBsAccidentByParamsPageable(@Param("start") int start,
-                                                                    @Param("end") int end);
+                                                                    @Param("end") int end,
+                                                                    @Param("info") String info);
 
 }

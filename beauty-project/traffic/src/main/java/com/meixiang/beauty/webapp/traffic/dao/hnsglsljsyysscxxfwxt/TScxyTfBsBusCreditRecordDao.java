@@ -20,7 +20,7 @@ public interface TScxyTfBsBusCreditRecordDao {
     /**
      * 根据条件查询车辆信用考核表数据总个数
      */
-    Integer getTScxyTfBsBusCreditRecordCountByParams();
+    Integer getTScxyTfBsBusCreditRecordCountByParams(@Param("info") String info);
     
     /**
      * 分页获取车辆信用考核表数据
@@ -36,6 +36,7 @@ public interface TScxyTfBsBusCreditRecordDao {
      * @param end
      */
     List<TScxyTfBsBusCreditRecordDTO> getTScxyTfBsBusCreditRecordByParamsPageable(@Param("start") int start,
-                                                                                  @Param("end") int end);
+                                                                                  @Param("end") int end,
+                                                                                  @Param("info") String info);
 
 }

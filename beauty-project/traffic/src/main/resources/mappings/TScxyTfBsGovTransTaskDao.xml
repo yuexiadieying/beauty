@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.hnsglsljsyysscxxfwxt.TScxyTfBsGovTransTaskDao">
     <resultMap id="TScxyTfBsGovTransTaskInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.hnsglsljsyysscxxfwxt.TScxyTfBsGovTransTaskDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="TASK_ID" property="taskId" jdbcType="VARCHAR" />
         <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
         <result column="OWNER_ID" property="ownerId" jdbcType="VARCHAR" />
@@ -24,22 +25,28 @@
         <result column="INSERT_DATE" property="insertDate" jdbcType="DATE" />
 
     </resultMap>
+
     <!--获取总个数-->
     <select id="getTScxyTfBsGovTransTaskCount" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_GOV_TRANS_TASK
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_GOV_TRANS_TASK
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsGovTransTaskCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM T_SCXY_TF_BS_GOV_TRANS_TASK
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_GOV_TRANS_TASK a
+      WHERE (a.DEPART_NAME like CONCAT('%', CONCAT(#{info},'%'))
+      or a.TASK_ID like CONCAT('%', CONCAT(#{info},'%')))
     </select>
 
     <select id="getTScxyTfBsGovTransTaskByPageable" resultMap="TScxyTfBsGovTransTaskInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_GOV_TRANS_TASK a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_GOV_TRANS_TASK a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
     <select id="getTScxyTfBsGovTransTaskByParamsPageable" resultMap="TScxyTfBsGovTransTaskInfoResultMap">
       SELECT * 
-      FROM (SELECT ROWNUM as rn, a.* from T_SCXY_TF_BS_GOV_TRANS_TASK a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+      FROM (SELECT ROWNUM as rn, a.* from CDPRJ.T_SCXY_TF_BS_GOV_TRANS_TASK a 
+      WHERE (a.DEPART_NAME like CONCAT('%', CONCAT(#{info},'%'))
+      or a.TASK_ID like CONCAT('%', CONCAT(#{info},'%'))) AND
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
 </mapper>

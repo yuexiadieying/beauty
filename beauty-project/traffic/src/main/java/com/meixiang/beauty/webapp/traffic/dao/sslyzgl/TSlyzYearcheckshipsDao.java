@@ -37,7 +37,8 @@ public interface TSlyzYearcheckshipsDao {
      * @param end
      */
     List<TSlyzYearcheckshipsDTO> getTSlyzYearcheckshipsByParamsPageable(@Param("start") int start,
-                                                                        @Param("end") int end);
+                                                                        @Param("end") int end,
+                                                                        @Param("info") String info);
     
     /**
      * 查询首页信息

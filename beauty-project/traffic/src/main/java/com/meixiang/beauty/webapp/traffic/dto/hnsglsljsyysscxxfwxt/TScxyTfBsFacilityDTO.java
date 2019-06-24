@@ -6,6 +6,13 @@ import java.util.List;
 
 public class TScxyTfBsFacilityDTO {
 
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="serialNo")
+    private Integer serialNo;
+
     /**
      *OWNER_ID
     **/

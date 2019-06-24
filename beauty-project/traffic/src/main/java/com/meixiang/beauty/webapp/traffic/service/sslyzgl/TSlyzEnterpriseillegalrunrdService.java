@@ -26,7 +26,7 @@ public class TSlyzEnterpriseillegalrunrdService {
         if (params.length <= 0) {
             tSlyzEnterpriseillegalrunrdDTOs = tSlyzEnterpriseillegalrunrdDao.getTSlyzEnterpriseillegalrunrdByPageable(start, end);
         } else {
-            tSlyzEnterpriseillegalrunrdDTOs = tSlyzEnterpriseillegalrunrdDao.getTSlyzEnterpriseillegalrunrdByParamsPageable(start, end);
+            tSlyzEnterpriseillegalrunrdDTOs = tSlyzEnterpriseillegalrunrdDao.getTSlyzEnterpriseillegalrunrdByParamsPageable(start, end, params[0]);
         }
         if (!CollectionUtils.isEmpty(tSlyzEnterpriseillegalrunrdDTOs)) {
             for (TSlyzEnterpriseillegalrunrdDTO tSlyzEnterpriseillegalrunrdDTO : tSlyzEnterpriseillegalrunrdDTOs) {
