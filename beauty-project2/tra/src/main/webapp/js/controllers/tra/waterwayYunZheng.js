@@ -30,7 +30,7 @@ app.controller('WaterwayYunZhengCtrl', ['$scope','$stateParams', function($scope
     $scope.fold = $stateParams.fold;
 }]);
 
-app.controller('WaterwayYunZhengListCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('WaterwayYunZhengListCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
         ['行政区划代码','行政区划名称'],
@@ -38,15 +38,122 @@ app.controller('WaterwayYunZhengListCtrl', ['$scope', '$stateParams', function($
         ['申请机构编码','申请事项类型','申请说明','申请提交时间','提出许可申请对象的记录编号','许可机构等级','许可时间','许可结果','许可说明','许可机构']
     ]
 
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='')
+        {
+            $scope.sslyzgl_xzqh = [];
+            $http.post('/traffic/sslyzgl/xzqh',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_xzqh = response.data.responseData.responseData;
+                    }
+                });
+        }
+        else if($scope.fold=='starred')
+        {
+            $scope.sslyzgl_gljg= [];
+            $http.post('/traffic/sslyzgl/gljg',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_gljg = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_gljg);
+                    }
+                });
+        }
+        else if($scope.fold=='sent')
+        {
+            $scope.sslyzgl_xkzsqjkl = [];
+            $http.post('/traffic/sslyzgl/xksqjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_xkzsqjkl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_xkzsqjkl);
+                    }
+                });
+
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
 }]);
-app.controller('WaterwayYunZhengWaterwayCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('WaterwayYunZhengWaterwayCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
        ['编号','经营者管理机构编码','经营者名称','经营者的经济类型','组织机构代码','注册资金','法人代表','详细地址','邮政编码','联系电话','传真号码','首次发证日期','批准机关','批准文号','许可证号','最近发证日期','经营期限','有效期的开始日期','有效期的截止日期','经营范围：客运','经营范围：货运',' 经营范围：兼营','经营范围分类','最近年审日期（冗余）','最近年审结果（冗余）','盈利状态（冗余）','注销日期（冗余）','许可申请号','许可申请状态','简要说明','台帐档案号'],
        ['人员编号','企业编号','人员姓名','性别','学历','职务类别','职务名称','身份证号','船员适任证号','船员适任证类型','适任证船员类型','船员适任证书等级','简要说明']
     ]
 
+    traUtil.getUserInfo();
+
+    console.log("1234556666");
+    console.log($scope.fold);
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='important')
+        {
+            $scope.sslyzgl_slysyhzt = [];
+            $http.post('/traffic/sslyzgl/slysyhzt',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_slysyhzt = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_slysyhzt);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
+
 }]);
+
 app.controller('WaterwayYunZhengAuxiliaryCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
@@ -55,6 +162,7 @@ app.controller('WaterwayYunZhengAuxiliaryCtrl', ['$scope', '$stateParams', funct
     ]
 
 }]);
+
 app.controller('WaterwayYunZhengBusinessHouseholdsCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [

@@ -22,7 +22,7 @@
 	<!-- enable autowire -->
 	<context:annotation-config />
 
-	<bean id="springMethodInterceptor" class="com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequiredInterceptor" ></bean>
+<!--	<bean id="springMethodInterceptor" class="com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequiredInterceptor" ></bean>-->
 	<aop:config>
 		<!--切入点-->
 		<aop:pointcut id="loginPoint"

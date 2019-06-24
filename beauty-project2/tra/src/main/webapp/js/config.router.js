@@ -36,7 +36,7 @@ angular.module('app')
               })
               .state('app.sjtystjfxjc', {
                   url: '/sjtystjfxjc',
-                  templateUrl: 'tra/sjtystjfxjc/sjtystjfxjc.html',
+                  templateUrl: 'tpl/tra/shjtystjfxjc.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){

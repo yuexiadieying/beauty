@@ -1,6 +1,4 @@
-
 <div ng-controller="WaterwayYunZhengListCtrl">
-
   <div class="wrapper bg-light lter b-b">
     <div id="myTabContent" class="tab-content" >
       <div class="tab-pane fade in active" id="home">
@@ -8,7 +6,6 @@
           <div class="panel-heading">
             常德交通信息服务平台
           </div>
-
           <div class="table-responsive" style="overflow: auto">
             <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold==''">
               <thead>
@@ -18,9 +15,14 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[0]"></td>
+              <tr  ng-repeat="k in sslyzgl_xzqh">
+                <td>{{k.serialNo}}</td>
+                <td>
+                  {{k.xzqhno}}
+                </td>
+                <td>
+                  {{k.xzqhname}}
+                </td>
               </tr>
               </tbody>
             </table>
@@ -32,9 +34,16 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[1]"></td>
+              <tr  ng-repeat="k in sslyzgl_gljg">
+                <td>{{$index+1}}</td>
+                <td>{{k.unitno}}</td>
+                <td></td><!-- 所在行政区划-->
+                <td>{{k.unitname}}</td>
+                <td>{{k.briefname}}</td>
+                <td>{{k.manager}}</td>
+                <td></td><!-- 部门负责人-->
+                <td></td><!-- 填报人姓名-->
+                <td></td><!-- 联系电话-->
               </tr>
               </tbody>
             </table>
@@ -46,9 +55,18 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[2]"></td>
+              <tr  ng-repeat="k in sslyzgl_xkzsqjkl">
+                <td>{{$index+1}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               </tbody>
             </table>
@@ -56,20 +74,18 @@
           <footer class="panel-footer">
             <div class="row">
               <div class="col-sm-4 hidden-xs">
-
               </div>
               <div class="col-sm-4 text-center">
-
               </div>
               <div class="col-sm-4 text-right text-center-xs">
                 <ul class="pagination pagination-sm m-t-none m-b-none">
-                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                  <li><a href>1</a></li>
-                  <li><a href>2</a></li>
-                  <li><a href>3</a></li>
-                  <li><a href>4</a></li>
-                  <li><a href>5</a></li>
-                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                  <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                 </ul>
               </div>
             </div>

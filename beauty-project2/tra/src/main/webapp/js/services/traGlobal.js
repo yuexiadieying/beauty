@@ -10,8 +10,8 @@ angular.module('traGlobal',[])
             PARAM_ERROR: '0x00007',
             LOGIN_SUCCESS_SECOND : '0x00008',
         })
-    .factory('traUtil', ['Global','$state',
-        function(Global,$state) {
+    .factory('traUtil', ['Global','$state','$http','$rootScope',
+        function(Global,$state,$http,$rootScope) {
             return {
                 checkResponseData: function(data) {
                     if(data.result==Global.FAILURE)
@@ -35,5 +35,17 @@ angular.module('traGlobal',[])
                     var val = d.getFullYear()+"-"+month+"-"+day;
                     return val;
                 },
+                getUserInfo:function(){
+                    $http.get('/traffic/user/getUserInfo')
+                        .then(function(response) {
+                            if (response.data.result==Global.SUCCESS) {
+                                $rootScope.userInfo = response.data.responseData;
+                            }else{
+                                $state.go('access.signin');
+                            }
+                        }, function(x) {
+                            $scope.authError = 'Server Error';
+                        });
+                }
             };
         }]);

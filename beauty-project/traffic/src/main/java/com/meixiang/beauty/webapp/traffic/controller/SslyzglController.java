@@ -1,7 +1,9 @@
 package com.meixiang.beauty.webapp.traffic.controller;
 
+import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
+import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.dto.sslyzgl.SslyzglDTO;
 import com.meixiang.beauty.webapp.traffic.service.sslyzgl.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +83,7 @@ public class SslyzglController {
     //todo 省水路运政管理首页 待联调
     @RequestMapping(value = "homePage", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<List<SslyzglDTO>> getSslyzglDTO(){
         List<SslyzglDTO> sslyzglDTOList = new ArrayList<>();
@@ -88,6 +91,7 @@ public class SslyzglController {
 
         sslyzglDTOList = homePageService.getHomePageInfo();
 
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(sslyzglDTOList);
         return  responseDTO;
     }
@@ -96,6 +100,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzqh", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getXzqhDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> xzqhDTOList = new ArrayList<>();
@@ -113,6 +118,7 @@ public class SslyzglController {
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
         responseDTO.setResponseData(paramDTO);
+        responseDTO.setResult(StatusConstant.SUCCESS);
         return  responseDTO;
     }
 
@@ -120,6 +126,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "gljg", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> gljg(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> gljgList = new ArrayList<>();
@@ -136,6 +143,7 @@ public class SslyzglController {
         paramDTO.setResponseData(gljgList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -144,6 +152,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xksqjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> xksqjl(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> xksqjlList = new ArrayList<>();
@@ -160,6 +169,7 @@ public class SslyzglController {
         paramDTO.setResponseData(xksqjlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -168,6 +178,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "slysyhzt", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> slysyhzt(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> slysyhztList = new ArrayList<>();
@@ -184,6 +195,7 @@ public class SslyzglController {
         paramDTO.setResponseData(slysyhztList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
