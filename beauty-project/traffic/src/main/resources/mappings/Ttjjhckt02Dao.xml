@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhckt02Dao">
+    <resultMap id="Ttjjhckt02InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhckt02DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="CK0210001" property="ck0210001" jdbcType="DOUBLE" />
+        <result column="CK0210002" property="ck0210002" jdbcType="DOUBLE" />
+        <result column="CK0210003" property="ck0210003" jdbcType="DOUBLE" />
+        <result column="CK0210004" property="ck0210004" jdbcType="DOUBLE" />
+        <result column="CK0210005" property="ck0210005" jdbcType="DOUBLE" />
+        <result column="CK0210006" property="ck0210006" jdbcType="DOUBLE" />
+        <result column="CK0210007" property="ck0210007" jdbcType="DOUBLE" />
+        <result column="CK0210008" property="ck0210008" jdbcType="DOUBLE" />
+        <result column="CK0210009" property="ck0210009" jdbcType="DOUBLE" />
+        <result column="CK0210010" property="ck0210010" jdbcType="DOUBLE" />
+        <result column="CK0210011" property="ck0210011" jdbcType="DOUBLE" />
+        <result column="CK0210012" property="ck0210012" jdbcType="DOUBLE" />
+        <result column="CK0210013" property="ck0210013" jdbcType="DOUBLE" />
+        <result column="CK0210014" property="ck0210014" jdbcType="DOUBLE" />
+        <result column="CK0210015" property="ck0210015" jdbcType="DOUBLE" />
+        <result column="CK0210016" property="ck0210016" jdbcType="DOUBLE" />
+        <result column="CK0210017" property="ck0210017" jdbcType="DOUBLE" />
+        <result column="CK0210018" property="ck0210018" jdbcType="DOUBLE" />
+        <result column="CK0210019" property="ck0210019" jdbcType="DOUBLE" />
+        <result column="CK0210020" property="ck0210020" jdbcType="DOUBLE" />
+        <result column="CK0210021" property="ck0210021" jdbcType="DOUBLE" />
+        <result column="CK0210022" property="ck0210022" jdbcType="DOUBLE" />
+        <result column="CK0210023" property="ck0210023" jdbcType="DOUBLE" />
+        <result column="CK0210024" property="ck0210024" jdbcType="DOUBLE" />
+        <result column="CK0210025" property="ck0210025" jdbcType="DOUBLE" />
+        <result column="CK0210026" property="ck0210026" jdbcType="DOUBLE" />
+        <result column="CK0210027" property="ck0210027" jdbcType="DOUBLE" />
+        <result column="CK0210028" property="ck0210028" jdbcType="DOUBLE" />
+        <result column="CK0210029" property="ck0210029" jdbcType="DOUBLE" />
+        <result column="CK0210030" property="ck0210030" jdbcType="DOUBLE" />
+        <result column="CK0210031" property="ck0210031" jdbcType="DOUBLE" />
+        <result column="CK0210032" property="ck0210032" jdbcType="DOUBLE" />
+        <result column="CK0210033" property="ck0210033" jdbcType="DOUBLE" />
+        <result column="CK0210034" property="ck0210034" jdbcType="DOUBLE" />
+        <result column="CK0210035" property="ck0210035" jdbcType="DOUBLE" />
+        <result column="CK0210036" property="ck0210036" jdbcType="DOUBLE" />
+        <result column="CK0210037" property="ck0210037" jdbcType="DOUBLE" />
+        <result column="CK0210038" property="ck0210038" jdbcType="DOUBLE" />
+        <result column="CK0210039" property="ck0210039" jdbcType="DOUBLE" />
+        <result column="CK0210040" property="ck0210040" jdbcType="DOUBLE" />
+        <result column="CK0210041" property="ck0210041" jdbcType="DOUBLE" />
+        <result column="CK0210042" property="ck0210042" jdbcType="DOUBLE" />
+        <result column="CK0210043" property="ck0210043" jdbcType="DOUBLE" />
+        <result column="CK0210044" property="ck0210044" jdbcType="DOUBLE" />
+        <result column="CK0210045" property="ck0210045" jdbcType="DOUBLE" />
+        <result column="CK0210046" property="ck0210046" jdbcType="DOUBLE" />
+        <result column="CK0210047" property="ck0210047" jdbcType="DOUBLE" />
+        <result column="CK0210048" property="ck0210048" jdbcType="DOUBLE" />
+        <result column="CK0210049" property="ck0210049" jdbcType="DOUBLE" />
+        <result column="CK0210050" property="ck0210050" jdbcType="DOUBLE" />
+        <result column="CK0210051" property="ck0210051" jdbcType="DOUBLE" />
+        <result column="CK0210052" property="ck0210052" jdbcType="DOUBLE" />
+        <result column="CK0210053" property="ck0210053" jdbcType="DOUBLE" />
+        <result column="CK0210054" property="ck0210054" jdbcType="DOUBLE" />
+        <result column="CK0210055" property="ck0210055" jdbcType="DOUBLE" />
+        <result column="CK0210056" property="ck0210056" jdbcType="DOUBLE" />
+        <result column="CK0210057" property="ck0210057" jdbcType="DOUBLE" />
+        <result column="CK0210058" property="ck0210058" jdbcType="DOUBLE" />
+        <result column="CK0210059" property="ck0210059" jdbcType="DOUBLE" />
+        <result column="CK0210060" property="ck0210060" jdbcType="DOUBLE" />
+        <result column="CK0210061" property="ck0210061" jdbcType="DOUBLE" />
+        <result column="CK0210062" property="ck0210062" jdbcType="DOUBLE" />
+        <result column="CK0210063" property="ck0210063" jdbcType="DOUBLE" />
+        <result column="CK0210064" property="ck0210064" jdbcType="DOUBLE" />
+        <result column="CK0210065" property="ck0210065" jdbcType="DOUBLE" />
+        <result column="CK0210066" property="ck0210066" jdbcType="DOUBLE" />
+        <result column="CSKY" property="csky" jdbcType="VARCHAR" />
+        <result column="CK0210070" property="ck0210070" jdbcType="DOUBLE" />
+        <result column="CK0210071" property="ck0210071" jdbcType="DOUBLE" />
+        <result column="CK0210072" property="ck0210072" jdbcType="DOUBLE" />
+        <result column="CK0210073" property="ck0210073" jdbcType="DOUBLE" />
+        <result column="CK0210074" property="ck0210074" jdbcType="DOUBLE" />
+        <result column="CK0210067" property="ck0210067" jdbcType="DOUBLE" />
+        <result column="CK0210080" property="ck0210080" jdbcType="DOUBLE" />
+        <result column="CK0210081" property="ck0210081" jdbcType="DOUBLE" />
+        <result column="CK0210082" property="ck0210082" jdbcType="DOUBLE" />
+        <result column="CK0210083" property="ck0210083" jdbcType="VARCHAR" />
+        <result column="CK0210084" property="ck0210084" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhckt02Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_CKT_02
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhckt02CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_CKT_02
+    </select>
+
+    <select id="getTtjjhckt02ByPageable" resultMap="Ttjjhckt02InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_CKT_02 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhckt02ByParamsPageable" resultMap="Ttjjhckt02InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_CKT_02 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjtgz0304Dao">
+    <resultMap id="Ttjjhjtgz0304InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjtgz0304DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="GK03010102000000000000000000" property="gk03010102000000000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010102100000000000000000" property="gk03010102100000000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010102200000000000000000" property="gk03010102200000000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010102000010000000000000" property="gk03010102000010000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010102000020000000000000" property="gk03010102000020000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010102100010000000000000" property="gk03010102100010000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010102200010000000000000" property="gk03010102200010000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202000000015100000000" property="gk03010202000000015100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202000000015200000000" property="gk03010202000000015200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202000000015300000000" property="gk03010202000000015300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000014100000000" property="gk03010202100000014100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000014200000000" property="gk03010202100000014200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000014300000000" property="gk03010202100000014300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000015100000000" property="gk03010202100000015100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000015200000000" property="gk03010202100000015200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000015300000000" property="gk03010202100000015300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200000014100000000" property="gk03010202200000014100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200000014200000000" property="gk03010202200000014200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200000014300000000" property="gk03010202200000014300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200000015100000000" property="gk03010202200000015100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200000015200000000" property="gk03010202200000015200000000" jdbcType="" />
+        <result column="GK03010202200000015300000000" property="gk03010202200000015300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100100014100000000" property="gk03010202100100014100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100100014200000000" property="gk03010202100100014200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100100014300000000" property="gk03010202100100014300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100200014100000000" property="gk03010202100200014100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100200014200000000" property="gk03010202100200014200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100200014300000000" property="gk03010202100200014300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200100014100000000" property="gk03010202200100014100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200100014200000000" property="gk03010202200100014200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200100014300000000" property="gk03010202200100014300000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200200014100000000" property="gk03010202200200014100000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200200014200000000" property="gk03010202200200014200000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200200014300000000" property="gk03010202200200014300000000" jdbcType="DOUBLE" />
+        <result column="GK03010102000000000000000001" property="gk03010102000000000000000001" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjtgz0304Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTGZ_0304
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjtgz0304CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTGZ_0304
+    </select>
+
+    <select id="getTtjjhjtgz0304ByPageable" resultMap="Ttjjhjtgz0304InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTGZ_0304 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjtgz0304ByParamsPageable" resultMap="Ttjjhjtgz0304InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTGZ_0304 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

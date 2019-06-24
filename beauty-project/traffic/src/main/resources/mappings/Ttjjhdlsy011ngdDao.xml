@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhdlsy011ngdDao">
+    <resultMap id="Ttjjhdlsy011ngdInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhdlsy011ngdDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000010" property="dlys12011n0000010" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000020" property="dlys12011n0000020" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000030" property="dlys12011n0000030" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000040" property="dlys12011n0000040" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000050" property="dlys12011n0000050" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000060" property="dlys12011n0000060" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000070" property="dlys12011n0000070" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000080" property="dlys12011n0000080" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000090" property="dlys12011n0000090" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000100" property="dlys12011n0000100" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000110" property="dlys12011n0000110" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000120" property="dlys12011n0000120" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000130" property="dlys12011n0000130" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000140" property="dlys12011n0000140" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000150" property="dlys12011n0000150" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000160" property="dlys12011n0000160" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000170" property="dlys12011n0000170" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000180" property="dlys12011n0000180" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000190" property="dlys12011n0000190" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000200" property="dlys12011n0000200" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000210" property="dlys12011n0000210" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000220" property="dlys12011n0000220" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000230" property="dlys12011n0000230" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000240" property="dlys12011n0000240" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000250" property="dlys12011n0000250" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000260" property="dlys12011n0000260" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000270" property="dlys12011n0000270" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000280" property="dlys12011n0000280" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000290" property="dlys12011n0000290" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000300" property="dlys12011n0000300" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000310" property="dlys12011n0000310" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000320" property="dlys12011n0000320" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000330" property="dlys12011n0000330" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000340" property="dlys12011n0000340" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000350" property="dlys12011n0000350" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000360" property="dlys12011n0000360" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000370" property="dlys12011n0000370" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000380" property="dlys12011n0000380" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000390" property="dlys12011n0000390" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000400" property="dlys12011n0000400" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000410" property="dlys12011n0000410" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000420" property="dlys12011n0000420" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000430" property="dlys12011n0000430" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000440" property="dlys12011n0000440" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000450" property="dlys12011n0000450" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000460" property="dlys12011n0000460" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000470" property="dlys12011n0000470" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000480" property="dlys12011n0000480" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000490" property="dlys12011n0000490" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000500" property="dlys12011n0000500" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000510" property="dlys12011n0000510" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000520" property="dlys12011n0000520" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000530" property="dlys12011n0000530" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000540" property="dlys12011n0000540" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000550" property="dlys12011n0000550" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000560" property="dlys12011n0000560" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000570" property="dlys12011n0000570" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000580" property="dlys12011n0000580" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000590" property="dlys12011n0000590" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000600" property="dlys12011n0000600" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000610" property="dlys12011n0000610" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000620" property="dlys12011n0000620" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000630" property="dlys12011n0000630" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000640" property="dlys12011n0000640" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000650" property="dlys12011n0000650" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000660" property="dlys12011n0000660" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000670" property="dlys12011n0000670" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000680" property="dlys12011n0000680" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000690" property="dlys12011n0000690" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000700" property="dlys12011n0000700" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000710" property="dlys12011n0000710" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000720" property="dlys12011n0000720" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000730" property="dlys12011n0000730" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000740" property="dlys12011n0000740" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000750" property="dlys12011n0000750" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000760" property="dlys12011n0000760" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000770" property="dlys12011n0000770" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000780" property="dlys12011n0000780" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000790" property="dlys12011n0000790" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000800" property="dlys12011n0000800" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000810" property="dlys12011n0000810" jdbcType="DOUBLE" />
+        <result column="DLYS12011N0000820" property="dlys12011n0000820" jdbcType="VARCHAR" />
+        <result column="DLYS12011N0000830" property="dlys12011n0000830" jdbcType="VARCHAR" />
+        <result column="DLYS12011N0000840" property="dlys12011n0000840" jdbcType="VARCHAR" />
+        <result column="DLYS12011N0000850" property="dlys12011n0000850" jdbcType="VARCHAR" />
+        <result column="DLYS12011N0000860" property="dlys12011n0000860" jdbcType="TIMESTAMP" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhdlsy011ngdCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_DLSY011N_GD
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhdlsy011ngdCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_DLSY011N_GD
+    </select>
+
+    <select id="getTtjjhdlsy011ngdByPageable" resultMap="Ttjjhdlsy011ngdInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_DLSY011N_GD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhdlsy011ngdByParamsPageable" resultMap="Ttjjhdlsy011ngdInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_DLSY011N_GD a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjtt3Dao">
+    <resultMap id="Ttjjhjtt3InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjtt3DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="TZ09010000001" property="tz09010000001" jdbcType="DOUBLE" />
+        <result column="TZ09010000002" property="tz09010000002" jdbcType="DOUBLE" />
+        <result column="TZ09010000003" property="tz09010000003" jdbcType="DOUBLE" />
+        <result column="TZ09010000004" property="tz09010000004" jdbcType="DOUBLE" />
+        <result column="TZ09010000005" property="tz09010000005" jdbcType="DOUBLE" />
+        <result column="TZ09010000006" property="tz09010000006" jdbcType="DOUBLE" />
+        <result column="TZ09010000007" property="tz09010000007" jdbcType="DOUBLE" />
+        <result column="TZ09010000008" property="tz09010000008" jdbcType="DOUBLE" />
+        <result column="TZ09010000009" property="tz09010000009" jdbcType="DOUBLE" />
+        <result column="TZ09010000010" property="tz09010000010" jdbcType="DOUBLE" />
+        <result column="TZ09010000011" property="tz09010000011" jdbcType="DOUBLE" />
+        <result column="TZ09010000012" property="tz09010000012" jdbcType="DOUBLE" />
+        <result column="TZ09010000013" property="tz09010000013" jdbcType="DOUBLE" />
+        <result column="TZ09010000014" property="tz09010000014" jdbcType="DOUBLE" />
+        <result column="TZ09010000015" property="tz09010000015" jdbcType="DOUBLE" />
+        <result column="TZ09010000016" property="tz09010000016" jdbcType="DOUBLE" />
+        <result column="TZ09010000017" property="tz09010000017" jdbcType="DOUBLE" />
+        <result column="TZ09010000018" property="tz09010000018" jdbcType="DOUBLE" />
+        <result column="TZ09010000019" property="tz09010000019" jdbcType="DOUBLE" />
+        <result column="TZ09010000020" property="tz09010000020" jdbcType="DOUBLE" />
+        <result column="TZ09010000021" property="tz09010000021" jdbcType="DOUBLE" />
+        <result column="TZ09010000022" property="tz09010000022" jdbcType="DOUBLE" />
+        <result column="TZ09010000023" property="tz09010000023" jdbcType="DOUBLE" />
+        <result column="TZ09010000024" property="tz09010000024" jdbcType="DOUBLE" />
+        <result column="TZ09010000025" property="tz09010000025" jdbcType="DOUBLE" />
+        <result column="TZ09010000026" property="tz09010000026" jdbcType="DOUBLE" />
+        <result column="TZ09010000027" property="tz09010000027" jdbcType="DOUBLE" />
+        <result column="TZ09010000028" property="tz09010000028" jdbcType="DOUBLE" />
+        <result column="TZ09010000029" property="tz09010000029" jdbcType="DOUBLE" />
+        <result column="TZ09010000030" property="tz09010000030" jdbcType="DOUBLE" />
+        <result column="TZ09010000031" property="tz09010000031" jdbcType="DOUBLE" />
+        <result column="TZ09010000032" property="tz09010000032" jdbcType="DOUBLE" />
+        <result column="TZ09010000033" property="tz09010000033" jdbcType="DOUBLE" />
+        <result column="TZ09010000034" property="tz09010000034" jdbcType="DOUBLE" />
+        <result column="TZ09010000035" property="tz09010000035" jdbcType="DOUBLE" />
+        <result column="TZ09010000036" property="tz09010000036" jdbcType="DOUBLE" />
+        <result column="TZ09010000037" property="tz09010000037" jdbcType="DOUBLE" />
+        <result column="TZ09010000038" property="tz09010000038" jdbcType="DOUBLE" />
+        <result column="TZ09010000039" property="tz09010000039" jdbcType="DOUBLE" />
+        <result column="TZ09010000040" property="tz09010000040" jdbcType="DOUBLE" />
+        <result column="TZ09010000041" property="tz09010000041" jdbcType="DOUBLE" />
+        <result column="TZ09010000042" property="tz09010000042" jdbcType="DOUBLE" />
+        <result column="TZ09010000043" property="tz09010000043" jdbcType="DOUBLE" />
+        <result column="TZ09010000044" property="tz09010000044" jdbcType="DOUBLE" />
+        <result column="TZ09010000045" property="tz09010000045" jdbcType="DOUBLE" />
+        <result column="TZ09010000046" property="tz09010000046" jdbcType="DOUBLE" />
+        <result column="TZ09010000047" property="tz09010000047" jdbcType="DOUBLE" />
+        <result column="TZ09010000048" property="tz09010000048" jdbcType="DOUBLE" />
+        <result column="TZ09010000049" property="tz09010000049" jdbcType="DOUBLE" />
+        <result column="TZ09010000050" property="tz09010000050" jdbcType="DOUBLE" />
+        <result column="TZ09010000051" property="tz09010000051" jdbcType="DOUBLE" />
+        <result column="TZ09010000052" property="tz09010000052" jdbcType="DOUBLE" />
+        <result column="TZ09010000053" property="tz09010000053" jdbcType="DOUBLE" />
+        <result column="TZ09010000054" property="tz09010000054" jdbcType="DOUBLE" />
+        <result column="TZ09010000055" property="tz09010000055" jdbcType="DOUBLE" />
+        <result column="TZ09010000056" property="tz09010000056" jdbcType="DOUBLE" />
+        <result column="TZ09010000057" property="tz09010000057" jdbcType="DOUBLE" />
+        <result column="TZ09010000058" property="tz09010000058" jdbcType="DOUBLE" />
+        <result column="TZ09010000059" property="tz09010000059" jdbcType="DOUBLE" />
+        <result column="TZ09010000060" property="tz09010000060" jdbcType="DOUBLE" />
+        <result column="TZ09010000061" property="tz09010000061" jdbcType="DOUBLE" />
+        <result column="TZ09010000062" property="tz09010000062" jdbcType="DOUBLE" />
+        <result column="TZ09010000063" property="tz09010000063" jdbcType="DOUBLE" />
+        <result column="TZ09010000064" property="tz09010000064" jdbcType="DOUBLE" />
+        <result column="TZ09010000065" property="tz09010000065" jdbcType="DOUBLE" />
+        <result column="TZ09010000066" property="tz09010000066" jdbcType="DOUBLE" />
+        <result column="TZ09010000067" property="tz09010000067" jdbcType="DOUBLE" />
+        <result column="TZ09010000068" property="tz09010000068" jdbcType="DOUBLE" />
+        <result column="TZ09010000069" property="tz09010000069" jdbcType="DOUBLE" />
+        <result column="TZ09010000070" property="tz09010000070" jdbcType="DOUBLE" />
+        <result column="TZ09010000071" property="tz09010000071" jdbcType="DOUBLE" />
+        <result column="TZ09010000072" property="tz09010000072" jdbcType="DOUBLE" />
+        <result column="TZ09010000073" property="tz09010000073" jdbcType="DOUBLE" />
+        <result column="TZ09010000074" property="tz09010000074" jdbcType="DOUBLE" />
+        <result column="TZ09010000075" property="tz09010000075" jdbcType="DOUBLE" />
+        <result column="TZ09010000076" property="tz09010000076" jdbcType="DOUBLE" />
+        <result column="TZ09010000077" property="tz09010000077" jdbcType="DOUBLE" />
+        <result column="TZ09010000079" property="tz09010000079" jdbcType="DOUBLE" />
+        <result column="TZ09010000080" property="tz09010000080" jdbcType="DOUBLE" />
+        <result column="TZ09010000081" property="tz09010000081" jdbcType="DOUBLE" />
+        <result column="TZ09010000082" property="tz09010000082" jdbcType="DOUBLE" />
+        <result column="TZ09010000083" property="tz09010000083" jdbcType="DOUBLE" />
+        <result column="TZ09010000084" property="tz09010000084" jdbcType="DOUBLE" />
+        <result column="TZ09010000085" property="tz09010000085" jdbcType="DOUBLE" />
+        <result column="TZ09010000086" property="tz09010000086" jdbcType="DOUBLE" />
+        <result column="TZ09010000087" property="tz09010000087" jdbcType="DOUBLE" />
+        <result column="TZ09010000088" property="tz09010000088" jdbcType="DOUBLE" />
+        <result column="TZ09010000089" property="tz09010000089" jdbcType="DOUBLE" />
+        <result column="TZ09010000090" property="tz09010000090" jdbcType="DOUBLE" />
+        <result column="TZ09010000091" property="tz09010000091" jdbcType="DOUBLE" />
+        <result column="TZ09010000092" property="tz09010000092" jdbcType="DOUBLE" />
+        <result column="TZ09010000093" property="tz09010000093" jdbcType="DOUBLE" />
+        <result column="TZ09010000094" property="tz09010000094" jdbcType="DOUBLE" />
+        <result column="TZ09010000095" property="tz09010000095" jdbcType="DOUBLE" />
+        <result column="TZ09010000096" property="tz09010000096" jdbcType="DOUBLE" />
+        <result column="TZ09010000097" property="tz09010000097" jdbcType="DOUBLE" />
+        <result column="TZ09010000098" property="tz09010000098" jdbcType="DOUBLE" />
+        <result column="TZ09010000099" property="tz09010000099" jdbcType="DOUBLE" />
+        <result column="TZ09010000100" property="tz09010000100" jdbcType="DOUBLE" />
+        <result column="TZ09010000101" property="tz09010000101" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjtt3Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTT_3
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjtt3CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTT_3
+    </select>
+
+    <select id="getTtjjhjtt3ByPageable" resultMap="Ttjjhjtt3InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTT_3 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjtt3ByParamsPageable" resultMap="Ttjjhjtt3InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTT_3 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

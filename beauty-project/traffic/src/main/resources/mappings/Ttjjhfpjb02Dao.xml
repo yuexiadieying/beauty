@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhfpjb02Dao">
+    <resultMap id="Ttjjhfpjb02InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhfpjb02DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="FPJB02_001" property="fpjb02001" jdbcType="DOUBLE" />
+        <result column="FPJB02_002" property="fpjb02002" jdbcType="DOUBLE" />
+        <result column="FPJB02_003" property="fpjb02003" jdbcType="DOUBLE" />
+        <result column="FPJB02_004" property="fpjb02004" jdbcType="DOUBLE" />
+        <result column="FPJB02_005" property="fpjb02005" jdbcType="DOUBLE" />
+        <result column="FPJB02_006" property="fpjb02006" jdbcType="DOUBLE" />
+        <result column="FPJB02_007" property="fpjb02007" jdbcType="DOUBLE" />
+        <result column="FPJB02_008" property="fpjb02008" jdbcType="DOUBLE" />
+        <result column="FPJB02_009" property="fpjb02009" jdbcType="DOUBLE" />
+        <result column="FPJB02_010" property="fpjb02010" jdbcType="DOUBLE" />
+        <result column="FPJB02_011" property="fpjb02011" jdbcType="DOUBLE" />
+        <result column="FPJB02_012" property="fpjb02012" jdbcType="DOUBLE" />
+        <result column="FPJB02_013" property="fpjb02013" jdbcType="DOUBLE" />
+        <result column="FPJB02_014" property="fpjb02014" jdbcType="DOUBLE" />
+        <result column="FPJB02_015" property="fpjb02015" jdbcType="DOUBLE" />
+        <result column="FPJB02_016" property="fpjb02016" jdbcType="DOUBLE" />
+        <result column="FPJB02_017" property="fpjb02017" jdbcType="DOUBLE" />
+        <result column="FPJB02_018" property="fpjb02018" jdbcType="DOUBLE" />
+        <result column="FPJB02_019" property="fpjb02019" jdbcType="DOUBLE" />
+        <result column="FPJB02_020" property="fpjb02020" jdbcType="DOUBLE" />
+        <result column="FPJB02_021" property="fpjb02021" jdbcType="DOUBLE" />
+        <result column="FPJB02_022" property="fpjb02022" jdbcType="DOUBLE" />
+        <result column="FPJB02_023" property="fpjb02023" jdbcType="DOUBLE" />
+        <result column="FPJB02_024" property="fpjb02024" jdbcType="DOUBLE" />
+        <result column="FPJB02_025" property="fpjb02025" jdbcType="DOUBLE" />
+        <result column="FPJB02_026" property="fpjb02026" jdbcType="DOUBLE" />
+        <result column="FPJB02_027" property="fpjb02027" jdbcType="DOUBLE" />
+        <result column="FPJB02_028" property="fpjb02028" jdbcType="DOUBLE" />
+        <result column="FPJB02_029" property="fpjb02029" jdbcType="DOUBLE" />
+        <result column="FPJB02_030" property="fpjb02030" jdbcType="DOUBLE" />
+        <result column="FPJB02_031" property="fpjb02031" jdbcType="DOUBLE" />
+        <result column="FPJB02_032" property="fpjb02032" jdbcType="DOUBLE" />
+        <result column="FPJB02_033" property="fpjb02033" jdbcType="DOUBLE" />
+        <result column="FPJB02_034" property="fpjb02034" jdbcType="DOUBLE" />
+        <result column="FPJB02_035" property="fpjb02035" jdbcType="DOUBLE" />
+        <result column="FPJB02_036" property="fpjb02036" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhfpjb02Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_FPJB_02
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhfpjb02CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_FPJB_02
+    </select>
+
+    <select id="getTtjjhfpjb02ByPageable" resultMap="Ttjjhfpjb02InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_FPJB_02 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhfpjb02ByParamsPageable" resultMap="Ttjjhfpjb02InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_FPJB_02 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

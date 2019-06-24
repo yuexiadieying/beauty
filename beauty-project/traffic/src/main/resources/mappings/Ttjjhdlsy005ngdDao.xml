@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhdlsy005ngdDao">
+    <resultMap id="Ttjjhdlsy005ngdInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhdlsy005ngdDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000010" property="dlys12005n0000010" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000020" property="dlys12005n0000020" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000030" property="dlys12005n0000030" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000040" property="dlys12005n0000040" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000050" property="dlys12005n0000050" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000060" property="dlys12005n0000060" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000070" property="dlys12005n0000070" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000080" property="dlys12005n0000080" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000090" property="dlys12005n0000090" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000100" property="dlys12005n0000100" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000110" property="dlys12005n0000110" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000120" property="dlys12005n0000120" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000130" property="dlys12005n0000130" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000140" property="dlys12005n0000140" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000150" property="dlys12005n0000150" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000160" property="dlys12005n0000160" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000170" property="dlys12005n0000170" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000180" property="dlys12005n0000180" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000190" property="dlys12005n0000190" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000200" property="dlys12005n0000200" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000210" property="dlys12005n0000210" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000220" property="dlys12005n0000220" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000230" property="dlys12005n0000230" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000240" property="dlys12005n0000240" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000250" property="dlys12005n0000250" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000260" property="dlys12005n0000260" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000270" property="dlys12005n0000270" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000280" property="dlys12005n0000280" jdbcType="DOUBLE" />
+        <result column="DLYS12005N0000290" property="dlys12005n0000290" jdbcType="VARCHAR" />
+        <result column="DLYS12005N0000300" property="dlys12005n0000300" jdbcType="VARCHAR" />
+        <result column="DLYS12005N0000310" property="dlys12005n0000310" jdbcType="VARCHAR" />
+        <result column="DLYS12005N0000320" property="dlys12005n0000320" jdbcType="VARCHAR" />
+        <result column="DLYS12005N0000330" property="dlys12005n0000330" jdbcType="TIMESTAMP" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhdlsy005ngdCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_DLSY005N_GD
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhdlsy005ngdCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_DLSY005N_GD
+    </select>
+
+    <select id="getTtjjhdlsy005ngdByPageable" resultMap="Ttjjhdlsy005ngdInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_DLSY005N_GD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhdlsy005ngdByParamsPageable" resultMap="Ttjjhdlsy005ngdInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_DLSY005N_GD a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

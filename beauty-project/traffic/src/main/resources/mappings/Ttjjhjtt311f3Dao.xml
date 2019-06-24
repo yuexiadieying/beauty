@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjtt311f3Dao">
+    <resultMap id="Ttjjhjtt311f3InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjtt311f3DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="TZ0904X000001" property="tz0904x000001" jdbcType="VARCHAR" />
+        <result column="TZ0904X000002" property="tz0904x000002" jdbcType="VARCHAR" />
+        <result column="TZ0904X000003" property="tz0904x000003" jdbcType="VARCHAR" />
+        <result column="TZ0904X000004" property="tz0904x000004" jdbcType="VARCHAR" />
+        <result column="TZ0904X000005" property="tz0904x000005" jdbcType="DOUBLE" />
+        <result column="TZ0904X000006" property="tz0904x000006" jdbcType="VARCHAR" />
+        <result column="TZ0904X000007" property="tz0904x000007" jdbcType="VARCHAR" />
+        <result column="TZ0904X000008" property="tz0904x000008" jdbcType="VARCHAR" />
+        <result column="TZ0904X000009" property="tz0904x000009" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjtt311f3Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTT_3_1_1_F3
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjtt311f3CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTT_3_1_1_F3
+    </select>
+
+    <select id="getTtjjhjtt311f3ByPageable" resultMap="Ttjjhjtt311f3InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTT_3_1_1_F3 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjtt311f3ByParamsPageable" resultMap="Ttjjhjtt311f3InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTT_3_1_1_F3 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>
