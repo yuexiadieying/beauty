@@ -14,10 +14,10 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input type="text" class="input-sm form-control" placeholder="Search">
+                            <input type="text" class="input-sm form-control" placeholder="Search" ng-model="pageParam.requestData">
                             <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">搜索</button>
-          </span>
+                                <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -29,9 +29,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td ng-repeat="info in data.tables[0]"></td>
-                        </tr>
+                            <tr ng-repeat="info in sslyzgl_ssdab">
+                                <td></td><!--设施名称-->
+                                <td></td><!--设施数量-->
+                                <td></td><!--设施单位-->
+                                <td></td><!--标准数量-->
+                                <td></td><!--备注-->
+                                <td></td><!--时间戳-->
+                                <td></td><!--修改时间-->
+                                <td></td><!--修改日期-->
+                                <td></td><!--修改人-->
+                                <td></td><!--创建时间-->
+                                <td></td><!--创建日期-->
+                                <td></td><!--创建人-->
+                                <td></td><!--是否有效-->
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'e'">
@@ -41,9 +53,24 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td ng-repeat="info in data.tables[1]"></td>
-                        </tr>
+                            <tr ng-repeat="info in sslyzgl_zfysrwb">
+                                <td></td><!--任务号-->
+                                <td></td><!--任务说明-->
+                                <td></td><!--完成情况-->
+                                <td></td><!--投入运力-->
+                                <td></td><!--完成运量-->
+                                <td></td><!--下达部门-->
+                                <td></td><!--完成时间-->
+                                <td></td><!--备注-->
+                                <td></td><!--时间戳-->
+                                <td></td><!--修改时间-->
+                                <td></td><!--修改日期-->
+                                <td></td><!--修改人-->
+                                <td></td><!--创建时间-->
+                                <td></td><!--创建日期-->
+                                <td></td><!--创建人-->
+                                <td></td><!--是否有效-->
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'f'">
@@ -53,29 +80,59 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td ng-repeat="info in data.tables[2]"></td>
-                        </tr>
+                            <tr ng-repeat="info in sslyzgl_jywzb">
+                                <td></td><!--执法单号-->
+                                <td></td><!--违法日期-->
+                                <td></td><!--违法时间-->
+                                <td></td><!--责任人-->
+                                <td></td><!--违法地点-->
+                                <td></td><!--违法事实-->
+                                <td></td><!--处罚情况-->
+                                <td></td><!--违法处罚日期-->
+                                <td></td><!--记录人-->
+                                <td></td><!--执法人员1-->
+                                <td></td><!--执法证号1-->
+                                <td></td><!--执法人员2-->
+                                <td></td><!--执法证号2-->
+                                <td></td><!--备注-->
+                                <td></td><!--是否有效-->
+                                <td></td><!--创建人-->
+                                <td></td><!--创建日期-->
+                                <td></td><!--创建时间-->
+                                <td></td><!--修改人-->
+                                <td></td><!--修改日期-->
+                                <td></td><!--经营违章表-->
+                                <td></td><!--修改时间-->
+                                <td></td><!--时间戳-->
+                                <td></td><!--审核意见-->
+                                <td></td><!--从业资格证编号-->
+                                <td></td><!--审核机构-->
+                                <td></td><!--审核人-->
+                                <td></td><!--审核时间-->
+                                <td></td><!--信用信息来源-->
+                                <td></td><!--身份证号-->
+                                <td></td><!--修改时间-->
+                                <td></td><!--驾驶员姓名-->
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <footer class="panel-footer">
                     <div class="row">
                         <div class="col-sm-4 hidden-xs">
-
                         </div>
                         <div class="col-sm-4 text-center">
                             <small class="text-muted inline m-t-sm m-b-sm">常德交通信息服务平台</small>
                         </div>
                         <div class="col-sm-4 text-right text-center-xs">
                             <ul class="pagination pagination-sm m-t-none m-b-none">
-                                <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                                <li><a href>1</a></li>
-                                <li><a href>2</a></li>
-                                <li><a href>3</a></li>
-                                <li><a href>4</a></li>
-                                <li><a href>5</a></li>
-                                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                                <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                                <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                             </ul>
                         </div>
                     </div>
