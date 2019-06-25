@@ -9,7 +9,7 @@
         <div ng-if="fold==''">
           <div class="panel panel-default" >
             <div class="row wrapper">
-              <div class="col-sm-3  font-bold">全市泊位状况</div>
+              <div class="col-sm-3  font-bold">全市泊位状况（单位:万吨）</div>
               <div class="col-sm-3 m-b-xs">
                 <div sel-date index="qsbwzk"></div>
               </div>
@@ -118,8 +118,8 @@
         <div ng-if="fold=='express'||fold=='a'">
           <div class="panel panel-default">
             <div class="row wrapper">
-              <div class="col-sm-3 font-bold" ng-if="fold=='express'">港口快报吞吐量</div>
-              <div class="col-sm-3 font-bold" ng-if="fold=='a'">港口吞吐量</div>
+              <div class="col-sm-3 font-bold" ng-if="fold=='express'">港口快报吞吐量(单位:万吨)</div>
+              <div class="col-sm-3 font-bold" ng-if="fold=='a'">港口吞吐量(单位:万吨)</div>
               <div class="col-sm-3 m-b-xs">
                  <div sel-date index="gktql"></div>
               </div>

@@ -148,7 +148,7 @@
           <div class="panel panel-default">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content: space-between">
-                <div>城市公交运营情况</div>
+                <div>城市公交运营情况(单位：万元)</div>
                 <div><div sel-date index="daterange-btn"></div></div>
               </div>
 
@@ -335,10 +335,9 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
-                <div ><span>道路货运场站数据</span></div>
+                <div ><span>道路货运场站数据(单位:%)</span></div>
                 <div>
-                  <p style="color: black" class="pull-left">月份</p>
-                  <div class="col-lg-8"><div sel-date index="freightYard"></div></div>
+                  <div><div sel-date index="freightYard"></div></div>
                 </div>
               </div>
             </div>
@@ -516,7 +515,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
-                <div ><span>重点联系公路运输企业经营财务状况调查数据</span></div>
+                <div ><span>重点联系公路运输企业经营财务状况调查数据(单位：%)</span></div>
                 <div><div sel-date index="financialStatus"></div></div>
               </div>
             </div>
@@ -619,7 +618,7 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
-                <div> 国内分航线进出港旅客人数情况</div>
+                <div> 国内分航线进出港旅客人数情况(单位：百万人次)</div>
                 <div><div sel-date index="gnfhxjclkrs"></div></div>
               </div>
             </div>
@@ -666,7 +665,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
-                <div>分货类吞吐</div>
+                <div>分货类吞吐(单位：万吨)</div>
                 <div><div sel-date index="throughput"></div></div>
               </div>
 
@@ -717,7 +716,7 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
-                <div> 国际航线进出港集装箱吞吐</div>
+                <div> 国际航线进出港集装箱吞吐（单位：万吨）</div>
                 <div style="margin-right:10px;width:50%"><div sel-year index="gjhxjcgjzxdt"></div></div>
               </div>
             </div>
@@ -772,7 +771,7 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
-                <div>国内航线进出港集装箱吞吐</div>
+                <div>国内航线进出港集装箱吞吐（单位：万吨）</div>
                 <div><div sel-date index="domestic"></div></div>
               </div>
             </div>
@@ -819,7 +818,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
-                <div>内支线进出港集装箱吞吐</div>
+                <div>内支线进出港集装箱吞吐（单位：万吨）</div>
                 <div><div sel-date index="portContainer"></div></div>
               </div>
             </div>
@@ -975,17 +974,13 @@
                 <div>路段平均日交通量统计（单位：万台）</div>
                 <div>
                   <span class='full-left' style="margin-right: 10px;">路段</span>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle"
-                            data-toggle="dropdown">
-                      默认 <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">功能</a></li>
-                      <li><a href="#">另一个功能</a></li>
-                      <li><a href="#">其他</a></li>
-                    </ul>
-                  </div>
+                  <select style="padding:5px 10px;">
+                    <option>S110</option>
+                    <option>S111</option>
+                    <option>S112</option>
+                    <option>S113</option>
+                    <option>S114</option>
+                  </select>
                 </div>
                 <div><div sel-date index="trafficNum"></div></div>
               </div>
@@ -1012,7 +1007,6 @@
         <div class="col-lg-8">
           <div class="panel panel-default" style="height:330px">
             <div class="panel-heading font-bold">
-              <span class="label bg-danger pull-right m-t-xs">...</span>
               小时交通量记录（单位：万辆）
             </div>
             <div class="panel-body">
@@ -1044,7 +1038,6 @@
           <div class="panel panel-default" style="height:330px">
             <div class="panel-body">
               <div class="panel-heading font-bold">
-                <span class="label bg-danger pull-right m-t-xs">...</span>
                 日交通量统计
               </div>
               <div class="panel-body">
@@ -1183,6 +1176,16 @@
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
                 <div>瓶颈区段基础数据</div>
+                <div>
+                  <span class='full-left' style="margin-right: 10px;">路段</span>
+                  <select style="padding:5px 10px;">
+                    <option>S110</option>
+                    <option>S111</option>
+                    <option>S112</option>
+                    <option>S113</option>
+                    <option>S114</option>
+                  </select>
+                </div>
                 <div><div sel-date index="bottleneckSection"></div></div>
               </div>
             </div>
@@ -1297,7 +1300,7 @@
               <p><span class="label bg-danger pull-right m-t-xs">...</span>
                 高速公路车流量和通行费情况</p>
               <div style="display: flex;justify-content:space-between;">
-                <div>  <a class="active" style="  padding: 5px 10px;  border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color: #7893fd;">车流量</a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-radius: 10px;border-top-right-radius: 10px;color: #666;">通行费</a></div>
+                <div style="margin-top:10px;">  <a class="active" style="  padding: 5px 10px;  border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color: #7893fd;">车流量</a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-radius: 10px;border-top-right-radius: 10px;color: #666;">通行费</a></div>
                 <div style="width:30%"><div sel-date-single index="tolls"></div></div>
               </div>
             </div>
@@ -1358,6 +1361,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
               公路客货运输量情况
             </div>
             <br><br>
@@ -1378,7 +1382,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
-                <div> 公路运输业务量情况</div>
+                <div> 公路运输业务量情况（单位：万吨）</div>
                 <div><div sel-date index="trafficVolume"></div></div>
               </div>
             </div>
@@ -1404,6 +1408,7 @@
         <div class="col-lg-4">
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
               水路客货运输量情况
             </div>
             <br><br>
@@ -1477,7 +1482,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
-                <div>公路旅客货物运营车辆拥有量情况</div>
+                <div>公路旅客货物运营车辆拥有量情况（单位：万吨）</div>
                 <div><div sel-date index="operating"></div></div>
               </div>
             </div>
@@ -1525,7 +1530,7 @@
           <div class="panel panel-default" style="height:420px">
             <div class="panel-heading font-bold" style="height:65px">
               <div style="display: flex;justify-content:space-between;">
-                <div>公路桥梁隧道年底到达数情况</div>
+                <div>公路桥梁隧道年底到达数情况（单位：万辆）</div>
                 <div><div sel-date index="bridgeTunnel"></div></div>
               </div>
             </div>
@@ -1601,7 +1606,7 @@
           <div class="panel panel-default" style="height:380px">
             <div class="panel-heading font-bold">
               <div style="display: flex;justify-content:space-between;">
-                <div>内河航道通航里程年底达到量情况</div>
+                <div>内河航道通航里程年底达到量情况（单位：万吨）</div>
                 <div><div sel-date index="navigation"></div></div>
               </div>
             </div>
