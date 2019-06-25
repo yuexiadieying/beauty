@@ -551,6 +551,7 @@ public class SslyzglController {
         paramDTO.setResponseData(yscbmlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -577,6 +578,7 @@ public class SslyzglController {
         paramDTO.setResponseData(yzglrymlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }

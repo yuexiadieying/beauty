@@ -33,51 +33,51 @@
               </thead>
               <tbody>
               <tr  ng-repeat="k in sslyzgl_yycbxx">
-                <td></td><!--序号-->
-                <td></td><!--水运企业或个体业主编号-->
-                <td></td><!--船检登记号-->
-                <td></td><!--船舶识别号-->
-                <td></td><!--船籍港-->
-                <td></td><!--船舶名称-->
-                <td></td><!--曾用名-->
-                <td></td><!--船舶类型编码-->
-                <td></td><!--船舶标准类型-->
-                <td></td><!--船舶材料-->
-                <td></td><!--燃料类型-->
-                <td></td><!--船舶总吨-->
-                <td></td><!--总载重量-->
-                <td></td><!--净载重量-->
-                <td></td><!--车位数-->
-                <td></td><!--载客量-->
-                <td></td><!--箱位数-->
-                <td></td><!--船舱容积立方米-->
-                <td></td><!--主机台数-->
-                <td></td><!--主机合计功率-->
-                <td></td><!--总长（米）-->
-                <td></td><!--型宽（米）-->
-                <td></td><!--满载吃水（米)-->
-                <td></td><!--航速（节）-->
-                <td></td><!--建成日期-->
-                <td></td><!--改建日期-->
-                <td></td><!--航区-->
-                <td></td><!--船旗国-->
-                <td></td><!--控制状态-->
-                <td></td><!--船舶所有人-->
-                <td></td><!--船舶所有人电话-->
-                <td></td><!--船舶管理人-->
-                <td></td><!--船舶管理人许可证号-->
-                <td></td><!--营运证制作机构编码-->
-                <td></td><!--营运证号-->
-                <td></td><!--营运证经营范围-->
-                <td></td><!--制证日期-->
-                <td></td><!--有效截至期-->
-                <td></td><!--许可证有效截至日期（冗余）-->
-                <td></td><!--最近年审日期（冗余）-->
-                <td></td><!--最近年审结果（冗余）-->
-                <td></td><!--最近变更日期（冗余）-->
-                <td></td><!--最近变更（冗余）-->
-                <td></td><!--许可申请号-->
-                <td></td><!--许可申请状态-->
+                <td>{{k.serialNo}}</td><!--序号-->
+                <td>{{k.enterpriseno}}</td><!--水运企业或个体业主编号-->
+                <td>{{k.shipenrollno}}</td><!--船检登记号-->
+                <td>{{k.shipidentifyno}}</td><!--船舶识别号-->
+                <td>{{k.portname}}</td><!--船籍港-->
+                <td>{{k.shipname}}</td><!--船舶名称-->
+                <td>{{k.shipoldname}}</td><!--曾用名-->
+                <td>{{k.shipcheckno}}</td><!--船舶类型编码-->
+                <td>{{k.standardkind}}</td><!--船舶标准类型-->
+                <td>{{k.material}}</td><!--船舶材料-->
+                <td>{{k.fuel}}</td><!--燃料类型-->
+                <td>{{k.ton}}</td><!--船舶总吨-->
+                <td>{{k.totalcarry}}</td><!--总载重量-->
+                <td>{{k.totalton}}</td><!--净载重量-->
+                <td>{{k.carplace}}</td><!--车位数-->
+                <td>{{k.seat}}</td><!--载客量-->
+                <td>{{k.teu}}</td><!--箱位数-->
+                <td>{{k.volume}}</td><!--船舱容积立方米-->
+                <td>{{k.motorcount}}</td><!--主机台数-->
+                <td>{{k.power}}</td><!--主机合计功率-->
+                <td>{{k.length}}</td><!--总长（米）-->
+                <td>{{k.width}}</td><!--型宽（米）-->
+                <td>{{k.eatwater}}</td><!--满载吃水（米)-->
+                <td>{{k.speed}}</td><!--航速（节）-->
+                <td>{{k.createdate|date:'yyyy-MM-dd'}}</td><!--建成日期-->
+                <td>{{k.builddate|date:'yyyy-MM-dd'}}</td><!--改建日期-->
+                <td>{{k.voyagearea}}</td><!--航区-->
+                <td>{{k.nationkind}}</td><!--船旗国-->
+                <td>{{k.controlstatus}}</td><!--控制状态-->
+                <td>{{k.ownername}}</td><!--船舶所有人-->
+                <td>{{k.ownertelephone}}</td><!--船舶所有人电话-->
+                <td>{{k.shipmanager}}</td><!--船舶管理人-->
+                <td>{{k.shipmanagerxkzno}}</td><!--船舶管理人许可证号-->
+                <td>{{k.yyzunitno}}</td><!--营运证制作机构编码-->
+                <td>{{k.yyzno}}</td><!--营运证号-->
+                <td>{{k.yyzrunkind}}</td><!--营运证经营范围-->
+                <td>{{k.yyzprintdate|date:'yyyy-MM-dd'}}</td><!--制证日期-->
+                <td>{{k.yyzenddate|date:'yyyy-MM-dd'}}</td><!--有效截至期-->
+                <td>{{k.xkzenddate|date:'yyyy-MM-dd'}}</td><!--许可证有效截至日期（冗余）-->
+                <td>{{k.nshgzdate|date:'yyyy-MM-dd'}}</td><!--最近年审日期（冗余）-->
+                <td>{{k.nshgzresult}}</td><!--最近年审结果（冗余）-->
+                <td>{{k.lastchangedate|date:'yyyy-MM-dd'}}</td><!--最近变更日期（冗余）-->
+                <td>{{k.lastchangekind}}</td><!--最近变更（冗余）-->
+                <td>{{k.applyno}}</td><!--许可申请号-->
+                <td>{{k.applystatus}}</td><!--许可申请状态-->
               </tr>
               </tbody>
             </table>
@@ -89,9 +89,9 @@
               </thead>
               <tbody>
               <tr  ng-repeat="k in sslyzgl_cblxdm">
-                <td></td><!--序号-->
-                <td></td><!--船舶类型代码-->
-                <td></td><!--船舶类型名称-->
+                <td>{{k.serialNo}}</td><!--序号-->
+                <td>{{k.kindno}}</td><!--船舶类型代码-->
+                <td>{{k.kindname}}</td><!--船舶类型名称-->
               </tr>
               </tbody>
             </table>
@@ -103,26 +103,26 @@
               </thead>
               <tbody>
               <tr  ng-repeat="k in sslyzgl_yscbml">
-                <td></td><!--序号-->
-                <td></td><!--报表年份-->
-                <td></td><!--船舶编码-->
-                <td></td><!--唯一编码-->
-                <td></td><!--船检登记号-->
-                <td></td><!--管辖机构编码-->
-                <td></td><!--船舶经营人-->
-                <td></td><!--船名-->
-                <td></td><!--船舶类型名-->
-                <td></td><!--船旗国-->
-                <td></td><!--航区-->
-                <td></td><!--型宽（米）-->
-                <td></td><!--满载吃水（米）-->
-                <td></td><!--航速（节）-->
-                <td></td><!--船舶总吨-->
-                <td></td><!--总载重量-->
-                <td></td><!--净载重量-->
-                <td></td><!--载客量-->
-                <td></td><!--箱位数-->
-                <td></td><!--主机合计功率-->
+                <td>{{k.serialNo}}</td><!--序号-->
+                <td>{{k.buildyear}}</td><!--报表年份-->
+                <td>{{k.shipno}}</td><!--船舶编码-->
+                <td>{{k.shipno}}</td><!--唯一编码-->
+                <td>{{k.shipcheckno}}</td><!--船检登记号-->
+                <td>{{k.unitno}}</td><!--管辖机构编码-->
+                <td>{{k.enterprisename}}</td><!--船舶经营人-->
+                <td>{{k.shipname}}</td><!--船名-->
+                <td>{{k.shipkindname}}</td><!--船舶类型名-->
+                <td>{{k.nationkind}}</td><!--船旗国-->
+                <td>{{k.voyagearea}}</td><!--航区-->
+                <td>{{k.width}}</td><!--型宽（米）-->
+                <td>{{k.eatwater}}</td><!--满载吃水（米）-->
+                <td>{{k.speed}}</td><!--航速（节）-->
+                <td>{{k.totalton}}</td><!--船舶总吨-->
+                <td>{{k.totalcarry}}</td><!--总载重量-->
+                <td>{{k.ton}}</td><!--净载重量-->
+                <td>{{k.seat}}</td><!--载客量-->
+                <td>{{k.teu}}</td><!--箱位数-->
+                <td>{{k.power}}</td><!--主机合计功率-->
                 <td></td><!--简要说明-->
               </tr>
               </tbody>

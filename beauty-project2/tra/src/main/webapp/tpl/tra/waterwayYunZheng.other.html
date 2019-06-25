@@ -60,14 +60,14 @@
               </thead>
               <tbody>
               <tr  ng-repeat="k in sslyzgl_yzglryml">
-                <td></td><!--编号-->
-                <td></td><!--所在机构编码-->
-                <td></td><!--人名-->
-                <td></td><!--性别-->
-                <td></td><!--所在部门及职务-->
-                <td></td><!--出生年份-->
-                <td></td><!--联系电话-->
-                <td></td><!--执法证名称及编号-->
+                <td>{{k.serialNo}}</td><!--编号-->
+                <td>{{k.unitno}}</td><!--所在机构编码-->
+                <td>{{k.personname}}</td><!--人名-->
+                <td>{{k.sexkind}}</td><!--性别-->
+                <td>{{k.branchandjob}}</td><!--所在部门及职务-->
+                <td>{{k.birthyear}}</td><!--出生年份-->
+                <td>{{k.telephone}}</td><!--联系电话-->
+                <td>{{k.zfznameandno}}</td><!--执法证名称及编号-->
               </tr>
               </tbody>
             </table>

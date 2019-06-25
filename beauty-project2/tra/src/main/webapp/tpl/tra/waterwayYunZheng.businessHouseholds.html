@@ -56,28 +56,29 @@
             <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='b'">
               <thead>
               <tr>
-                <th ng-repeat="info in tableTitle[1]">{{info}}</th>
+                  <th>序号</th>
+                  <th ng-repeat="info in tableTitle[1]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
               <tr  ng-repeat="k in sslyzgl_zxtcyhjl">
-                <td></td><!--共享ChangeNo-->
-                <td></td><!--企业（含个体与服务业）编号-->
-                <td></td><!--经营者类别-->
-                <td></td><!--经营者名称-->
-                <td></td><!--经营者地址-->
-                <td></td><!--许可证编号-->
-                <td></td><!--最近发证日期-->
-                <td></td><!--经营范围分类-->
-                <td></td><!--管理机构-->
-                <td></td><!--注销原因-->
-                <td></td><!--退出日期-->
-                <td></td><!--简要说明-->
-                <td></td><!--台账档案号-->
+                  <td>{{k.serialNo}}</td>
+                  <td>{{k.unitno}}</td><!--共享ChangeNo-->
+                  <td>{{k.enterpriseno}}</td><!--企业（含个体与服务业）编号-->
+                  <td>{{k.runkinds}}</td><!--经营者类别-->
+                  <td>{{k.enterprisename}}</td><!--经营者名称-->
+                  <td>{{k.address}}</td><!--经营者地址-->
+                  <td>{{k.zkzno}}</td><!--许可证编号-->
+                  <td>{{k.xkzprintdate}}</td><!--最近发证日期-->
+                  <td>{{k.enterprisekind}}</td><!--经营范围分类-->
+                  <td>{{k.docno}}</td><!--管理机构-->
+                  <td>{{k.exitnote}}</td><!--注销原因-->
+                  <td>{{k.exitdate}}</td><!--退出日期-->
+                  <td>{{k.exitnote}}</td><!--简要说明-->
+                  <td>{{k.unitno}}</td><!--台账档案号-->
               </tr>
               </tbody>
             </table>
-
           </div>
           <footer class="panel-footer">
             <div class="row">
