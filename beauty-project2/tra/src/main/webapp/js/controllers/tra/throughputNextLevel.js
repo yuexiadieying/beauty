@@ -22,6 +22,7 @@ app.controller('ThroughputNextLevelCtrl', ['$scope','$stateParams', function($sc
 app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams,$http) {
 
     $scope.fold = $stateParams.fold;
+
     $scope.d = [ [1,6.5],[2,6.5],[3,7],[4,8],[5,7.5],[6,7],[7,6.8],[8,7],[9,7.2],[10,7],[11,6.8],[12,7] ];
     $scope.d0_1 = [ [0,70],[1,60.5],[2,120.5],[3,70],[4,90],[5,60],[6,110],[7,60.5],[8,80],[9,70] ];
     $scope.d0_2 = [ [0,40],[1,40.5],[2,70],[3,40.5],[4,30],[5,30.5],[6,60],[7,30],[8,40],[9,30] ];
@@ -29,17 +30,64 @@ app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http'
 
     if($scope.fold=='')
     {
-        console.log($scope.fold);
         $http.get('/traffic/hlsgkqyymtdwttlbb/qsbwbtjsj').then(function (resp) {
-
             console.log(resp);
-
         });
+
+        $scope.qsbwzkParam = {
+            gkqy:'',
+            mtdw:'',
+            startDate:'',
+            endDate:''
+        }
+
+        $scope.searchQsbwzkData = function(){
+            $http.get('/traffic/hlsgkqyymtdwttlbb/qsbwzk',$scope.qsbwzkParam).then(function (resp) {
+                console.log(resp);
+            });
+        }
+
+        $scope.searchQsbwzkData();
+
+    }
+    else if($scope.fold=='express')
+    {
+        $scope.gkkbttlParam = {
+            gkqy:'',
+            mtdw:'',
+            startDate:'',
+            endDate:''
+        }
+
+        $scope.searchGkkbttlData = function(){
+            $http.get('/traffic/hlsgkqyymtdwttlbb/gkkbttl',$scope.qsbwzkParam).then(function (resp) {
+                console.log(resp);
+            });
+        }
+
+        $scope.searchGkkbttlData();
+
+    }
+    else if($scope.fold=='a')
+    {
+        $scope.gkttlParam = {
+            bwbh:'',
+            mtdw:'',
+            startDate:'',
+            endDate:''
+        }
+
+        $scope.searchGkttlData = function(){
+            $http.get('/traffic/hlsgkqyymtdwttlbb/gkttl',$scope.qsbwzkParam).then(function (resp) {
+                console.log(resp);
+            });
+        }
+
+        $scope.searchGkttlData();
 
     }
 
 }]);
-
 
 app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http', function($scope, $stateParams,$http) {
 
@@ -50,16 +98,72 @@ app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http',
         ['序号','全国统一港口编号','港口名称','港口归属机构编码','报告期类型','港口管理单位']
     ]
 
-    console.log($scope.fold)
+    traUtil.getUserInfo();
 
-    if($scope.fold=='starred')
-    {
-        $http.get('/traffic/hlsgkqyymtdwttlbb/gkqyml',{}).then(function (resp) {
-
-            console.log(resp);
-
-        });
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
     }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='starred')
+        {
+            $scope.sslyzgl_gkqyml = [];
+            $http.post('/traffic/hlsgkqyymtdwttlbb/gkqyml',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_gkqyml = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_gkqyml);
+                    }
+                });
+        }
+        else if($scope.fold=='important')
+        {
+            $scope.sslyzgl_qsgqdbm = [];
+            $http.post('/traffic/hlsgkqyymtdwttlbb/qsgqdbm',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_qsgqdbm = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_qsgqdbm);
+                    }
+                });
+        }
+        else if($scope.fold=='draft')
+        {
+            $scope.sslyzgl_qsgkb = [];
+            $http.post('/traffic/hlsgkqyymtdwttlbb/qsgkb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_qsgkb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_qsgkb);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
 
 }]);
 
@@ -71,7 +175,75 @@ app.controller('ThroughputNextLevelManagementCtrl', ['$scope', '$stateParams', f
         ['人员编码','用户所在机构编码','操作者名','操作口令','创建时间','帐号状态','最近修改密码时间','联系电话','操作权限','申请口令校验码的MD5','注销日期']
     ]
 
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='sent')
+        {
+            $scope.sslyzgl_qyczry = [];
+            $http.post('/traffic/hlsgkqyymtdwttlbb/qyczry',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_qyczry = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_qyczry);
+                    }
+                });
+        }
+        else if($scope.fold=='b')
+        {
+            $scope.sslyzgl_xzgljg = [];
+            $http.post('/traffic/hlsgkqyymtdwttlbb/xzgljg',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_xzgljg = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_xzgljg);
+                    }
+                });
+        }
+        else if($scope.fold=='c')
+        {
+            $scope.sslyzgl_xzglry = [];
+            $http.post('/traffic/hlsgkqyymtdwttlbb/xzglry',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_xzglry = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_xzglry);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
 }]);
+
 
 
 

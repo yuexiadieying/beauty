@@ -52,16 +52,14 @@ angular.module('app')
                     }
                 );
             };
-
             var time= $timeout(function(){
                 scope.init()
                 clearTimeout(time)
             },500)
-
         }
     }
   }])
-  .directive('selMonth', ['$timeout', function($timeout) {
+    .directive('selMonth', ['$timeout', function($timeout) {
       return {
           restrict: 'EAC',
           scope:{
