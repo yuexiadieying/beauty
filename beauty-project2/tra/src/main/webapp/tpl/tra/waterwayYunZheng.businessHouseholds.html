@@ -60,9 +60,20 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-
-                <td ng-repeat="info in tableTitle[1]"></td>
+              <tr  ng-repeat="k in sslyzgl_zxtcyhjl">
+                <td></td><!--共享ChangeNo-->
+                <td></td><!--企业（含个体与服务业）编号-->
+                <td></td><!--经营者类别-->
+                <td></td><!--经营者名称-->
+                <td></td><!--经营者地址-->
+                <td></td><!--许可证编号-->
+                <td></td><!--最近发证日期-->
+                <td></td><!--经营范围分类-->
+                <td></td><!--管理机构-->
+                <td></td><!--注销原因-->
+                <td></td><!--退出日期-->
+                <td></td><!--简要说明-->
+                <td></td><!--台账档案号-->
               </tr>
               </tbody>
             </table>
@@ -78,13 +89,13 @@
               </div>
               <div class="col-sm-4 text-right text-center-xs">
                 <ul class="pagination pagination-sm m-t-none m-b-none">
-                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                  <li><a href>1</a></li>
-                  <li><a href>2</a></li>
-                  <li><a href>3</a></li>
-                  <li><a href>4</a></li>
-                  <li><a href>5</a></li>
-                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                  <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                 </ul>
               </div>
             </div>

@@ -4,8 +4,6 @@
 
 app.controller('WaterwayYunZhengCtrl', ['$scope','$stateParams', function($scope,$stateParams) {
 
-
-
     $scope.folds = [
         {name: '行政区划', filter:'',url:'list'},
         {name: '管理机构', filter:'starred',url:'list'},
@@ -101,6 +99,7 @@ app.controller('WaterwayYunZhengListCtrl', ['$scope', '$stateParams','traUtil','
     $scope.loadPageData();
 
 }]);
+
 app.controller('WaterwayYunZhengWaterwayCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
@@ -300,10 +299,79 @@ app.controller('WaterwayYunZhengBusinessHouseholdsCtrl', ['$scope', '$stateParam
 app.controller('WaterwayYunZhengShipCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
-        ['水运企业或个体业主编号','船检登记号','船舶识别号','船籍港','船舶名称','曾用名','船舶类型编码','船舶标准类型','船舶材料','燃料类型','船舶总吨','总载重量','净载重量','车位数','载客量','箱位数','船舱容积立方米','主机台数','主机合计功率','总长（米）','型宽（米）','满载吃水（米）','航速（节）','建成日期','改建日期','航区','船旗国','控制状态','船舶所有人','船舶所有人电话','船舶管理人','船舶管理人许可证号','营运证制作机构编码','营运证号','营运证经营范围','制证日期','有效截至期','许可证有效截至日期（冗余）','最近年审日期（冗余）','最近年审结果（冗余）','最近变更日期（冗余）','最近变更（冗余）','许可申请号','许可申请状态'],
-        ['船舶类型代码','船舶类型名称'],
-        ['报表年份','船舶编码','唯一编码','船检登记号','管辖机构编码','船舶经营人','船名','船舶类型名','船旗国','航区','型宽（米）','满载吃水（米）','航速（节）','船舶总吨','总载重量','净载重量','载客量','箱位数','主机合计功率','简要说明']
+        ['序号','水运企业或个体业主编号','船检登记号','船舶识别号','船籍港','船舶名称','曾用名','船舶类型编码','船舶标准类型','船舶材料','燃料类型','船舶总吨','总载重量','净载重量','车位数','载客量','箱位数','船舱容积立方米','主机台数','主机合计功率','总长（米）','型宽（米）','满载吃水（米）','航速（节）','建成日期','改建日期','航区','船旗国','控制状态','船舶所有人','船舶所有人电话','船舶管理人','船舶管理人许可证号','营运证制作机构编码','营运证号','营运证经营范围','制证日期','有效截至期','许可证有效截至日期（冗余）','最近年审日期（冗余）','最近年审结果（冗余）','最近变更日期（冗余）','最近变更（冗余）','许可申请号','许可申请状态'],
+        ['序号','船舶类型代码','船舶类型名称'],
+        ['序号','报表年份','船舶编码','唯一编码','船检登记号','管辖机构编码','船舶经营人','船名','船舶类型名','船旗国','航区','型宽（米）','满载吃水（米）','航速（节）','船舶总吨','总载重量','净载重量','载客量','箱位数','主机合计功率','简要说明']
     ]
+
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='d')
+        {
+            $scope.sslyzgl_yycbxx = [];
+            $http.post('/traffic/sslyzgl/yycbxx',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_yycbxx = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_yycbxx);
+                    }
+                });
+        }
+        else if($scope.fold=='e')
+        {
+            $scope.sslyzgl_cblxdm = [];
+            $http.post('/traffic/sslyzgl/cblxdm',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_cblxdm = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_cblxdm);
+                    }
+                });
+        }
+        else if($scope.fold=='i')
+        {
+            $scope.sslyzgl_yscbml = [];
+            $http.post('/traffic/sslyzgl/yscbml',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_yscbml = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_yscbml);
+                    }
+                });
+        }
+
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
 
 }]);
 app.controller('WaterwayYunZhengShip1Ctrl', ['$scope', '$stateParams', function($scope, $stateParams) {
@@ -317,11 +385,69 @@ app.controller('WaterwayYunZhengShip1Ctrl', ['$scope', '$stateParams', function(
 
 }]);
 app.controller('WaterwayYunZhengOtherCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
-        ['水运或服务企业编号','奖励表彰','违章处罚','价格欺诈','客户投诉','生产事故','船舶违章','企业名称','企业地址','法人代表','许可证号','记录登记日期','记录登记账号','记录登记机构','记录说明'],
+        ['序号','水运或服务企业编号','奖励表彰','违章处罚','价格欺诈','客户投诉','生产事故','船舶违章','企业名称',
+            '企业地址','法人代表','许可证号','记录登记日期','记录登记账号','记录登记机构','记录说明'],
         ['编号','所在机构编码','人名','性别','所在部门及职务','出生年份','联系电话','执法证名称及编号']
     ]
+
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='c')
+        {
+            $scope.sslyzgl_qywzjl = [];
+            $http.post('/traffic/sslyzgl/qywzjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_qywzjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_qywzjl);
+                    }
+                });
+        }
+        else if($scope.fold=='j')
+        {
+            $scope.sslyzgl_yzglryml = [];
+            $http.post('/traffic/sslyzgl/yzglryml',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_yzglryml = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_yzglryml);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
 
 }]);
 
