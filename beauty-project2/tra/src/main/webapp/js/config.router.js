@@ -103,7 +103,7 @@ angular.module('app')
               })
 
               .state('app.zhgj', {
-                  url: '/zhgj',
+                  url: '/zhgj/:index',
                   templateUrl: 'tpl/tra/zhgj.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
