@@ -296,7 +296,8 @@ app.controller('WaterwayYunZhengBusinessHouseholdsCtrl', ['$scope', '$stateParam
     $scope.loadPageData();
 
 }]);
-app.controller('WaterwayYunZhengShipCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
+app.controller('WaterwayYunZhengShipCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
         ['序号','水运企业或个体业主编号','船检登记号','船舶识别号','船籍港','船舶名称','曾用名','船舶类型编码','船舶标准类型','船舶材料','燃料类型','船舶总吨','总载重量','净载重量','车位数','载客量','箱位数','船舱容积立方米','主机台数','主机合计功率','总长（米）','型宽（米）','满载吃水（米）','航速（节）','建成日期','改建日期','航区','船旗国','控制状态','船舶所有人','船舶所有人电话','船舶管理人','船舶管理人许可证号','营运证制作机构编码','营运证号','营运证经营范围','制证日期','有效截至期','许可证有效截至日期（冗余）','最近年审日期（冗余）','最近年审结果（冗余）','最近变更日期（冗余）','最近变更（冗余）','许可申请号','许可申请状态'],
@@ -374,7 +375,8 @@ app.controller('WaterwayYunZhengShipCtrl', ['$scope', '$stateParams', function($
 
 
 }]);
-app.controller('WaterwayYunZhengShip1Ctrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
+app.controller('WaterwayYunZhengShip1Ctrl', ['$scope', '$stateParams', 'traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
         ['编号','船舶记录号','船检登记号','船名','船舶类型','经营者名','管辖机构','航区','船舶总吨','船舶总载重吨','船舶净载重吨','箱位数','载客量','功率','年审结论','年审合格证号','年度审验日期','年审合格证有效期限','年审合格证打印日期','备注'],
@@ -383,8 +385,88 @@ app.controller('WaterwayYunZhengShip1Ctrl', ['$scope', '$stateParams', function(
         ['报表编号','审核年度','报表汇总机构','报表行号','列值']
     ]
 
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='z')
+        {
+            $scope.sslyzgl_ndsycbjl = [];
+            $http.post('/traffic/sslyzgl/ndsycbjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_ndsycbjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_ndsycbjl);
+                    }
+                });
+        }
+        else if($scope.fold=='f')
+        {
+            $scope.sslyzgl_bgcbjl = [];
+            $http.post('/traffic/sslyzgl/bgcbjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_bgcbjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_bgcbjl);
+                    }
+                });
+        }
+        else if($scope.fold=='g')
+        {
+            $scope.sslyzgl_cbwzjl = [];
+            $http.post('/traffic/sslyzgl/cbwzjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_cbwzjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_cbwzjl);
+                    }
+                });
+        }
+        else if($scope.fold=='h')
+        {
+            $scope.sslyzgl_yhycbnsbsj = [];
+            $http.post('/traffic/sslyzgl/yhycbnsbsj',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_yhycbnsbsj = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_yhycbnsbsj);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
+
 }]);
-app.controller('WaterwayYunZhengOtherCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
+app.controller('WaterwayYunZhengOtherCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
 
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
