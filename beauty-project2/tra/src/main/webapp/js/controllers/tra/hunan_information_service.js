@@ -108,7 +108,7 @@ app.controller('Hunan_information_serviceVehicleCtrl', ['$scope', '$stateParams'
 
 }]);
 
-app.controller('Hunan_information_serviceComplaintCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('Hunan_information_serviceComplaintCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.data={
         tables:[
@@ -187,7 +187,7 @@ app.controller('Hunan_information_serviceComplaintCtrl', ['$scope', '$stateParam
 
 }]);
 
-app.controller('Hunan_information_servicePetitionCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('Hunan_information_servicePetitionCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.data={
         tables:[
@@ -265,7 +265,7 @@ app.controller('Hunan_information_servicePetitionCtrl', ['$scope', '$stateParams
     $scope.loadPageData();
 }]);
 
-app.controller('Hunan_information_serviceFacilitiesCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('Hunan_information_serviceFacilitiesCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.data={
         tables:[
@@ -344,7 +344,7 @@ app.controller('Hunan_information_serviceFacilitiesCtrl', ['$scope', '$statePara
 
 }]);
 
-app.controller('Hunan_information_serviceHonorCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('Hunan_information_serviceHonorCtrl', ['$scope', '$stateParams','traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.data={
         tables:[
@@ -353,9 +353,77 @@ app.controller('Hunan_information_serviceHonorCtrl', ['$scope', '$stateParams', 
             ['整改内容','排序']
         ]
     }
+
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='g')
+        {
+            $scope.sslyzgl_qyryb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/qyryb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_qyryb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_qyryb);
+                    }
+                });
+        }
+        else if($scope.fold=='h')
+        {
+            $scope.sslyzgl_yhzlzgb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/yhzlzgb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_yhzlzgb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_yhzlzgb);
+                    }
+                });
+        }
+        else if($scope.fold=='i')
+        {
+            $scope.sslyzgl_zgnrb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/zgnrb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_zgnrb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_zgnrb);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
 }]);
 
-app.controller('Hunan_information_serviceRulesCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('Hunan_information_serviceRulesCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.data={
         tables:[
@@ -364,9 +432,76 @@ app.controller('Hunan_information_serviceRulesCtrl', ['$scope', '$stateParams', 
             ['从业资格类别序号','证件号码','从业资格类别','继续教育机构','教育批次','开始时间','结束时间','继续教育原因','备注','姓名','性别','培训驾校','报名日期','结业日期','学时','考试成绩','培训结果','继续教育周期','继续教育记录','是否使用','图片1','图片2','从业资格证编号','考试日期','继续教育有效期起','继续教育有效期止','办理机构','办理人','办理日期','是否签注','签注人','签注时间','继续教育类型']
         ]
     }
+
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='j')
+        {
+            $scope.sslyzgl_gzzdb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/gzzdb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_gzzdb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_gzzdb);
+                    }
+                });
+        }
+        else if($scope.fold=='k')
+        {
+            $scope.sslyzgl_exfwsjb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/exfwsjb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_exfwsjb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_exfwsjb);
+                    }
+                });
+        }
+        else if($scope.fold=='l')
+        {
+            $scope.sslyzgl_jxjyjl = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/jxjyjl',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_jxjyjl = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_jxjyjl);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
 }]);
 
-app.controller('Hunan_information_serviceEmployeeCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('Hunan_information_serviceEmployeeCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.data={
         tables:[
@@ -375,6 +510,74 @@ app.controller('Hunan_information_serviceEmployeeCtrl', ['$scope', '$stateParams
             ['申诉号','申诉日期','申诉时间','申报类型','企业实体类型','申诉标题','申诉内容','申诉状态','是否有效','创建人','创建日期','创建时间','修改人','修改日期','修改时间','时间戳','管理机构编码','企业名称','申诉年份','申报状态']
         ]
     }
+
+    traUtil.getUserInfo();
+
+    $scope.pageParam = {
+        pageNo : 1,
+        pageSize:10,
+        requestData:''
+    }
+
+    $scope.searchData = function(){
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData = function(){
+        if($scope.fold=='m')
+        {
+            $scope.sslyzgl_ygxxb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/ygxxb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_ygxxb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_ygxxb);
+                    }
+                });
+        }
+        else if($scope.fold=='n')
+        {
+            $scope.sslyzgl_xjsjb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/xjsjb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_xjsjb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_xjsjb);
+                    }
+                });
+        }
+        else if($scope.fold=='o')
+        {
+            $scope.sslyzgl_sszb = [];
+            $http.post('/traffic/hnsglsljsyysscxxfwxt/sszb',$scope.pageParam)
+                .then(function(response) {
+                    if (response.data.result==Global.SUCCESS) {
+                        $scope.sslyzgl_sszb = response.data.responseData.responseData;
+                        console.log($scope.sslyzgl_sszb);
+                    }
+                });
+        }
+    }
+
+    $scope.prevPage = function () {
+        if($scope.pageParam.pageNo>1) {
+            $scope.pageParam.pageNo--;
+            $scope.loadPageData();
+        }
+    }
+
+    $scope.nextPage = function () {
+        $scope.pageParam.pageNo++;
+        $scope.loadPageData();
+    }
+
+    $scope.pageIndex = function(pageNo){
+        $scope.pageParam.pageNo = pageNo;
+        $scope.loadPageData();
+    }
+
+    $scope.loadPageData();
+
 }]);
 
 
