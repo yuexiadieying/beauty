@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhkcgx01Dao">
+    <resultMap id="Ttjjhkcgx01InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhkcgx01DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="YS020150XXXXXXXXXX0100000000" property="ys020150xxxxxxxxxx0100000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0200000000" property="ys020150xxxxxxxxxx0200000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0300000000" property="ys020150xxxxxxxxxx0300000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0400000000" property="ys020150xxxxxxxxxx0400000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0500000000" property="ys020150xxxxxxxxxx0500000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0600000000" property="ys020150xxxxxxxxxx0600000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0700000000" property="ys020150xxxxxxxxxx0700000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0800000000" property="ys020150xxxxxxxxxx0800000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX0900000000" property="ys020150xxxxxxxxxx0900000000" jdbcType="DOUBLE" />
+        <result column="YS020150XXXXXXXXXX1000000000" property="ys020150xxxxxxxxxx1000000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX1100000000" property="ys020150xxxxxxxxxx1100000000" jdbcType="VARCHAR" />
+        <result column="YS020150XXXXXXXXXX1200000000" property="ys020150xxxxxxxxxx1200000000" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhkcgx01Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_KCGX_01
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhkcgx01CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_KCGX_01
+    </select>
+
+    <select id="getTtjjhkcgx01ByPageable" resultMap="Ttjjhkcgx01InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_KCGX_01 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhkcgx01ByParamsPageable" resultMap="Ttjjhkcgx01InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_KCGX_01 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhckt13Dao">
+    <resultMap id="Ttjjhckt13InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhckt13DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="CK1310001" property="ck1310001" jdbcType="DOUBLE" />
+        <result column="CK1310002" property="ck1310002" jdbcType="DOUBLE" />
+        <result column="CK1310003" property="ck1310003" jdbcType="DOUBLE" />
+        <result column="CK1310004" property="ck1310004" jdbcType="DOUBLE" />
+        <result column="CK1330001" property="ck1330001" jdbcType="DOUBLE" />
+        <result column="CK1330002" property="ck1330002" jdbcType="DOUBLE" />
+        <result column="CK1330003" property="ck1330003" jdbcType="DOUBLE" />
+        <result column="CK1330004" property="ck1330004" jdbcType="DOUBLE" />
+        <result column="CK1330005" property="ck1330005" jdbcType="DOUBLE" />
+        <result column="CK1330006" property="ck1330006" jdbcType="DOUBLE" />
+        <result column="CK1330007" property="ck1330007" jdbcType="DOUBLE" />
+        <result column="CK1330008" property="ck1330008" jdbcType="DOUBLE" />
+        <result column="CK1320001" property="ck1320001" jdbcType="DOUBLE" />
+        <result column="CK1320002" property="ck1320002" jdbcType="DOUBLE" />
+        <result column="CK1320003" property="ck1320003" jdbcType="DOUBLE" />
+        <result column="CK1340001" property="ck1340001" jdbcType="DOUBLE" />
+        <result column="CK1340002" property="ck1340002" jdbcType="DOUBLE" />
+        <result column="CK1340003" property="ck1340003" jdbcType="DOUBLE" />
+        <result column="CSKY" property="csky" jdbcType="VARCHAR" />
+        <result column="CK1330009" property="ck1330009" jdbcType="DOUBLE" />
+        <result column="CK1320004" property="ck1320004" jdbcType="DOUBLE" />
+        <result column="CK1340004" property="ck1340004" jdbcType="DOUBLE" />
+        <result column="CK1310005" property="ck1310005" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhckt13Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_CKT_13
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhckt13CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_CKT_13
+    </select>
+
+    <select id="getTtjjhckt13ByPageable" resultMap="Ttjjhckt13InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_CKT_13 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhckt13ByParamsPageable" resultMap="Ttjjhckt13InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_CKT_13 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

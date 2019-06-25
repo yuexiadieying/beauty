@@ -102,9 +102,9 @@ public class HnsgkqyymtdwttlbbController {
     public
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getQsbwzkDTO(@RequestParam String gkqy,
-                                              @RequestParam String mtdw,
-                                              @RequestParam String startDate,
-                                              @RequestParam String endDate){
+                                                        @RequestParam String mtdw,
+                                                        @RequestParam String startDate,
+                                                        @RequestParam String endDate){
         List<Map<String, Object>> qsbwzkDTOList = new ArrayList<>();
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
@@ -207,9 +207,9 @@ public class HnsgkqyymtdwttlbbController {
     public
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getGkkbttlDTO(@RequestParam String gkqy,
-                                              @RequestParam String mtdw,
-                                              @RequestParam String startDate,
-                                              @RequestParam String endDate){
+                                                          @RequestParam String mtdw,
+                                                          @RequestParam String startDate,
+                                                          @RequestParam String endDate){
         List<Map<String, Object>> gkkbttlDTOList = new ArrayList<>();
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
@@ -229,9 +229,9 @@ public class HnsgkqyymtdwttlbbController {
     public
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getGkttlDTO(@RequestParam String bwbh,
-                                                @RequestParam String mtdw,
-                                                @RequestParam String startDate,
-                                                @RequestParam String endDate){
+                                                       @RequestParam String mtdw,
+                                                       @RequestParam String startDate,
+                                                       @RequestParam String endDate){
         List<Map<String, Object>> gkttlDTOList = new ArrayList<>();
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 

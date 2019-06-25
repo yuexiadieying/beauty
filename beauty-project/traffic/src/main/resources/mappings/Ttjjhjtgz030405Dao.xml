@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjtgz030405Dao">
+    <resultMap id="Ttjjhjtgz030405InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjtgz030405DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="GK03010202000000000000000000" property="gk03010202000000000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202000001000000000000" property="gk03010202000001000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202000010000000000000" property="gk03010202000010000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202000011000000000000" property="gk03010202000011000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100000000000000000" property="gk03010202100000000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100001000000000000" property="gk03010202100001000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100010000000000000" property="gk03010202100010000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202100011000000000000" property="gk03010202100011000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200000000000000000" property="gk03010202200000000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200001000000000000" property="gk03010202200001000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200010000000000000" property="gk03010202200010000000000000" jdbcType="DOUBLE" />
+        <result column="GK03010202200011000000000000" property="gk03010202200011000000000000" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjtgz030405Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTGZ_030405
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjtgz030405CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTGZ_030405
+    </select>
+
+    <select id="getTtjjhjtgz030405ByPageable" resultMap="Ttjjhjtgz030405InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTGZ_030405 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjtgz030405ByParamsPageable" resultMap="Ttjjhjtgz030405InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTGZ_030405 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

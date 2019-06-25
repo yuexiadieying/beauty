@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhckt04Dao">
+    <resultMap id="Ttjjhckt04InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhckt04DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="CK0420001" property="ck0420001" jdbcType="DOUBLE" />
+        <result column="CK0420002" property="ck0420002" jdbcType="DOUBLE" />
+        <result column="CK0420003" property="ck0420003" jdbcType="DOUBLE" />
+        <result column="CK0420004" property="ck0420004" jdbcType="DOUBLE" />
+        <result column="CK0420005" property="ck0420005" jdbcType="DOUBLE" />
+        <result column="CK0420006" property="ck0420006" jdbcType="DOUBLE" />
+        <result column="CK0420007" property="ck0420007" jdbcType="DOUBLE" />
+        <result column="CK0420008" property="ck0420008" jdbcType="DOUBLE" />
+        <result column="CK0420009" property="ck0420009" jdbcType="DOUBLE" />
+        <result column="CK0420010" property="ck0420010" jdbcType="DOUBLE" />
+        <result column="CK0420011" property="ck0420011" jdbcType="DOUBLE" />
+        <result column="CK0420012" property="ck0420012" jdbcType="DOUBLE" />
+        <result column="CK0420013" property="ck0420013" jdbcType="DOUBLE" />
+        <result column="CK0420014" property="ck0420014" jdbcType="DOUBLE" />
+        <result column="CK0420015" property="ck0420015" jdbcType="DOUBLE" />
+        <result column="CK0420016" property="ck0420016" jdbcType="DOUBLE" />
+        <result column="CK0420017" property="ck0420017" jdbcType="DOUBLE" />
+        <result column="CK0420018" property="ck0420018" jdbcType="DOUBLE" />
+        <result column="CK0420019" property="ck0420019" jdbcType="DOUBLE" />
+        <result column="CK0420020" property="ck0420020" jdbcType="DOUBLE" />
+        <result column="CK0420021" property="ck0420021" jdbcType="DOUBLE" />
+        <result column="CK0420022" property="ck0420022" jdbcType="DOUBLE" />
+        <result column="CK0420023" property="ck0420023" jdbcType="DOUBLE" />
+        <result column="CK0420024" property="ck0420024" jdbcType="DOUBLE" />
+        <result column="CK0420025" property="ck0420025" jdbcType="DOUBLE" />
+        <result column="CK0420026" property="ck0420026" jdbcType="DOUBLE" />
+        <result column="CK0420027" property="ck0420027" jdbcType="DOUBLE" />
+        <result column="CK0420028" property="ck0420028" jdbcType="DOUBLE" />
+        <result column="CSKY" property="csky" jdbcType="VARCHAR" />
+        <result column="CK0420029" property="ck0420029" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhckt04Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_CKT_04
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhckt04CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_CKT_04
+    </select>
+
+    <select id="getTtjjhckt04ByPageable" resultMap="Ttjjhckt04InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_CKT_04 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhckt04ByParamsPageable" resultMap="Ttjjhckt04InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_CKT_04 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

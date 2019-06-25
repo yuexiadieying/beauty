@@ -14,10 +14,10 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input type="text" class="input-sm form-control" placeholder="Search">
+                            <input type="text" class="input-sm form-control" placeholder="Search" ng-model="pageParam.requestData">
                             <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">搜索</button>
-          </span>
+                                <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -29,9 +29,23 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td ng-repeat="info in data.tables[0]"></td>
-                        </tr>
+                            <tr ng-repeat="info in sslyzgl_gzzdb">
+                                <td></td><!--制度分类-->
+                                <td></td><!--制度标题-->
+                                <td></td><!--制度内容-->
+                                <td></td><!--执行日期-->
+                                <td></td><!--生效日期-->
+                                <td></td><!--发布日期-->
+                                <td></td><!--关键字-->
+                                <td></td><!--是否有效-->
+                                <td></td><!--创建人-->
+                                <td></td><!--创建日期-->
+                                <td></td><!--创建时间-->
+                                <td></td><!--修改人-->
+                                <td></td><!--修改日期-->
+                                <td></td><!--修改时间-->
+                                <td></td><!--时间戳-->
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'k'">
@@ -41,9 +55,37 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td ng-repeat="info in data.tables[1]"></td>
-                        </tr>
+                            <tr ng-repeat="info in sslyzgl_exfwsjb">
+                                <td></td><!--发生时间-->
+                                <td></td><!--发生日期-->
+                                <td></td><!--事件原因-->
+                                <td></td><!--发生地点-->
+                                <td></td><!--发生事实-->
+                                <td></td><!--记录人-->
+                                <td></td><!--责任人-->
+                                <td></td><!--车辆-->
+                                <td></td><!--备注-->
+                                <td></td><!--是否有效-->
+                                <td></td><!--创建人-->
+                                <td></td><!--创建日期-->
+                                <td></td><!--创建时间-->
+                                <td></td><!--修改人-->
+                                <td></td><!--修改日期-->
+                                <td></td><!--修改时间-->
+                                <td></td><!--时间戳-->
+                                <td></td><!--审核状态-->
+                                <td></td><!--审核意见-->
+                                <td></td><!--从业人员编号-->
+                                <td></td><!--从业资格证号-->
+                                <td></td><!--恶性服务事件表-->
+                                <td></td><!--审核机构-->
+                                <td></td><!--审核人-->
+                                <td></td><!--审核时间-->
+                                <td></td><!--信用信息来源-->
+                                <td></td><!--身份证号-->
+                                <td></td><!--驾驶员姓名-->
+                                <td></td><!--被媒体曝光-->
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'l'">
@@ -53,8 +95,39 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td ng-repeat="info in data.tables[2]"></td>
+                        <tr ng-repeat="info in sslyzgl_jxjyjl">
+                            <td></td><!--从业资格类别序号-->
+                            <td></td><!--证件号码-->
+                            <td></td><!--从业资格类别-->
+                            <td></td><!--继续教育机构-->
+                            <td></td><!--教育批次-->
+                            <td></td><!--开始时间-->
+                            <td></td><!--结束时间-->
+                            <td></td><!--继续教育原因-->
+                            <td></td><!--备注-->
+                            <td></td><!--姓名-->
+                            <td></td><!--性别-->
+                            <td></td><!--培训驾校-->
+                            <td></td><!--报名日期-->
+                            <td></td><!--结业日期-->
+                            <td></td><!--学时-->
+                            <td></td><!--培训结果-->
+                            <td></td><!--继续教育周期-->
+                            <td></td><!--继续教育记录-->
+                            <td></td><!--是否使用-->
+                            <td></td><!--图片1-->
+                            <td></td><!--图片2-->
+                            <td></td><!--从业资格证编号-->
+                            <td></td><!--考试日期-->
+                            <td></td><!--继续教育有效期起-->
+                            <td></td><!--继续教育有效期止-->
+                            <td></td><!--办理机构-->
+                            <td></td><!--办理人-->
+                            <td></td><!--办理日期-->
+                            <td></td><!--是否签注-->
+                            <td></td><!--签注人-->
+                            <td></td><!--签注时间-->
+                            <td></td><!--继续教育类型-->
                         </tr>
                         </tbody>
                     </table>
@@ -69,13 +142,13 @@
                         </div>
                         <div class="col-sm-4 text-right text-center-xs">
                             <ul class="pagination pagination-sm m-t-none m-b-none">
-                                <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                                <li><a href>1</a></li>
-                                <li><a href>2</a></li>
-                                <li><a href>3</a></li>
-                                <li><a href>4</a></li>
-                                <li><a href>5</a></li>
-                                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                                <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                                <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                             </ul>
                         </div>
                     </div>

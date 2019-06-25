@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjht20Dao">
+    <resultMap id="Ttjjhjht20InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjht20DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="JHT02000001" property="jht02000001" jdbcType="DOUBLE" />
+        <result column="JHT02000002" property="jht02000002" jdbcType="DOUBLE" />
+        <result column="JHT02000003" property="jht02000003" jdbcType="DOUBLE" />
+        <result column="JHT02000004" property="jht02000004" jdbcType="DOUBLE" />
+        <result column="JHT02000005" property="jht02000005" jdbcType="DOUBLE" />
+        <result column="JHT02000006" property="jht02000006" jdbcType="DOUBLE" />
+        <result column="JHT02000007" property="jht02000007" jdbcType="DOUBLE" />
+        <result column="JHT02000008" property="jht02000008" jdbcType="DOUBLE" />
+        <result column="JHT02000009" property="jht02000009" jdbcType="DOUBLE" />
+        <result column="JHT02000010" property="jht02000010" jdbcType="DOUBLE" />
+        <result column="JHT02000011" property="jht02000011" jdbcType="DOUBLE" />
+        <result column="JHT02000012" property="jht02000012" jdbcType="DOUBLE" />
+        <result column="JHT02000013" property="jht02000013" jdbcType="DOUBLE" />
+        <result column="JHT02000014" property="jht02000014" jdbcType="DOUBLE" />
+        <result column="JHT02000015" property="jht02000015" jdbcType="DOUBLE" />
+        <result column="JHT02000016" property="jht02000016" jdbcType="DOUBLE" />
+        <result column="JHT02000017" property="jht02000017" jdbcType="DOUBLE" />
+        <result column="JHT02000018" property="jht02000018" jdbcType="DOUBLE" />
+        <result column="JHT02000019" property="jht02000019" jdbcType="DOUBLE" />
+        <result column="JHT02000020" property="jht02000020" jdbcType="DOUBLE" />
+        <result column="JHT02000021" property="jht02000021" jdbcType="DOUBLE" />
+        <result column="JHT02000022" property="jht02000022" jdbcType="DOUBLE" />
+        <result column="JHT02000023" property="jht02000023" jdbcType="DOUBLE" />
+        <result column="JHT02000024" property="jht02000024" jdbcType="DOUBLE" />
+        <result column="JHT02000025" property="jht02000025" jdbcType="DOUBLE" />
+        <result column="JHT02000026" property="jht02000026" jdbcType="DOUBLE" />
+        <result column="JHT02000027" property="jht02000027" jdbcType="DOUBLE" />
+        <result column="JHT02000028" property="jht02000028" jdbcType="DOUBLE" />
+        <result column="JHT02000029" property="jht02000029" jdbcType="DOUBLE" />
+        <result column="JHT02000030" property="jht02000030" jdbcType="DOUBLE" />
+        <result column="JHT02000031" property="jht02000031" jdbcType="DOUBLE" />
+        <result column="JHT02000032" property="jht02000032" jdbcType="DOUBLE" />
+        <result column="JHT02000033" property="jht02000033" jdbcType="DOUBLE" />
+        <result column="JHT02000034" property="jht02000034" jdbcType="DOUBLE" />
+        <result column="JHT02000035" property="jht02000035" jdbcType="DOUBLE" />
+        <result column="JHT02000036" property="jht02000036" jdbcType="DOUBLE" />
+        <result column="JHT02000037" property="jht02000037" jdbcType="DOUBLE" />
+        <result column="JHT02000038" property="jht02000038" jdbcType="DOUBLE" />
+        <result column="JHT02000039" property="jht02000039" jdbcType="DOUBLE" />
+        <result column="JHT02000040" property="jht02000040" jdbcType="DOUBLE" />
+        <result column="JHT02000041" property="jht02000041" jdbcType="DOUBLE" />
+        <result column="JHT02000042" property="jht02000042" jdbcType="DOUBLE" />
+        <result column="JHT02000043" property="jht02000043" jdbcType="DOUBLE" />
+        <result column="JHT02000044" property="jht02000044" jdbcType="DOUBLE" />
+        <result column="JHT02000045" property="jht02000045" jdbcType="DOUBLE" />
+        <result column="JHT02000046" property="jht02000046" jdbcType="DOUBLE" />
+        <result column="JHT02000047" property="jht02000047" jdbcType="DOUBLE" />
+        <result column="JHT02000048" property="jht02000048" jdbcType="DOUBLE" />
+        <result column="JHT02000049" property="jht02000049" jdbcType="DOUBLE" />
+        <result column="JHT02000050" property="jht02000050" jdbcType="DOUBLE" />
+        <result column="JHT02000051" property="jht02000051" jdbcType="DOUBLE" />
+        <result column="JHT02000052" property="jht02000052" jdbcType="DOUBLE" />
+        <result column="JHT02000053" property="jht02000053" jdbcType="DOUBLE" />
+        <result column="JHT02000054" property="jht02000054" jdbcType="DOUBLE" />
+        <result column="JHT02000055" property="jht02000055" jdbcType="DOUBLE" />
+        <result column="JHT02000056" property="jht02000056" jdbcType="DOUBLE" />
+        <result column="JHT02000057" property="jht02000057" jdbcType="DOUBLE" />
+        <result column="JHT02000058" property="jht02000058" jdbcType="DOUBLE" />
+        <result column="JHT02000059" property="jht02000059" jdbcType="DOUBLE" />
+        <result column="JHT02000060" property="jht02000060" jdbcType="DOUBLE" />
+        <result column="JHT02000061" property="jht02000061" jdbcType="DOUBLE" />
+        <result column="JHT02000062" property="jht02000062" jdbcType="DOUBLE" />
+        <result column="JHT02000063" property="jht02000063" jdbcType="DOUBLE" />
+        <result column="JHT02000064" property="jht02000064" jdbcType="DOUBLE" />
+        <result column="JHT02000065" property="jht02000065" jdbcType="DOUBLE" />
+        <result column="JHT02000066" property="jht02000066" jdbcType="DOUBLE" />
+        <result column="JHT02000067" property="jht02000067" jdbcType="DOUBLE" />
+        <result column="JHT02000068" property="jht02000068" jdbcType="DOUBLE" />
+        <result column="JHT02000069" property="jht02000069" jdbcType="DOUBLE" />
+        <result column="JHT02000070" property="jht02000070" jdbcType="DOUBLE" />
+        <result column="JHT02000071" property="jht02000071" jdbcType="DOUBLE" />
+        <result column="JHT02000072" property="jht02000072" jdbcType="DOUBLE" />
+        <result column="JHT02000073" property="jht02000073" jdbcType="DOUBLE" />
+        <result column="JHT02000074" property="jht02000074" jdbcType="DOUBLE" />
+        <result column="JHT02000075" property="jht02000075" jdbcType="DOUBLE" />
+        <result column="JHT02000076" property="jht02000076" jdbcType="DOUBLE" />
+        <result column="JHT02000077" property="jht02000077" jdbcType="DOUBLE" />
+        <result column="JHT02000078" property="jht02000078" jdbcType="DOUBLE" />
+        <result column="JHT02000079" property="jht02000079" jdbcType="DOUBLE" />
+        <result column="JHT02000080" property="jht02000080" jdbcType="DOUBLE" />
+        <result column="JHT02000081" property="jht02000081" jdbcType="DOUBLE" />
+        <result column="JHT02000082" property="jht02000082" jdbcType="DOUBLE" />
+        <result column="JHT02000083" property="jht02000083" jdbcType="DOUBLE" />
+        <result column="JHT02000084" property="jht02000084" jdbcType="DOUBLE" />
+        <result column="JHT02000085" property="jht02000085" jdbcType="DOUBLE" />
+        <result column="JHT02000086" property="jht02000086" jdbcType="DOUBLE" />
+        <result column="JHT02000087" property="jht02000087" jdbcType="DOUBLE" />
+        <result column="JHT02000088" property="jht02000088" jdbcType="DOUBLE" />
+        <result column="JHT02000089" property="jht02000089" jdbcType="DOUBLE" />
+        <result column="JHT02000090" property="jht02000090" jdbcType="DOUBLE" />
+        <result column="JHT02000091" property="jht02000091" jdbcType="DOUBLE" />
+        <result column="JHT02000092" property="jht02000092" jdbcType="DOUBLE" />
+        <result column="JHT02000093" property="jht02000093" jdbcType="DOUBLE" />
+        <result column="JHT02000094" property="jht02000094" jdbcType="DOUBLE" />
+        <result column="JHT02000095" property="jht02000095" jdbcType="DOUBLE" />
+        <result column="JHT02000096" property="jht02000096" jdbcType="DOUBLE" />
+        <result column="JHT02000097" property="jht02000097" jdbcType="DOUBLE" />
+        <result column="JHT02000098" property="jht02000098" jdbcType="DOUBLE" />
+        <result column="JHT02000099" property="jht02000099" jdbcType="DOUBLE" />
+        <result column="JHT02000100" property="jht02000100" jdbcType="DOUBLE" />
+        <result column="JHT02000101" property="jht02000101" jdbcType="DOUBLE" />
+        <result column="JHT02000102" property="jht02000102" jdbcType="DOUBLE" />
+        <result column="JHT02000103" property="jht02000103" jdbcType="DOUBLE" />
+        <result column="JHT02000104" property="jht02000104" jdbcType="VARCHAR" />
+        <result column="JHT02000105" property="jht02000105" jdbcType="DOUBLE" />
+        <result column="JHT02000106" property="jht02000106" jdbcType="DOUBLE" />
+        <result column="JHT02000107" property="jht02000107" jdbcType="DOUBLE" />
+        <result column="JHT02000108" property="jht02000108" jdbcType="DOUBLE" />
+        <result column="JHT02000109" property="jht02000109" jdbcType="DOUBLE" />
+        <result column="JHT02000110" property="jht02000110" jdbcType="DOUBLE" />
+        <result column="JHT02000111" property="jht02000111" jdbcType="DOUBLE" />
+        <result column="JHT02000112" property="jht02000112" jdbcType="DOUBLE" />
+        <result column="JHT02000113" property="jht02000113" jdbcType="DOUBLE" />
+        <result column="JHT02000114" property="jht02000114" jdbcType="DOUBLE" />
+        <result column="JHT02000115" property="jht02000115" jdbcType="DOUBLE" />
+        <result column="JHT02000116" property="jht02000116" jdbcType="DOUBLE" />
+        <result column="JHT02000117" property="jht02000117" jdbcType="DOUBLE" />
+        <result column="JHT02000118" property="jht02000118" jdbcType="DOUBLE" />
+        <result column="JHT02000119" property="jht02000119" jdbcType="DOUBLE" />
+        <result column="JHT02000120" property="jht02000120" jdbcType="DOUBLE" />
+        <result column="JHT02000121" property="jht02000121" jdbcType="DOUBLE" />
+        <result column="JHT02000122" property="jht02000122" jdbcType="DOUBLE" />
+        <result column="JHT02000123" property="jht02000123" jdbcType="DOUBLE" />
+        <result column="JHT02000124" property="jht02000124" jdbcType="DOUBLE" />
+        <result column="JHT02000125" property="jht02000125" jdbcType="DOUBLE" />
+        <result column="JHT02000126" property="jht02000126" jdbcType="DOUBLE" />
+        <result column="JHT02000127" property="jht02000127" jdbcType="DOUBLE" />
+        <result column="JHT02000128" property="jht02000128" jdbcType="DOUBLE" />
+        <result column="GLCWNB" property="glcwnb" jdbcType="VARCHAR" />
+        <result column="JHT02016001" property="jht02016001" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjht20Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JHT_20
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjht20CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JHT_20
+    </select>
+
+    <select id="getTtjjhjht20ByPageable" resultMap="Ttjjhjht20InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JHT_20 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjht20ByParamsPageable" resultMap="Ttjjhjht20InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JHT_20 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

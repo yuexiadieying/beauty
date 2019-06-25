@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhgsgljc01Dao">
+    <resultMap id="Ttjjhgsgljc01InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhgsgljc01DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="GSGL_DWFZR" property="gsgldwfzr" jdbcType="VARCHAR" />
+        <result column="GSGL_TJFZR" property="gsgltjfzr" jdbcType="VARCHAR" />
+        <result column="GSGL_TBR" property="gsgltbr" jdbcType="VARCHAR" />
+        <result column="GSGL_LXDH" property="gsgllxdh" jdbcType="VARCHAR" />
+        <result column="GSGL_BCRQ" property="gsglbcrq" jdbcType="TIMESTAMP" />
+        <result column="HCLL" property="hcll" jdbcType="DOUBLE" />
+        <result column="HCLL_XZ" property="hcllxz" jdbcType="DOUBLE" />
+        <result column="HCLL_TB" property="hclltb" jdbcType="DOUBLE" />
+        <result column="HCLL_YLJ" property="hcllylj" jdbcType="DOUBLE" />
+        <result column="HCLL_YLJ_XZ" property="hcllyljxz" jdbcType="DOUBLE" />
+        <result column="HCLL_YLJ_TB" property="hcllyljtb" jdbcType="DOUBLE" />
+        <result column="HCLL_FSJ" property="hcllfsj" jdbcType="DOUBLE" />
+        <result column="HCLL_FSJ_XZ" property="hcllfsjxz" jdbcType="DOUBLE" />
+        <result column="HCLL_FSJ_TB" property="hcllfsjtb" jdbcType="DOUBLE" />
+        <result column="HCLL_FSJ_YLJ" property="hcllfsjylj" jdbcType="DOUBLE" />
+        <result column="HCLL_FSJ_YLJ_XZ" property="hcllfsjyljxz" jdbcType="DOUBLE" />
+        <result column="HCLL_FSJ_YLJ_TB" property="hcllfsjyljtb" jdbcType="DOUBLE" />
+        <result column="HYL" property="hyl" jdbcType="DOUBLE" />
+        <result column="HYL_XZ" property="hylxz" jdbcType="DOUBLE" />
+        <result column="HYL_TB" property="hyltb" jdbcType="DOUBLE" />
+        <result column="HYL_YLJ" property="hylylj" jdbcType="DOUBLE" />
+        <result column="HYL_YLJ_XZ" property="hylyljxz" jdbcType="DOUBLE" />
+        <result column="HYL_YLJ_TB" property="hylyljtb" jdbcType="DOUBLE" />
+        <result column="HYL_FSJ" property="hylfsj" jdbcType="DOUBLE" />
+        <result column="HYL_FSJ_XZ" property="hylfsjxz" jdbcType="DOUBLE" />
+        <result column="HYL_FSJ_TB" property="hylfsjtb" jdbcType="DOUBLE" />
+        <result column="HYL_FSJ_YLJ" property="hylfsjylj" jdbcType="DOUBLE" />
+        <result column="HYL_FSJ_YLJ_XZ" property="hylfsjyljxz" jdbcType="DOUBLE" />
+        <result column="HYL_FSJ_YLJ_TB" property="hylfsjyljtb" jdbcType="DOUBLE" />
+        <result column="HYZZL" property="hyzzl" jdbcType="DOUBLE" />
+        <result column="HYZZL_XZ" property="hyzzlxz" jdbcType="DOUBLE" />
+        <result column="HYZZL_TB" property="hyzzltb" jdbcType="DOUBLE" />
+        <result column="HYZZL_YLJ" property="hyzzlylj" jdbcType="DOUBLE" />
+        <result column="HYZZL_YLJ_TB" property="hyzzlyljtb" jdbcType="DOUBLE" />
+        <result column="HYZZL_YLJ_XZ" property="hyzzlyljxz" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhgsgljc01Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_GSGLJC_01
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhgsgljc01CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_GSGLJC_01
+    </select>
+
+    <select id="getTtjjhgsgljc01ByPageable" resultMap="Ttjjhgsgljc01InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_GSGLJC_01 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhgsgljc01ByParamsPageable" resultMap="Ttjjhgsgljc01InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_GSGLJC_01 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

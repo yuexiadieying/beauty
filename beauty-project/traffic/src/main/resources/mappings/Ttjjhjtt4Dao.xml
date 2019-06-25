@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjtt4Dao">
+    <resultMap id="Ttjjhjtt4InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjtt4DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="TZ01000000001" property="tz01000000001" jdbcType="VARCHAR" />
+        <result column="TZ01000000002" property="tz01000000002" jdbcType="VARCHAR" />
+        <result column="TZ01000000003" property="tz01000000003" jdbcType="VARCHAR" />
+        <result column="TZ01000000004" property="tz01000000004" jdbcType="VARCHAR" />
+        <result column="TZ01000000005" property="tz01000000005" jdbcType="VARCHAR" />
+        <result column="TZ01000000006" property="tz01000000006" jdbcType="VARCHAR" />
+        <result column="TZ01000000007" property="tz01000000007" jdbcType="VARCHAR" />
+        <result column="TZ01000000008" property="tz01000000008" jdbcType="VARCHAR" />
+        <result column="TZ01000000009" property="tz01000000009" jdbcType="VARCHAR" />
+        <result column="TZ01000000010" property="tz01000000010" jdbcType="VARCHAR" />
+        <result column="TZ01000000011" property="tz01000000011" jdbcType="VARCHAR" />
+        <result column="TZ01000000012" property="tz01000000012" jdbcType="VARCHAR" />
+        <result column="TZ01000000013" property="tz01000000013" jdbcType="VARCHAR" />
+        <result column="TZ01000000014" property="tz01000000014" jdbcType="VARCHAR" />
+        <result column="TZ01000000015" property="tz01000000015" jdbcType="VARCHAR" />
+        <result column="TZ01000000016" property="tz01000000016" jdbcType="VARCHAR" />
+        <result column="TZ01000000017" property="tz01000000017" jdbcType="VARCHAR" />
+        <result column="TZ01000000018" property="tz01000000018" jdbcType="VARCHAR" />
+        <result column="TZ01000000019" property="tz01000000019" jdbcType="VARCHAR" />
+        <result column="TZ01000000020" property="tz01000000020" jdbcType="VARCHAR" />
+        <result column="TZ01000000021" property="tz01000000021" jdbcType="VARCHAR" />
+        <result column="TZ01000000022" property="tz01000000022" jdbcType="VARCHAR" />
+        <result column="TZ01000000023" property="tz01000000023" jdbcType="VARCHAR" />
+        <result column="TZ01000000024" property="tz01000000024" jdbcType="VARCHAR" />
+        <result column="TZ01000000025" property="tz01000000025" jdbcType="VARCHAR" />
+        <result column="TZ01000000026" property="tz01000000026" jdbcType="VARCHAR" />
+        <result column="TZ01000000027" property="tz01000000027" jdbcType="VARCHAR" />
+        <result column="TZ01000000028" property="tz01000000028" jdbcType="VARCHAR" />
+        <result column="TZ01000000029" property="tz01000000029" jdbcType="VARCHAR" />
+        <result column="TZ01000000030" property="tz01000000030" jdbcType="VARCHAR" />
+        <result column="TZ01000000031" property="tz01000000031" jdbcType="VARCHAR" />
+        <result column="TZ02010000000" property="tz02010000000" jdbcType="DOUBLE" />
+        <result column="TZ02010000001" property="tz02010000001" jdbcType="DOUBLE" />
+        <result column="TZ02010000002" property="tz02010000002" jdbcType="DOUBLE" />
+        <result column="TZ02010000003" property="tz02010000003" jdbcType="DOUBLE" />
+        <result column="TZ02010000004" property="tz02010000004" jdbcType="DOUBLE" />
+        <result column="TZ02010000005" property="tz02010000005" jdbcType="DOUBLE" />
+        <result column="TZ02010000006" property="tz02010000006" jdbcType="DOUBLE" />
+        <result column="TZ02010000007" property="tz02010000007" jdbcType="DOUBLE" />
+        <result column="TZ02010000008" property="tz02010000008" jdbcType="DOUBLE" />
+        <result column="TZ02010000009" property="tz02010000009" jdbcType="DOUBLE" />
+        <result column="TZ02010000010" property="tz02010000010" jdbcType="DOUBLE" />
+        <result column="TZ02010000011" property="tz02010000011" jdbcType="DOUBLE" />
+        <result column="TZ02010000012" property="tz02010000012" jdbcType="DOUBLE" />
+        <result column="TZ02010000013" property="tz02010000013" jdbcType="DOUBLE" />
+        <result column="TZ02010000014" property="tz02010000014" jdbcType="DOUBLE" />
+        <result column="TZ02010000015" property="tz02010000015" jdbcType="DOUBLE" />
+        <result column="TZ02010000016" property="tz02010000016" jdbcType="DOUBLE" />
+        <result column="TZXM" property="tzxm" jdbcType="VARCHAR" />
+        <result column="TZ01000000032" property="tz01000000032" jdbcType="VARCHAR" />
+        <result column="TZ01000000033" property="tz01000000033" jdbcType="VARCHAR" />
+        <result column="TZ02010000017" property="tz02010000017" jdbcType="DOUBLE" />
+        <result column="TZ02010000018" property="tz02010000018" jdbcType="DOUBLE" />
+        <result column="TZ01000000034" property="tz01000000034" jdbcType="VARCHAR" />
+        <result column="TZ01000000035" property="tz01000000035" jdbcType="VARCHAR" />
+        <result column="TZ01000000036" property="tz01000000036" jdbcType="VARCHAR" />
+        <result column="TZ01000000037" property="tz01000000037" jdbcType="VARCHAR" />
+        <result column="TZ01000000038" property="tz01000000038" jdbcType="DOUBLE" />
+        <result column="TZ01000000039" property="tz01000000039" jdbcType="VARCHAR" />
+        <result column="TZ01000000021HUNAN" property="tz01000000021hunan" jdbcType="VARCHAR" />
+        <result column="TZ02010000118" property="tz02010000118" jdbcType="DOUBLE" />
+        <result column="TZ01000000021HUNANFX" property="tz01000000021hunanfx" jdbcType="VARCHAR" />
+        <result column="TZ01000000007HUNAN" property="tz01000000007hunan" jdbcType="VARCHAR" />
+        <result column="TZ01000000021HUNANLWGZFX" property="tz01000000021hunanlwgzfx" jdbcType="VARCHAR" />
+        <result column="TZ01000000012HNSSFX" property="tz01000000012hnssfx" jdbcType="VARCHAR" />
+        <result column="TZ01000000012HNZCFX" property="tz01000000012hnzcfx" jdbcType="VARCHAR" />
+        <result column="TZ01000000040" property="tz01000000040" jdbcType="VARCHAR" />
+        <result column="TZ01000000041" property="tz01000000041" jdbcType="VARCHAR" />
+        <result column="TZ02010000000HNFX" property="tz02010000000hnfx" jdbcType="DOUBLE" />
+        <result column="TZ01000000043" property="tz01000000043" jdbcType="VARCHAR" />
+        <result column="HNTZJHSX" property="hntzjhsx" jdbcType="VARCHAR" />
+        <result column="HNTZJHSX1" property="hntzjhsx1" jdbcType="VARCHAR" />
+        <result column="TZ01000000100" property="tz01000000100" jdbcType="VARCHAR" />
+        <result column="HNBNJHTZ02010000002" property="hnbnjhtz02010000002" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjtt4Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTT_4
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjtt4CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JTT_4
+    </select>
+
+    <select id="getTtjjhjtt4ByPageable" resultMap="Ttjjhjtt4InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTT_4 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjtt4ByParamsPageable" resultMap="Ttjjhjtt4InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JTT_4 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

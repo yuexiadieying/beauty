@@ -3,13 +3,22 @@
 /* Controllers */
 
 app
-  // Flot Chart controller 
-  .controller('ThroughputCtrl', ['$scope', '$http', function($scope,$http) {
+  .controller('ThroughputCtrl', ['$scope', '$http',"traUtil",'$http','$state', function($scope,$http,traUtil,$http,$state) {
 
-    // $http.get('/traffic/hlsgkqyymtdwttlbb/ttlbb').then(function (resp) {
-    //
-    //     console.log(resp);
-    //
-    // });
+    $scope.mtdwttlHomeData = []
+
+    traUtil.getUserInfo();
+
+    $http.get('/traffic/hlsgkqyymtdwttlbb/ttlbb')
+        .then(function(response) {
+          if (response.data.result==Global.SUCCESS) {
+            angular.forEach(response.data.responseData,function (val,index) {
+              if(val!='')
+              {
+                $scope.mtdwttlHomeData.push(val);
+              }
+            })
+          }
+        });
 
   }]);

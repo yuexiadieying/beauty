@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.zhgj.TBusVehicleDao">
+    <resultMap id="TBusVehicleInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.zhgj.TBusVehicleDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+        <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="SYS_FLAG" property="sysFlag" jdbcType="CHAR" />
+        <result column="DEPARTMENT_NAME" property="departmentName" jdbcType="VARCHAR" />
+        <result column="DEPARTMENT_ID" property="departmentId" jdbcType="VARCHAR" />
+        <result column="ROUTE_NAME" property="routeName" jdbcType="VARCHAR" />
+        <result column="ROUTE_ID" property="routeId" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="LICENSE_PLATE" property="licensePlate" jdbcType="VARCHAR" />
+        <result column="ON_BOARDID" property="onBoardid" jdbcType="VARCHAR" />
+        <result column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="PID" property="pid" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTBusVehicleCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_VEHICLE
+    </select>
+    <!--获取总个数-->
+    <select id="getTBusVehicleCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_BUS_VEHICLE
+    </select>
+
+    <select id="getTBusVehicleByPageable" resultMap="TBusVehicleInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_VEHICLE a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTBusVehicleByParamsPageable" resultMap="TBusVehicleInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_BUS_VEHICLE a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

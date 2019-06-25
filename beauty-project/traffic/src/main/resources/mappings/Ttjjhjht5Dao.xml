@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjht5Dao">
+    <resultMap id="Ttjjhjht5InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjht5DTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RECID" property="recid" jdbcType="VARCHAR" />
+        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
+        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
+        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
+        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
+        <result column="YS01010501010000000000000000" property="ys01010501010000000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010501020000000000000000" property="ys01010501020000000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010000000000000000" property="ys01010502010000000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010100000000000000" property="ys01010502010100000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010101000000000000" property="ys01010502010101000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010102000000000000" property="ys01010502010102000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010200000000000000" property="ys01010502010200000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010201000000000000" property="ys01010502010201000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502010300000000000000" property="ys01010502010300000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020000000000000000" property="ys01010502020000000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020100000000000000" property="ys01010502020100000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020101000000000000" property="ys01010502020101000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020102000000000000" property="ys01010502020102000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020200000000000000" property="ys01010502020200000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020201000000000000" property="ys01010502020201000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010502020300000000000000" property="ys01010502020300000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010503000000000000000000" property="ys01010503000000000000000000" jdbcType="DOUBLE" />
+        <result column="YS01010504000000000000000000" property="ys01010504000000000000000000" jdbcType="DOUBLE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTtjjhjht5Count" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JHT5
+    </select>
+    <!--获取总个数-->
+    <select id="getTtjjhjht5CountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_TJJH_JHT5
+    </select>
+
+    <select id="getTtjjhjht5ByPageable" resultMap="Ttjjhjht5InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JHT5 a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTtjjhjht5ByParamsPageable" resultMap="Ttjjhjht5InfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_TJJH_JHT5 a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

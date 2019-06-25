@@ -488,7 +488,7 @@ function htmlSanitizeWriter(buf, uriValidator) {
         out(tag);
         angular.forEach(attrs, function(value, key) {
           var lkey=angular.lowercase(key);
-          var isImage = (tag === 'img' && lkey === 'src') || (lkey === 'background');
+          var isImage = (tag === 'img' && lkey === 'src') || (lkey === 'bgimg.jpg');
           if (validAttrs[lkey] === true &&
             (uriAttrs[lkey] !== true || uriValidator(value, isImage))) {
             out(' ');
