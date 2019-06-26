@@ -19,7 +19,7 @@ app.controller('ThroughputNextLevelCtrl', ['$scope','$stateParams', function($sc
 
 }]);
 
-app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
+app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
 
     $scope.fold = $stateParams.fold;
 
@@ -89,7 +89,7 @@ app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http'
 
 }]);
 
-app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
+app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
 
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
