@@ -1,5 +1,6 @@
 package com.meixiang.beauty.webapp.traffic.controller;
 
+import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
@@ -73,6 +74,7 @@ public class HnsgkqyymtdwttlbbController {
 
         ttlbbDTOList = homePageService.getHomePageInfo();
 
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(ttlbbDTOList);
         return  responseDTO;
     }

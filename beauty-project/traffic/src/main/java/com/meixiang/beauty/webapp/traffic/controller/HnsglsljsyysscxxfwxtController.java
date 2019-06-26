@@ -117,7 +117,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsAccidentService
+        paramDTO.setResponseData(tScxyTfBsAccidentService
                 .getTScxyTfBsAccidentByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -141,7 +141,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsBusCreditRecordService
+        paramDTO.setResponseData(tScxyTfBsBusCreditRecordService
                 .getTScxyTfBsBusCreditRecordByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -164,7 +164,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsBusReformRecordService
+        paramDTO.setResponseData(tScxyTfBsBusReformRecordService
                 .getTScxyTfBsBusReformRecordByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
@@ -187,7 +187,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsComplaintService
+        paramDTO.setResponseData(tScxyTfBsComplaintService
                 .getTScxyTfBsComplaintByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -210,7 +210,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsCreditReportService
+        paramDTO.setResponseData(tScxyTfBsCreditReportService
                 .getTScxyTfBsCreditReportByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -233,7 +233,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsDriverCreditService
+        paramDTO.setResponseData(tScxyTfBsDriverCreditService
                 .getTScxyTfBsDriverCreditByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -256,7 +256,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsEntStabilityService
+        paramDTO.setResponseData(tScxyTfBsEntStabilityService
                 .getTScxyTfBsEntStabilityByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -279,7 +279,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsEquipmentService
+        paramDTO.setResponseData(tScxyTfBsEquipmentService
                 .getTScxyTfBsEquipmentByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -302,7 +302,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsEsignCntRptService
+        paramDTO.setResponseData(tScxyTfBsEsignCntRptService
                 .getTScxyTfBsEsignCntRptByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -325,7 +325,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsFacilityService
+        paramDTO.setResponseData(tScxyTfBsFacilityService
                 .getTScxyTfBsFacilityByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -348,7 +348,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsGovTransTaskService
+        paramDTO.setResponseData(tScxyTfBsGovTransTaskService
                 .getTScxyTfBsGovTransTaskByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -371,7 +371,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsIllegalService
+        paramDTO.setResponseData(tScxyTfBsIllegalService
                 .getTScxyTfBsIllegalByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -394,7 +394,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerHonorService
+        paramDTO.setResponseData(tScxyTfBsOwnerHonorService
                 .getTScxyTfBsOwnerHonorByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -417,7 +417,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerReformService
+        paramDTO.setResponseData(tScxyTfBsOwnerReformService
                 .getTScxyTfBsOwnerReformByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -440,7 +440,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerRfrmCntService
+        paramDTO.setResponseData(tScxyTfBsOwnerRfrmCntService
                 .getTScxyTfBsOwnerRfrmCntByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -463,7 +463,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerRuleService
+        paramDTO.setResponseData(tScxyTfBsOwnerRuleService
                 .getTScxyTfBsOwnerRuleByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -486,7 +486,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsQualityEventService
+        paramDTO.setResponseData(tScxyTfBsQualityEventService
                 .getTScxyTfBsQualityEventByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -532,7 +532,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfPtPersonService
+        paramDTO.setResponseData(tScxyTfPtPersonService
                 .getTScxyTfPtPersonByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -555,7 +555,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsAdvancedDeedService
+        paramDTO.setResponseData(tScxyTfBsAdvancedDeedService
                 .getTScxyTfBsAdvancedDeedByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
@@ -578,7 +578,7 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsAppealReportService
+        paramDTO.setResponseData(tScxyTfBsAppealReportService
                 .getTScxyTfBsAppealReportByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));

@@ -19,7 +19,7 @@ app.controller('ThroughputNextLevelCtrl', ['$scope','$stateParams', function($sc
 
 }]);
 
-app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams,$http) {
+app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
 
     $scope.fold = $stateParams.fold;
 
@@ -89,7 +89,7 @@ app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', '$http'
 
 }]);
 
-app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http', function($scope, $stateParams,$http) {
+app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
 
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
@@ -167,7 +167,7 @@ app.controller('ThroughputNextLevelPortCtrl', ['$scope', '$stateParams','$http',
 
 }]);
 
-app.controller('ThroughputNextLevelManagementCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+app.controller('ThroughputNextLevelManagementCtrl', ['$scope', '$stateParams','traUtil','$http','Global', function($scope, $stateParams,traUtil,$http,Global) {
     $scope.fold = $stateParams.fold;
     $scope.tableTitle= [
         ['人员编号','所在企业编号','操作者名','密码','创建时间','帐号状态','最近修改密码时间','联系电话','操作权限','申请口令校验码','注销日期'],
