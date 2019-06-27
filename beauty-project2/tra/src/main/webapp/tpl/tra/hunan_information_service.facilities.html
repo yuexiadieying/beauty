@@ -30,19 +30,19 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_ssdab">
-                                <td></td><!--设施名称-->
-                                <td></td><!--设施数量-->
-                                <td></td><!--设施单位-->
-                                <td></td><!--标准数量-->
-                                <td></td><!--备注-->
-                                <td></td><!--时间戳-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--修改日期-->
+                                <td>{{info.facilityName}}</td><!--设施名称-->
+                                <td>{{info.facilityNum}}</td><!--设施数量-->
+                                <td>{{info.facilityUnit}}</td><!--设施单位-->
+                                <td>{{info.standardNum}}</td><!--标准数量-->
+                                <td>{{info.remark}}</td><!--备注-->
+                                <td>{{info.insertDate}}</td><!--时间戳-->
+                                <td>{{info.editime}}</td><!--修改时间-->
+                                <td>{{info.edidate}}</td><!--修改日期-->
                                 <td></td><!--修改人-->
-                                <td></td><!--创建时间-->
-                                <td></td><!--创建日期-->
+                                <td>{{info.cretime}}</td><!--创建时间-->
+                                <td>{{info.credate}}</td><!--创建日期-->
                                 <td></td><!--创建人-->
-                                <td></td><!--是否有效-->
+                                <td>{{info.iseffect}}</td><!--是否有效-->
                             </tr>
                         </tbody>
                     </table>
@@ -54,20 +54,20 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_zfysrwb">
-                                <td></td><!--任务号-->
-                                <td></td><!--任务说明-->
-                                <td></td><!--完成情况-->
+                                <td>{{info.taskId}}</td><!--任务号-->
+                                <td>{{info.taskDesc}}</td><!--任务说明-->
+                                <td>{{info.iscomplete}}</td><!--完成情况-->
                                 <td></td><!--投入运力-->
                                 <td></td><!--完成运量-->
-                                <td></td><!--下达部门-->
-                                <td></td><!--完成时间-->
-                                <td></td><!--备注-->
-                                <td></td><!--时间戳-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--修改日期-->
+                                <td>{{info.departName}}</td><!--下达部门-->
+                                <td>{{info.completeDate}}</td><!--完成时间-->
+                                <td>{{info.completeTrans}}</td><!--备注-->
+                                <td>{{info.insertDate}}</td><!--时间戳-->
+                                <td>{{info.editime}}</td><!--修改时间-->
+                                <td>{{info.edidate}}</td><!--修改日期-->
                                 <td></td><!--修改人-->
-                                <td></td><!--创建时间-->
-                                <td></td><!--创建日期-->
+                                <td>{{info.credate}}</td><!--创建时间-->
+                                <td>{{info.cretime}}</td><!--创建日期-->
                                 <td></td><!--创建人-->
                                 <td></td><!--是否有效-->
                             </tr>
@@ -82,37 +82,34 @@
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_jywzb">
                                 <td></td><!--执法单号-->
-                                <td></td><!--违法日期-->
-                                <td></td><!--违法时间-->
-                                <td></td><!--责任人-->
-                                <td></td><!--违法地点-->
-                                <td></td><!--违法事实-->
+                                <td>{{info.illegalDate}}</td><!--违法日期-->
+                                <td>{{info.illegalTime}}</td><!--违法时间-->
+                                <td>{{info.dutyPerson}}</td><!--责任人-->
+                                <td>{{info.illegalPlace}}</td><!--违法地点-->
+                                <td>{{info.illegalFact}}</td><!--违法事实-->
                                 <td></td><!--处罚情况-->
-                                <td></td><!--违法处罚日期-->
-                                <td></td><!--记录人-->
-                                <td></td><!--执法人员1-->
-                                <td></td><!--执法证号1-->
-                                <td></td><!--执法人员2-->
-                                <td></td><!--执法证号2-->
-                                <td></td><!--备注-->
+                                <td>{{info.publishDate}}</td><!--违法处罚日期-->
+                                <td>{{info.recorder}}</td><!--记录人-->
+                                <td>{{info.lawPeerson1}}</td><!--执法人员1-->
+                                <td>{{info.lawPsnNo1}}</td><!--执法证号1-->
+                                <td>{{info.lawPerson2}}</td><!--执法人员2-->
+                                <td>{{info.lawPsnNo2}}</td><!--执法证号2-->
+                                <td>{{info.remark}}</td><!--备注-->
                                 <td></td><!--是否有效-->
                                 <td></td><!--创建人-->
-                                <td></td><!--创建日期-->
-                                <td></td><!--创建时间-->
+                                <td>{{info.credate}}</td><!--创建日期-->
+                                <td>{{info.cretime}}</td><!--创建时间-->
                                 <td></td><!--修改人-->
-                                <td></td><!--修改日期-->
-                                <td></td><!--经营违章表-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--时间戳-->
-                                <td></td><!--审核意见-->
+                                <td>{{info.edidate}}</td><!--修改日期-->
+                                <td>{{info.editime}}</td><!--修改时间-->
+                                <td>{{info.insertDate}}</td><!--时间戳-->
+                                <td>{{info.auditContent}}</td><!--审核意见-->
                                 <td></td><!--从业资格证编号-->
-                                <td></td><!--审核机构-->
-                                <td></td><!--审核人-->
-                                <td></td><!--审核时间-->
+                                <td>{{info.auditDep}}</td><!--审核机构-->
+                                <td>{{info.auditUsr}}</td><!--审核人-->
+                                <td>{{info.auditDate}}</td><!--审核时间-->
                                 <td></td><!--信用信息来源-->
                                 <td></td><!--身份证号-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--驾驶员姓名-->
                             </tr>
                         </tbody>
                     </table>

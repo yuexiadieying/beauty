@@ -19,16 +19,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr  ng-repeat="k in sslyzgl_gkqyml">
-                  <td></td><!--唯一标识号-->
-                  <td></td><!--报表年份-->
-                  <td></td><!--辖机构编码-->
-                  <td></td><!--经济类型-->
-                  <td></td><!--联系电话-->
-                  <td></td><!--报表填报人(联系人)-->
+                <tr  ng-repeat="info in sslyzgl_gkqyml">
+                  <td>{{info.unregisterReportPeriod}}</td><!--唯一标识号-->
+                  <td>{{info.reportYear}}</td><!--报表年份-->
+                  <td>{{info.enterpriseName}}</td><!--辖机构编码-->
+                  <td>{{info.enterpriseJjkind}}</td><!--经济类型-->
+                  <td>{{info.enterpriseTelephone}}</td><!--联系电话-->
+                  <td>{{info.enterpriseReporter}}</td><!--报表填报人(联系人)-->
                   <td></td><!--创建报告期-->
                   <td></td><!--注销时的报告期-->
-                  <td></td><!--企业状态-->
+                  <td>{{info.enterpriseStatus}}</td><!--企业状态-->
                 </tr>
                 </tbody>
               </table>
@@ -39,13 +39,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr  ng-repeat="k in sslyzgl_qsgqdbm">
-                  <td></td><!--序号-->
-                  <td></td><!--全国统一港区编号-->
-                  <td></td><!--港区名称-->
-                  <td></td><!--所在水域-->
-                  <td></td><!--所在水系-->
-                  <td></td><!--港区管理单位-->
+                <tr  ng-repeat="info in sslyzgl_qsgqdbm">
+                  <td>{{info.serialNo}}</td><!--序号-->
+                  <td>{{info.portregionNo}}</td><!--全国统一港区编号-->
+                  <td>{{info.portregionName}}</td><!--港区名称-->
+                  <td>{{info.riverarea}}</td><!--所在水域-->
+                  <td>{{info.riversystem}}</td><!--所在水系-->
+                  <td>{{info.portregtionOwner}}</td><!--港区管理单位-->
                 </tr>
                 </tbody>
               </table>
@@ -56,13 +56,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr  ng-repeat="k in sslyzgl_qsgkb">
-                  <td></td><!--序号-->
-                  <td></td><!--全国统一港口编号-->
-                  <td></td><!--港口名称-->
+                <tr  ng-repeat="info in sslyzgl_qsgkb">
+                  <td>{{info.serialNo}}</td><!--序号-->
+                  <td>{{info.portNo}}</td><!--全国统一港口编号-->
+                  <td>{{info.portName}}</td><!--港口名称-->
                   <td></td><!--港口归属机构编码-->
-                  <td></td><!--报告期类型-->
-                  <td></td><!--港口管理单位-->
+                  <td>{{info.periodkind}}</td><!--报告期类型-->
+                  <td>{{info.portOwner}}</td><!--港口管理单位-->
                 </tr>
                 </tbody>
               </table>

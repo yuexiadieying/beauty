@@ -30,21 +30,21 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_gzzdb">
-                                <td></td><!--制度分类-->
-                                <td></td><!--制度标题-->
-                                <td></td><!--制度内容-->
-                                <td></td><!--执行日期-->
-                                <td></td><!--生效日期-->
+                                <td>{{info.ruleType}}</td><!--制度分类-->
+                                <td>{{info.ruleTitle}}</td><!--制度标题-->
+                                <td>{{info.ruleContent}}</td><!--制度内容-->
+                                <td>{{info.excuteDate}}</td><!--执行日期-->
+                                <td>{{info.effectDate}}</td><!--生效日期-->
                                 <td></td><!--发布日期-->
-                                <td></td><!--关键字-->
-                                <td></td><!--是否有效-->
+                                <td>{{ino.keyword}}</td><!--关键字-->
+                                <td>{{info.iseffect}}</td><!--是否有效-->
                                 <td></td><!--创建人-->
-                                <td></td><!--创建日期-->
-                                <td></td><!--创建时间-->
+                                <td>{{info.credate}}</td><!--创建日期-->
+                                <td>{{info.cretime}}<</td><!--创建时间-->
                                 <td></td><!--修改人-->
-                                <td></td><!--修改日期-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--时间戳-->
+                                <td>{{info.edidate}}<</td><!--修改日期-->
+                                <td>{{info.editime}}<</td><!--修改时间-->
+                                <td>{{info.insertDate}}</td><!--时间戳-->
                             </tr>
                         </tbody>
                     </table>
@@ -61,26 +61,25 @@
                                 <td></td><!--事件原因-->
                                 <td></td><!--发生地点-->
                                 <td></td><!--发生事实-->
-                                <td></td><!--记录人-->
+                                <td>{{info.recorder}}</td><!--记录人-->
                                 <td></td><!--责任人-->
                                 <td></td><!--车辆-->
-                                <td></td><!--备注-->
-                                <td></td><!--是否有效-->
-                                <td></td><!--创建人-->
-                                <td></td><!--创建日期-->
-                                <td></td><!--创建时间-->
-                                <td></td><!--修改人-->
-                                <td></td><!--修改日期-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--时间戳-->
-                                <td></td><!--审核状态-->
-                                <td></td><!--审核意见-->
+                                <td style="width:300px;">{{info.remark}}</td><!--备注-->
+                                <td>{{info.iseffect}}</td><!--是否有效-->
+                                <td>{{info.creusrcode}}</td><!--创建人-->
+                                <td>{{info.credate}}</td><!--创建日期-->
+                                <td>{{info.cretime}}</td><!--创建时间-->
+                                <td>{{info.ediusrcode}}</td><!--修改人-->
+                                <td>{{info.edidate}}</td><!--修改日期-->
+                                <td>{{info.editime}}</td><!--修改时间-->
+                                <td><{{info.insertDate}}/td><!--时间戳-->
+                                <td>{{info.auditStatus}}</td><!--审核状态-->
+                                <td>{{info.auditContent}}</td><!--审核意见-->
                                 <td></td><!--从业人员编号-->
                                 <td></td><!--从业资格证号-->
-                                <td></td><!--恶性服务事件表-->
-                                <td></td><!--审核机构-->
-                                <td></td><!--审核人-->
-                                <td></td><!--审核时间-->
+                                <td>{{info.auditDep}}</td><!--审核机构-->
+                                <td>{{info.auditUsr}}</td><!--审核人-->
+                                <td>{{info.auditDate}}</td><!--审核时间-->
                                 <td></td><!--信用信息来源-->
                                 <td></td><!--身份证号-->
                                 <td></td><!--驾驶员姓名-->
@@ -101,22 +100,22 @@
                             <td></td><!--从业资格类别-->
                             <td></td><!--继续教育机构-->
                             <td></td><!--教育批次-->
-                            <td></td><!--开始时间-->
-                            <td></td><!--结束时间-->
+                            <td>{{info.startdate}}</td><!--开始时间-->
+                            <td>{{info.enddate}}</td><!--结束时间-->
                             <td></td><!--继续教育原因-->
-                            <td></td><!--备注-->
-                            <td></td><!--姓名-->
-                            <td></td><!--性别-->
-                            <td></td><!--培训驾校-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.name}}</td><!--姓名-->
+                            <td>{{info.sex}}</td><!--性别-->
+                            <td>{{info.schname}}</td><!--培训驾校-->
                             <td></td><!--报名日期-->
                             <td></td><!--结业日期-->
-                            <td></td><!--学时-->
+                            <td>{{info.studytime}}</td><!--学时-->
                             <td></td><!--培训结果-->
-                            <td></td><!--继续教育周期-->
+                            <td>{{info.cycle}}</td><!--继续教育周期-->
                             <td></td><!--继续教育记录-->
-                            <td></td><!--是否使用-->
-                            <td></td><!--图片1-->
-                            <td></td><!--图片2-->
+                            <td>{{info.isuse}}</td><!--是否使用-->
+                            <td>{{info.restudyimg1}}</td><!--图片1-->
+                            <td>{{info.restudyimg2}}</td><!--图片2-->
                             <td></td><!--从业资格证编号-->
                             <td></td><!--考试日期-->
                             <td></td><!--继续教育有效期起-->
@@ -124,9 +123,9 @@
                             <td></td><!--办理机构-->
                             <td></td><!--办理人-->
                             <td></td><!--办理日期-->
-                            <td></td><!--是否签注-->
-                            <td></td><!--签注人-->
-                            <td></td><!--签注时间-->
+                            <td>{{info.isqianzhu}}</td><!--是否签注-->
+                            <td>{{info.qianzhuusrname}}</td><!--签注人-->
+                            <td>{{info.qianzhudate}}</td><!--签注时间-->
                             <td></td><!--继续教育类型-->
                         </tr>
                         </tbody>

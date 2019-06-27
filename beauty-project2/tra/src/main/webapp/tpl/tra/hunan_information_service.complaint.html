@@ -42,7 +42,6 @@
                             <td></td><!--投诉人来源-->
                             <td></td><!--被投诉人-->
                             <td></td><!--电子邮件-->
-                            <td></td><!--投诉内容-->
                             <td></td><!--媒体曝光-->
                             <td></td><!--处罚类型-->
                             <td></td><!--投诉类型-->
@@ -84,52 +83,52 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_yhkhsbb">
-                            <td></td><!--序号-->
-                            <td></td><!--申报号-->
-                            <td></td><!--申报日期-->
-                            <td></td><!--考核年度-->
-                            <td></td><!--申报类型-->
-                            <td></td><!--申报内容-->
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{info.reportId}}</td><!--申报号-->
+                            <td>{{info.reportDate}}</td><!--申报日期-->
+                            <td>{{info.reportYear}}</td><!--考核年度-->
+                            <td>{{info.reportType}}</td><!--申报类型-->
+                            <td>{{info.reportContent}}</td><!--申报内容-->
                             <td></td><!--自评得分-->
                             <td></td><!--自评等级-->
-                            <td></td><!--考核得分-->
-                            <td></td><!--考核等级-->
+                            <td>{{info.reportScore}}</td><!--考核得分-->
+                            <td>{{info.reportLevel}}</td><!--考核等级-->
                             <td></td><!--初评机构-->
                             <td></td><!--税务登记号-->
-                            <td></td><!--工商营业执照号-->
+                            <td>{{info.ownerId}}</td><!--工商营业执照号-->
                             <td></td><!--经营状态-->
-                            <td></td><!--联系电话-->
+                            <td>{{info.phone}}</td><!--联系电话-->
                             <td></td><!--经营负责人-->
                             <td></td><!--法定代表人证件类别-->
                             <td></td><!--法定代表人联系电话-->
                             <td></td><!--法定代表人-->
                             <td></td><!--经济类型-->
                             <td></td><!--行政区域代码-->
-                            <td></td><!--邮政编码-->
-                            <td></td><!--业户地址-->
+                            <td>{{info.postalCode}}</td><!--邮政编码-->
+                            <td>{{info.address}}</td><!--业户地址-->
                             <td></td><!--分支机构编码-->
                             <td></td><!--上级业户编码-->
                             <td></td><!--管理机构编码-->
-                            <td></td><!--发证机关-->
-                            <td></td><!--有效期止-->
-                            <td></td><!--许可证号-->
-                            <td></td><!--经营范围-->
-                            <td></td><!--企业实体类型-->
-                            <td></td><!--企业名称-->
+                            <td>{{info.gradepcode}}</td><!--发证机关-->
+                            <td>{{info.endDate}}</td><!--有效期止-->
+                            <td>{{info.reportId}}</td><!--许可证号-->
+                            <td>{{info.scopeBusiness}}</td><!--经营范围-->
+                            <td>{{info.ownerType}}</td><!--企业实体类型-->
+                            <td>{{info.ownerName}}</td><!--企业名称-->
                             <td></td><!--是否有效-->
                             <td></td><!--创建人-->
-                            <td></td><!--创建日期-->
-                            <td></td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
                             <td></td><!--修改人-->
-                            <td></td><!--修改日期-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--初评分数-->
-                            <td></td><!--初评等级-->
-                            <td></td><!--综评分数-->
-                            <td></td><!--综评等级-->
-                            <td></td><!--复评分数-->
-                            <td></td><!--复评等级-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.finalScore}}</td><!--初评分数-->
+                            <td>{{info.firstLevel}}</td><!--初评等级-->
+                            <td>{{info.cltLevel}}</td><!--综评分数-->
+                            <td>{{info.cltScore}}</td><!--综评等级-->
+                            <td>{{info.lastScore}}</td><!--复评分数-->
+                            <td>{{info.lastLevel}}</td><!--复评等级-->
                             <td></td><!--回复意见-->
                         </tr>
                         </tbody>

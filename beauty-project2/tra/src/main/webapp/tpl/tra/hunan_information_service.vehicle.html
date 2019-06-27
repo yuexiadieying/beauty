@@ -68,21 +68,21 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_clxykhb">
-                            <td></td><!--序号-->
-                            <td></td><!--考核年度-->
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{reportYear}}</td><!--考核年度-->
                             <td></td><!--业户-->
-                            <td></td><!--考核等-->
+                            <td>{{info.creditLevel}}</td><!--考核等级-->
                             <td></td><!--累计记分-->
                             <td></td><!--系统记分-->
-                            <td></td><!--备注-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--修改日期-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
                             <td></td><!--修改人-->
-                            <td></td><!--创建时间-->
-                            <td></td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
                             <td></td><!--创建人-->
-                            <td></td><!--是否有效-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
                         </tr>
                         </tbody>
                     </table>
@@ -94,28 +94,28 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_clzlzgb">
-                            <td></td><!--序号-->
-                            <td></td><!--整改号-->
-                            <td></td><!--备注-->
-                            <td></td><!--考核年度-->
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{info.cmvecid}}</td><!--整改号-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.reportYear}}</td><!--考核年度-->
                             <td></td><!--业户-->
                             <td></td><!--整改开始时间-->
                             <td></td><!--下发日期-->
-                            <td></td><!--报告提交日期-->
-                            <td></td><!--整改报告-->
+                            <td>{{info.commitDate}}</td><!--报告提交日期-->
+                            <td>{{innfo.reformContent}}</td><!--整改报告-->
                             <td></td><!--验收结果-->
                             <td></td><!--验收人员-->
                             <td></td><!--验收时间-->
-                            <td></td><!--整改状态-->
+                            <td>{{ifo.reformStatus}}</td><!--整改状态-->
                             <td></td><!--整改结束时间-->
                             <td></td><!--时间戳-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--修改日期-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
                             <td></td><!--修改人-->
                             <td></td><!--创建时间-->
                             <td></td><!--创建日期-->
                             <td></td><!--创建人-->
-                            <td></td><!--是否有效-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
                             <td></td><!--检查机构-->
                             <td></td><!--验收意见-->
                             <td></td><!--系统评分-->

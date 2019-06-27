@@ -30,44 +30,32 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_wgsfb">
-                            <td></td><!--上访号-->
-                            <td></td><!--违规上访情况简介-->
-                            <td></td><!--事件时间-->
-                            <td></td><!--主要原因-->
-                            <td></td><!--事件经过-->
+                            <td>{{info.stabId}}</td><!--上访号-->
+                            <td style="width:300px;">{{info.stabDetail}}</td><!--违规上访情况简介-->
+                            <td>{{info.eventTime}}</td><!--事件时间-->
+                            <td>{{info.stabReason}}</td><!--主要原因-->
+                            <td>{{info.eventSource}}</td><!--事件经过-->
                             <td></td><!--参加人数-->
                             <td></td><!--上访地址-->
                             <td></td><!--社会影响-->
                             <td></td><!--投诉人-->
                             <td></td><!--来访车号-->
-                            <td></td><!--反映问题-->
-                            <td></td><!--是否有效-->
+                            <td>{{info.reflexsituation}}</td><!--反映问题-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
                             <td></td><!--创建人-->
-                            <td></td><!--创建日期-->
-                            <td></td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
                             <td></td><!--修改人-->
-                            <td></td><!--修改日期-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--审核状态-->
-                            <td></td><!--审核意见-->
-                            <td></td><!--审核机构-->
-                            <td></td><!--创建人-->
-                            <td></td><!--创建日期-->
-                            <td></td><!--创建时间-->
-                            <td></td><!--修改人-->
-                            <td></td><!--修改日期-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--审核状态-->
-                            <td></td><!--审核意见-->
-                            <td></td><!--审核机构-->
-                            <td></td><!--审核人-->
-                            <td></td><!--审核时间-->
-                            <td></td><!--创建时间-->
-                            <td></td><!--信用信息来源-->
-                            <td></td><!--处理情况-->
-                            <td></td><!--扣分分值-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.auditStatus}}</td><!--审核状态-->
+                            <td>{{info.auditContent}}</td><!--审核意见-->
+                            <td>{{info.auditDep}}</td><!--审核机构-->
+                            <td>{{info.auditUsr}}</td><!--审核人-->
+                            <td>{{info.auditDate}}</td><!--审核时间-->
+                            <td>{{info.dealResult}}</td><!--处理情况-->
+                            <td>{{info.stabScore}}</td><!--扣分分值-->
                         </tr>
                         </tbody>
                     </table>
@@ -113,15 +101,15 @@
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_dzqzsbnrb">
                             <td></td><!--材料名称-->
-                            <td></td><!--排序号-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--修改日期-->
+                            <td>{{info.esignOrder}}</td><!--排序号-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
                             <td></td><!--修改人-->
-                            <td></td><!--创建时间-->
-                            <td></td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
                             <td></td><!--创建人-->
-                            <td></td><!--是否有效-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
                         </tr>
                         </tbody>
                     </table>

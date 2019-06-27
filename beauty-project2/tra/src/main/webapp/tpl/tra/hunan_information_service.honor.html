@@ -29,24 +29,24 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_qyryb">
-                                <td></td><!--荣誉级别-->
-                                <td></td><!--荣誉名称-->
-                                <td></td><!--荣誉描述-->
+                                <td>{{info.honorLevel}}</td><!--荣誉级别-->
+                                <td>{{info.honorTitle}}</td><!--荣誉名称-->
+                                <td>{{info.honorDesc}}</td><!--荣誉描述-->
                                 <td></td><!--创建人-->
-                                <td></td><!--创建日期-->
-                                <td></td><!--创建时间-->
+                                <td>{{info.credate}}</td><!--创建日期-->
+                                <td>{{info.cretime}}</td><!--创建时间-->
                                 <td></td><!--修改人-->
-                                <td></td><!--修改日期-->
-                                <td></td><!--修改时间-->
-                                <td></td><!--时间戳-->
-                                <td></td><!--审核状态-->
-                                <td></td><!--审核意见-->
-                                <td></td><!--获得日期-->
-                                <td></td><!--备注-->
-                                <td></td><!--是否有效-->
-                                <td></td><!--审核机构-->
-                                <td></td><!--审核人-->
-                                <td></td><!--审核时间-->
+                                <td>{{info.edidate}}</td><!--修改日期-->
+                                <td>{{info.editime}}</td><!--修改时间-->
+                                <td>{{info.insertDate}}</td><!--时间戳-->
+                                <td>{{info.auditStatus}}</td><!--审核状态-->
+                                <td>{{info.auditContent}}</td><!--审核意见-->
+                                <td>{{info.honorDate}}</td><!--获得日期-->
+                                <td>{{info.remark}}</td><!--备注-->
+                                <td>{{info.iseffect}}</td><!--是否有效-->
+                                <td>{{info.auditDep}}</td><!--审核机构-->
+                                <td>{{info.auditUsr}}</td><!--审核人-->
+                                <td>{{info.auditDate}}</td><!--审核时间-->
                             </tr>
                         </tbody>
                     </table>
@@ -58,33 +58,32 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_yhzlzgb">
-                                <td></td><!--整改编号-->
-                                <td></td><!--整改标题-->
+                                <td>{{info.reformNo}}</td><!--整改编号-->
+                                <td>{{info.reformTitle}}</td><!--整改标题-->
                                 <td></td><!--申请单号-->
-                                <td></td><!--检查人员-->
+                                <td>{{info.checkPerson}}</td><!--检查人员-->
                                 <td></td><!--检查内容-->
-                                <td></td><!--开始整改日期-->
-                                <td></td><!--先进事迹表-->
-                                <td></td><!--结束整改日期-->
-                                <td></td><!--法律法规-->
-                                <td></td><!--整改报告-->
+                                <td>{{info.startReformDate}}</td><!--开始整改日期-->
+                                <td>{{info.endReformDate}}</td><!--结束整改日期-->
+                                <td>{{info.lawContent}}</td><!--法律法规-->
+                                <td>{{info.reformContent}}</td><!--整改报告-->
                                 <td></td><!--报告提交日期-->
-                                <td></td><!--验收时间-->
-                                <td></td><!--验收人员-->
+                                <td>{{inf.approvalDate}}</td><!--验收时间-->
+                                <td>{{info.approvalPerson}}</td><!--验收人员-->
                                 <td></td><!--下发日期-->
-                                <td></td><!--检查日期-->
-                                <td></td><!--检查机构-->
-                                <td></td><!--验收结果-->
-                                <td></td><!--整改状态-->
+                                <td>{{info.checkDate}}</td><!--检查日期-->
+                                <td>{{info.checkOrg}}</td><!--检查机构-->
+                                <td>{{info.approvalResult}}</td><!--验收结果-->
+                                <td>{{info.reformStatus}}</td><!--整改状态-->
                                 <td></td><!--是否有效-->
                                 <td></td><!--创建人-->
-                                <td></td><!--创建日期-->
-                                <td></td><!--创建时间-->
+                                <td>{{info.credate}}</td><!--创建日期-->
+                                <td>{{info.cretime}}</td><!--创建时间-->
                                 <td></td><!--修改人-->
-                                <td></td><!--修改日期-->
-                                <td></td><!--修改时间-->
+                                <td>{{info.edidate}}</td><!--修改日期-->
+                                <td>{{info.editime}}</td><!--修改时间-->
                                 <td></td><!--时间戳-->
-                                <td></td><!--验收意见-->
+                                <td>{{info.approvalRemark}}</td><!--验收意见-->
                             </tr>
                         </tbody>
                     </table>
@@ -96,7 +95,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_zgnrb">
-                            <td></td><!--整改内容-->
+                            <td>{{info.reformContent}}</td><!--整改内容-->
                             <td></td><!--排序-->
                         </tr>
                         </tbody>
