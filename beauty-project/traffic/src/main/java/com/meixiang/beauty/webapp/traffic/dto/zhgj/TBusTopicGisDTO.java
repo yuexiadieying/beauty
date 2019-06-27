@@ -6,43 +6,6 @@ import java.util.List;
 
 public class TBusTopicGisDTO {
 
-
-    /**
-     * 序列号
-     **/
-    @JSONField(name="serialNo")
-    private Integer serialNo;
-
-    /**
-     *主键
-    **/
-    @JSONField(name="pid")
-    private String pid;
-
-    /**
-     *设备序列号
-    **/
-    @JSONField(name="devSn")
-    private String devSn;
-
-    /**
-     *设备id
-    **/
-    @JSONField(name="devId")
-    private String devId;
-
-    /**
-     *城市编号
-    **/
-    @JSONField(name="cityCode")
-    private String cityCode;
-
-    /**
-     *公司代码
-    **/
-    @JSONField(name="companyCode")
-    private String companyCode;
-
     /**
      *线路id
     **/
@@ -122,80 +85,28 @@ public class TBusTopicGisDTO {
     private String vehicleStatus;
 
     /**
-     *系统标识
-    **/
-    @JSONField(name="sysFlag")
-    private char sysFlag;
+     *上行收班时间
+     **/
+    @JSONField(name="upEndTime")
+    private String upEndTime;
 
     /**
-     *备注
-    **/
-    @JSONField(name="remark")
-    private String remark;
+     *上行发班时间
+     **/
+    @JSONField(name="upFirstTime")
+    private String upFirstTime;
 
     /**
-     *创建人
-    **/
-    @JSONField(name="creator")
-    private String creator;
+     *下行收班时间
+     **/
+    @JSONField(name="endEndTime")
+    private String endEndTime;
 
     /**
-     *创建时间
-    **/
-    @JSONField(name="createTime")
-    private String createTime;
-
-    /**
-     *修改人
-    **/
-    @JSONField(name="lastModifier")
-    private String lastModifier;
-
-    /**
-     *修改时间
-    **/
-    @JSONField(name="lastModifiedTime")
-    private String lastModifiedTime;
-
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid;
-    }
-
-    public String getDevSn() {
-        return devSn;
-    }
-
-    public void setDevSn(String devSn) {
-        this.devSn = devSn;
-    }
-
-    public String getDevId() {
-        return devId;
-    }
-
-    public void setDevId(String devId) {
-        this.devId = devId;
-    }
-
-    public String getCityCode() {
-        return cityCode;
-    }
-
-    public void setCityCode(String cityCode) {
-        this.cityCode = cityCode;
-    }
-
-    public String getCompanyCode() {
-        return companyCode;
-    }
-
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
-    }
+     *下行发班时间
+     **/
+    @JSONField(name="endFirstTime")
+    private String endFirstTime;
 
     public String getLineId() {
         return lineId;
@@ -301,52 +212,35 @@ public class TBusTopicGisDTO {
         this.vehicleStatus = vehicleStatus;
     }
 
-    public char getSysFlag() {
-        return sysFlag;
+    public String getUpEndTime() {
+        return upEndTime;
     }
 
-    public void setSysFlag(char sysFlag) {
-        this.sysFlag = sysFlag;
+    public void setUpEndTime(String upEndTime) {
+        this.upEndTime = upEndTime;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getUpFirstTime() {
+        return upFirstTime;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setUpFirstTime(String upFirstTime) {
+        this.upFirstTime = upFirstTime;
     }
 
-    public String getCreator() {
-        return creator;
+    public String getEndEndTime() {
+        return endEndTime;
     }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
+    public void setEndEndTime(String endEndTime) {
+        this.endEndTime = endEndTime;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getEndFirstTime() {
+        return endFirstTime;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setEndFirstTime(String endFirstTime) {
+        this.endFirstTime = endFirstTime;
     }
-
-    public String getLastModifier() {
-        return lastModifier;
-    }
-
-    public void setLastModifier(String lastModifier) {
-        this.lastModifier = lastModifier;
-    }
-
-    public String getLastModifiedTime() {
-        return lastModifiedTime;
-    }
-
-    public void setLastModifiedTime(String lastModifiedTime) {
-        this.lastModifiedTime = lastModifiedTime;
-    }
-
 }

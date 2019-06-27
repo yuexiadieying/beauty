@@ -20,13 +20,45 @@ public class TBusLineStationRefService {
     @Autowired
     private TBusLineStationRefDao tBusLineStationRefDao;
 
-    public List<Map<String, Object>> getTBusLineStationRefByPageable(Integer start, Integer end, String... params) {
+    public List<Map<String, Object>> getTBusLineStationBasicInfo(String... params) {
         List<Map<String, Object>> res = Lists.newArrayList();
         List<TBusLineStationRefDTO> tBusLineStationRefDTOs = Lists.newArrayList();
-        if (params.length <= 0) {
-            tBusLineStationRefDTOs = tBusLineStationRefDao.getTBusLineStationRefByPageable(start, end);
+        if (params.length <= 0 || params[0] == null || "".equalsIgnoreCase(params[0])) {
+
         } else {
-            tBusLineStationRefDTOs = tBusLineStationRefDao.getTBusLineStationRefByParamsPageable(start, end, params[0]);
+            tBusLineStationRefDTOs = tBusLineStationRefDao.getTBusLineStationBasicInfo(params[0]);
+        }
+        if (!CollectionUtils.isEmpty(tBusLineStationRefDTOs)) {
+            for (TBusLineStationRefDTO tBusLineStationRefDTO : tBusLineStationRefDTOs) {
+                res.add(ClassUtil.toHashMap(tBusLineStationRefDTO));
+            }
+        }
+        return res;
+    }
+
+    public List<Map<String, Object>> getTBusLineStationPositionInfoByLineName(String... params) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<TBusLineStationRefDTO> tBusLineStationRefDTOs = Lists.newArrayList();
+        if (params.length <= 0 || params[0] == null || "".equalsIgnoreCase(params[0])) {
+
+        } else {
+            tBusLineStationRefDTOs = tBusLineStationRefDao.getTBusLineStationPositionInfoByLineName(params[0]);
+        }
+        if (!CollectionUtils.isEmpty(tBusLineStationRefDTOs)) {
+            for (TBusLineStationRefDTO tBusLineStationRefDTO : tBusLineStationRefDTOs) {
+                res.add(ClassUtil.toHashMap(tBusLineStationRefDTO));
+            }
+        }
+        return res;
+    }
+
+    public List<Map<String, Object>> getTBusLineStationPositionInfoByLicensePlate(String... params) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<TBusLineStationRefDTO> tBusLineStationRefDTOs = Lists.newArrayList();
+        if (params.length <= 0 || params[0] == null || "".equalsIgnoreCase(params[0])) {
+
+        } else {
+            tBusLineStationRefDTOs = tBusLineStationRefDao.getTBusLineStationPositionInfoByLicensePlate(params[0]);
         }
         if (!CollectionUtils.isEmpty(tBusLineStationRefDTOs)) {
             for (TBusLineStationRefDTO tBusLineStationRefDTO : tBusLineStationRefDTOs) {

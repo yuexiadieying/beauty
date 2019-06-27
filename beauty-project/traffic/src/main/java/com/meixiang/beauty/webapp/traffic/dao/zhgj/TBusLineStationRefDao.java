@@ -40,4 +40,25 @@ public interface TBusLineStationRefDao {
                                                                       @Param("end") int end,
                                                                       @Param("info") String info);
 
+    /**
+     * 根据线路名称查询线路基本信息
+     * @param info 不能为空或空字符串
+     * @return
+     */
+    List<TBusLineStationRefDTO> getTBusLineStationBasicInfo(@Param("info") String info);
+
+    /**
+     * 根据线路名称查询线路站点信息
+     * @param info 不能为空或空字符串
+     * @return
+     */
+    List<TBusLineStationRefDTO> getTBusLineStationPositionInfoByLineName(@Param("info") String info);
+
+    /**
+     * 根据车牌查询线路站点信息
+     * @param info 不能为空或空字符串
+     * @return
+     */
+    List<TBusLineStationRefDTO> getTBusLineStationPositionInfoByLicensePlate(@Param("info") String info);
+
 }

@@ -40,4 +40,12 @@ public interface TBusTopicGisDao {
                                                           @Param("end") int end,
                                                           @Param("info") String info);
 
+    /**
+     * 根据条件获取车辆位置表数据
+     * @param date 日期 yyyymmdd
+     * @param info 车牌
+     */
+    List<TBusTopicGisDTO> getTBusTopicGisInfo(@Param("date") String date,
+                                                          @Param("info") String info);
+
 }
