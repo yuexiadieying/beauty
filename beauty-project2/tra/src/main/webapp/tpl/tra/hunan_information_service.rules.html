@@ -56,11 +56,11 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="info in sslyzgl_exfwsjb">
-                                <td></td><!--发生时间-->
-                                <td></td><!--发生日期-->
-                                <td></td><!--事件原因-->
-                                <td></td><!--发生地点-->
-                                <td></td><!--发生事实-->
+                                <td>{{info.eventTime}}</td><!--发生时间-->
+                                <td>{{info.eventDate}}</td><!--发生日期-->
+                                <td>{{info.eventReason}}</td><!--事件原因-->
+                                <td>{{info.eventPlace}}</td><!--发生地点-->
+                                <td>{{info.eventFact}}</td><!--发生事实-->
                                 <td>{{info.recorder}}</td><!--记录人-->
                                 <td></td><!--责任人-->
                                 <td></td><!--车辆-->
@@ -81,8 +81,8 @@
                                 <td>{{info.auditUsr}}</td><!--审核人-->
                                 <td>{{info.auditDate}}</td><!--审核时间-->
                                 <td></td><!--信用信息来源-->
-                                <td></td><!--身份证号-->
-                                <td></td><!--驾驶员姓名-->
+                                <td>{{innfo.cardno}}</td><!--身份证号-->
+                                <td>{{info.drivername}}</td><!--驾驶员姓名-->
                                 <td></td><!--被媒体曝光-->
                             </tr>
                         </tbody>
@@ -95,8 +95,8 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_jxjyjl">
-                            <td></td><!--从业资格类别序号-->
-                            <td></td><!--证件号码-->
+                            <td>{{info.batchno}}</td><!--从业资格类别序号-->
+                            <td>{{info.cardno}}</td><!--证件号码-->
                             <td></td><!--从业资格类别-->
                             <td></td><!--继续教育机构-->
                             <td></td><!--教育批次-->
@@ -107,8 +107,8 @@
                             <td>{{info.name}}</td><!--姓名-->
                             <td>{{info.sex}}</td><!--性别-->
                             <td>{{info.schname}}</td><!--培训驾校-->
-                            <td></td><!--报名日期-->
-                            <td></td><!--结业日期-->
+                            <td>{{info.sapplydate}}</td><!--报名日期-->
+                            <td>{{info.graduatedate}}</td><!--结业日期-->
                             <td>{{info.studytime}}</td><!--学时-->
                             <td></td><!--培训结果-->
                             <td>{{info.cycle}}</td><!--继续教育周期-->
@@ -118,15 +118,15 @@
                             <td>{{info.restudyimg2}}</td><!--图片2-->
                             <td></td><!--从业资格证编号-->
                             <td></td><!--考试日期-->
-                            <td></td><!--继续教育有效期起-->
-                            <td></td><!--继续教育有效期止-->
-                            <td></td><!--办理机构-->
-                            <td></td><!--办理人-->
+                            <td>{{info.cyclestart}}</td><!--继续教育有效期起-->
+                            <td>{{info.cycleend}}</td><!--继续教育有效期止-->
+                            <td>{{info.cheusrdate}}</td><!--办理机构-->
+                            <td>{{info.cheusrname}}</td><!--办理人-->
                             <td></td><!--办理日期-->
                             <td>{{info.isqianzhu}}</td><!--是否签注-->
                             <td>{{info.qianzhuusrname}}</td><!--签注人-->
                             <td>{{info.qianzhudate}}</td><!--签注时间-->
-                            <td></td><!--继续教育类型-->
+                            <td>{{info.wortype}}</td><!--继续教育类型-->
                         </tr>
                         </tbody>
                     </table>
