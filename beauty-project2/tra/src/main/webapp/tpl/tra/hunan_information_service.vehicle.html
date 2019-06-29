@@ -8,16 +8,15 @@
                 </div>
                 <div class="row wrapper">
                     <div class="col-sm-5 m-b-xs">
-
                     </div>
                     <div class="col-sm-4">
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input type="text" class="input-sm form-control" placeholder="输入车牌号">
+                            <input type="text" class="input-sm form-control" placeholder="输入车牌号" ng-model="pageParam.requestData">
                             <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">搜索</button>
-          </span>
+                                <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -25,14 +24,50 @@
                     <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == ''">
                         <thead>
                         <tr>
-                            <th>序号</th>
                             <th ng-repeat="info in data.tables[0]">{{info}}</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td>1</td>
-                            <td ng-repeat="info in data.tables[0]"></td>
+                        <tr ng-repeat="info in sslyzgl_jtzrsgb">
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{info.accidentId}}</td><!--事故编号-->
+                            <td>{{info.cardno}}</td><!--车辆编码-->
+                            <td>{{info.branum}}</td><!--车牌号码-->
+                            <td>{{info.creusrcode}}</td><!--从业资格证号码-->
+                            <td>{{info.drivername}}</td><!--驾驶员姓名-->
+                            <td>{{info.accDate}}</td><!--事故日期-->
+                            <td>{{info.accTime}}</td><!--事故时间-->
+                            <td>{{info.accPlace}}</td><!--事故地点-->
+                            <td>{{info.death}}</td><!--死亡人数-->
+                            <td></td><!--车牌颜色-->
+                            <td></td><!--从业人员编号-->
+                            <td></td><!--身份证号码-->
+                            <td>{{info.accReason}}</td><!--事故原因-->
+                            <td></td><!--事故情况-->
+                            <td>{{info.recorder}}</td><!--记录人-->
+                            <td>{{info.alllostmoney}}</td><!--直接经济损失-->
+                            <td>{{info.accDetail}}</td><!--事故责任与性质-->
+                            <td>{{info.roadcondition}}</td><!--路况-->
+                            <td></td><!--二级维护情况-->
+                            <td>{{info.weather}}</td><!--天气情况-->
+                            <td>{{info.slightinjurynum}}</td><!--轻伤人数-->
+                            <td>{{info.seriousinjurynum}}</td><!--重伤人数-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
+                            <td></td><!--创建人-->
+                            <td>{{info.credate}}</td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
+                            <td></td><!--修改人-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.auditStatus}}</td><!--审核状态-->
+                            <td>{{info.auditContent}}</td><!--审核意见-->
+                            <td></td><!--从业资格证号-->
+                            <td></td><!--人员扣分-->
+                            <td>{{info.auditDep}}</td><!--审核机构-->
+                            <td>{{info.auditUsr}}</td><!--审核人-->
+                            <td>{{info.credate}}</td><!--审核时间-->
+                            <td></td><!--信用信息来源-->
                         </tr>
                         </tbody>
                     </table>
@@ -43,9 +78,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td>1</td>
-                            <td ng-repeat="info in data.tables[1]"></td>
+                        <tr ng-repeat="info in sslyzgl_clxykhb">
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{reportYear}}</td><!--考核年度-->
+                            <td></td><!--业户-->
+                            <td>{{info.creditLevel}}</td><!--考核等级-->
+                            <td></td><!--累计记分-->
+                            <td></td><!--系统记分-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
+                            <td></td><!--修改人-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
+                            <td></td><!--创建人-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
                         </tr>
                         </tbody>
                     </table>
@@ -56,9 +104,33 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="info in [0,1,2,3,4]">
-                            <td>1</td>
-                            <td ng-repeat="info in data.tables[2]"></td>
+                        <tr ng-repeat="info in sslyzgl_clzlzgb">
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{info.cmvecid}}</td><!--整改号-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.reportYear}}</td><!--考核年度-->
+                            <td></td><!--业户-->
+                            <td>{{info.reformStart}}</td><!--整改开始时间-->
+                            <td></td><!--下发日期-->
+                            <td>{{info.commitDate}}</td><!--报告提交日期-->
+                            <td>{{innfo.reformContent}}</td><!--整改报告-->
+                            <td></td><!--验收结果-->
+                            <td></td><!--验收人员-->
+                            <td></td><!--验收时间-->
+                            <td>{{ifo.reformStatus}}</td><!--整改状态-->
+                            <td></td><!--整改结束时间-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
+                            <td></td><!--修改人-->
+                            <td>{{info.credate}}</td><!--创建时间-->
+                            <td>{{info.cretime}}</td><!--创建日期-->
+                            <td></td><!--创建人-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
+                            <td></td><!--检查机构-->
+                            <td></td><!--验收意见-->
+                            <td></td><!--系统评分-->
+                            <td>{{info.creditLevel}}</td><!--考核等级-->
                         </tr>
                         </tbody>
                     </table>
@@ -73,13 +145,13 @@
                         </div>
                         <div class="col-sm-4 text-right text-center-xs">
                             <ul class="pagination pagination-sm m-t-none m-b-none">
-                                <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                                <li><a href>1</a></li>
-                                <li><a href>2</a></li>
-                                <li><a href>3</a></li>
-                                <li><a href>4</a></li>
-                                <li><a href>5</a></li>
-                                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                                <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                                <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                                <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                             </ul>
                         </div>
                     </div>

@@ -16,10 +16,10 @@
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="输入水运或服务企业编号" ng-if="fold=='c'">
-                <input type="text" class="input-sm form-control" placeholder="输入人员姓名" ng-if="fold=='j'">
+                <input type="text" class="input-sm form-control" placeholder="输入水运或服务企业编号" ng-if="fold=='c'" ng-model="pageParam.requestData">
+                <input type="text" class="input-sm form-control" placeholder="输入人员姓名" ng-if="fold=='j'" ng-model="pageParam.requestData">
                 <span class="input-group-btn">
-                    <button class="btn btn-sm btn-default" type="button">搜索</button>
+                    <button class="btn btn-sm btn-default" type="button" ng-click="searchData()">搜索</button>
                 </span>
               </div>
             </div>
@@ -28,14 +28,27 @@
             <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold=='c'">
               <thead>
               <tr>
-                <th>序号</th>
                 <th ng-repeat="info in tableTitle[0]">{{info}}</th>
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[0]"></td>
+              <tr  ng-repeat="k in sslyzgl_qywzjl">
+                <td></td><!--序号-->
+                <td></td><!--水运或服务企业编号-->
+                <td></td><!--奖励表彰-->
+                <td></td><!--违章处罚-->
+                <td></td><!--价格欺诈-->
+                <td></td><!--客户投诉-->
+                <td></td><!--生产事故-->
+                <td></td><!--船舶违章-->
+                <td></td><!--企业名称-->
+                <td></td><!--企业地址-->
+                <td></td><!--法人代表-->
+                <td></td><!--许可证号-->
+                <td></td><!--记录登记日期-->
+                <td></td><!--记录登记账号-->
+                <td></td><!--记录登记机构-->
+                <td></td><!--记录说明-->
               </tr>
               </tbody>
             </table>
@@ -46,9 +59,15 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td>1</td>
-                <td ng-repeat="info in tableTitle[1]"></td>
+              <tr  ng-repeat="k in sslyzgl_yzglryml">
+                <td>{{k.serialNo}}</td><!--编号-->
+                <td>{{k.unitno}}</td><!--所在机构编码-->
+                <td>{{k.personname}}</td><!--人名-->
+                <td>{{k.sexkind}}</td><!--性别-->
+                <td>{{k.branchandjob}}</td><!--所在部门及职务-->
+                <td>{{k.birthyear}}</td><!--出生年份-->
+                <td>{{k.telephone}}</td><!--联系电话-->
+                <td>{{k.zfznameandno}}</td><!--执法证名称及编号-->
               </tr>
               </tbody>
             </table>
@@ -56,20 +75,18 @@
           <footer class="panel-footer">
             <div class="row">
               <div class="col-sm-4 hidden-xs">
-
               </div>
               <div class="col-sm-4 text-center">
-
               </div>
               <div class="col-sm-4 text-right text-center-xs">
                 <ul class="pagination pagination-sm m-t-none m-b-none">
-                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                  <li><a href>1</a></li>
-                  <li><a href>2</a></li>
-                  <li><a href>3</a></li>
-                  <li><a href>4</a></li>
-                  <li><a href>5</a></li>
-                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                  <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                 </ul>
               </div>
             </div>

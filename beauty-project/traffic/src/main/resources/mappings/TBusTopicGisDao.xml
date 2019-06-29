@@ -2,31 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.zhgj.TBusTopicGisDao">
     <resultMap id="TBusTopicGisInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.zhgj.TBusTopicGisDTO" >
-       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
-        <result column="PID" property="pid" jdbcType="VARCHAR" />
-        <result column="DEV_SN" property="devSn" jdbcType="VARCHAR" />
-        <result column="DEV_ID" property="devId" jdbcType="VARCHAR" />
-        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
-        <result column="COMPANY_CODE" property="companyCode" jdbcType="VARCHAR" />
         <result column="LINE_ID" property="lineId" jdbcType="VARCHAR" />
-        <result column="GPS_TIME" property="gpsTime" jdbcType="VARCHAR" />
         <result column="LON" property="lon" jdbcType="VARCHAR" />
         <result column="LAT" property="lat" jdbcType="VARCHAR" />
         <result column="SPEED" property="speed" jdbcType="DOUBLE" />
-        <result column="DISTANCE" property="distance" jdbcType="DOUBLE" />
         <result column="ANGLE" property="angle" jdbcType="DOUBLE" />
-        <result column="ALTITUDE" property="altitude" jdbcType="DOUBLE" />
         <result column="DIRECTION" property="direction" jdbcType="VARCHAR" />
         <result column="DIS_NEXT" property="disNext" jdbcType="DOUBLE" />
         <result column="TIME_NEXT" property="timeNext" jdbcType="DOUBLE" />
         <result column="NEXT_STATION_NO" property="nextStationNo" jdbcType="DOUBLE" />
         <result column="VEHICLE_STATUS" property="vehicleStatus" jdbcType="VARCHAR" />
-        <result column="SYS_FLAG" property="sysFlag" jdbcType="CHAR" />
-        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
-        <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
-        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
-        <result column="LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
-        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+        <result column="UP_FIRST_TIME" property="upFirstTime" jdbcType="VARCHAR" />
+        <result column="UP_END_TIME" property="upEndTime" jdbcType="VARCHAR" />
+        <result column="DOWN_END_TIME" property="downEndTime" jdbcType="VARCHAR" />
+        <result column="DOWN_FIRST_TIME" property="downFirstTime" jdbcType="VARCHAR" />
 
     </resultMap>
 
@@ -48,6 +37,33 @@
       FROM (SELECT ROWNUM as rn, a.* from T_BUS_TOPIC_GIS a 
       WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+    <select id="getTBusTopicGisInfo" resultMap="TBusTopicGisInfoResultMap">
+      SELECT *
+        FROM
+            (SELECT
+                TBL.DOWN_END_TIME,
+            TBL.DOWN_FIRST_TIME,
+            TBL.UP_END_TIME,
+            TBL.UP_FIRST_TIME,
+                TBTG.LON,
+                TBTG.LAT,
+                TBTG.SPEED,
+                TBTG.ANGLE,
+                TBTG.DIRECTION,
+                TBTG.DIS_NEXT,
+            TBTG.TIME_NEXT,
+                TBTG.NEXT_STATION_NO,
+                TBTG.VEHICLE_STATUS,
+                TBV.LICENSE_PLATE,
+            TBTG.LINE_ID
+            FROM CDPRJ.T_BUS_TOPIC_GIS tbtg
+            LEFT JOIN CDPRJ.T_BUS_VEHICLE tbv on TBTG.DEV_ID=TBV.ON_BOARDID
+            LEFT JOIN CDPRJ.T_BUS_LINE tbl on tbl.LINE_ID=tbtg.LINE_ID
+            WHERE (TBV.LICENSE_PLATE like CONCAT('%', CONCAT(#{info},'%')))
+            AND SUBSTR(TBTG.CREATE_TIME,1,8)='#{date}' ORDER BY TBTG.CREATE_TIME DESC)
+        WHERE ROWNUM=1
     </select>
 
 </mapper>

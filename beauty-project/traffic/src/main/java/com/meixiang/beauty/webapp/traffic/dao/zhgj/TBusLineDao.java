@@ -40,4 +40,11 @@ public interface TBusLineDao {
                                                   @Param("end") int end,
                                                   @Param("info") String info);
 
+    /**
+     * 根据线路名称查询线路信息
+     * @param info 不允许为空或空字符串
+     * @return
+     */
+    List<TBusLineDTO> getTBusLineBasiceInfo(@Param("info") String info);
+
 }

@@ -16,42 +16,63 @@
               <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'sent'">
                 <thead>
                 <tr>
-                  <th>序号</th>
                   <th ng-repeat="info in tableTitle[0]">{{info}}</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr  ng-repeat="(index,k) in [0,1,2,3,4]">
-                  <td>{{index}}</td>
-                  <td ng-repeat="info in tableTitle[0]"></td>
+                <tr  ng-repeat="info in sslyzgl_qyczry">
+                  <td>{{info.userNo}}</td><!--人员编号-->
+                  <td>{{info.enterpriseNo}}</td><!--所在企业编号-->
+                  <td>{{info.userName}}</td><!--操作者名-->
+                  <td>{{info.userPassword}}</td><!--密码-->
+                  <td>{{info.userCreatedate}}</td><!--创建时间-->
+                  <td>{{info.userStatus}}</td><!--帐号状态-->
+                  <td>{{info.userChangepswdate}}</td><!--最近修改密码时间-->
+                  <td>{{info.userMobile}}</td><!--联系电话-->
+                  <td></td><!--操作权限-->
+                  <td>{{info.userVerifycode}}</td><!--申请口令校验码-->
+                  <td>{{info.unregisterDate}}</td><!--注销日期-->
                 </tr>
                 </tbody>
               </table>
               <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'b'">
                 <thead>
                 <tr>
-                  <th>序号</th>
                   <th ng-repeat="info in tableTitle[1]">{{info}}</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr  ng-repeat="(index,k) in [0,1,2,3,4]">
-                  <td>{{index}}</td>
-                  <td ng-repeat="info in tableTitle[1]"></td>
+                <tr  ng-repeat="info in sslyzgl_xzgljg">
+                  <td>{{info.unitNo}}</td><!--机构编码-->
+                  <td>{{info.unitName}}</td><!--机构全称-->
+                  <td>{{info.unitXzqhname}}</td><!--机构所在行政区划名称-->
+                  <td>{{info.unitBranchmanage}}</td><!--机构负责人姓名-->
+                  <td>{{info.unitManager}}</td><!--部门负责人-->
+                  <td>{{info.unitReporter}}</td><!--填报人姓名-->
+                  <td></td><!--联系电话-->
                 </tr>
                 </tbody>
               </table>
               <table class="table table-bordered b-t b-light" style="white-space: nowrap" ng-if="fold == 'c'">
                 <thead>
                 <tr>
-                  <th>序号</th>
                   <th ng-repeat="info in tableTitle[2]">{{info}}</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr  ng-repeat="(index,k) in [0,1,2,3,4]">
-                  <td>{{index}}</td>
-                  <td ng-repeat="info in tableTitle[2]"></td>
+                <tr  ng-repeat="(index,info) in sslyzgl_xzglry">
+                  <td>{{info.userNo}}</td><!--人员编码-->
+                  <td>{{info.unitNo}}</td><!--用户所在机构编码-->
+                  <td>{{info.userName}}</td><!--操作者名-->
+                  <td></td><!--操作口令-->
+                  <td>{{info.userCreatedate}}</td><!--创建时间-->
+                  <td>{{info.userStatus}}</td><!--帐号状态-->
+                  <td>{{info.userChangepswdate}}</td><!--最近修改密码时间-->
+
+                  <td></td><!--联系电话-->
+                  <td></td><!--操作权限-->
+                  <td></td><!--申请口令校验码的MD5-->
+                  <td>{{info.unregisterDate}}</td><!--注销日期-->
                 </tr>
                 </tbody>
               </table>
@@ -59,20 +80,18 @@
             <footer class="panel-footer">
               <div class="row">
                 <div class="col-sm-4 hidden-xs">
-
                 </div>
                 <div class="col-sm-4 text-center">
-
                 </div>
                 <div class="col-sm-4 text-right text-center-xs">
                   <ul class="pagination pagination-sm m-t-none m-b-none">
-                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                    <li><a href>1</a></li>
-                    <li><a href>2</a></li>
-                    <li><a href>3</a></li>
-                    <li><a href>4</a></li>
-                    <li><a href>5</a></li>
-                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                    <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                    <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                    <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                    <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                    <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                    <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                    <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                   </ul>
                 </div>
               </div>

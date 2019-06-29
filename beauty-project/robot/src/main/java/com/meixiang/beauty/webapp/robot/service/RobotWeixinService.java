@@ -190,4 +190,5 @@ public class RobotWeixinService {
             e.printStackTrace();
         }
     }
+
 }

@@ -343,6 +343,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qywzjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> qywzjl(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> qywzjlList = new ArrayList<>();
@@ -361,6 +362,7 @@ public class SslyzglController {
         paramDTO.setResponseData(qywzjlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -369,6 +371,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "yycbxx", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> yycbxx(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> yycbxxList = new ArrayList<>();
@@ -387,6 +390,7 @@ public class SslyzglController {
         paramDTO.setResponseData(yycbxxList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -395,6 +399,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "cblxdm", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> cblxdm(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> cblxdmList = new ArrayList<>();
@@ -414,6 +419,7 @@ public class SslyzglController {
         paramDTO.setResponseData(cblxdmList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -422,6 +428,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "ndsycbjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> ndsycbjl(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> ndsycbjlList = new ArrayList<>();
@@ -440,6 +447,7 @@ public class SslyzglController {
         paramDTO.setResponseData(ndsycbjlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -448,6 +456,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "bgcbjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> bgcbjl(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> bgcbjlList = new ArrayList<>();
@@ -466,6 +475,7 @@ public class SslyzglController {
         paramDTO.setResponseData(bgcbjlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -474,6 +484,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "cbwzjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> cbwzjl(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> cbwzjlList = new ArrayList<>();
@@ -492,6 +503,7 @@ public class SslyzglController {
         paramDTO.setResponseData(cbwzjlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -500,6 +512,7 @@ public class SslyzglController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "yhycbnsbsj", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> yhycbnsbsj(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String,Object>> yhycbnsbsjList = new ArrayList<>();
@@ -511,6 +524,7 @@ public class SslyzglController {
 
         paramDTO.setTotalCount(10);//todo 总条数需要在业务层接口统计后返回
         paramDTO.setResponseData(yhycbnsbsjList);
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -537,11 +551,12 @@ public class SslyzglController {
         paramDTO.setResponseData(yscbmlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
 
-    //todo 运输管理人员名录
+    //todo 运政管理人员名录
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "yzglryml", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -563,6 +578,7 @@ public class SslyzglController {
         paramDTO.setResponseData(yzglrymlList);
         paramDTO.setPageSize(pageParamDTO.getPageSize());
         paramDTO.setPageNo(pageParamDTO.getPageNo());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }

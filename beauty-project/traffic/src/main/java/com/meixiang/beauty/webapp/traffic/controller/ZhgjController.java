@@ -50,6 +50,7 @@ public class ZhgjController {
         ResponseDTO<List<Map<String,Object>>> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 fhxjcglkrsqkList
+        jcxxList = tBusLineService.getTBusLineBasiceInfo(searchParam);
 
         responseDTO.setResponseData(jcxxList);
         return  responseDTO;
@@ -64,8 +65,47 @@ public class ZhgjController {
         ResponseDTO<List<Map<String,Object>>> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 fhxjcglkrsqkList
+        yyztxxList = tBusLineStationRefService.getTBusLineStationBasicInfo(searchParam);
 
         responseDTO.setResponseData(yyztxxList);
+        return  responseDTO;
+    }
+
+    //todo 公交车线路信息
+    @RequestMapping(value = "gjcxluxx", method = {RequestMethod.POST, RequestMethod.GET})
+    public
+    @ResponseBody
+    ResponseDTO<List<Map<String,Object>>> gjcxluxx(@RequestParam String searchParam,
+                                                   @RequestParam Boolean isLineName
+    ){
+        List<Map<String,Object>> gjcxluxx = new ArrayList<>();
+        ResponseDTO<List<Map<String,Object>>> responseDTO = new ResponseDTO<>();
+
+        //todo 通过业务层获取 fhxjcglkrsqkList
+        if (isLineName) {
+            gjcxluxx = tBusLineStationRefService
+                    .getTBusLineStationPositionInfoByLineName(searchParam);
+        } else {
+            gjcxluxx = tBusLineStationRefService
+                    .getTBusLineStationPositionInfoByLicensePlate(searchParam);
+        }
+
+        responseDTO.setResponseData(gjcxluxx);
+        return  responseDTO;
+    }
+
+    //todo 车辆位置信息
+    @RequestMapping(value = "gjcxwzxx", method = {RequestMethod.POST, RequestMethod.GET})
+    public
+    @ResponseBody
+    ResponseDTO<List<Map<String,Object>>> gjcxwzxx(@RequestParam String searchParam){
+        List<Map<String,Object>> gjcxwzxx = new ArrayList<>();
+        ResponseDTO<List<Map<String,Object>>> responseDTO = new ResponseDTO<>();
+
+        //todo 通过业务层获取 fhxjcglkrsqkList
+        gjcxwzxx = tBusTopicGisService.getTBusTopicGisInfo(searchParam);
+
+        responseDTO.setResponseData(gjcxwzxx);
         return  responseDTO;
     }
 

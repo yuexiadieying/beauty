@@ -20,13 +20,13 @@ public class TBusLineService {
     @Autowired
     private TBusLineDao tBusLineDao;
 
-    public List<Map<String, Object>> getTBusLineByPageable(Integer start, Integer end, String... params) {
+    public List<Map<String, Object>> getTBusLineBasiceInfo(String... params) {
         List<Map<String, Object>> res = Lists.newArrayList();
         List<TBusLineDTO> tBusLineDTOs = Lists.newArrayList();
-        if (params.length <= 0) {
-            tBusLineDTOs = tBusLineDao.getTBusLineByPageable(start, end);
+        if (params.length <= 0 || params[0] == null || "".equalsIgnoreCase(params[0])) {
+
         } else {
-            tBusLineDTOs = tBusLineDao.getTBusLineByParamsPageable(start, end, params[0]);
+            tBusLineDTOs = tBusLineDao.getTBusLineBasiceInfo(params[0]);
         }
         if (!CollectionUtils.isEmpty(tBusLineDTOs)) {
             for (TBusLineDTO tBusLineDTO : tBusLineDTOs) {

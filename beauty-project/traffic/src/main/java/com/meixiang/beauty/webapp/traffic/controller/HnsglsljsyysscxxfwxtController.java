@@ -1,7 +1,9 @@
 package com.meixiang.beauty.webapp.traffic.controller;
 
+import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
+import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.service.hnsglsljsyysscxxfwxt.TScxyTfBsAccidentService;
 import com.meixiang.beauty.webapp.traffic.service.hnsglsljsyysscxxfwxt.TScxyTfBsAdvancedDeedService;
 import com.meixiang.beauty.webapp.traffic.service.hnsglsljsyysscxxfwxt.TScxyTfBsAppealReportService;
@@ -106,6 +108,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jtzrsgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> jtzrsgb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -114,12 +117,13 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsAccidentService
+        paramDTO.setResponseData(tScxyTfBsAccidentService
                 .getTScxyTfBsAccidentByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
 
         paramDTO.setTotalCount(tScxyTfBsAccidentService.getTScxyTfBsAccidentCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -128,6 +132,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "clxykhb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> clxykhb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -136,11 +141,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsBusCreditRecordService
+        paramDTO.setResponseData(tScxyTfBsBusCreditRecordService
                 .getTScxyTfBsBusCreditRecordByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsBusCreditRecordService.getTScxyTfBsBusCreditRecordCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -149,6 +155,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "clzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> clzlzgb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -157,11 +164,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsBusReformRecordService
+        paramDTO.setResponseData(tScxyTfBsBusReformRecordService
                 .getTScxyTfBsBusReformRecordByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize()));
         paramDTO.setTotalCount(tScxyTfBsBusReformRecordService.getTScxyTfBsBusReformRecordCount());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -170,6 +178,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "shtsb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> shtsb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -178,11 +187,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsComplaintService
+        paramDTO.setResponseData(tScxyTfBsComplaintService
                 .getTScxyTfBsComplaintByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsComplaintService.getTScxyTfBsComplaintCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -191,6 +201,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "yhkhsbb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> yhkhsbb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -199,11 +210,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsCreditReportService
+        paramDTO.setResponseData(tScxyTfBsCreditReportService
                 .getTScxyTfBsCreditReportByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsCreditReportService.getTScxyTfBsCreditReportCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -212,6 +224,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "cyrykhqzb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> cyrykhqzb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -220,11 +233,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsDriverCreditService
+        paramDTO.setResponseData(tScxyTfBsDriverCreditService
                 .getTScxyTfBsDriverCreditByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsDriverCreditService.getTScxyTfBsDriverCreditCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -233,6 +247,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "wgsfb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> wgsfb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -241,11 +256,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsEntStabilityService
+        paramDTO.setResponseData(tScxyTfBsEntStabilityService
                 .getTScxyTfBsEntStabilityByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsEntStabilityService.getTScxyTfBsEntStabilityCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -254,6 +270,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "sbdab", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> sbdab(@RequestBody PageParamDTO pageParamDTO){
 
@@ -262,11 +279,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsEquipmentService
+        paramDTO.setResponseData(tScxyTfBsEquipmentService
                 .getTScxyTfBsEquipmentByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -275,6 +293,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "dzqzsbnrb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> dzqzsbnrb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -283,11 +302,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsEsignCntRptService
+        paramDTO.setResponseData(tScxyTfBsEsignCntRptService
                 .getTScxyTfBsEsignCntRptByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsEsignCntRptService.getTScxyTfBsEsignCntRptCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -296,6 +316,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "ssdab", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> ssdab(@RequestBody PageParamDTO pageParamDTO){
 
@@ -304,11 +325,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsFacilityService
+        paramDTO.setResponseData(tScxyTfBsFacilityService
                 .getTScxyTfBsFacilityByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsEquipmentService.getTScxyTfBsEquipmentCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -317,6 +339,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "zfysrwb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> zfysrwb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -325,11 +348,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsGovTransTaskService
+        paramDTO.setResponseData(tScxyTfBsGovTransTaskService
                 .getTScxyTfBsGovTransTaskByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsGovTransTaskService.getTScxyTfBsGovTransTaskCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -338,6 +362,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jywzb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> jywzb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -346,11 +371,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsIllegalService
+        paramDTO.setResponseData(tScxyTfBsIllegalService
                 .getTScxyTfBsIllegalByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsIllegalService.getTScxyTfBsIllegalCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -359,6 +385,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "qyryb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> qyryb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -367,11 +394,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerHonorService
+        paramDTO.setResponseData(tScxyTfBsOwnerHonorService
                 .getTScxyTfBsOwnerHonorByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsOwnerHonorService.getTScxyTfBsOwnerHonorCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -380,6 +408,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "yhzlzgb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> yhzlzgb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -388,11 +417,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerReformService
+        paramDTO.setResponseData(tScxyTfBsOwnerReformService
                 .getTScxyTfBsOwnerReformByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsOwnerReformService.getTScxyTfBsOwnerReformCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -401,6 +431,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "zgnrb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> zgnrb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -409,11 +440,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerRfrmCntService
+        paramDTO.setResponseData(tScxyTfBsOwnerRfrmCntService
                 .getTScxyTfBsOwnerRfrmCntByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsOwnerRfrmCntService.getTScxyTfBsOwnerRfrmCntCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -422,6 +454,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "gzzdb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> gzzdb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -430,11 +463,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsOwnerRuleService
+        paramDTO.setResponseData(tScxyTfBsOwnerRuleService
                 .getTScxyTfBsOwnerRuleByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsOwnerRuleService.getTScxyTfBsOwnerRuleCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -443,6 +477,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "exfwsjb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> exfwsjb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -451,11 +486,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsQualityEventService
+        paramDTO.setResponseData(tScxyTfBsQualityEventService
                 .getTScxyTfBsQualityEventByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsQualityEventService.getTScxyTfBsQualityEventCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -464,6 +500,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "jxjyjl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> jxjyjl(@RequestBody PageParamDTO pageParamDTO){
 
@@ -477,6 +514,7 @@ public class HnsglsljsyysscxxfwxtController {
                 pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
 
         paramDTO.setTotalCount(tScxyTfBsRestudyrecordService.getTScxyTfBsRestudyrecordCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -485,6 +523,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "ygxxb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> ygxxb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -493,11 +532,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfPtPersonService
+        paramDTO.setResponseData(tScxyTfPtPersonService
                 .getTScxyTfPtPersonByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfPtPersonService.getTScxyTfPtPersonCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -506,6 +546,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "xjsjb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> xjsjb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -514,11 +555,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsAdvancedDeedService
+        paramDTO.setResponseData(tScxyTfBsAdvancedDeedService
                 .getTScxyTfBsAdvancedDeedByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsAdvancedDeedService.getTScxyTfBsAdvancedDeedCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -527,6 +569,7 @@ public class HnsglsljsyysscxxfwxtController {
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "sszb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String,Object>>>> sszb(@RequestBody PageParamDTO pageParamDTO){
 
@@ -535,11 +578,12 @@ public class HnsglsljsyysscxxfwxtController {
 
         String param = Objects.isNull(pageParamDTO.getRequestData()) ? "" : String.valueOf(pageParamDTO.getRequestData());
         //todo 通过业务层获取 paramDTO
-        paramDTO.setRequestData(tScxyTfBsAppealReportService
+        paramDTO.setResponseData(tScxyTfBsAppealReportService
                 .getTScxyTfBsAppealReportByPageable(
                         pageParamDTO.getPageStartNo(),
                         pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize(),param));
         paramDTO.setTotalCount(tScxyTfBsAppealReportService.getTScxyTfBsAppealReportCount(param));
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }

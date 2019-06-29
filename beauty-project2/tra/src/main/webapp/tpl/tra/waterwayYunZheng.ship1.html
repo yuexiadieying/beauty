@@ -15,8 +15,8 @@
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="输入船舶记录号" ng-if="fold=='z'||fold=='f'">
-                <input type="text" class="input-sm form-control" placeholder="输入船舶编码" ng-if="fold=='g'||fold=='h'">
+                <input type="text" class="input-sm form-control" placeholder="输入船舶记录号" ng-if="fold=='z'||fold=='f'" ng-model="pageParam.requestData">
+                <input type="text" class="input-sm form-control" placeholder="输入船舶编码" ng-if="fold=='g'||fold=='h'" ng-model="pageParam.requestData">
                 <span class="input-group-btn">
                     <button class="btn btn-sm btn-default" type="button">搜索</button>
                 </span>
@@ -31,8 +31,27 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[0]"></td>
+              <tr  ng-repeat="k in sslyzgl_ndsycbjl">
+                <td>{{k.serialNo}}</td><!--编号-->
+                <td>{{k.shipcheckno}}</td><!--船舶记录号-->
+                <td>{{k.shipno}}</td><!--船检登记号-->
+                <td>{{k.shipname}}</td><!--船名-->
+                <td>{{k.kindno}}</td><!--船舶类型-->
+                <td>{{k.enterprisename}}</td><!--经营者名-->
+                <td>{{k.unitno}}</td><!--管辖机构-->
+                <td>{{k.voyagearea}}</td><!--航区-->
+                <td>{{k.totalton}}</td><!--船舶总吨-->
+                <td>{{k.totalcarry}}</td><!--船舶总载重吨-->
+                <td>{{k.ton}}</td><!--船舶净载重吨-->
+                <td>{{k.teu}}</td><!--箱位数-->
+                <td>{{k.seat}}</td><!--载客量-->
+                <td>{{k.power}}</td><!--功率-->
+                <td>{{k.yearcheckresult}}</td><!--年审结论-->
+                <td>{{k.yearcheckno}}</td><!--年审合格证号-->
+                <td>{{k.nshgzdate|date:'yyyy-MM-dd'}}</td><!--年度审验日期-->
+                <td>{{k.nshgzenddate|date:'yyyy-MM-dd'}}</td><!--年审合格证有效期限-->
+                <td>{{k.nshgzprintdate|date:'yyyy-MM-dd'}}</td><!--年审合格证打印日期-->
+                <td>{{k.nshgznote}}</td><!--备注-->
               </tr>
               </tbody>
             </table>
@@ -43,8 +62,25 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[1]"></td>
+              <tr  ng-repeat="k in sslyzgl_bgcbjl">
+                <td>{{k.serialNo}}</td><!--编号-->
+                <td>{{k.shipno}}</td><!--船舶记录号-->
+                <td>{{k.shipcheckno}}</td><!--船检登记号-->
+                <td>{{k.shipname}}</td><!--船舶名称-->
+                <td>{{k.kindno}}</td><!--船舶类型-->
+                <td>{{k.portname}}</td><!--船籍港-->
+                <td>{{k.totalton}}</td><!--总吨-->
+                <td>{{k.yyzno}}</td><!--营运证号-->
+                <td>{{k.yyzrunkind}}</td><!--营运证经营范围-->
+                <td>{{k.createdate}}</td><!--营运证最近发证日期-->
+                <td>{{k.enterprisename}}</td><!--船舶经营者-->
+                <td>{{k.ownername}}</td><!--船舶所有人-->
+                <td>{{k.unitno}}</td><!--管理机构-->
+                <td>{{k.changedate}}</td><!--变更日期-->
+                <td>{{k.changekind}}</td><!--变更类别-->
+                <td>{{k.changeno}}</td><!--注销证号-->
+                <td>{{k.zxdjzprintdate}}</td><!--注销登记证打印日期-->
+                <td>{{k.changenote}}</td><!--简要说明-->
               </tr>
               </tbody>
             </table>
@@ -55,8 +91,21 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[2]"></td>
+              <tr  ng-repeat="k in sslyzgl_cbwzjl">
+                <td></td><!--编号-->
+                <td></td><!--船舶编号-->
+                <td></td><!--船名-->
+                <td></td><!--船检登记号-->
+                <td></td><!--超载载客-->
+                <td></td><!--船舶违章-->
+                <td></td><!--经营者名称-->
+                <td></td><!--船舶所有人-->
+                <td></td><!--许可证号-->
+                <td></td><!--营运证号-->
+                <td></td><!--记录登记日期-->
+                <td></td><!--记录登记账号-->
+                <td></td><!--记录登记机构-->
+                <td></td><!--记录说明-->
               </tr>
               </tbody>
             </table>
@@ -67,8 +116,12 @@
               </tr>
               </thead>
               <tbody>
-              <tr  ng-repeat="k in [0,1,2,3,4]">
-                <td ng-repeat="info in tableTitle[3]"></td>
+              <tr  ng-repeat="k in sslyzgl_yhycbnsbsj">
+                <td></td><!--报表编号-->
+                <td></td><!--审核年度-->
+                <td></td><!--报表汇总机构-->
+                <td></td><!--报表行号-->
+                <td></td><!--列值-->
               </tr>
               </tbody>
             </table>
@@ -76,20 +129,18 @@
           <footer class="panel-footer">
             <div class="row">
               <div class="col-sm-4 hidden-xs">
-
               </div>
               <div class="col-sm-4 text-center">
-
               </div>
               <div class="col-sm-4 text-right text-center-xs">
                 <ul class="pagination pagination-sm m-t-none m-b-none">
-                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                  <li><a href>1</a></li>
-                  <li><a href>2</a></li>
-                  <li><a href>3</a></li>
-                  <li><a href>4</a></li>
-                  <li><a href>5</a></li>
-                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  <li><a ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo)"><a href>{{pageParam.pageNo}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+1)"><a href>{{pageParam.pageNo+1}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+2)"><a href>{{pageParam.pageNo+2}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+3)"><a href>{{pageParam.pageNo+3}}</a></li>
+                  <li ng-click="pageIndex(pageParam.pageNo+4)"><a href>{{pageParam.pageNo+4}}</a></li>
+                  <li><a ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a></li>
                 </ul>
               </div>
             </div>

@@ -2,24 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.zhgj.TBusLineStationRefDao">
     <resultMap id="TBusLineStationRefInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.zhgj.TBusLineStationRefDTO" >
-       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="LINE_NAME" property="lineName" jdbcType="VARCHAR" />
         <result column="SEQUENCE" property="sequence" jdbcType="DOUBLE" />
         <result column="STATION_NAME" property="stationName" jdbcType="VARCHAR" />
-        <result column="STATION_CODE" property="stationCode" jdbcType="DOUBLE" />
-        <result column="STATION_ID" property="stationId" jdbcType="VARCHAR" />
-        <result column="DISPLAY_NAME" property="displayName" jdbcType="VARCHAR" />
-        <result column="GPRS_ID" property="gprsId" jdbcType="DOUBLE" />
-        <result column="ID" property="id" jdbcType="VARCHAR" />
-        <result column="PID" property="pid" jdbcType="VARCHAR" />
         <result column="DIRECTION" property="direction" jdbcType="VARCHAR" />
-        <result column="TO_NEXT_TIME" property="toNextTime" jdbcType="DOUBLE" />
-        <result column="BY_START_DISTANCE" property="byStartDistance" jdbcType="DOUBLE" />
-        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
-        <result column="LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
-        <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
-        <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
-        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
-        <result column="SYS_FLAG" property="sysFlag" jdbcType="CHAR" />
         <result column="EXIT_LATITUDE" property="exitLatitude" jdbcType="VARCHAR" />
         <result column="EXIT_LONGITUDE" property="exitLongitude" jdbcType="VARCHAR" />
 
@@ -45,4 +31,40 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <select id="getTBusLineStationBasicInfo" resultMap="TBusLineStationRefInfoResultMap">
+      SELECT
+        MAX(TBL.LINE_NAME) AS LINE_NAME,
+        (case WHEN MAX(TBLSR.STATION_NAME) IS NULL THEN ''
+            ELSE listagg(TBLSR.STATION_NAME,',') within group(order by TBLSR.STATION_NAME) END) AS STATION_NAME
+      FROM CDPRJ.T_BUS_LINE tbl
+      LEFT JOIN CDPRJ.T_BUS_LINE_STATION_REF tblsr on TBLSR.GPRS_ID=TBL.GPRS_ID
+      WHERE (tbl.LINE_NAME like CONCAT('%', CONCAT(#{info},'%'))) GROUP BY TBL.LINE_ID, TBL.LINE_NAME
+    </select>
+
+    <select id="getTBusLineStationPositionInfoByLineName" resultMap="TBusLineStationRefInfoResultMap">
+      SELECT
+        LINE_NAME,
+        TBLSR.SEQUENCE,
+        TBLSR.STATION_NAME,
+        TBLSR.DIRECTION,
+        TBLSR.EXIT_LATITUDE,
+        TBLSR.EXIT_LONGITUDE
+      FROM CDPRJ.T_BUS_LINE tbl
+      LEFT JOIN CDPRJ.T_BUS_LINE_STATION_REF tblsr on TBLSR.GPRS_ID=TBL.GPRS_ID
+      WHERE (tbl.LINE_NAME like CONCAT('%', CONCAT(#{info},'%'))) ORDER BY SEQUENCE
+    </select>
+
+    <select id="getTBusLineStationPositionInfoByLicensePlate" resultMap="TBusLineStationRefInfoResultMap">
+      SELECT
+        LINE_NAME,
+        TBLSR.SEQUENCE,
+        TBLSR.STATION_NAME,
+        TBLSR.DIRECTION,
+        TBLSR.EXIT_LATITUDE,
+        TBLSR.EXIT_LONGITUDE
+      FROM CDPRJ.T_BUS_LINE tbl
+      LEFT JOIN CDPRJ.T_BUS_LINE_STATION_REF tblsr on TBLSR.GPRS_ID=TBL.GPRS_ID
+      LEFT JOIN CDPRJ.T_BUS_VEHICLE tbv on TBL.LINE_ID=TBV.ROUTE_ID
+      WHERE (tbl.LICENSE_PLATE like CONCAT('%', CONCAT(#{info},'%'))) ORDER BY SEQUENCE
+    </select>
 </mapper>

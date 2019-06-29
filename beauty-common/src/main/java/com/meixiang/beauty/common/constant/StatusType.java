@@ -18,4 +18,5 @@ public enum StatusType {
     public String getValue() {
         return this.value;
     }
+
 }

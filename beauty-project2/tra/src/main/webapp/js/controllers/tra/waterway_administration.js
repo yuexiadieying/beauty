@@ -22,15 +22,4 @@ app
               }
             });
 
-        $scope.itemInSlyzglHomeData = function(data){
-           var result = false;
-           angular.forEach($scope.sslyzglHomeData,function (val,index) {
-                if(val.name==data)
-                {
-                  result = true;
-                }
-           })
-          return result;
-        }
-
   }]);

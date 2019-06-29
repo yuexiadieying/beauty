@@ -1,5 +1,6 @@
 package com.meixiang.beauty.webapp.traffic.controller;
 
+import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
@@ -73,6 +74,7 @@ public class HnsgkqyymtdwttlbbController {
 
         ttlbbDTOList = homePageService.getHomePageInfo();
 
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(ttlbbDTOList);
         return  responseDTO;
     }
@@ -88,6 +90,7 @@ public class HnsgkqyymtdwttlbbController {
 
         //todo 通过业务层获取 qsbwbtjsjDTO
 
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(tGkmtBerthsService.getgetQsbwbtjsjDTO());
         return  responseDTO;
     }
@@ -102,14 +105,15 @@ public class HnsgkqyymtdwttlbbController {
     public
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getQsbwzkDTO(@RequestParam String gkqy,
-                                              @RequestParam String mtdw,
-                                              @RequestParam String startDate,
-                                              @RequestParam String endDate){
+                                                        @RequestParam String mtdw,
+                                                        @RequestParam String startDate,
+                                                        @RequestParam String endDate){
         List<Map<String, Object>> qsbwzkDTOList = new ArrayList<>();
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
         qsbwzkDTOList = tGkmtBerthsService.getTGkmtBerthsByPageable(0, 10000, gkqy, mtdw, startDate, endDate);
 
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(qsbwzkDTOList);
         return  responseDTO;
     }
@@ -118,6 +122,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "gkqyml", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getGkqymlDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> gkqymlDTOList = new ArrayList<>();
@@ -132,6 +137,7 @@ public class HnsgkqyymtdwttlbbController {
         paramDTO.setResponseData(gkqymlDTOList);
         paramDTO.setPageNo(pageParamDTO.getPageNo());
         paramDTO.setPageSize(pageParamDTO.getPageSize());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -140,6 +146,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qyczry", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getQyczryDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> qyczryDTOS = new ArrayList<>();
@@ -154,6 +161,7 @@ public class HnsgkqyymtdwttlbbController {
         responseDTO.setResponseData(paramDTO);
         paramDTO.setPageNo(pageParamDTO.getPageNo());
         paramDTO.setPageSize(pageParamDTO.getPageSize());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         paramDTO.setResponseData(qyczryDTOS);
         return  responseDTO;
     }
@@ -162,6 +170,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgqdbm", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getQsgqdbmDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> qsgqdbmDTOS = new ArrayList<>();
@@ -175,6 +184,7 @@ public class HnsgkqyymtdwttlbbController {
         responseDTO.setResponseData(paramDTO);
         paramDTO.setPageNo(pageParamDTO.getPageNo());
         paramDTO.setPageSize(pageParamDTO.getPageSize());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         paramDTO.setResponseData(qsgqdbmDTOS);
         return  responseDTO;
     }
@@ -183,6 +193,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "qsgkb", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getQsgkbDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> qsgqdbmDTOS = new ArrayList<>();
@@ -194,6 +205,7 @@ public class HnsgkqyymtdwttlbbController {
                 pageParamDTO.getPageStartNo() + pageParamDTO.getPageSize());
         paramDTO.setTotalCount(tGkmtPortsService.getTGkmtPortsCount());
         paramDTO.setResponseData(qsgqdbmDTOS);
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -205,16 +217,18 @@ public class HnsgkqyymtdwttlbbController {
     //todo endDate 结束日期 2019-05-23
     @RequestMapping(value = "gkkbttl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getGkkbttlDTO(@RequestParam String gkqy,
-                                              @RequestParam String mtdw,
-                                              @RequestParam String startDate,
-                                              @RequestParam String endDate){
+                                                          @RequestParam String mtdw,
+                                                          @RequestParam String startDate,
+                                                          @RequestParam String endDate){
         List<Map<String, Object>> gkkbttlDTOList = new ArrayList<>();
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
         gkkbttlDTOList = tGkmtQuickreportdataService.getTGkmtQuickreportdataByPageable(0, 10000, gkqy, mtdw, startDate, endDate);
 
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(gkkbttlDTOList);
         return  responseDTO;
     }
@@ -227,15 +241,17 @@ public class HnsgkqyymtdwttlbbController {
     //todo endDate 结束日期 2019-05-23
     @RequestMapping(value = "gkttl", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<List<Map<String, Object>>> getGkttlDTO(@RequestParam String bwbh,
-                                                @RequestParam String mtdw,
-                                                @RequestParam String startDate,
-                                                @RequestParam String endDate){
+                                                       @RequestParam String mtdw,
+                                                       @RequestParam String startDate,
+                                                       @RequestParam String endDate){
         List<Map<String, Object>> gkttlDTOList = new ArrayList<>();
         ResponseDTO<List<Map<String, Object>>> responseDTO = new ResponseDTO<>();
 
         gkttlDTOList = tGkmtReportdataService.getTGkmtReportdataByPageable(0, 10000, bwbh, mtdw, startDate, endDate);
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(gkttlDTOList);
         return  responseDTO;
     }
@@ -244,6 +260,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzgljg", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getXzgljgDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> xzgljgDTOList = new ArrayList<>();
@@ -258,6 +275,7 @@ public class HnsgkqyymtdwttlbbController {
         paramDTO.setResponseData(xzgljgDTOList);
         paramDTO.setPageNo(pageParamDTO.getPageNo());
         paramDTO.setPageSize(pageParamDTO.getPageSize());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
@@ -266,6 +284,7 @@ public class HnsgkqyymtdwttlbbController {
     //todo pageParamDTO内含分页参数
     @RequestMapping(value = "xzglry", method = {RequestMethod.POST, RequestMethod.GET})
     public
+    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<PageParamDTO<List<Map<String, Object>>>> getXzglryDTO(@RequestBody PageParamDTO pageParamDTO){
         List<Map<String, Object>> xzglryDTOList = new ArrayList<>();
@@ -279,10 +298,10 @@ public class HnsgkqyymtdwttlbbController {
         paramDTO.setResponseData(xzglryDTOList);
 
         paramDTO.setTotalCount(tGkmtUnitusersService.getTGkmtUnitusersCount());
+        responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(paramDTO);
         return  responseDTO;
     }
-
 
 }
 
