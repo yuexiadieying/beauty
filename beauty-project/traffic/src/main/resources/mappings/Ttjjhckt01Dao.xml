@@ -60,6 +60,7 @@
             sum(CK0120011) as CK0120011
         FROM CDPRJ.T_TJJH_CKT_01
         where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+        GROUP BY "SUBSTR"(DATATIME,1,4)
     </select>
 
 
