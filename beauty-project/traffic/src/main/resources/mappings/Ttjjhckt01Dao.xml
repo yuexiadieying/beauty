@@ -60,4 +60,41 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--城市（县城）客运交通管理信息-->
+    <select id="getPassengerTrafficManagerInfo" resultMap="Ttjjhckt01InfoResultMap">
+        select * from (
+        select ROWNUM as rn, a.* from (select a.* from (
+        SELECT
+        "SUBSTR"(DATATIME,1,4) as year,
+        CK0110021,
+        sum(CK0120011) as CK0120011
+        FROM CDPRJ.T_TJJH_CKT_01
+        where "SUBSTR"(DATATIME,1,4) BETWEEN '#{start}' AND '#{end}'
+        GROUP BY CK0110021,"SUBSTR"(DATATIME,1,4)) a where CK0120011 IS NOT NULL AND CK0110021 IS NOT NULL
+        ORDER BY year DESC, CK0120011 DESC) a) where rn > 0 AND rn &lt;= 10
+    </select>
+
+    <select id="getPassengerTrafficManagerInfoIn" resultMap="Ttjjhckt01InfoResultMap">
+        SELECT
+            "SUBSTR"(DATATIME,1,4) as year,
+            CK0110021,
+            sum(CK0120011) as CK0120011
+        FROM CDPRJ.T_TJJH_CKT_01
+        where "SUBSTR"(DATATIME,1,4) BETWEEN '#{start}' AND '#{end}'
+        AND CK0110021 IN
+        <foreach item="item" index="index" collection="cks" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        GROUP BY CK0110021,"SUBSTR"(DATATIME,1,4)
+    </select>
+
+    <select id="getPassengerTrafficManagerSumInfo" resultMap="Ttjjhckt01InfoResultMap">
+        SELECT
+            "SUBSTR"(DATATIME,1,4) as year,
+            sum(CK0120011) as CK0120011
+        FROM CDPRJ.T_TJJH_CKT_01
+        where "SUBSTR"(DATATIME,1,4) BETWEEN '#{start}' AND '#{end}'
+    </select>
+
+
 </mapper>

@@ -39,4 +39,28 @@ public interface Ttjjhckt01Dao {
                                                       @Param("end") int end,
                                                       @Param("info") String info);
 
+    /**
+     * 城市（县城）客运交通管理信息
+     * @param start
+     * @param end
+     */
+    List<Ttjjhckt01DTO> getPassengerTrafficManagerInfo(@Param("start") String start,
+                                                       @Param("end") String end);
+
+    /**
+     * 城市（县城）客运某些交通管理信息
+     * @param start
+     * @param end
+     */
+    List<Ttjjhckt01DTO> getPassengerTrafficManagerInfoIn(@Param("cks") List<String> cks,
+                                                         @Param("start") String start,
+                                                         @Param("end") String end);
+
+    /**
+     * 城市（县城）客运交通管理总计
+     * @param start
+     * @param end
+     */
+    List<Ttjjhckt01DTO> getPassengerTrafficManagerSumInfo(@Param("start") String start,
+                                                         @Param("end") String end);
 }
