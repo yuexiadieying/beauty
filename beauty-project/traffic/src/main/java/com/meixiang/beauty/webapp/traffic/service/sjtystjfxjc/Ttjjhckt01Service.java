@@ -5,6 +5,7 @@ import com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhckt01Dao;
 import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.CskyjtglDataDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhckt01DTO;
 import com.meixiang.beauty.webapp.traffic.utils.ClassUtil;
+import com.meixiang.beauty.webapp.traffic.utils.NumUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -76,7 +77,7 @@ public class Ttjjhckt01Service {
             CskyjtglDataDTO cskyjtglDataDTO = new CskyjtglDataDTO();
             cskyjtglDataDTO.setName(ttjjhckt01DTO.getCk0110021());
             cskyjtglDataDTO.setGlxx(ttjjhckt01DTO.getCk0110021());
-            cskyjtglDataDTO.setZb(sum == 0.0 ? "0" : String.valueOf(ttjjhckt01DTO.getCk0120011()/sum));
+            cskyjtglDataDTO.setZb(sum == 0.0 ? "0" : String.valueOf(NumUtil.format2W(ttjjhckt01DTO.getCk0120011() * 100/sum)) + "%");
             if (Objects.isNull(preyearDto) || Objects.isNull(preyearDto.getCk0120011())) {
                 if (Objects.isNull(ttjjhckt01DTO.getCk0120011()) || ttjjhckt01DTO.getCk0120011() == 0.0) {
                     cskyjtglDataDTO.setYhb("0%");
@@ -84,8 +85,8 @@ public class Ttjjhckt01Service {
                     cskyjtglDataDTO.setYhb("100%");
                 }
             } else {
-                cskyjtglDataDTO.setYhb(String.valueOf(
-                        (ttjjhckt01DTO.getCk0120011() - preyearDto.getCk0120011()) * 100/preyearDto.getCk0120011()) + "%");
+                cskyjtglDataDTO.setYhb(String.valueOf(NumUtil.format2W(
+                        (ttjjhckt01DTO.getCk0120011() - preyearDto.getCk0120011()) * 100/preyearDto.getCk0120011())) + "%");
             }
             cskyjtglDataDTOS.add(cskyjtglDataDTO);
         }
