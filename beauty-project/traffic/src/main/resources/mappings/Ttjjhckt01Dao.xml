@@ -37,7 +37,6 @@
         <result column="CK0110035" property="ck0110035" jdbcType="DOUBLE" />
         <result column="CK0160036" property="ck0160036" jdbcType="DOUBLE" />
         <result column="CK0110021" property="ck0110021" jdbcType="VARCHAR" />
-
     </resultMap>
 
     <!--获取总个数-->
@@ -59,5 +58,18 @@
       WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
+
+    <!--城市（县城）客运交通管理信息-->
+    <select id="getPassengerTrafficManagerInfo" resultMap="Ttjjhckt01InfoResultMap">
+        SELECT * from (select ROWNUM as rn, a.* from (
+        SELECT
+        "SUBSTR"(DATATIME,1,4) as year,
+        CK0110021 as ,
+        sum(CK0120011) as CK0120011
+        FROM CDPRJ.T_TJJH_CKT_01
+        where "SUBSTR"(DATATIME,1,4) BETWEEN '#{start}' AND '#{end}'
+        GROUP BY CK0110021,"SUBSTR"(DATATIME,1,4)) a) WHERE rn > 0 and rn &lt;= 10;
+    </select>
+
 
 </mapper>

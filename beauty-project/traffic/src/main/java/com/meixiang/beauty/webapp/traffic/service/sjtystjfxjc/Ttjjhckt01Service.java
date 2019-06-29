@@ -45,4 +45,19 @@ public class Ttjjhckt01Service {
         }
         return res;
     }
+
+    /**
+     * 城市（县城）客运交通管理信息
+     **/
+    public List<Map<String, Object>> getPassengerTrafficManagerInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhckt01DTO> ttjjhckt01DTOs = Lists.newArrayList();
+        ttjjhckt01DTOs = ttjjhckt01Dao.getPassengerTrafficManagerInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhckt01DTOs)) {
+            for (Ttjjhckt01DTO ttjjhckt01DTO : ttjjhckt01DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhckt01DTO));
+            }
+        }
+        return res;
+    }
 }

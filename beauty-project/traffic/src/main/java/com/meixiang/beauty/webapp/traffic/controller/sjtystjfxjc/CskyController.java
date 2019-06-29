@@ -3,9 +3,14 @@ package com.meixiang.beauty.webapp.traffic.controller.sjtystjfxjc;
 import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.CskyjtglDataDTO;
-import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.DlkhzczjqkDataDTO;
+import com.meixiang.beauty.webapp.traffic.service.sjtystjfxjc.Ttjjhckt01Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +20,9 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "sjtystjfxjc")
 public class CskyController {
+
+    @Autowired
+    private Ttjjhckt01Service ttjjhckt01Service;
 
     //todo 城市（县城）客运交通管理
     @RequestMapping(value = "cskyjtgl", method = {RequestMethod.POST, RequestMethod.GET})
@@ -26,6 +34,7 @@ public class CskyController {
         PageParamDTO<List<CskyjtglDataDTO>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
+
 
         paramDTO.setTotalCount(10);
         responseDTO.setResponseData(paramDTO);
