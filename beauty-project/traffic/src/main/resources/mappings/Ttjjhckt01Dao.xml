@@ -2,42 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhckt01Dao">
     <resultMap id="Ttjjhckt01InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhckt01DTO" >
-       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
-        <result column="RECID" property="recid" jdbcType="VARCHAR" />
-        <result column="RECVER" property="recver" jdbcType="DOUBLE" />
-        <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
-        <result column="DATATIME" property="datatime" jdbcType="VARCHAR" />
-        <result column="FLOATORDER" property="floatorder" jdbcType="DOUBLE" />
-        <result column="CK0110001" property="ck0110001" jdbcType="DOUBLE" />
-        <result column="CK0130002" property="ck0130002" jdbcType="DOUBLE" />
-        <result column="CK0130003" property="ck0130003" jdbcType="DOUBLE" />
-        <result column="CK0140004" property="ck0140004" jdbcType="DOUBLE" />
-        <result column="CK0150005" property="ck0150005" jdbcType="DOUBLE" />
-        <result column="CK0150006" property="ck0150006" jdbcType="DOUBLE" />
-        <result column="CK0110007" property="ck0110007" jdbcType="DOUBLE" />
-        <result column="CK0110008" property="ck0110008" jdbcType="DOUBLE" />
-        <result column="CK0110009" property="ck0110009" jdbcType="DOUBLE" />
-        <result column="CK0110010" property="ck0110010" jdbcType="DOUBLE" />
         <result column="CK0120011" property="ck0120011" jdbcType="DOUBLE" />
-        <result column="CK0120012" property="ck0120012" jdbcType="DOUBLE" />
-        <result column="CK0120013" property="ck0120013" jdbcType="DOUBLE" />
-        <result column="CK0120014" property="ck0120014" jdbcType="DOUBLE" />
-        <result column="CK0120015" property="ck0120015" jdbcType="DOUBLE" />
-        <result column="CK0120016" property="ck0120016" jdbcType="DOUBLE" />
-        <result column="CK0130017" property="ck0130017" jdbcType="DOUBLE" />
-        <result column="CK0140018" property="ck0140018" jdbcType="DOUBLE" />
-        <result column="CK0110019" property="ck0110019" jdbcType="DOUBLE" />
-        <result column="CK0110020" property="ck0110020" jdbcType="DOUBLE" />
-        <result column="CSKY" property="csky" jdbcType="VARCHAR" />
-        <result column="CK0110030" property="ck0110030" jdbcType="DOUBLE" />
-        <result column="CK0120031" property="ck0120031" jdbcType="DOUBLE" />
-        <result column="CK0120032" property="ck0120032" jdbcType="DOUBLE" />
-        <result column="CK0110033" property="ck0110033" jdbcType="DOUBLE" />
-        <result column="CK0110034" property="ck0110034" jdbcType="DOUBLE" />
-        <result column="CK0110035" property="ck0110035" jdbcType="DOUBLE" />
-        <result column="CK0160036" property="ck0160036" jdbcType="DOUBLE" />
         <result column="CK0110021" property="ck0110021" jdbcType="VARCHAR" />
-
     </resultMap>
 
     <!--获取总个数-->
