@@ -29,49 +29,49 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_shtsb">
-                            <td></td><!--序号-->
-                            <td></td><!--投诉号-->
-                            <td></td><!--投诉人-->
-                            <td></td><!--投诉日期-->
-                            <td></td><!--投诉内容-->
-                            <td></td><!--投诉部门-->
-                            <td></td><!--社会影响-->
+                            <td>{{info.serialNo}}</td><!--序号-->
+                            <td>{{info.compId}}</td><!--投诉号-->
+                            <td>{{info.compName}}</td><!--投诉人-->
+                            <td>{{info.compDate}}</td><!--投诉日期-->
+                            <td>{{info.compContent}}</td><!--投诉内容-->
+                            <td>{{info.compDepart}}</td><!--投诉部门-->
+                            <td>{{info.socialInfluence}}</td><!--社会影响-->
                             <td></td><!--违法事实-->
-                            <td></td><!--处理情况-->
-                            <td></td><!--投诉电话-->
-                            <td></td><!--投诉人来源-->
+                            <td>{{info.compDeal}}</td><!--处理情况-->
+                            <td>{{info.compPhone}}</td><!--投诉电话-->
+                            <td>{{info.compSource}}</td><!--投诉人来源-->
                             <td></td><!--被投诉人-->
-                            <td></td><!--电子邮件-->
+                            <td>{{info.email}}</td><!--电子邮件-->
                             <td></td><!--媒体曝光-->
                             <td></td><!--处罚类型-->
-                            <td></td><!--投诉类型-->
-                            <td></td><!--投诉人联系电话-->
-                            <td></td><!--记录人单位-->
-                            <td></td><!--记录人电话-->
-                            <td></td><!--记录人-->
-                            <td></td><!--处理日期-->
-                            <td></td><!--处理部门-->
-                            <td></td><!--处理部门意见-->
-                            <td></td><!--处理结果意见-->
-                            <td></td><!--是否有效-->
+                            <td>{{info.compType}}</td><!--投诉类型-->
+                            <td>{{info.userPhone}}</td><!--投诉人联系电话-->
+                            <td>{{info.recorderUnit}}</td><!--记录人单位-->
+                            <td>{{info.recorderPhone}}</td><!--记录人电话-->
+                            <td>{{info.recorder}}</td><!--记录人-->
+                            <td>{{info.dealDate}}</td><!--处理日期-->
+                            <td>{{info.dealDepart}}</td><!--处理部门-->
+                            <td>{{info.dealDeptOpinion}}</td><!--处理部门意见-->
+                            <td>{{info.dealResult}}</td><!--处理结果意见-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
                             <td></td><!--创建人-->
-                            <td></td><!--创建日期-->
-                            <td></td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
                             <td></td><!--修改人-->
-                            <td></td><!--修改日期-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--审核状态-->
-                            <td></td><!--车辆编号-->
-                            <td></td><!--审核意见-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.auditStatus}}</td><!--审核状态-->
+                            <td>{{info.ediusrcode}}</td><!--车辆编号-->
+                            <td>{{info.auditContent}}</td><!--审核意见-->
                             <td></td><!--人员扣分-->
                             <td></td><!--从业资格证号-->
-                            <td></td><!--审核机构-->
-                            <td></td><!--审核人-->
-                            <td></td><!--审核时间-->
+                            <td>{{info.auditDep}}</td><!--审核机构-->
+                            <td>{{info.auditUsr}}</td><!--审核人-->
+                            <td>{{info.auditDate}}</td><!--审核时间-->
                             <td></td><!--信用信息来源-->
-                            <td></td><!--身份证号-->
-                            <td></td><!--驾驶员姓名-->
+                            <td>{{info.cardno}}</td><!--身份证号-->
+                            <td>{{info.drivername}}</td><!--驾驶员姓名-->
                         </tr>
                         </tbody>
                     </table>

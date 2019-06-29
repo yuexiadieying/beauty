@@ -22,6 +22,9 @@ app.controller('ThroughputNextLevelCtrl', ['$scope','$stateParams', function($sc
 app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', 'traUtil','$http','Global',function($scope, $stateParams,traUtil,$http,Global) {
 
     $scope.fold = $stateParams.fold;
+    $scope.param = {
+        leftInfo:''
+    }
 
     $scope.d = [ [1,6.5],[2,6.5],[3,7],[4,8],[5,7.5],[6,7],[7,6.8],[8,7],[9,7.2],[10,7],[11,6.8],[12,7] ];
     $scope.d0_1 = [ [0,70],[1,60.5],[2,120.5],[3,70],[4,90],[5,60],[6,110],[7,60.5],[8,80],[9,70] ];
@@ -32,6 +35,7 @@ app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', 'traUti
     {
         $http.get('/traffic/hlsgkqyymtdwttlbb/qsbwbtjsj').then(function (resp) {
             console.log(resp);
+            $scope.param.leftInfo = resp.data.responseData
         });
 
         $scope.qsbwzkParam = {
