@@ -4,6 +4,7 @@ import com.meixiang.beauty.common.dto.system.PageParamDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.CskyjtglDataDTO;
 import com.meixiang.beauty.webapp.traffic.service.sjtystjfxjc.Ttjjhckt01Service;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //城市客运
 @Controller
@@ -28,12 +30,14 @@ public class CskyController {
     @RequestMapping(value = "cskyjtgl", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<PageParamDTO<List<CskyjtglDataDTO>>> cskyjtgl(@RequestBody PageParamDTO pageParamDTO){
+    ResponseDTO<PageParamDTO<List<Map<String, Object>>>> cskyjtgl(@RequestBody PageParamDTO pageParamDTO){
 
-        ResponseDTO<PageParamDTO<List<CskyjtglDataDTO>>> responseDTO = new ResponseDTO<>();
-        PageParamDTO<List<CskyjtglDataDTO>> paramDTO = new PageParamDTO<>();
+        ResponseDTO<PageParamDTO<List<Map<String, Object>>>> responseDTO = new ResponseDTO<>();
+        PageParamDTO<List<Map<String, Object>>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
+        String nowYear = String.valueOf(new DateTime().getYear());
+        paramDTO.setRequestData(ttjjhckt01Service.getPassengerTrafficManagerInfo(nowYear, nowYear));
 
 
         paramDTO.setTotalCount(10);
