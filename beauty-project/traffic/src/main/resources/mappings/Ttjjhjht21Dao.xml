@@ -203,4 +203,26 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--营业性运输船舶燃料消耗情况数据-->
+ <select id="getBusinessBoatFuelInfo" resultMap="Ttjjhjht21InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(JHT02100039) as JHT02100039
+FROM CDPRJ.T_TJJH_JHT_21
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+ <!--水路运输法人企业财务状况-->
+ <select id="getWaterRoadTransportEnterpriseAccountInfo" resultMap="Ttjjhjht21InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(JHT02100007) as JHT02100007
+FROM CDPRJ.T_TJJH_JHT_21
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

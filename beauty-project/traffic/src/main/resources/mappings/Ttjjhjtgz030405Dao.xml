@@ -43,4 +43,27 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--l   内贸出港情况-->
+    <select id="getDomesticTradeLeavePortInfo" resultMap="Ttjjhjtgz030405InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(GK03010202000010000000000000) as GK03010202000010000000000000
+FROM CDPRJ.T_TJJH_JTGZ_030405
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+    <!--l   外贸出港情况-->
+    <select id="getForeignTradeLeavePortInfo" resultMap="Ttjjhjtgz030405InfoResultMap">
+
+SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(GK03010202000011000000000000 ) as GK03010202000011000000000000
+FROM CDPRJ.T_TJJH_JTGZ_030405
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

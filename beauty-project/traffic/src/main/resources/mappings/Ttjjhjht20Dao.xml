@@ -161,4 +161,47 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--l   重点联系公路运输企业经营财务状况调查数据-->
+ <select id="getRoadEnterpriseAccountInfo" resultMap="Ttjjhjht20InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(JHT02000007) as JHT02000007
+FROM CDPRJ.T_TJJH_JHT_20
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+ <!--公路运输法人企业情况-->
+ <select id="getRoadTransportJuridicalPersonEnterpriseInfo" resultMap="Ttjjhjht20InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(JHT02000008) as JHT02000008
+FROM CDPRJ.T_TJJH_JHT_20
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+ <!--营业性汽车运输效率和燃料消耗情况-->
+ <select id="getBusinessCarTransportAndFuelInfo" resultMap="Ttjjhjht20InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(JHT02000040) as JHT02000040,
+"SUM"(JHT02000041) as JHT02000041
+FROM CDPRJ.T_TJJH_JHT_20
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+ <!--公路运输法人企业财务状况-->
+ <select id="getRoadTransportEnterpriseAccountInfo" resultMap="Ttjjhjht20InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(JHT02000007) as JHT02000007
+FROM CDPRJ.T_TJJH_JHT_20
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

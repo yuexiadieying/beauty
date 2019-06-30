@@ -277,5 +277,27 @@
       WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
+ <!--中央安排农村公路建设数／地方安排农村公路建设数-->
+ <select id="getVillageRoadBuildPlanInfo" resultMap="Ttjjhjtt31InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(TZ09060007009) as TZ09060007009,
+"SUM"(TZ09060007010) as TZ09060007010
+FROM CDPRJ.T_TJJH_JTT_3_1
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+ <!--中央及地方安排农村公路建设情况-->
+ <select id="getVillageRoadBuildPlanInMonthInfo" resultMap="Ttjjhjtt31InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"COUNT"(TZ09060007009) as TZ09060007009,
+"COUNT"(TZ09060007010) as TZ09060007010
+FROM CDPRJ.T_TJJH_JTT_3_1
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
 
 </mapper>

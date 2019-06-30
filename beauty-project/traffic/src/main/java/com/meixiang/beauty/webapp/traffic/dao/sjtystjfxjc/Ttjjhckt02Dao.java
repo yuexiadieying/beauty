@@ -39,4 +39,14 @@ public interface Ttjjhckt02Dao {
                                                       @Param("end") int end,
                                                       @Param("info") String info);
 
+    /**
+     * 城市公交运营情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhckt02DTO> getBusBusinessInfo(@Param("start") String start,
+                                           @Param("end") String end);
+
+
+
 }

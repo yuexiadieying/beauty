@@ -61,4 +61,15 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--出租汽车运营情况-->
+    <select id="getTextBusinessInfo" resultMap="Ttjjhckt04InfoResultMap">
+      select "SUBSTR"(DATATIME,1,4) as year, ("SUM"(CK0420025))  as income from CDPRJ.T_TJJH_CKT_04
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
+
+
 </mapper>

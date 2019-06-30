@@ -51,4 +51,26 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--县乡客运场站的计划、-->
+    <select id="getVillagePassengerStationInvestPlanInfo" resultMap="Ttjjhfpjb03InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB03_001) as FPJB03_001
+FROM CDPRJ.T_TJJH_FPJB_03
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+    <!--投资完成情况表-->
+    <select id="getVillagePassengerStationInvestFinishInfo" resultMap="Ttjjhfpjb03InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB03_007) as FPJB03_007
+FROM CDPRJ.T_TJJH_FPJB_03
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

@@ -117,4 +117,15 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!-- 道路危险货物运输数据-->
+ <select id="getDangerThingsTransportNumInfo" resultMap="Ttjjhdlsy011ngdInfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,"SUM"(DLYS12011N0000010) as DLYS12011N0000010
+FROM CDPRJ.T_TJJH_DLSY011N_GD
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

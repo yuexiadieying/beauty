@@ -49,4 +49,17 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--公路密度情况-->
+    <select id="getRoadDensityInfo" resultMap="Ttjjhjht5InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(YS01010501010000000000000000) as YS01010501010000000000000000
+FROM CDPRJ.T_TJJH_JHT5
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+
+    </select>
+
+
+
 </mapper>

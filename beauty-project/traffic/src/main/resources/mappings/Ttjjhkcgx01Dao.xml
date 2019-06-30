@@ -42,5 +42,16 @@
       WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
+    <!--货运车辆更新情况-->
+    <select id="getTransportCarChangeInfo" resultMap="Ttjjhkcgx01InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"COUNT"(YS020150XXXXXXXXXX0400000000) as YS020150XXXXXXXXXX0400000000
+FROM CDPRJ.T_TJJH_KCGX_01
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end} AND YS020150XXXXXXXXXX0400000000 LIKE '%4307%'
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
 
 </mapper>

@@ -51,4 +51,26 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--高速和国省道的计划-->
+    <select id="getHighAndProvinceRoadInvestPlanInfo" resultMap="Ttjjhfpjb01InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB01_001 ) as FPJB01_001
+FROM CDPRJ.T_TJJH_FPJB_01
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+    <!--投资完成情况-->
+    <select id="getHighAndProvinceRoadInvestFinishInfo" resultMap="Ttjjhfpjb01InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB01_011 ) as FPJB01_011
+FROM CDPRJ.T_TJJH_FPJB_01
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

@@ -64,4 +64,35 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--道路运输统计（半年，年）涵盖道路客运站信息-->
+    <select id="getRoadTransportStatisticInfo" resultMap="Ttjjhdlsy005ngdInfoResultMap">
+      SELECT "SUBSTR"(DATATIME,1,4) as year,
+"SUM"(DLYS12005N0000010) as DLYS12005N0000010,
+"SUM"(DLYS12005N0000200) as DLYS12005N0000200
+FROM CDPRJ.T_TJJH_DLSY005N_GD
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+    <!--道路客货站场增减情况-->
+    <select id="getStationNumChangeInfo" resultMap="Ttjjhdlsy005ngdInfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(DLYS12005N0000010) as DLYS12005N0000010,
+"SUM"(DLYS12005N0000200) as DLYS12005N0000200
+FROM CDPRJ.T_TJJH_DLSY005N_GD
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+    <!-- 道路货运场站数据-->
+    <select id="getRoadGoodsStationInfo" resultMap="Ttjjhdlsy005ngdInfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,"SUM"(DLYS12005N0000200) as DLYS12005N0000200
+FROM CDPRJ.T_TJJH_DLSY005N_GD
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
 </mapper>

@@ -278,4 +278,16 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--公路桥梁隧道年底到达数情况-->
+ <select id="getEndOfYearProgressInfo" resultMap="Ttjjhjht2InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(YS01010201010000000111000000) as YS01010201010000000111000000
+FROM CDPRJ.T_TJJH_JHT2
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

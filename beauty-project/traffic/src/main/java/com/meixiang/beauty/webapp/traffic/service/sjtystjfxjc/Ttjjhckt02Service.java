@@ -45,4 +45,19 @@ public class Ttjjhckt02Service {
         }
         return res;
     }
+
+    /**
+     * 城市公交运营情况
+     **/
+    public List<Map<String, Object>> getBusBusinessInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhckt02DTO> ttjjhckt02DTOs = Lists.newArrayList();
+        ttjjhckt02DTOs = ttjjhckt02Dao.getBusBusinessInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhckt02DTOs)) {
+            for (Ttjjhckt02DTO ttjjhckt02DTO : ttjjhckt02DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhckt02DTO));
+            }
+        }
+        return res;
+    }
 }

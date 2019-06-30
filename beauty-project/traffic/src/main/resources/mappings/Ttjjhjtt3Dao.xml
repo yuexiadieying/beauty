@@ -131,4 +131,19 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--新增生成力情况-->
+ <select id="getIncreaseProductivityInfo" resultMap="Ttjjhjtt3InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(TZ09010000017) as TZ09010000017,
+"SUM"(TZ09010000024) as TZ09010000024,
+"SUM"(TZ09010000039) as TZ09010000039,
+"SUM"(TZ09010000047) as TZ09010000047
+FROM CDPRJ.T_TJJH_JTT_3
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

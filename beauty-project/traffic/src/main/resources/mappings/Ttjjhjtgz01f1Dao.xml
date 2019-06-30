@@ -68,4 +68,26 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--l   港口法人企业-->
+    <select id="getPortJuridicalPersonEnterprise" resultMap="Ttjjhjtgz01f1InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(GK010100X0000000000000210000 ) as GK010100X0000000000000210000
+FROM CDPRJ.T_TJJH_JTGZ_01_F1
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+    <!--l   港口码头单位数据-->
+    <select id="getPortUnitInfo" resultMap="Ttjjhjtgz01f1InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(GK010100X0000000000000210000 ) as GK010100X0000000000000210000
+FROM CDPRJ.T_TJJH_JTGZ_01_F1
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

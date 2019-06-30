@@ -67,4 +67,26 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--农村公路的计划-->
+    <select id="getVillageRoadInvestPlanInfo" resultMap="Ttjjhfpjb02InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB02_001  ) as FPJB02_001
+FROM CDPRJ.T_TJJH_FPJB_02
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+    <!--投资完成情况-->
+    <select id="getVillageRoadInvestFinishInfo" resultMap="Ttjjhfpjb02InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB02_019) as FPJB02_019
+FROM CDPRJ.T_TJJH_FPJB_02
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

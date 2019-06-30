@@ -278,4 +278,15 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!-- 港澳台及外商投资道路运输业情况数据-->
+ <select id="getRoadTransportInvestedByGOTInfo" resultMap="Ttjjhdlsy013ngdInfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,"SUM"(DLYS12013N0000010) as DLYS12013N0000010
+FROM CDPRJ.T_TJJH_DLSY013N_GD
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

@@ -39,5 +39,15 @@
       WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
+    <!--内河航道通航里程年底达到量情况-->
+    <select id="getEndOfYearMileageInfo" resultMap="Ttjjhjtt311f3InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(TZ0904X000005) as TZ0904X000005
+FROM CDPRJ.T_TJJH_JTT_3_1_1_F3
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
 
 </mapper>
