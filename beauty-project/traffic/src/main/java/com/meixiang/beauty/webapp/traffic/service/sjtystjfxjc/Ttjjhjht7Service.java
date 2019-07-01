@@ -45,4 +45,19 @@ public class Ttjjhjht7Service {
         }
         return res;
     }
+
+    /**
+     * 公路旅客货物运营车辆拥有量情况
+     **/
+    public List<Map<String, Object>> getRoadCarNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht7DTO> ttjjhjht7DTOs = Lists.newArrayList();
+        ttjjhjht7DTOs = ttjjhjht7Dao.getRoadCarNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht7DTOs)) {
+            for (Ttjjhjht7DTO ttjjhjht7DTO : ttjjhjht7DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht7DTO));
+            }
+        }
+        return res;
+    }
 }

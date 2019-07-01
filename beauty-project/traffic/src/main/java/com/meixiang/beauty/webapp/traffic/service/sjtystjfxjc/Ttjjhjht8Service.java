@@ -45,4 +45,19 @@ public class Ttjjhjht8Service {
         }
         return res;
     }
+
+    /**
+     * 水路运输工具拥有量情况
+     **/
+    public List<Map<String, Object>> getWaterRoadTransportToolsNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht8DTO> ttjjhjht8DTOs = Lists.newArrayList();
+        ttjjhjht8DTOs = ttjjhjht8Dao.getWaterRoadTransportToolsNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht8DTOs)) {
+            for (Ttjjhjht8DTO ttjjhjht8DTO : ttjjhjht8DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht8DTO));
+            }
+        }
+        return res;
+    }
 }

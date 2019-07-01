@@ -45,4 +45,19 @@ public class Ttjjhjht10yService {
         }
         return res;
     }
+
+    /**
+     * 公路水路运输量月度统计基础情况
+     **/
+    public List<Map<String, Object>> getRoadAndWaterTransportNumInMonthInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht10yDTO> ttjjhjht10yDTOs = Lists.newArrayList();
+        ttjjhjht10yDTOs = ttjjhjht10yDao.getRoadAndWaterTransportNumInMonthInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht10yDTOs)) {
+            for (Ttjjhjht10yDTO ttjjhjht10yDTO : ttjjhjht10yDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht10yDTO));
+            }
+        }
+        return res;
+    }
 }

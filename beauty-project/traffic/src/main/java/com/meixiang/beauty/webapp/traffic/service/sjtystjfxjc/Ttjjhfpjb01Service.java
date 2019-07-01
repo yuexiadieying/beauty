@@ -45,4 +45,36 @@ public class Ttjjhfpjb01Service {
         }
         return res;
     }
+
+
+    /**
+     * 高速和国省道的计划
+     **/
+    public List<Map<String, Object>> getHighAndProvinceRoadInvestPlanInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhfpjb01DTO> ttjjhfpjb01DTOs = Lists.newArrayList();
+        ttjjhfpjb01DTOs = ttjjhfpjb01Dao.getHighAndProvinceRoadInvestPlanInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhfpjb01DTOs)) {
+            for (Ttjjhfpjb01DTO ttjjhfpjb01DTO : ttjjhfpjb01DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhfpjb01DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 投资完成情况
+     **/
+    public List<Map<String, Object>> getHighAndProvinceRoadInvestFinishInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhfpjb01DTO> ttjjhfpjb01DTOs = Lists.newArrayList();
+        ttjjhfpjb01DTOs = ttjjhfpjb01Dao.getHighAndProvinceRoadInvestFinishInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhfpjb01DTOs)) {
+            for (Ttjjhfpjb01DTO ttjjhfpjb01DTO : ttjjhfpjb01DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhfpjb01DTO));
+            }
+        }
+        return res;
+    }
+
 }

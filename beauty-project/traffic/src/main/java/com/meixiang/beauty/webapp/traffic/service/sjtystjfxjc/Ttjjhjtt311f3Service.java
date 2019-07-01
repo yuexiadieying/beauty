@@ -45,4 +45,21 @@ public class Ttjjhjtt311f3Service {
         }
         return res;
     }
+
+
+    /**
+     * 内河航道通航里程年底达到量情况
+     **/
+    public List<Map<String, Object>> getEndOfYearMileageInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt311f3DTO> ttjjhjtt311f3DTOs = Lists.newArrayList();
+        ttjjhjtt311f3DTOs = ttjjhjtt311f3Dao.getEndOfYearMileageInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt311f3DTOs)) {
+            for (Ttjjhjtt311f3DTO ttjjhjtt311f3DTO : ttjjhjtt311f3DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt311f3DTO));
+            }
+        }
+        return res;
+    }
+
 }

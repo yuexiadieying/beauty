@@ -45,4 +45,37 @@ public class Ttjjhfpjb03Service {
         }
         return res;
     }
+
+
+    /**
+     * 县乡客运场站的计划、
+     **/
+    public List<Map<String, Object>> getVillagePassengerStationInvestPlanInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhfpjb03DTO> ttjjhfpjb03DTOs = Lists.newArrayList();
+        ttjjhfpjb03DTOs = ttjjhfpjb03Dao.getVillagePassengerStationInvestPlanInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhfpjb03DTOs)) {
+            for (Ttjjhfpjb03DTO ttjjhfpjb03DTO : ttjjhfpjb03DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhfpjb03DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 投资完成情况表
+     **/
+    public List<Map<String, Object>> getVillagePassengerStationInvestFinishInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhfpjb03DTO> ttjjhfpjb03DTOs = Lists.newArrayList();
+        ttjjhfpjb03DTOs = ttjjhfpjb03Dao.getVillagePassengerStationInvestFinishInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhfpjb03DTOs)) {
+            for (Ttjjhfpjb03DTO ttjjhfpjb03DTO : ttjjhfpjb03DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhfpjb03DTO));
+            }
+        }
+        return res;
+    }
+
+
 }
