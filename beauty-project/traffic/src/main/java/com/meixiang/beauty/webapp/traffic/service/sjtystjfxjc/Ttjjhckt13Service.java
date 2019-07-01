@@ -45,4 +45,19 @@ public class Ttjjhckt13Service {
         }
         return res;
     }
+
+    /**
+     * 城市客运主要统计指标快速年报信息
+     **/
+    public List<Map<String, Object>> getCityPassengerTrafficStatisticInfo(String year) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhckt13DTO> ttjjhckt13DTOs = Lists.newArrayList();
+        ttjjhckt13DTOs = ttjjhckt13Dao.getCityPassengerTrafficStatisticInfo(year);
+        if (!CollectionUtils.isEmpty(ttjjhckt13DTOs)) {
+            for (Ttjjhckt13DTO ttjjhckt13DTO : ttjjhckt13DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhckt13DTO));
+            }
+        }
+        return res;
+    }
 }

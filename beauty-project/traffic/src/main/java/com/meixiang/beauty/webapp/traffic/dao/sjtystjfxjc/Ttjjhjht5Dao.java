@@ -38,5 +38,13 @@ public interface Ttjjhjht5Dao {
     List<Ttjjhjht5DTO> getTtjjhjht5ByParamsPageable(@Param("start") int start,
                                                     @Param("end") int end,
                                                     @Param("info") String info);
+    /**
+     * 公路密度情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht5DTO> getRoadDensityInfo (@Param("start") String start,
+                                           @Param("end") String end);
+
 
 }

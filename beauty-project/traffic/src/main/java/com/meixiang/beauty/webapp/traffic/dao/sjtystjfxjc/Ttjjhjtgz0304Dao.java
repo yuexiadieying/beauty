@@ -38,5 +38,37 @@ public interface Ttjjhjtgz0304Dao {
     List<Ttjjhjtgz0304DTO> getTtjjhjtgz0304ByParamsPageable(@Param("start") int start,
                                                             @Param("end") int end,
                                                             @Param("info") String info);
+    /**
+     * l   国际航线进出港集装箱吞吐
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz0304DTO> getInternationalLineInAndOutPortNumInfo(@Param("start") String start,
+                                                                   @Param("end") String end);
+
+    /**
+     * l   国内航线进出港集装箱吞吐
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz0304DTO> getCountryLineInAndOutPortNumInfo(@Param("start") String start,
+                                                             @Param("end") String end);
+
+    /**
+     * l   内  支线进出港集装箱吞吐
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz0304DTO> getCJLineInAndOutPortBoxNumInfo(@Param("start") String start,
+                                                           @Param("end") String end);
+
+    /**
+     * l   分货类分运输方式集疏运情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz0304DTO> getGoodsTypeTransportInfo(@Param("start") String start,
+                                                     @Param("end") String end);
+
 
 }

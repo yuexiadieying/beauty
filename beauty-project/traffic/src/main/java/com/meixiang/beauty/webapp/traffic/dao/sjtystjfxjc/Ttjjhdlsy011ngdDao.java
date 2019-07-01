@@ -38,5 +38,13 @@ public interface Ttjjhdlsy011ngdDao {
     List<Ttjjhdlsy011ngdDTO> getTtjjhdlsy011ngdByParamsPageable(@Param("start") int start,
                                                                 @Param("end") int end,
                                                                 @Param("info") String info);
+    /**
+     *  道路危险货物运输数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhdlsy011ngdDTO> getDangerThingsTransportNumInfo(@Param("start") String start,
+                                                             @Param("end") String end);
+
 
 }

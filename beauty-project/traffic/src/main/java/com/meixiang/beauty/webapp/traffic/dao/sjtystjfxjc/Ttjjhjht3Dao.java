@@ -38,5 +38,13 @@ public interface Ttjjhjht3Dao {
     List<Ttjjhjht3DTO> getTtjjhjht3ByParamsPageable(@Param("start") int start,
                                                     @Param("end") int end,
                                                     @Param("info") String info);
+    /**
+     * 公路桥梁隧道年底到达数情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht3DTO> getEndOfYearProgressInfo(@Param("start") String start,
+                                                @Param("end") String end);
+
 
 }

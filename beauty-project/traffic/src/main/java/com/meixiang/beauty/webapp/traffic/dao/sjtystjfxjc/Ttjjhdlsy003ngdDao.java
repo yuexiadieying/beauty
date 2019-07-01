@@ -39,4 +39,13 @@ public interface Ttjjhdlsy003ngdDao {
                                                                 @Param("end") int end,
                                                                 @Param("info") String info);
 
+    /**
+     * l   道路从业人员数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhdlsy003ngdDTO> getRoadWorkersInfo(@Param("start") String start,
+                                                @Param("end") String end);
+
+
 }

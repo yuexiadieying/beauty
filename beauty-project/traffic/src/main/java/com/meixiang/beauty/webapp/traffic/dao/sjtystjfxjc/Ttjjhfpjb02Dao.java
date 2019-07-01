@@ -39,4 +39,21 @@ public interface Ttjjhfpjb02Dao {
                                                         @Param("end") int end,
                                                         @Param("info") String info);
 
+    /**
+     * 农村公路的计划
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb02DTO> getVillageRoadInvestPlanInfo(@Param("start") String start,
+                                                      @Param("end") String end);
+
+    /**
+     * 投资完成情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb02DTO> getVillageRoadInvestFinishInfo(@Param("start") String start,
+                                                        @Param("end") String end);
+
+
 }

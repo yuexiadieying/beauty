@@ -38,5 +38,21 @@ public interface Ttjjhjtgz030405Dao {
     List<Ttjjhjtgz030405DTO> getTtjjhjtgz030405ByParamsPageable(@Param("start") int start,
                                                                 @Param("end") int end,
                                                                 @Param("info") String info);
+    /**
+     * l   内贸出港情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz030405DTO> getDomesticTradeLeavePortInfo(@Param("start") String start,
+                                                            @Param("end") String end);
+
+    /**
+     * l   外贸出港情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz030405DTO> getForeignTradeLeavePortInfo(@Param("start") String start,
+                                                          @Param("end") String end);
+
 
 }

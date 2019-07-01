@@ -38,5 +38,13 @@ public interface Ttjjhjht8Dao {
     List<Ttjjhjht8DTO> getTtjjhjht8ByParamsPageable(@Param("start") int start,
                                                     @Param("end") int end,
                                                     @Param("info") String info);
+    /**
+     * 水路运输工具拥有量情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht8DTO> getWaterRoadTransportToolsNumInfo(@Param("start") String start,
+                                                         @Param("end") String end);
+
 
 }

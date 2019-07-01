@@ -39,4 +39,13 @@ public interface Ttjjhckt04Dao {
                                                       @Param("end") int end,
                                                       @Param("info") String info);
 
+    /**
+     * 出租汽车运营情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhckt04DTO> getTextBusinessInfo(@Param("start") String start,
+                                            @Param("end") String end);
+
+
 }

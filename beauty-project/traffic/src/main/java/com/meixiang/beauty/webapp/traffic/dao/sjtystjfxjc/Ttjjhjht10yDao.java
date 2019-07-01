@@ -38,5 +38,13 @@ public interface Ttjjhjht10yDao {
     List<Ttjjhjht10yDTO> getTtjjhjht10yByParamsPageable(@Param("start") int start,
                                                         @Param("end") int end,
                                                         @Param("info") String info);
+    /**
+     * 公路水路运输量月度统计基础情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht10yDTO> getRoadAndWaterTransportNumInMonthInfo(@Param("start") String start,
+                                                                @Param("end") String end);
+
 
 }

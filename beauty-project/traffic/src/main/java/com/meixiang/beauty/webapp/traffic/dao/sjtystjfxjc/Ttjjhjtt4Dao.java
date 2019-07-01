@@ -38,5 +38,35 @@ public interface Ttjjhjtt4Dao {
     List<Ttjjhjtt4DTO> getTtjjhjtt4ByParamsPageable(@Param("start") int start,
                                                     @Param("end") int end,
                                                     @Param("info") String info);
+    /**
+     * 交通固定资产投资额
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt4DTO> getTrafficFixMoneyInvestInfo(@Param("start") String start,
+                                                    @Param("end") String end);
+
+    /**
+     * 公路固定资产投资
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt4DTO> getRoadFixMoneyInvestInfo(@Param("start") String start,
+                                                 @Param("end") String end);
+
+    /**
+     * 按照月份查询单位信息
+     * @param month
+     */
+    List<Ttjjhjtt4DTO> getRoadFixMoneyInvestUnitInfo(@Param("month") String month);
+
+    /**
+     * 资金来源情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt4DTO> getMoneySourceInfo(@Param("start") String start,
+                                          @Param("end") String end);
+
 
 }

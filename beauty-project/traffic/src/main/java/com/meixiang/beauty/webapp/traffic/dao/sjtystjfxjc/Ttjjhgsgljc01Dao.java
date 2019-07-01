@@ -38,5 +38,13 @@ public interface Ttjjhgsgljc01Dao {
     List<Ttjjhgsgljc01DTO> getTtjjhgsgljc01ByParamsPageable(@Param("start") int start,
                                                             @Param("end") int end,
                                                             @Param("info") String info);
+    /**
+     * 路段平均日交通量统计
+     * @param start
+     * @param end
+     */
+    List<Ttjjhgsgljc01DTO> getRoadTrafficDailyNumInfo(@Param("start") String start,
+                                                      @Param("end") String end);
+
 
 }
