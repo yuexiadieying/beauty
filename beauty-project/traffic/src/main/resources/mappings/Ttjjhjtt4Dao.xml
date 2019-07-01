@@ -132,7 +132,7 @@ GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
   (SELECT
   ROWNUM as rn, a.*
   FROM CDPRJ.T_TJJH_JTT_4 a
-  where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))=#{month} AND ROWNUM > 0) WHERE rn <= 10
+  where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))=#{month} AND ROWNUM > 0) WHERE rn &lt;= 10
  </select>
 
  <!--资金来源情况-->
