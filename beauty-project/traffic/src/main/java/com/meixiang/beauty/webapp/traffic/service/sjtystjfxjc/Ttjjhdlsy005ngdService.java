@@ -7,6 +7,7 @@ import com.meixiang.beauty.webapp.traffic.utils.ClassUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import redis.clients.jedis.BinaryClient;
 
 import java.util.List;
 import java.util.Map;
@@ -50,13 +51,13 @@ public class Ttjjhdlsy005ngdService {
     /**
      * 道路运输统计（半年，年）涵盖道路客运站信息
      **/
-    public List<Map<String, Object>> getRoadTransportStatisticInfo(String start, String end) {
-        List<Map<String, Object>> res = Lists.newArrayList();
+    public List<Map<String, List<String>>> getRoadTransportStatisticInfo(String start, String end) {
+        List<Map<String, List<String>>> res = Lists.newArrayList();
         List<Ttjjhdlsy005ngdDTO> ttjjhdlsy005ngdDTOs = Lists.newArrayList();
         ttjjhdlsy005ngdDTOs = ttjjhdlsy005ngdDao.getRoadTransportStatisticInfo(start, end);
         if (!CollectionUtils.isEmpty(ttjjhdlsy005ngdDTOs)) {
             for (Ttjjhdlsy005ngdDTO ttjjhdlsy005ngdDTO : ttjjhdlsy005ngdDTOs) {
-                res.add(ClassUtil.toHashMap(ttjjhdlsy005ngdDTO));
+                res.add(ClassUtil.toHashMap(ttjjhdlsy005ngdDTO,"year","DLYS12005N0000010","DLYS12005N0000200"));
             }
         }
         return res;
