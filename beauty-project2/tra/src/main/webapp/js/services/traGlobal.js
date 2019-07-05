@@ -35,7 +35,7 @@ angular.module('traGlobal',[])
                     var val = d.getFullYear()+"-"+month+"-"+day;
                     return val;
                 },
-                getUserInfo:function(){
+               /* getUserInfo:function(){
                     $http.get('/traffic/user/getUserInfo')
                         .then(function(response) {
                             if (response.data.result==Global.SUCCESS) {
@@ -46,6 +46,6 @@ angular.module('traGlobal',[])
                         }, function(x) {
                             $scope.authError = 'Server Error';
                         });
-                }
+                }*/
             };
         }]);
