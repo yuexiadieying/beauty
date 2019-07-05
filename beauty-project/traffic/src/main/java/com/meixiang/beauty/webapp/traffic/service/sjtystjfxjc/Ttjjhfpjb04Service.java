@@ -45,4 +45,20 @@ public class Ttjjhfpjb04Service {
         }
         return res;
     }
+
+
+    /**
+     * 村公路资金到位情况／县道 省级资金到位／乡道市级资金到位／农村县级公路资金到位／未到位个数，已到位个数
+     **/
+    public List<Map<String, Object>> getVillageRoadMoneyInPlaceInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhfpjb04DTO> ttjjhfpjb04DTOs = Lists.newArrayList();
+        ttjjhfpjb04DTOs = ttjjhfpjb04Dao.getVillageRoadMoneyInPlaceInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhfpjb04DTOs)) {
+            for (Ttjjhfpjb04DTO ttjjhfpjb04DTO : ttjjhfpjb04DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhfpjb04DTO));
+            }
+        }
+        return res;
+    }
 }

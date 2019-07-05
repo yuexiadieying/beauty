@@ -45,4 +45,19 @@ public class Ttjjhckt04Service {
         }
         return res;
     }
+
+    /**
+     * 出租汽车运营情况
+     **/
+    public List<Map<String, Object>> getTextBusinessInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhckt04DTO> ttjjhckt04DTOs = Lists.newArrayList();
+        ttjjhckt04DTOs = ttjjhckt04Dao.getTextBusinessInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhckt04DTOs)) {
+            for (Ttjjhckt04DTO ttjjhckt04DTO : ttjjhckt04DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhckt04DTO));
+            }
+        }
+        return res;
+    }
 }

@@ -38,5 +38,13 @@ public interface Ttjjhjtt311f3Dao {
     List<Ttjjhjtt311f3DTO> getTtjjhjtt311f3ByParamsPageable(@Param("start") int start,
                                                             @Param("end") int end,
                                                             @Param("info") String info);
+    /**
+     * 内河航道通航里程年底达到量情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt311f3DTO> getEndOfYearMileageInfo(@Param("start") String start,
+                                                   @Param("end") String end);
+
 
 }

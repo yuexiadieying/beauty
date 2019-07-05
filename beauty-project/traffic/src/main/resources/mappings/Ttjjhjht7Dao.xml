@@ -278,4 +278,16 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--公路旅客货物运营车辆拥有量情况-->
+ <select id="getRoadCarNumInfo" resultMap="Ttjjhjht7InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(YS02010101000000000100000000 ) as YS02010101000000000100000000
+FROM CDPRJ.T_TJJH_JHT7
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

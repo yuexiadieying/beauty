@@ -66,4 +66,13 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--路段平均日交通量统计-->
+    <select id="getRoadTrafficDailyNumInfo" resultMap="Ttjjhgsgljc01InfoResultMap">
+      SELECT
+"TO_CHAR"(GSGL_BCRQ,'yyyymmdd') as date,HCLL
+FROM CDPRJ.T_TJJH_GSGLJC_01
+WHERE "TO_CHAR"(GSGL_BCRQ,'yyyymmdd') BETWEEN #{start} AND #{end}
+    </select>
+
+
 </mapper>

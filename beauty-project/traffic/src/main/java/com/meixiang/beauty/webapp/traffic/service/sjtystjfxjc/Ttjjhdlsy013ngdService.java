@@ -45,4 +45,19 @@ public class Ttjjhdlsy013ngdService {
         }
         return res;
     }
+
+    /**
+     *  港澳台及外商投资道路运输业情况数据
+     **/
+    public List<Map<String, Object>> getRoadTransportInvestedByGOTInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhdlsy013ngdDTO> ttjjhdlsy013ngdDTOs = Lists.newArrayList();
+        ttjjhdlsy013ngdDTOs = ttjjhdlsy013ngdDao.getRoadTransportInvestedByGOTInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhdlsy013ngdDTOs)) {
+            for (Ttjjhdlsy013ngdDTO ttjjhdlsy013ngdDTO : ttjjhdlsy013ngdDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhdlsy013ngdDTO));
+            }
+        }
+        return res;
+    }
 }

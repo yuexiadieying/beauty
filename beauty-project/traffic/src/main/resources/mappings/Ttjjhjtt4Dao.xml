@@ -105,4 +105,59 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--交通固定资产投资额-->
+ <select id="getTrafficFixMoneyInvestInfo" resultMap="Ttjjhjtt4InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+TZ01000000001,
+"SUM"(TZ02010000002) as TZ02010000002
+FROM CDPRJ.T_TJJH_JTT_4
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end} AND TZ01000000031 LIKE '%4307%'
+GROUP BY "SUBSTR"(DATATIME,1,4),TZ01000000001
+    </select>
+
+ <!--公路固定资产投资-->
+ <select id="getRoadFixMoneyInvestInfo" resultMap="Ttjjhjtt4InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(TZ02010000000) as TZ02010000000
+FROM CDPRJ.T_TJJH_JTT_4
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+ <!--按照月份查询单位信息-->
+ <select id="getRoadFixMoneyInvestUnitInfo" resultMap="Ttjjhjtt4InfoResultMap">
+  select * from
+  (SELECT
+  ROWNUM as rn, a.*
+  FROM CDPRJ.T_TJJH_JTT_4 a
+  where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))=#{month} AND ROWNUM > 0) WHERE rn &lt;= 10
+ </select>
+
+ <!--资金来源情况-->
+ <select id="getMoneySourceInfo" resultMap="Ttjjhjtt4InfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(TZ02010000003) as TZ02010000003,
+"SUM"(TZ02010000004) as TZ02010000004,
+"SUM"(TZ02010000005) as TZ02010000005,
+"SUM"(TZ02010000006) as TZ02010000006,
+"SUM"(TZ02010000007) as TZ02010000007,
+"SUM"(TZ02010000008) as TZ02010000008,
+"SUM"(TZ02010000009) as TZ02010000009,
+"SUM"(TZ02010000010) as TZ02010000010,
+"SUM"(TZ02010000011) as TZ02010000011,
+"SUM"(TZ02010000012) as TZ02010000012,
+"SUM"(TZ02010000013) as TZ02010000013,
+"SUM"(TZ02010000014) as TZ02010000014,
+"SUM"(TZ02010000015) as TZ02010000015,
+"SUM"(TZ02010000016) as TZ02010000016
+FROM CDPRJ.T_TJJH_JTT_4
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

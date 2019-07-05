@@ -80,4 +80,15 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--l   道路从业人员数据-->
+    <select id="getRoadWorkersInfo" resultMap="Ttjjhdlsy003ngdInfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,"SUM"(DLYS12003N0000010) as DLYS12003N0000010
+FROM CDPRJ.T_TJJH_DLSY003N_GD
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

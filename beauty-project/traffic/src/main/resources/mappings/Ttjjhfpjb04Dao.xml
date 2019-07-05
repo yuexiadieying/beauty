@@ -91,4 +91,19 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--村公路资金到位情况／县道 省级资金到位／乡道市级资金到位／农村县级公路资金到位／未到位个数，已到位个数-->
+    <select id="getVillageRoadMoneyInPlaceInfo" resultMap="Ttjjhfpjb04InfoResultMap">
+      SELECT
+"SUBSTR"(DATATIME,1,4) as year,
+"SUM"(FPJB04_016) as FPJB04_016,
+"SUM"(FPJB04_029) as FPJB04_029,
+"SUM"(FPJB04_042) as FPJB04_042,
+("SUM"(FPJB04_016)+"SUM"(FPJB04_029)+"SUM"(FPJB04_042)) as FPJ04_all
+FROM CDPRJ.T_TJJH_FPJB_04
+where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
+GROUP BY "SUBSTR"(DATATIME,1,4)
+    </select>
+
+
+
 </mapper>

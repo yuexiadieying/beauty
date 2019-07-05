@@ -38,5 +38,21 @@ public interface Ttjjhjtgz01f1Dao {
     List<Ttjjhjtgz01f1DTO> getTtjjhjtgz01f1ByParamsPageable(@Param("start") int start,
                                                             @Param("end") int end,
                                                             @Param("info") String info);
+    /**
+     * l   港口法人企业
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz01f1DTO> getPortJuridicalPersonEnterprise(@Param("start") String start,
+                                                            @Param("end") String end);
+
+    /**
+     * l   港口码头单位数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtgz01f1DTO> getPortUnitInfo(@Param("start") String start,
+                                           @Param("end") String end);
+
 
 }

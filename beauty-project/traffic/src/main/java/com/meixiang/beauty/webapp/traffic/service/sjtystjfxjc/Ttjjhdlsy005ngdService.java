@@ -7,6 +7,7 @@ import com.meixiang.beauty.webapp.traffic.utils.ClassUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import redis.clients.jedis.BinaryClient;
 
 import java.util.List;
 import java.util.Map;
@@ -45,4 +46,52 @@ public class Ttjjhdlsy005ngdService {
         }
         return res;
     }
+
+
+    /**
+     * 道路运输统计（半年，年）涵盖道路客运站信息
+     **/
+    public List<Map<String, List<String>>> getRoadTransportStatisticInfo(String start, String end) {
+        List<Map<String, List<String>>> res = Lists.newArrayList();
+        List<Ttjjhdlsy005ngdDTO> ttjjhdlsy005ngdDTOs = Lists.newArrayList();
+        ttjjhdlsy005ngdDTOs = ttjjhdlsy005ngdDao.getRoadTransportStatisticInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhdlsy005ngdDTOs)) {
+            for (Ttjjhdlsy005ngdDTO ttjjhdlsy005ngdDTO : ttjjhdlsy005ngdDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhdlsy005ngdDTO,"year","DLYS12005N0000010","DLYS12005N0000200"));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 道路客货站场增减情况
+     **/
+    public List<Map<String, Object>> getStationNumChangeInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhdlsy005ngdDTO> ttjjhdlsy005ngdDTOs = Lists.newArrayList();
+        ttjjhdlsy005ngdDTOs = ttjjhdlsy005ngdDao.getStationNumChangeInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhdlsy005ngdDTOs)) {
+            for (Ttjjhdlsy005ngdDTO ttjjhdlsy005ngdDTO : ttjjhdlsy005ngdDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhdlsy005ngdDTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     *  道路货运场站数据
+     **/
+    public List<Map<String, Object>> getRoadGoodsStationInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhdlsy005ngdDTO> ttjjhdlsy005ngdDTOs = Lists.newArrayList();
+        ttjjhdlsy005ngdDTOs = ttjjhdlsy005ngdDao.getRoadGoodsStationInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhdlsy005ngdDTOs)) {
+            for (Ttjjhdlsy005ngdDTO ttjjhdlsy005ngdDTO : ttjjhdlsy005ngdDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhdlsy005ngdDTO));
+            }
+        }
+        return res;
+    }
+
+
 }

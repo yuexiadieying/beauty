@@ -38,5 +38,13 @@ public interface Ttjjhjtt3Dao {
     List<Ttjjhjtt3DTO> getTtjjhjtt3ByParamsPageable(@Param("start") int start,
                                                     @Param("end") int end,
                                                     @Param("info") String info);
+    /**
+     * 新增生成力情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt3DTO> getIncreaseProductivityInfo(@Param("start") String start,
+                                                   @Param("end") String end);
+
 
 }

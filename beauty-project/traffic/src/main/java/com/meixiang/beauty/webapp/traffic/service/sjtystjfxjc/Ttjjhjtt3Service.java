@@ -45,4 +45,22 @@ public class Ttjjhjtt3Service {
         }
         return res;
     }
+
+
+    /**
+     * 新增生成力情况
+     **/
+    public List<Map<String, Object>> getIncreaseProductivityInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt3DTO> ttjjhjtt3DTOs = Lists.newArrayList();
+        ttjjhjtt3DTOs = ttjjhjtt3Dao.getIncreaseProductivityInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt3DTOs)) {
+            for (Ttjjhjtt3DTO ttjjhjtt3DTO : ttjjhjtt3DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt3DTO));
+            }
+        }
+        return res;
+    }
+
+
 }

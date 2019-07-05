@@ -45,4 +45,97 @@ public class Ttjjhjtg92Service {
         }
         return res;
     }
+
+
+    /**
+     * 分航线进出港旅客人数情况
+     **/
+    public List<Map<String, Object>> getLineInAndOutPersonNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtg92DTO> ttjjhjtg92DTOs = Lists.newArrayList();
+        ttjjhjtg92DTOs = ttjjhjtg92Dao.getLineInAndOutPersonNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtg92DTOs)) {
+            for (Ttjjhjtg92DTO ttjjhjtg92DTO : ttjjhjtg92DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtg92DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 国际分航线进出港旅客人数情况
+     **/
+    public List<Map<String, Object>> getInternationalLineInAndOutPersonNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtg92DTO> ttjjhjtg92DTOs = Lists.newArrayList();
+        ttjjhjtg92DTOs = ttjjhjtg92Dao.getInternationalLineInAndOutPersonNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtg92DTOs)) {
+            for (Ttjjhjtg92DTO ttjjhjtg92DTO : ttjjhjtg92DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtg92DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   国内分航线进出港旅客人数情况
+     **/
+    public List<Map<String, Object>> getCountryLineInAndOutPersonNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtg92DTO> ttjjhjtg92DTOs = Lists.newArrayList();
+        ttjjhjtg92DTOs = ttjjhjtg92Dao.getCountryLineInAndOutPersonNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtg92DTOs)) {
+            for (Ttjjhjtg92DTO ttjjhjtg92DTO : ttjjhjtg92DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtg92DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   内贸情况
+     **/
+    public List<Map<String, Object>> getDomesticTradeInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtg92DTO> ttjjhjtg92DTOs = Lists.newArrayList();
+        ttjjhjtg92DTOs = ttjjhjtg92Dao.getDomesticTradeInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtg92DTOs)) {
+            for (Ttjjhjtg92DTO ttjjhjtg92DTO : ttjjhjtg92DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtg92DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   分货类吞吐
+     **/
+    public List<Map<String, Object>> getGoodsTypeInAndOutInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtg92DTO> ttjjhjtg92DTOs = Lists.newArrayList();
+        ttjjhjtg92DTOs = ttjjhjtg92Dao.getGoodsTypeInAndOutInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtg92DTOs)) {
+            for (Ttjjhjtg92DTO ttjjhjtg92DTO : ttjjhjtg92DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtg92DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   外贸情况
+     **/
+    public List<Map<String, Object>> getForeignTradeInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtg92DTO> ttjjhjtg92DTOs = Lists.newArrayList();
+        ttjjhjtg92DTOs = ttjjhjtg92Dao.getForeignTradeInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtg92DTOs)) {
+            for (Ttjjhjtg92DTO ttjjhjtg92DTO : ttjjhjtg92DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtg92DTO));
+            }
+        }
+        return res;
+    }
+
+
 }

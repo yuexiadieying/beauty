@@ -45,4 +45,20 @@ public class Ttjjhjht5Service {
         }
         return res;
     }
+
+
+    /**
+     * 公路密度情况
+     **/
+    public List<Map<String, Object>> getRoadDensityInfo (String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht5DTO> ttjjhjht5DTOs = Lists.newArrayList();
+        ttjjhjht5DTOs = ttjjhjht5Dao.getRoadDensityInfo (start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht5DTOs)) {
+            for (Ttjjhjht5DTO ttjjhjht5DTO : ttjjhjht5DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht5DTO));
+            }
+        }
+        return res;
+    }
 }

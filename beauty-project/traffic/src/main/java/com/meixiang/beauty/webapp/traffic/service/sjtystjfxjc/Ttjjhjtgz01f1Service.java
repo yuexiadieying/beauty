@@ -45,4 +45,35 @@ public class Ttjjhjtgz01f1Service {
         }
         return res;
     }
+
+
+    /**
+     * l   港口法人企业
+     **/
+    public List<Map<String, Object>> getPortJuridicalPersonEnterprise(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz01f1DTO> ttjjhjtgz01f1DTOs = Lists.newArrayList();
+        ttjjhjtgz01f1DTOs = ttjjhjtgz01f1Dao.getPortJuridicalPersonEnterprise(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz01f1DTOs)) {
+            for (Ttjjhjtgz01f1DTO ttjjhjtgz01f1DTO : ttjjhjtgz01f1DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz01f1DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   港口码头单位数据
+     **/
+    public List<Map<String, Object>> getPortUnitInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz01f1DTO> ttjjhjtgz01f1DTOs = Lists.newArrayList();
+        ttjjhjtgz01f1DTOs = ttjjhjtgz01f1Dao.getPortUnitInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz01f1DTOs)) {
+            for (Ttjjhjtgz01f1DTO ttjjhjtgz01f1DTO : ttjjhjtgz01f1DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz01f1DTO));
+            }
+        }
+        return res;
+    }
 }

@@ -38,5 +38,13 @@ public interface Ttjjhfpjb04Dao {
     List<Ttjjhfpjb04DTO> getTtjjhfpjb04ByParamsPageable(@Param("start") int start,
                                                         @Param("end") int end,
                                                         @Param("info") String info);
+    /**
+     * 村公路资金到位情况／县道 省级资金到位／乡道市级资金到位／农村县级公路资金到位／未到位个数，已到位个数
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb04DTO> getVillageRoadMoneyInPlaceInfo(@Param("start") String start,
+                                                        @Param("end") String end);
+
 
 }

@@ -38,5 +38,37 @@ public interface Ttjjhjht20Dao {
     List<Ttjjhjht20DTO> getTtjjhjht20ByParamsPageable(@Param("start") int start,
                                                       @Param("end") int end,
                                                       @Param("info") String info);
+    /**
+     * l   重点联系公路运输企业经营财务状况调查数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht20DTO> getRoadEnterpriseAccountInfo(@Param("start") String start,
+                                                     @Param("end") String end);
+
+    /**
+     * 公路运输法人企业情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht20DTO> getRoadTransportJuridicalPersonEnterpriseInfo(@Param("start") String start,
+                                                                      @Param("end") String end);
+
+    /**
+     * 营业性汽车运输效率和燃料消耗情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht20DTO> getBusinessCarTransportAndFuelInfo(@Param("start") String start,
+                                                           @Param("end") String end);
+
+    /**
+     * 公路运输法人企业财务状况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht20DTO> getRoadTransportEnterpriseAccountInfo(@Param("start") String start,
+                                                              @Param("end") String end);
+
 
 }

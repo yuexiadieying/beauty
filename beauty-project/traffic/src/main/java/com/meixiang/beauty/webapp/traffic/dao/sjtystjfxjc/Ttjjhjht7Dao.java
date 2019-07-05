@@ -38,5 +38,13 @@ public interface Ttjjhjht7Dao {
     List<Ttjjhjht7DTO> getTtjjhjht7ByParamsPageable(@Param("start") int start,
                                                     @Param("end") int end,
                                                     @Param("info") String info);
+    /**
+     * 公路旅客货物运营车辆拥有量情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht7DTO> getRoadCarNumInfo(@Param("start") String start,
+                                         @Param("end") String end);
+
 
 }

@@ -45,4 +45,37 @@ public class Ttjjhjht21Service {
         }
         return res;
     }
+
+
+    /**
+     * 营业性运输船舶燃料消耗情况数据
+     **/
+    public List<Map<String, Object>> getBusinessBoatFuelInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht21DTO> ttjjhjht21DTOs = Lists.newArrayList();
+        ttjjhjht21DTOs = ttjjhjht21Dao.getBusinessBoatFuelInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht21DTOs)) {
+            for (Ttjjhjht21DTO ttjjhjht21DTO : ttjjhjht21DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht21DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 水路运输法人企业财务状况
+     **/
+    public List<Map<String, Object>> getWaterRoadTransportEnterpriseAccountInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht21DTO> ttjjhjht21DTOs = Lists.newArrayList();
+        ttjjhjht21DTOs = ttjjhjht21Dao.getWaterRoadTransportEnterpriseAccountInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht21DTOs)) {
+            for (Ttjjhjht21DTO ttjjhjht21DTO : ttjjhjht21DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht21DTO));
+            }
+        }
+        return res;
+    }
+
+
 }

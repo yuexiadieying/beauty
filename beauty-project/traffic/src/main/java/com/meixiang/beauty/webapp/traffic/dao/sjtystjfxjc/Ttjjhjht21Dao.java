@@ -38,5 +38,21 @@ public interface Ttjjhjht21Dao {
     List<Ttjjhjht21DTO> getTtjjhjht21ByParamsPageable(@Param("start") int start,
                                                       @Param("end") int end,
                                                       @Param("info") String info);
+    /**
+     * 营业性运输船舶燃料消耗情况数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht21DTO> getBusinessBoatFuelInfo(@Param("start") String start,
+                                                @Param("end") String end);
+
+    /**
+     * 水路运输法人企业财务状况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjht21DTO> getWaterRoadTransportEnterpriseAccountInfo(@Param("start") String start,
+                                                                   @Param("end") String end);
+
 
 }

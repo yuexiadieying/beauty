@@ -45,4 +45,65 @@ public class Ttjjhjtgz0304Service {
         }
         return res;
     }
+
+
+    /**
+     * l   国际航线进出港集装箱吞吐
+     **/
+    public List<Map<String, Object>> getInternationalLineInAndOutPortNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz0304DTO> ttjjhjtgz0304DTOs = Lists.newArrayList();
+        ttjjhjtgz0304DTOs = ttjjhjtgz0304Dao.getInternationalLineInAndOutPortNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz0304DTOs)) {
+            for (Ttjjhjtgz0304DTO ttjjhjtgz0304DTO : ttjjhjtgz0304DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz0304DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   国内航线进出港集装箱吞吐
+     **/
+    public List<Map<String, Object>> getCountryLineInAndOutPortNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz0304DTO> ttjjhjtgz0304DTOs = Lists.newArrayList();
+        ttjjhjtgz0304DTOs = ttjjhjtgz0304Dao.getCountryLineInAndOutPortNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz0304DTOs)) {
+            for (Ttjjhjtgz0304DTO ttjjhjtgz0304DTO : ttjjhjtgz0304DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz0304DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   内  支线进出港集装箱吞吐
+     **/
+    public List<Map<String, Object>> getCJLineInAndOutPortBoxNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz0304DTO> ttjjhjtgz0304DTOs = Lists.newArrayList();
+        ttjjhjtgz0304DTOs = ttjjhjtgz0304Dao.getCJLineInAndOutPortBoxNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz0304DTOs)) {
+            for (Ttjjhjtgz0304DTO ttjjhjtgz0304DTO : ttjjhjtgz0304DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz0304DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   分货类分运输方式集疏运情况
+     **/
+    public List<Map<String, Object>> getGoodsTypeTransportInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz0304DTO> ttjjhjtgz0304DTOs = Lists.newArrayList();
+        ttjjhjtgz0304DTOs = ttjjhjtgz0304Dao.getGoodsTypeTransportInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz0304DTOs)) {
+            for (Ttjjhjtgz0304DTO ttjjhjtgz0304DTO : ttjjhjtgz0304DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz0304DTO));
+            }
+        }
+        return res;
+    }
 }

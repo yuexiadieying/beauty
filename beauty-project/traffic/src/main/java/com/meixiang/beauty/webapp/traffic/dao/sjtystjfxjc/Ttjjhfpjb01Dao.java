@@ -38,5 +38,21 @@ public interface Ttjjhfpjb01Dao {
     List<Ttjjhfpjb01DTO> getTtjjhfpjb01ByParamsPageable(@Param("start") int start,
                                                         @Param("end") int end,
                                                         @Param("info") String info);
+    /**
+     * 高速和国省道的计划
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb01DTO> getHighAndProvinceRoadInvestPlanInfo(@Param("start") String start,
+                                                              @Param("end") String end);
+
+    /**
+     * 投资完成情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb01DTO> getHighAndProvinceRoadInvestFinishInfo(@Param("start") String start,
+                                                                @Param("end") String end);
+
 
 }

@@ -45,4 +45,35 @@ public class Ttjjhjtgz030405Service {
         }
         return res;
     }
+
+
+    /**
+     * l   内贸出港情况
+     **/
+    public List<Map<String, Object>> getDomesticTradeLeavePortInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz030405DTO> ttjjhjtgz030405DTOs = Lists.newArrayList();
+        ttjjhjtgz030405DTOs = ttjjhjtgz030405Dao.getDomesticTradeLeavePortInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz030405DTOs)) {
+            for (Ttjjhjtgz030405DTO ttjjhjtgz030405DTO : ttjjhjtgz030405DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz030405DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * l   外贸出港情况
+     **/
+    public List<Map<String, Object>> getForeignTradeLeavePortInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtgz030405DTO> ttjjhjtgz030405DTOs = Lists.newArrayList();
+        ttjjhjtgz030405DTOs = ttjjhjtgz030405Dao.getForeignTradeLeavePortInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtgz030405DTOs)) {
+            for (Ttjjhjtgz030405DTO ttjjhjtgz030405DTO : ttjjhjtgz030405DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtgz030405DTO));
+            }
+        }
+        return res;
+    }
 }

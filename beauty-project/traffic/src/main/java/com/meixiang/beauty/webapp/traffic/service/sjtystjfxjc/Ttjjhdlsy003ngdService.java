@@ -45,4 +45,20 @@ public class Ttjjhdlsy003ngdService {
         }
         return res;
     }
+
+
+    /**
+     * l   道路从业人员数据
+     **/
+    public List<Map<String, Object>> getRoadWorkersInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhdlsy003ngdDTO> ttjjhdlsy003ngdDTOs = Lists.newArrayList();
+        ttjjhdlsy003ngdDTOs = ttjjhdlsy003ngdDao.getRoadWorkersInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhdlsy003ngdDTOs)) {
+            for (Ttjjhdlsy003ngdDTO ttjjhdlsy003ngdDTO : ttjjhdlsy003ngdDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhdlsy003ngdDTO));
+            }
+        }
+        return res;
+    }
 }

@@ -38,5 +38,21 @@ public interface Ttjjhfpjb03Dao {
     List<Ttjjhfpjb03DTO> getTtjjhfpjb03ByParamsPageable(@Param("start") int start,
                                                         @Param("end") int end,
                                                         @Param("info") String info);
+    /**
+     * 县乡客运场站的计划、
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb03DTO> getVillagePassengerStationInvestPlanInfo(@Param("start") String start,
+                                                                  @Param("end") String end);
+
+    /**
+     * 投资完成情况表
+     * @param start
+     * @param end
+     */
+    List<Ttjjhfpjb03DTO> getVillagePassengerStationInvestFinishInfo(@Param("start") String start,
+                                                                    @Param("end") String end);
+
 
 }

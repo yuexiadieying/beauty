@@ -45,4 +45,20 @@ public class Ttjjhkcgx01Service {
         }
         return res;
     }
+
+
+    /**
+     * 货运车辆更新情况
+     **/
+    public List<Map<String, Object>> getTransportCarChangeInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhkcgx01DTO> ttjjhkcgx01DTOs = Lists.newArrayList();
+        ttjjhkcgx01DTOs = ttjjhkcgx01Dao.getTransportCarChangeInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhkcgx01DTOs)) {
+            for (Ttjjhkcgx01DTO ttjjhkcgx01DTO : ttjjhkcgx01DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhkcgx01DTO));
+            }
+        }
+        return res;
+    }
 }

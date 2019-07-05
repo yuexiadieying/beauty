@@ -45,4 +45,20 @@ public class Ttjjhdlsy011ngdService {
         }
         return res;
     }
+
+    /**
+     *  道路危险货物运输数据
+     **/
+    public List<Map<String, Object>> getDangerThingsTransportNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhdlsy011ngdDTO> ttjjhdlsy011ngdDTOs = Lists.newArrayList();
+        ttjjhdlsy011ngdDTOs = ttjjhdlsy011ngdDao.getDangerThingsTransportNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhdlsy011ngdDTOs)) {
+            for (Ttjjhdlsy011ngdDTO ttjjhdlsy011ngdDTO : ttjjhdlsy011ngdDTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhdlsy011ngdDTO));
+            }
+        }
+        return res;
+    }
+
 }

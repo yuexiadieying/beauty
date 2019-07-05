@@ -38,5 +38,13 @@ public interface Ttjjhdlsy013ngdDao {
     List<Ttjjhdlsy013ngdDTO> getTtjjhdlsy013ngdByParamsPageable(@Param("start") int start,
                                                                 @Param("end") int end,
                                                                 @Param("info") String info);
+    /**
+     *  港澳台及外商投资道路运输业情况数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhdlsy013ngdDTO> getRoadTransportInvestedByGOTInfo(@Param("start") String start,
+                                                               @Param("end") String end);
+
 
 }

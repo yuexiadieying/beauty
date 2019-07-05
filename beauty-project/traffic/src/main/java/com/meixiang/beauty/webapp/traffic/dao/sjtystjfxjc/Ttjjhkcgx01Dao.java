@@ -38,5 +38,13 @@ public interface Ttjjhkcgx01Dao {
     List<Ttjjhkcgx01DTO> getTtjjhkcgx01ByParamsPageable(@Param("start") int start,
                                                         @Param("end") int end,
                                                         @Param("info") String info);
+    /**
+     * 货运车辆更新情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhkcgx01DTO> getTransportCarChangeInfo(@Param("start") String start,
+                                                   @Param("end") String end);
+
 
 }

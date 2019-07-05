@@ -54,4 +54,37 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+    <!--城市客运主要统计指标快速年报信息-->
+    <select id="getCityPassengerTrafficStatisticInfo" resultMap="Ttjjhckt13InfoResultMap">
+      SELECT
+sum(CK1310001) as CK1310001,
+sum(CK1310002) as CK1310002,
+sum(CK1310003) as CK1310003,
+sum(CK1310004) as CK1310004,
+sum(CK1330001) as CK1330001,
+sum(CK1330002) as CK1330002,
+sum(CK1330003) as CK1330003,
+sum(CK1330004) as CK1330004,
+sum(CK1330005) as CK1330005,
+sum(CK1330006) as CK1330006,
+sum(CK1330007) as CK1330007,
+sum(CK1330008) as CK1330008,
+sum(CK1320001) as CK1320001,
+sum(CK1320002) as CK1320002,
+sum(CK1320003) as CK1320003,
+sum(CK1340001) as CK1340001,
+sum(CK1340002) as CK1340002,
+sum(CK1340003) as CK1340003,
+sum(CK1330009) as CK1330009,
+sum(CK1320004) as CK1320004,
+sum(CK1340004) as CK1340004,
+sum(CK1310005) as CK1310005
+FROM CDPRJ.T_TJJH_CKT_13
+WHERE "SUBSTR"(DATATIME,1,4)=#{year}
+    </select>
+
+
+
+
+
 </mapper>

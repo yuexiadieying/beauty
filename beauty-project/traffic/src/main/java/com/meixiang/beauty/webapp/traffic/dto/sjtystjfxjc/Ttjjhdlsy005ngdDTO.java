@@ -14,6 +14,18 @@ public class Ttjjhdlsy005ngdDTO {
     private Integer serialNo;
 
     /**
+     * 序列号
+     **/
+    @JSONField(name="year")
+    private String year;
+
+    /**
+     * 序列号
+     **/
+    @JSONField(name="month")
+    private String month;
+
+    /**
      *行标识
     **/
     @JSONField(name="recid")
@@ -545,4 +557,27 @@ public class Ttjjhdlsy005ngdDTO {
         this.dlys12005n0000330 = dlys12005n0000330;
     }
 
+    public Integer getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(Integer serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
 }

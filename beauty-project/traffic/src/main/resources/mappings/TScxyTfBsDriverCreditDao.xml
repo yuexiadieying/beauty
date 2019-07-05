@@ -38,7 +38,7 @@
     </select>
     <!--获取总个数-->
     <select id="getTScxyTfBsDriverCreditCountByParams" resultType="java.lang.Integer">
-        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_DRIVER_CREDIT
+        SELECT count(1) FROM CDPRJ.T_SCXY_TF_BS_DRIVER_CREDIT a
         LEFT JOIN CDPRJ.T_SJXT_TF_PT_CMPSN b on b.CMPSNID=a.CMPSNID
         WHERE (b.NAME like CONCAT('%', CONCAT(#{info},'%')))
     </select>

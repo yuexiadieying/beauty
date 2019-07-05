@@ -137,4 +137,17 @@
       ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
     </select>
 
+ <!--公路水路运输量月度统计基础情况-->
+ <select id="getRoadAndWaterTransportNumInMonthInfo" resultMap="Ttjjhjht10yInfoResultMap">
+      SELECT
+"CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) as month,
+"SUM"(YS03020101000000000000000000) as YS03020101000000000000000000,
+"SUM"(YS03020103000000000000000000) as YS03020103000000000000000000
+FROM CDPRJ.T_TJJH_JHT10_Y
+where "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2)) BETWEEN #{start} AND #{end}
+GROUP BY "CONCAT"("SUBSTR"(DATATIME,1,4), "SUBSTR"(DATATIME,8,2))
+    </select>
+
+
+
 </mapper>

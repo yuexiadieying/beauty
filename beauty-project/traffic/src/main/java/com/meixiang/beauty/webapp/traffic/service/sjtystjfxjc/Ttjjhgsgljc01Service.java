@@ -45,4 +45,18 @@ public class Ttjjhgsgljc01Service {
         }
         return res;
     }
+    /**
+     * 路段平均日交通量统计
+     **/
+    public List<Map<String, Object>> getRoadTrafficDailyNumInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhgsgljc01DTO> ttjjhgsgljc01DTOs = Lists.newArrayList();
+        ttjjhgsgljc01DTOs = ttjjhgsgljc01Dao.getRoadTrafficDailyNumInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhgsgljc01DTOs)) {
+            for (Ttjjhgsgljc01DTO ttjjhgsgljc01DTO : ttjjhgsgljc01DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhgsgljc01DTO));
+            }
+        }
+        return res;
+    }
 }

@@ -45,4 +45,67 @@ public class Ttjjhjht20Service {
         }
         return res;
     }
+
+
+    /**
+     * l   重点联系公路运输企业经营财务状况调查数据
+     **/
+    public List<Map<String, Object>> getRoadEnterpriseAccountInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht20DTO> ttjjhjht20DTOs = Lists.newArrayList();
+        ttjjhjht20DTOs = ttjjhjht20Dao.getRoadEnterpriseAccountInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht20DTOs)) {
+            for (Ttjjhjht20DTO ttjjhjht20DTO : ttjjhjht20DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht20DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 公路运输法人企业情况
+     **/
+    public List<Map<String, Object>> getRoadTransportJuridicalPersonEnterpriseInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht20DTO> ttjjhjht20DTOs = Lists.newArrayList();
+        ttjjhjht20DTOs = ttjjhjht20Dao.getRoadTransportJuridicalPersonEnterpriseInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht20DTOs)) {
+            for (Ttjjhjht20DTO ttjjhjht20DTO : ttjjhjht20DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht20DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 营业性汽车运输效率和燃料消耗情况
+     **/
+    public List<Map<String, Object>> getBusinessCarTransportAndFuelInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht20DTO> ttjjhjht20DTOs = Lists.newArrayList();
+        ttjjhjht20DTOs = ttjjhjht20Dao.getBusinessCarTransportAndFuelInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht20DTOs)) {
+            for (Ttjjhjht20DTO ttjjhjht20DTO : ttjjhjht20DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht20DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 公路运输法人企业财务状况
+     **/
+    public List<Map<String, Object>> getRoadTransportEnterpriseAccountInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht20DTO> ttjjhjht20DTOs = Lists.newArrayList();
+        ttjjhjht20DTOs = ttjjhjht20Dao.getRoadTransportEnterpriseAccountInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht20DTOs)) {
+            for (Ttjjhjht20DTO ttjjhjht20DTO : ttjjhjht20DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht20DTO));
+            }
+        }
+        return res;
+    }
+
+
 }

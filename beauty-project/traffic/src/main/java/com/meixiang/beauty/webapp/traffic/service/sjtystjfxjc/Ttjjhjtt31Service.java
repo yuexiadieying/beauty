@@ -45,4 +45,36 @@ public class Ttjjhjtt31Service {
         }
         return res;
     }
+
+
+    /**
+     * 中央安排农村公路建设数／地方安排农村公路建设数
+     **/
+    public List<Map<String, Object>> getVillageRoadBuildPlanInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt31DTO> ttjjhjtt31DTOs = Lists.newArrayList();
+        ttjjhjtt31DTOs = ttjjhjtt31Dao.getVillageRoadBuildPlanInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt31DTOs)) {
+            for (Ttjjhjtt31DTO ttjjhjtt31DTO : ttjjhjtt31DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt31DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 中央及地方安排农村公路建设情况
+     **/
+    public List<Map<String, Object>> getVillageRoadBuildPlanInMonthInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt31DTO> ttjjhjtt31DTOs = Lists.newArrayList();
+        ttjjhjtt31DTOs = ttjjhjtt31Dao.getVillageRoadBuildPlanInMonthInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt31DTOs)) {
+            for (Ttjjhjtt31DTO ttjjhjtt31DTO : ttjjhjtt31DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt31DTO));
+            }
+        }
+        return res;
+    }
+
 }

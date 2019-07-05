@@ -38,5 +38,21 @@ public interface Ttjjhjtt31Dao {
     List<Ttjjhjtt31DTO> getTtjjhjtt31ByParamsPageable(@Param("start") int start,
                                                       @Param("end") int end,
                                                       @Param("info") String info);
+    /**
+     * 中央安排农村公路建设数／地方安排农村公路建设数
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt31DTO> getVillageRoadBuildPlanInfo(@Param("start") String start,
+                                                    @Param("end") String end);
+
+    /**
+     * 中央及地方安排农村公路建设情况
+     * @param start
+     * @param end
+     */
+    List<Ttjjhjtt31DTO> getVillageRoadBuildPlanInMonthInfo(@Param("start") String start,
+                                                           @Param("end") String end);
+
 
 }

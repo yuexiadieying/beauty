@@ -45,4 +45,66 @@ public class Ttjjhjtt4Service {
         }
         return res;
     }
+
+
+    /**
+     * 交通固定资产投资额
+     **/
+    public List<Map<String, Object>> getTrafficFixMoneyInvestInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt4DTO> ttjjhjtt4DTOs = Lists.newArrayList();
+        ttjjhjtt4DTOs = ttjjhjtt4Dao.getTrafficFixMoneyInvestInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt4DTOs)) {
+            for (Ttjjhjtt4DTO ttjjhjtt4DTO : ttjjhjtt4DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt4DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 公路固定资产投资
+     **/
+    public List<Map<String, Object>> getRoadFixMoneyInvestInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt4DTO> ttjjhjtt4DTOs = Lists.newArrayList();
+        ttjjhjtt4DTOs = ttjjhjtt4Dao.getRoadFixMoneyInvestInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt4DTOs)) {
+            for (Ttjjhjtt4DTO ttjjhjtt4DTO : ttjjhjtt4DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt4DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 按照月份查询单位信息
+     **/
+    public List<Map<String, Object>> getRoadFixMoneyInvestUnitInfo(String month) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt4DTO> ttjjhjtt4DTOs = Lists.newArrayList();
+        ttjjhjtt4DTOs = ttjjhjtt4Dao.getRoadFixMoneyInvestUnitInfo(month);
+        if (!CollectionUtils.isEmpty(ttjjhjtt4DTOs)) {
+            for (Ttjjhjtt4DTO ttjjhjtt4DTO : ttjjhjtt4DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt4DTO));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 资金来源情况
+     **/
+    public List<Map<String, Object>> getMoneySourceInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjtt4DTO> ttjjhjtt4DTOs = Lists.newArrayList();
+        ttjjhjtt4DTOs = ttjjhjtt4Dao.getMoneySourceInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjtt4DTOs)) {
+            for (Ttjjhjtt4DTO ttjjhjtt4DTO : ttjjhjtt4DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjtt4DTO));
+            }
+        }
+        return res;
+    }
+
 }

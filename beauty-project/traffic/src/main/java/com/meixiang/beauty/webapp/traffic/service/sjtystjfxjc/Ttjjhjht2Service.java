@@ -45,4 +45,20 @@ public class Ttjjhjht2Service {
         }
         return res;
     }
+
+
+    /**
+     * 公路桥梁隧道年底到达数情况
+     **/
+    public List<Map<String, Object>> getEndOfYearProgressInfo(String start, String end) {
+        List<Map<String, Object>> res = Lists.newArrayList();
+        List<Ttjjhjht2DTO> ttjjhjht2DTOs = Lists.newArrayList();
+        ttjjhjht2DTOs = ttjjhjht2Dao.getEndOfYearProgressInfo(start, end);
+        if (!CollectionUtils.isEmpty(ttjjhjht2DTOs)) {
+            for (Ttjjhjht2DTO ttjjhjht2DTO : ttjjhjht2DTOs) {
+                res.add(ClassUtil.toHashMap(ttjjhjht2DTO));
+            }
+        }
+        return res;
+    }
 }

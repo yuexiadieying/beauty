@@ -38,5 +38,13 @@ public interface Ttjjhdlys001ngdDao {
     List<Ttjjhdlys001ngdDTO> getTtjjhdlys001ngdByParamsPageable(@Param("start") int start,
                                                                 @Param("end") int end,
                                                                 @Param("info") String info);
+    /**
+     * l   道路经营业户数据
+     * @param start
+     * @param end
+     */
+    List<Ttjjhdlys001ngdDTO> getRoadBusinessPersonInfo(@Param("start") String start,
+                                                       @Param("end") String end);
+
 
 }

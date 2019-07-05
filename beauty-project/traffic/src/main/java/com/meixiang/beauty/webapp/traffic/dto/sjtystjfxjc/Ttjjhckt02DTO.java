@@ -11,6 +11,9 @@ public class Ttjjhckt02DTO {
     @JSONField(name="serialNo")
     private Integer serialNo;
 
+    @JSONField(name = "date")
+    private String date;
+
     /**
      *行标识
     **/
@@ -1138,6 +1141,22 @@ public class Ttjjhckt02DTO {
         this.ck0210080 = ck0210080;
     }
 
+    public Integer getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(Integer serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public Double getCk0210081() {
         return ck0210081;
     }
@@ -1169,5 +1188,7 @@ public class Ttjjhckt02DTO {
     public void setCk0210084(Double ck0210084) {
         this.ck0210084 = ck0210084;
     }
+
+
 
 }

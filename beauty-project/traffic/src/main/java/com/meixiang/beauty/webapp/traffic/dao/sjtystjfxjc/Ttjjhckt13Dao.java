@@ -39,4 +39,11 @@ public interface Ttjjhckt13Dao {
                                                       @Param("end") int end,
                                                       @Param("info") String info);
 
+    /**
+     * 城市客运主要统计指标快速年报信息
+     * @param year
+     */
+    List<Ttjjhckt13DTO> getCityPassengerTrafficStatisticInfo(@Param("year") String year);
+
+
 }
