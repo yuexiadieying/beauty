@@ -195,4 +195,6 @@ public class UserInfoDTO {
     public void setUserLevel(List<String> userLevel) {
         this.userLevel = userLevel;
     }
+
+
 }
