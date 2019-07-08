@@ -141,31 +141,31 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="info in sslyzgl_cyrykhqzb">
-                            <td></td><!--序号-->
+                            <td>{{info.serialNo}}</td><!--序号-->
                             <td></td><!--从业人员-->
-                            <td></td><!--考核年度-->
-                            <td></td><!--考核周期起始日期-->
-                            <td></td><!--结束日期-->
-                            <td></td><!--得分-->
-                            <td></td><!--累计积分-->
-                            <td></td><!--状态-->
+                            <td>{{info.creditYear}}</td><!--考核年度-->
+                            <td>{{info.startDate}}</td><!--考核周期起始日期-->
+                            <td>{{info.endDate}}</td><!--结束日期-->
+                            <td>{{info.score}}</td><!--得分-->
+                            <td>{{info.totalScore}}</td><!--累计积分-->
+                            <td>{{info.dcStatus}}</td><!--状态-->
                             <td></td><!--从业资格类别-->
-                            <td></td><!--考核级别-->
-                            <td></td><!--备注-->
-                            <td></td><!--评定人-->
-                            <td></td><!--评定时间-->
-                            <td></td><!--评定备注-->
-                            <td></td><!--时间戳-->
-                            <td></td><!--修改时间-->
-                            <td></td><!--修改日期-->
+                            <td>{{info.dcLevel}}</td><!--考核级别-->
+                            <td>{{info.remark}}</td><!--备注-->
+                            <td>{{info.auditUser}}</td><!--评定人-->
+                            <td>{{info.auditDate}}</td><!--评定时间-->
+                            <td>{{info.auditMemo}}</td><!--评定备注-->
+                            <td>{{info.insertDate}}</td><!--时间戳-->
+                            <td>{{info.editime}}</td><!--修改时间-->
+                            <td>{{info.edidate}}</td><!--修改日期-->
                             <td></td><!--修改人-->
-                            <td></td><!--创建时间-->
-                            <td></td><!--创建日期-->
+                            <td>{{info.cretime}}</td><!--创建时间-->
+                            <td>{{info.credate}}</td><!--创建日期-->
                             <td></td><!--创建人-->
-                            <td></td><!--是否有效-->
-                            <td></td><!--从业资格证编号-->
-                            <td></td><!--从业资格证照片1-->
-                            <td></td><!--从业资格证照片2-->
+                            <td>{{info.iseffect}}</td><!--是否有效-->
+                            <td>{{info.enbeworrecordid}}</td><!--从业资格证编号-->
+                            <td>{{info.enbeworrecordimg1}}</td><!--从业资格证照片1-->
+                            <td>{{info.enbeworrecordimg2}}</td><!--从业资格证照片2-->
                         </tr>
                         </tbody>
                     </table>

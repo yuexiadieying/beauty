@@ -38,15 +38,19 @@ app.controller('ThroughputNextLevelListCtrl', ['$scope', '$stateParams', 'traUti
             $scope.param.leftInfo = resp.data.responseData
         });
 
-        $scope.qsbwzkParam = {
+        $scope.qsbwzkDTO = {
             gkqy:'',
             mtdw:'',
-            startDate:'',
-            endDate:''
+            startDate:'2019-04-23',
+            endDate:'2019-05-23'
+        };
+        $scope.getDate = function(startDate,endDate){
+            $scope.qsbwzkDTO.startDate = startDate
+            $scope.qsbwzkDTO.endDate = endDate
         }
 
         $scope.searchQsbwzkData = function(){
-            $http.get('/traffic/hlsgkqyymtdwttlbb/qsbwzk',$scope.qsbwzkParam).then(function (resp) {
+            $http.get('/traffic/hlsgkqyymtdwttlbb/qsbwzk',{params:$scope.qsbwzkDTO}).then(function (resp) {
                 console.log(resp);
             });
         }
