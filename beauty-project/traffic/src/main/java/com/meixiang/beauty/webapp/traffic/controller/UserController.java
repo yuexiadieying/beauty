@@ -55,9 +55,16 @@ public class UserController {
                 userLevelList.add(UserLevelEnum.SYAISXT.getValue());
                 userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
                 userInfoDTO.setUserLevel(userLevelList);
+
+                String logintoken = UUID.randomUUID().toString();
+                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+                session.setAttribute(logintoken, userInfoStr);
+
+                responseDTO.setResponseData(logintoken);
+                responseDTO.setResult(StatusConstant.SUCCESS);
             }
         }
-        else if(loginMap.get("CDJTJXXZX").equals("CDJTJ"))
+        else if(loginMap.get("username").equals("CDJTJXXZX"))
         {
             if(loginMap.get("password").equals("123456"))
             {
@@ -74,9 +81,16 @@ public class UserController {
                 userLevelList.add(UserLevelEnum.SYAISXT.getValue());
                 userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
                 userInfoDTO.setUserLevel(userLevelList);
+
+                String logintoken = UUID.randomUUID().toString();
+                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+                session.setAttribute(logintoken, userInfoStr);
+
+                responseDTO.setResponseData(logintoken);
+                responseDTO.setResult(StatusConstant.SUCCESS);
             }
         }
-        else if(loginMap.get("CDJTJJJYH").equals("CDJTJ"))
+        else if(loginMap.get("username").equals("CDJTJJJYH"))
         {
             if(loginMap.get("password").equals("123456"))
             {
@@ -87,9 +101,16 @@ public class UserController {
                 userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
                 userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
                 userInfoDTO.setUserLevel(userLevelList);
+
+                String logintoken = UUID.randomUUID().toString();
+                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+                session.setAttribute(logintoken, userInfoStr);
+
+                responseDTO.setResponseData(logintoken);
+                responseDTO.setResult(StatusConstant.SUCCESS);
             }
         }
-        else if(loginMap.get("CDJTJYSK").equals("CDJTJ"))
+        else if(loginMap.get("username").equals("CDJTJYSK"))
         {
             if(loginMap.get("password").equals("123456"))
             {
@@ -98,15 +119,20 @@ public class UserController {
                 List<String> userLevelList = new ArrayList<>();
                 userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
                 userInfoDTO.setUserLevel(userLevelList);
+
+                String logintoken = UUID.randomUUID().toString();
+                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+                session.setAttribute(logintoken, userInfoStr);
+
+                responseDTO.setResponseData(logintoken);
+                responseDTO.setResult(StatusConstant.SUCCESS);
             }
         }
+        else
+        {
+            responseDTO.setResult(StatusConstant.FAILURE);
+        }
 
-        String logintoken = UUID.randomUUID().toString();
-        String userInfoStr = (new Gson()).toJson(userInfoDTO);
-        session.setAttribute(logintoken, userInfoStr);
-
-        responseDTO.setResponseData(logintoken);
-        responseDTO.setResult(StatusConstant.SUCCESS);
         return  responseDTO;
     }
 

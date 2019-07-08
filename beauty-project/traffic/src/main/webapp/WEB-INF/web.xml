@@ -14,7 +14,7 @@
 			classpath*:/spring-context-oracle.xml
 <!--			classpath*:/spring-context-mysql.xml-->
 <!--			classpath*:/spring-context-redis.xml-->
-<!--			classpath*:/spring-context-mongodb.xml-->
+			classpath*:/spring-context-mongodb.xml
 		</param-value>
 	</context-param>
 
