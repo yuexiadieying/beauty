@@ -63,8 +63,6 @@ public class TrafficLoginRequiredInterceptor implements MethodInterceptor {
                 responseDto.setErrorInfo(StatusConstant.TOKEN_ERROR);
                 return responseDto;
             }
-
-            userService.saveUserInfoToToken(token,userInfoStr,ConfigConstant.logintokenPeriod);
         }
         //执行被拦截的方法，切记，如果此方法不调用，则被拦截的方法不会被执行。
         return mi.proceed();

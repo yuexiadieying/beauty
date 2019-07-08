@@ -34,10 +34,10 @@ public class UserController {
     private MongoTemplate mongoTemplate;
 
     //todo 用户登录
-    @RequestMapping(value = "login", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "userlogin", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<String> login(@RequestBody HashMap<String,Object> loginMap, HttpSession session){
+    ResponseDTO<String> userlogin(@RequestBody HashMap<String,Object> loginMap, HttpSession session){
 
         ResponseDTO<String> responseDTO = new ResponseDTO<>();
 
@@ -145,11 +145,11 @@ public class UserController {
     }
 
     //todo 用户退出登录
-    @RequestMapping(value = "loginOut", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "userloginOut", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @TrafficLoginRequired
     @ResponseBody
-    ResponseDTO loginOut(HttpSession session){
+    ResponseDTO userloginOut(HttpSession session){
         ResponseDTO<UserInfoDTO> responseDTO = new ResponseDTO<>();
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         Map<String, String> headerValue = getHeadersInfo(request);
@@ -160,11 +160,11 @@ public class UserController {
     }
 
     //todo 获取用户信息的接口
-    @RequestMapping(value = "getUserInfo", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "getTrafficUserInfo", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @TrafficLoginRequired
     @ResponseBody
-    ResponseDTO<UserInfoDTO> getUserInfo(HttpSession session){
+    ResponseDTO<UserInfoDTO> getTrafficUserInfo(HttpSession session){
 
         ResponseDTO<UserInfoDTO> responseDTO = new ResponseDTO<>();
 
@@ -184,11 +184,11 @@ public class UserController {
     }
 
     //todo 储存用户的信息
-    @RequestMapping(value = "saveUserInfo", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "saveTrafficUserInfo", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @TrafficLoginRequired
     @ResponseBody
-    ResponseDTO saveUserInfo(@RequestBody UserInfoDTO userInfoDTO){
+    ResponseDTO saveTrafficUserInfo(@RequestBody UserInfoDTO userInfoDTO){
 
         ResponseDTO responseDTO = new ResponseDTO<>();
 

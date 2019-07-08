@@ -6,10 +6,12 @@ import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.common.dto.system.UserInfoDTO;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.service.UserService;
+import com.mongodb.WriteResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +22,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 //智慧公交
 @Controller
@@ -163,19 +162,23 @@ public class UserInfoController {
     ResponseDTO<UserInfoDTO> getUserInfo(HttpSession session){
 
         ResponseDTO<UserInfoDTO> responseDTO = new ResponseDTO<>();
-
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-
         Map<String, String> headerValue = getHeadersInfo(request);
-
         String token = headerValue.get("logintoken");
-
         String userInfoStr = userService.getUserInfoFromToken(token,session);
-
         UserInfoDTO userInfoDTO = (new Gson()).fromJson(userInfoStr,UserInfoDTO.class);
 
-        responseDTO.setResponseData(userInfoDTO);
-        responseDTO.setResult(StatusConstant.SUCCESS);
+        if(userInfoDTO!=null){
+            Query query = new Query(Criteria.where("loginName").is(userInfoDTO.getLoginName()));
+            UserInfoDTO userInfo = mongoTemplate.findOne(query,UserInfoDTO.class,"userinfo");
+            responseDTO.setResponseData(userInfo);
+            responseDTO.setResult(StatusConstant.SUCCESS);
+        }else
+        {
+            responseDTO.setErrorInfo("用户不存在");
+            responseDTO.setResult(StatusConstant.FAILURE);
+        }
+
         return  responseDTO;
     }
 
@@ -189,8 +192,30 @@ public class UserInfoController {
         ResponseDTO responseDTO = new ResponseDTO<>();
 
         //todo 存储用户的信息
+        Query query = new Query(Criteria.where("loginName").is(userInfoDTO.getLoginName()));
+        UserInfoDTO userInfo = mongoTemplate.findOne(query,UserInfoDTO.class,"userinfo");
 
+        if(userInfo!=null)
+        {
+            //todo 修改用户信息
+            Update update = new Update();
+            update.set("loginName",userInfoDTO.getLoginName());
+            update.set("password",userInfoDTO.getPassword());
+            update.set("userType",userInfoDTO.getUserType());
+            update.set("nickName",userInfoDTO.getNickname());
+            List<String> userLevelList = new ArrayList<>();
+            for(String userLevel:userInfoDTO.getUserLevel())
+            {
+                userLevelList.add(userLevel);
+            }
+            update.set("userLevel",userLevelList);
+            mongoTemplate.updateFirst(query, update,UserInfoDTO.class, "userinfo");
 
+        }else
+        {
+            //todo 新建用户
+            mongoTemplate.insert(userInfoDTO,"userinfo");
+        }
 
         responseDTO.setResult(StatusConstant.SUCCESS);
         return  responseDTO;

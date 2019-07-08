@@ -20,10 +20,4 @@ public class UserService {
         String userInfoStr = httpSession.getAttribute(token).toString();
         return userInfoStr;
     }
-
-
-    public void saveUserInfoToToken(String token, String userInfoStr, int logintokenPeriod) {
-
-    }
-
 }
