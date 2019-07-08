@@ -29,109 +29,109 @@ public class UserController {
     @RequestMapping(value = "login", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @ResponseBody
-    ResponseDTO<String> login(@RequestBody HashMap<String,Object> loginMap, HttpSession session){
+    ResponseDTO<String> login(@RequestBody UserInfoDTO userInfoDTO, HttpSession session){
 
         ResponseDTO<String> responseDTO = new ResponseDTO<>();
 
-        UserInfoDTO userInfoDTO = new UserInfoDTO();
+//        UserInfoDTO userInfoDTO = new UserInfoDTO();
 
-        System.out.println(loginMap.get("username"));
-        System.out.println(loginMap.get("password"));
-
-        if(loginMap.get("username").equals("CDJTJ"))
-        {
-            if(loginMap.get("password").equals("123456"))
-            {
-                userInfoDTO.setLoginName(loginMap.get("username").toString());
-                userInfoDTO.setNickname("常德交通局");
-                List<String> userLevelList = new ArrayList<>();
-                userLevelList.add(UserLevelEnum.SJTYSTJFXJC.getValue());
-                userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
-                userLevelList.add(UserLevelEnum.GLJT.getValue());
-                userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
-                userLevelList.add(UserLevelEnum.ZHGJ.getValue());
-                userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
-                userLevelList.add(UserLevelEnum.HNSGKQYYMTDWTTLBB.getValue());
-                userLevelList.add(UserLevelEnum.SYAISXT.getValue());
-                userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
-                userInfoDTO.setUserLevel(userLevelList);
-
-                String logintoken = UUID.randomUUID().toString();
-                String userInfoStr = (new Gson()).toJson(userInfoDTO);
-                session.setAttribute(logintoken, userInfoStr);
-
-                responseDTO.setResponseData(logintoken);
-                responseDTO.setResult(StatusConstant.SUCCESS);
-            }
-        }
-        else if(loginMap.get("username").equals("CDJTJXXZX"))
-        {
-            if(loginMap.get("password").equals("123456"))
-            {
-                userInfoDTO.setLoginName(loginMap.get("username").toString());
-                userInfoDTO.setNickname("常德交通局基建养护科");
-                List<String> userLevelList = new ArrayList<>();
-                userLevelList.add(UserLevelEnum.SJTYSTJFXJC.getValue());
-                userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
-                userLevelList.add(UserLevelEnum.GLJT.getValue());
-                userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
-                userLevelList.add(UserLevelEnum.ZHGJ.getValue());
-                userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
-                userLevelList.add(UserLevelEnum.HNSGKQYYMTDWTTLBB.getValue());
-                userLevelList.add(UserLevelEnum.SYAISXT.getValue());
-                userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
-                userInfoDTO.setUserLevel(userLevelList);
-
-                String logintoken = UUID.randomUUID().toString();
-                String userInfoStr = (new Gson()).toJson(userInfoDTO);
-                session.setAttribute(logintoken, userInfoStr);
-
-                responseDTO.setResponseData(logintoken);
-                responseDTO.setResult(StatusConstant.SUCCESS);
-            }
-        }
-        else if(loginMap.get("username").equals("CDJTJJJYH"))
-        {
-            if(loginMap.get("password").equals("123456"))
-            {
-                userInfoDTO.setLoginName(loginMap.get("username").toString());
-                userInfoDTO.setNickname("常德交通局");
-                List<String> userLevelList = new ArrayList<>();
-                userLevelList.add(UserLevelEnum.GLJT.getValue());
-                userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
-                userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
-                userInfoDTO.setUserLevel(userLevelList);
-
-                String logintoken = UUID.randomUUID().toString();
-                String userInfoStr = (new Gson()).toJson(userInfoDTO);
-                session.setAttribute(logintoken, userInfoStr);
-
-                responseDTO.setResponseData(logintoken);
-                responseDTO.setResult(StatusConstant.SUCCESS);
-            }
-        }
-        else if(loginMap.get("username").equals("CDJTJYSK"))
-        {
-            if(loginMap.get("password").equals("123456"))
-            {
-                userInfoDTO.setLoginName(loginMap.get("username").toString());
-                userInfoDTO.setNickname("常德交通局运输科");
-                List<String> userLevelList = new ArrayList<>();
-                userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
-                userInfoDTO.setUserLevel(userLevelList);
-
-                String logintoken = UUID.randomUUID().toString();
-                String userInfoStr = (new Gson()).toJson(userInfoDTO);
-                session.setAttribute(logintoken, userInfoStr);
-
-                responseDTO.setResponseData(logintoken);
-                responseDTO.setResult(StatusConstant.SUCCESS);
-            }
-        }
-        else
-        {
-            responseDTO.setResult(StatusConstant.FAILURE);
-        }
+//        System.out.println(loginMap.get("username"));
+//        System.out.println(loginMap.get("password"));
+//
+//        if(loginMap.get("username").equals("CDJTJ"))
+//        {
+//            if(loginMap.get("password").equals("123456"))
+//            {
+//                userInfoDTO.setLoginName(loginMap.get("username").toString());
+//                userInfoDTO.setNickname("常德交通局");
+//                List<String> userLevelList = new ArrayList<>();
+//                userLevelList.add(UserLevelEnum.SJTYSTJFXJC.getValue());
+//                userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
+//                userLevelList.add(UserLevelEnum.GLJT.getValue());
+//                userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
+//                userLevelList.add(UserLevelEnum.ZHGJ.getValue());
+//                userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
+//                userLevelList.add(UserLevelEnum.HNSGKQYYMTDWTTLBB.getValue());
+//                userLevelList.add(UserLevelEnum.SYAISXT.getValue());
+//                userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
+//                userInfoDTO.setUserLevel(userLevelList);
+//
+//                String logintoken = UUID.randomUUID().toString();
+//                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+//                session.setAttribute(logintoken, userInfoStr);
+//
+//                responseDTO.setResponseData(logintoken);
+//                responseDTO.setResult(StatusConstant.SUCCESS);
+//            }
+//        }
+//        else if(loginMap.get("username").equals("CDJTJXXZX"))
+//        {
+//            if(loginMap.get("password").equals("123456"))
+//            {
+//                userInfoDTO.setLoginName(loginMap.get("username").toString());
+//                userInfoDTO.setNickname("常德交通局基建养护科");
+//                List<String> userLevelList = new ArrayList<>();
+//                userLevelList.add(UserLevelEnum.SJTYSTJFXJC.getValue());
+//                userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
+//                userLevelList.add(UserLevelEnum.GLJT.getValue());
+//                userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
+//                userLevelList.add(UserLevelEnum.ZHGJ.getValue());
+//                userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
+//                userLevelList.add(UserLevelEnum.HNSGKQYYMTDWTTLBB.getValue());
+//                userLevelList.add(UserLevelEnum.SYAISXT.getValue());
+//                userLevelList.add(UserLevelEnum.SKYLWSPXT.getValue());
+//                userInfoDTO.setUserLevel(userLevelList);
+//
+//                String logintoken = UUID.randomUUID().toString();
+//                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+//                session.setAttribute(logintoken, userInfoStr);
+//
+//                responseDTO.setResponseData(logintoken);
+//                responseDTO.setResult(StatusConstant.SUCCESS);
+//            }
+//        }
+//        else if(loginMap.get("username").equals("CDJTJJJYH"))
+//        {
+//            if(loginMap.get("password").equals("123456"))
+//            {
+//                userInfoDTO.setLoginName(loginMap.get("username").toString());
+//                userInfoDTO.setNickname("常德交通局");
+//                List<String> userLevelList = new ArrayList<>();
+//                userLevelList.add(UserLevelEnum.GLJT.getValue());
+//                userLevelList.add(UserLevelEnum.SSLYZGL.getValue());
+//                userLevelList.add(UserLevelEnum.HNSGLSLJSYYSSCXXFWXT.getValue());
+//                userInfoDTO.setUserLevel(userLevelList);
+//
+//                String logintoken = UUID.randomUUID().toString();
+//                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+//                session.setAttribute(logintoken, userInfoStr);
+//
+//                responseDTO.setResponseData(logintoken);
+//                responseDTO.setResult(StatusConstant.SUCCESS);
+//            }
+//        }
+//        else if(loginMap.get("username").equals("CDJTJYSK"))
+//        {
+//            if(loginMap.get("password").equals("123456"))
+//            {
+//                userInfoDTO.setLoginName(loginMap.get("username").toString());
+//                userInfoDTO.setNickname("常德交通局运输科");
+//                List<String> userLevelList = new ArrayList<>();
+//                userLevelList.add(UserLevelEnum.SDLYSSJXTGL.getValue());
+//                userInfoDTO.setUserLevel(userLevelList);
+//
+//                String logintoken = UUID.randomUUID().toString();
+//                String userInfoStr = (new Gson()).toJson(userInfoDTO);
+//                session.setAttribute(logintoken, userInfoStr);
+//
+//                responseDTO.setResponseData(logintoken);
+//                responseDTO.setResult(StatusConstant.SUCCESS);
+//            }
+//        }
+//        else
+//        {
+//            responseDTO.setResult(StatusConstant.FAILURE);
+//        }
 
         return  responseDTO;
     }
