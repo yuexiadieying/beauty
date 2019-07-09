@@ -19,7 +19,7 @@ public class UserInfoDTO {
     private String password;
 
     @JSONField(name = "userLevel")
-    private List<String> userLevel;
+    private String userLevel;
 
     public String getId() {
         return id;
@@ -53,11 +53,11 @@ public class UserInfoDTO {
         this.password = password;
     }
 
-    public List<String> getUserLevel() {
+    public String getUserLevel() {
         return userLevel;
     }
 
-    public void setUserLevel(List<String> userLevel) {
+    public void setUserLevel(String userLevel) {
         this.userLevel = userLevel;
     }
 }
