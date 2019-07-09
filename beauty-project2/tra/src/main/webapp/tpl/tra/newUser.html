@@ -49,38 +49,27 @@
                     </div>
                     <div class="list-group-item" ng-if="userInfo.userType=='管理员'">
                         <div class="row">
-                            <p class="col-lg-3"><span style="margin-left:10px;">部门：</span></p>
+                            <p class="col-lg-3"><span>选择角色：</span></p>
                             <div class="col-lg-9">
-                                <input type="text" placeholder="部门" class="form-control no-border"
-                                       style="border-color:#31708f;border-width:1px"
-                                       ng-model="param.editUserInfo.userType" required>
+                                <select id="sel_search_role" multiple="multiple" size="5">
+                                    <option ng-repeat='info in param.roleData' value="{{info.id}}">{{info.roleName}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="list-group-item" ng-if="userInfo.userType=='管理员'">
                         <div class="row">
-                            <p class="col-lg-3"><span style="margin-left:10px;">角色：</span></p>
+                            <p class="col-lg-3"><span>选择部门：</span></p>
                             <div class="col-lg-9">
-                                <input type="text" placeholder="角色" class="form-control no-border"
-                                       style="border-color:#31708f;border-width:1px"
-                                       ng-model="param.editUserInfo.userType" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item" ng-if="userInfo.userType=='管理员'">
-                        <div class="row">
-                            <p class="col-lg-3"><span style="margin-left:10px;">权限：</span></p>
-                            <div class="col-lg-9">
-                                <select id="sel_search_orderstatus"  multiple="multiple" size="5">
-                                    <option ng-repeat='(index,info) in  param.data' value="{{info.id}}" ng-selected ="param.selectLevel[index]">{{info.name}}</option>
+                                <select id="sel_search_department" size="5">
+                                    <option ng-repeat='info in param.departmentData' value="{{info.id}}">{{info.departmentName}}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.id==''" ng-click="newUser()">新建</button>
-                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.id!=''" ng-click="modifyUser()">修改</button>
-
+                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.id==undefined" ng-click="newUser()">新建</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.id!=undefined" ng-click="modifyUser()">修改</button>
                 <div class="line line-dashed"></div>
 
             </form>

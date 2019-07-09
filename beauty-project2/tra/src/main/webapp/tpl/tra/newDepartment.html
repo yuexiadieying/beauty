@@ -19,7 +19,7 @@
                 <div class="list-group list-group-sm">
                     <div class="list-group-item">
                         <div class="row">
-                            <p class="col-lg-3"><span style="margin-left:10px;">部门名称：</span></p>
+                            <p class="col-lg-3"><span>部门名称：</span></p>
                             <div class="col-lg-9">
                                 <input type="text" placeholder="部门名称" class="form-control no-border"
                                        style="border-color:#31708f;border-width:1px"
@@ -29,11 +29,10 @@
                     </div>
                     <div class="list-group-item" ng-if="userInfo.userType=='管理员'">
                         <div class="row">
-                            <p class="col-lg-3"><span style="margin-left:10px;">选择部门：</span></p>
+                            <p class="col-lg-3"><span>选择部门：</span></p>
                             <div class="col-lg-9">
                                 <select id="sel_search_orderstatus"  size="5">
-                                    <option ng-repeat='(index,info) in  param.data' value="{{info.id}}"
-                                            ng-selected ="param.selectLevel[index]">{{info.departmentName}}</option>
+                                    <option ng-repeat='(index,info) in  param.data' value="{{info.id}}">{{info.departmentName}}</option>
                                 </select>
                             </div>
                         </div>

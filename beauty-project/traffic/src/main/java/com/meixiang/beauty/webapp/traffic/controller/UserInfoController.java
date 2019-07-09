@@ -260,6 +260,29 @@ public class UserInfoController {
 
         List<UserInfoDTO> userInfoDTOS = mongoTemplate.findAll(UserInfoDTO.class,"userinfo");
 
+        for(UserInfoDTO userInfoDTO:userInfoDTOS)
+        {
+            if(userInfoDTO.getDepartment()!=null)
+            {
+                Query query = new Query(Criteria.where("id").is(userInfoDTO.getDepartment().getId()));
+                DepartmentDTO departmentDTO = mongoTemplate.findOne(query,DepartmentDTO.class,"department");
+                userInfoDTO.setDepartment(departmentDTO);
+            }
+
+            if(userInfoDTO.getRoles()!=null)
+            {
+                List<RoleDTO> roleDTOList = new ArrayList<>();
+                for(RoleDTO roleDTO:userInfoDTO.getRoles())
+                {
+                    Query query = new Query(Criteria.where("id").is(roleDTO.getId()));
+                    roleDTO = mongoTemplate.findOne(query,RoleDTO.class,"role");
+                    roleDTOList.add(roleDTO);
+                }
+                userInfoDTO.setRoles(roleDTOList);
+            }
+
+        }
+
         if(userInfoDTOS.size()>0)
         {
             responseDTO.setResponseData(userInfoDTOS);
@@ -373,7 +396,7 @@ public class UserInfoController {
 
         if(userInfoDTO.getUserType().equals("管理员"))
         {
-            Query query = new Query(Criteria.where("id").is(roleDTO.getId()));
+            Query query = new Query(Criteria.where("roleName").is(roleDTO.getRoleName()));
             RoleDTO roleDTO1 = mongoTemplate.findOne(query,RoleDTO.class,"role");
 
             if(roleDTO1!=null)

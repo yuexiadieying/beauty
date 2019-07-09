@@ -354,7 +354,7 @@ angular.module('app')
                   }
               })
               .state('access.newRole', {
-                  url: '/newRole',
+                  url: '/newRole/:roleId',
                   templateUrl: 'tpl/tra/newRole.html',
                   resolve: {
                       deps: ['$ocLazyLoad',

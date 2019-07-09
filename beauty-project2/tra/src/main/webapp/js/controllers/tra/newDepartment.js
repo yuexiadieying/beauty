@@ -15,8 +15,6 @@ app.controller('NewDepartmentCtrl', ['$scope','$stateParams','$timeout',
         data:[]
     }
 
-    $scope.select=[];
-
     $http.get('/traffic/user/getAllDepartmentList', {})
             .then(function(response) {
                 if(response.data.result==Global.SUCCESS) {
@@ -35,10 +33,20 @@ app.controller('NewDepartmentCtrl', ['$scope','$stateParams','$timeout',
             nonSelectedText : '--请选择--',
             buttonWidth: '90%',
         });
+
+        $('#sel_search_orderstatus').change(function(){
+            console.log($('#sel_search_orderstatus').val());
+            angular.forEach($scope.param.data,function (val,index) {
+                if(val.id==$('#sel_search_orderstatus').val())
+                {
+                    $scope.param.department.departmentName = angular.copy(val.departmentName);
+                    $scope.$apply();
+                }
+            })
+        })
     },1000);
 
-
-    $scope.newDepartment = function () {
+        $scope.newDepartment = function () {
 
         console.log($("#sel_search_orderstatus").val());//回显的值
 
