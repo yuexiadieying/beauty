@@ -52,57 +52,73 @@ app.controller('NewUserCtrl', ['$scope','$stateParams','$timeout',
         ],
         editUserInfo:{},
         roleData:[],
-        departmentData:[]
+        departmentData:[],
     }
+
+    console.log($scope.param.loginName);
 
     $http.get('/traffic/user/getAllRoleList', {})
         .then(function(response) {
             if(response.data.result==Global.SUCCESS) {
                 $scope.param.roleData = response.data.responseData;
+
+                $http.get('/traffic/user/getAllDepartmentList', {})
+                    .then(function(response) {
+                        if(response.data.result==Global.SUCCESS) {
+                            $scope.param.departmentData = response.data.responseData;
+
+                            if($scope.param.loginName != ''){
+                                $http.get('/traffic/user/getEditUserInfo', {
+                                    params: {
+                                        loginName: $scope.param.loginName
+                                    }
+                                })
+                                    .then(function(response) {
+                                        if(response.data.result==Global.SUCCESS)
+                                        {
+                                            $scope.param.editUserInfo = response.data.responseData;
+                                            angular.forEach($scope.param.departmentData,function (val,index) {
+                                                if(val.id==$scope.param.editUserInfo.department.id)
+                                                {
+                                                    val.selected = true;
+                                                }else{
+                                                    val.selected = false;
+                                                }
+                                            })
+
+                                            angular.forEach($scope.param.roleData,function (val,index) {
+                                                angular.forEach($scope.param.editUserInfo.roles,function (val1,index1) {
+                                                    if(val.id==val1.id)
+                                                    {
+                                                        val.selected = true;
+                                                    }
+                                                })
+                                                if(val.selected==undefined){
+                                                    val.selected=false;
+                                                }
+                                            })
+
+                                        }else {
+                                            alert(response.data.errorInfo);
+                                        }
+                                    }, function(x) {
+                                        $scope.authError = 'Server Error';
+                                    });
+                            }
+
+
+                        }else {
+                            alert(response.data.errorInfo);
+                        }
+                    }, function(x) {
+                        $scope.authError = 'Server Error';
+                    });
+
             }else {
                 alert(response.data.errorInfo);
             }}, function(x) {
             $scope.authError = 'Server Error';
         });
-
-    $http.get('/traffic/user/getAllDepartmentList', {})
-        .then(function(response) {
-            if(response.data.result==Global.SUCCESS) {
-                $scope.param.departmentData = response.data.responseData;
-            }else {
-                alert(response.data.errorInfo);
-            }
-        }, function(x) {
-            $scope.authError = 'Server Error';
-        });
-
-    if($scope.param.loginName != ''){
-        $http.get('/traffic/user/getEditUserInfo', {
-            params: {
-                loginName: $scope.param.loginName
-            }
-        })
-            .then(function(response) {
-                if(response.data.result==Global.SUCCESS)
-                {
-                    $scope.param.editUserInfo = response.data.responseData;
-                    $scope.arr = [];
-
-                }else {
-                    alert(response.data.errorInfo);
-                }
-            }, function(x) {
-                $scope.authError = 'Server Error';
-            });
-    }
-
-    $timeout(function () {
-        $('#sel_search_orderstatus').multiselect({
-            includeSelectAllOption: true,
-            nonSelectedText : '--请选择--',
-            buttonWidth: '90%',
-        });
-    },1000);
 
     //新建用户
     $scope.newUser = function () {
@@ -135,27 +151,29 @@ app.controller('NewUserCtrl', ['$scope','$stateParams','$timeout',
     //修改用户
     $scope.modifyUser = function () {
 
-        console.log($("#sel_search_orderstatus").val());//回显的值
+        var department = {id:'',departmentName:''};
+        department.id = $("#sel_search_department").val();
+        $scope.param.editUserInfo.department = department;
 
-        // $scope.param.editUserInfo.userLevel = [];
-        //
-        // angular.forEach($("#sel_search_orderstatus").val(),function (val,index) {
-        //     $scope.param.editUserInfo.userLevel.push(val);
-        // })
-        //
-        // console.log($scope.param.editUserInfo);
-        //
-        // $http.post('/traffic/user/saveUserInfo', $scope.param.editUserInfo)
-        //     .then(function(response) {
-        //         if(response.data.result==Global.SUCCESS)
-        //         {
-        //             $state.go('app.statistic');
-        //         }else {
-        //             alert(response.data.errorInfo);
-        //         }
-        //     }, function(x) {
-        //         $scope.authError = 'Server Error';
-        //     });
+        $scope.param.editUserInfo.roles = [];
+        angular.forEach($("#sel_search_role").val(),function (val,index) {
+            var roleData = {id:''}
+            roleData.id = val;
+            $scope.param.editUserInfo.roles.push(roleData);
+        })
+        console.log($scope.param.editUserInfo);
+
+        $http.post('/traffic/user/saveUserInfo', $scope.param.editUserInfo)
+            .then(function(response) {
+                if(response.data.result==Global.SUCCESS)
+                {
+                    $state.go('app.statistic');
+                }else {
+                    alert(response.data.errorInfo);
+                }
+            }, function(x) {
+                $scope.authError = 'Server Error';
+            });
     }
 
 

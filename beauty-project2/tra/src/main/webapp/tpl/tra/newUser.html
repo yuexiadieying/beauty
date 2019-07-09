@@ -52,7 +52,9 @@
                             <p class="col-lg-3"><span>选择角色：</span></p>
                             <div class="col-lg-9">
                                 <select id="sel_search_role" multiple="multiple" size="5">
-                                    <option ng-repeat='info in param.roleData' value="{{info.id}}">{{info.roleName}}</option>
+                                    <option ng-repeat='info in param.roleData'
+                                            value="{{info.id}}"
+                                            ng-selected="info.selected">{{info.roleName}}</option>
                                 </select>
                             </div>
                         </div>
@@ -62,14 +64,15 @@
                             <p class="col-lg-3"><span>选择部门：</span></p>
                             <div class="col-lg-9">
                                 <select id="sel_search_department" size="5">
-                                    <option ng-repeat='info in param.departmentData' value="{{info.id}}">{{info.departmentName}}</option>
+                                    <option ng-repeat='info in param.departmentData' value="{{info.id}}"
+                                            ng-selected="info.selected">{{info.departmentName}}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.id==undefined" ng-click="newUser()">新建</button>
-                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.id!=undefined" ng-click="modifyUser()">修改</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.loginName==undefined" ng-click="newUser()">新建</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block"   ng-if="param.loginName!=undefined" ng-click="modifyUser()">修改</button>
                 <div class="line line-dashed"></div>
 
             </form>
