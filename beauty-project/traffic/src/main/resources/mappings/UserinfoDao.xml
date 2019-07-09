@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.system.UserinfoDao">
-    <resultMap id="UserinfoInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.system.UserInfoDTO" >
+    <resultMap id="UserinfoInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.system.UserinfoDTO" >
        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
         <result column="ID" property="id" jdbcType="VARCHAR" />
         <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
