@@ -4,7 +4,10 @@
 
 app
   // Flot Chart controller 
-  .controller('GsglllCtrl', ['$scope', function($scope) {
+  .controller('GsglllCtrl', ['$scope','traUtil', function($scope,traUtil) {
+
+      traUtil.getUserInfo();
+
       $scope.d = [ [1,29],[2,16],[3,35],[4,58 ],[5,28],[6,9],[7,41] ];
       $scope.param = {
           tableTitle:[['年份','路线标识','调查站标识','起点名称','起点桩号（公里）','止点名称','止点桩号（公里）','断面名称',' 断面桩号（公里）','描述','报警时间',' 设备ID','存储路径','报警ID'],

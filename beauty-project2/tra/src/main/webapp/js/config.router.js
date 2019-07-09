@@ -343,6 +343,26 @@ angular.module('app')
                           }]
                   }
               })
+              .state('access.newDepartment', {
+                  url: '/newDepartment',
+                  templateUrl: 'tpl/tra/newDepartment.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/newDepartment.js']);
+                          }]
+                  }
+              })
+              .state('access.newRole', {
+                  url: '/newRole',
+                  templateUrl: 'tpl/tra/newRole.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/newRole.js']);
+                          }]
+                  }
+              })
               .state('access.userList', {
                   url: '/userList',
                   templateUrl: 'tpl/tra/userList.html',
