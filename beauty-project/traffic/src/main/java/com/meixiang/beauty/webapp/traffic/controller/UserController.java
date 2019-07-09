@@ -3,6 +3,7 @@ package com.meixiang.beauty.webapp.traffic.controller;
 import com.aliyun.opensearch.sdk.dependencies.com.google.gson.Gson;
 import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
+import com.meixiang.beauty.common.dto.system.UserInfoDTO;
 import com.meixiang.beauty.common.utils.MD5Util;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.service.UserService;

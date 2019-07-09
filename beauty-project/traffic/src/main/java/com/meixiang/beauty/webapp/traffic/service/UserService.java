@@ -1,6 +1,7 @@
 package com.meixiang.beauty.webapp.traffic.service;
 
 import com.aliyun.opensearch.sdk.dependencies.com.google.gson.Gson;
+import com.meixiang.beauty.common.dto.system.UserInfoDTO;
 import com.meixiang.beauty.webapp.traffic.dao.UserinfoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
