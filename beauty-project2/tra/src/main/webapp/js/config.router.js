@@ -334,7 +334,7 @@ angular.module('app')
                   }
               })
               .state('access.newUser', {
-                  url: '/newUser/:id',
+                  url: '/newUser/:loginName',
                   templateUrl: 'tpl/tra/newUser.html',
                   resolve: {
                       deps: ['$ocLazyLoad',

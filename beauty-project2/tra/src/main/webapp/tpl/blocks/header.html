@@ -40,11 +40,14 @@
 <!--          <a ui-sref="app.page.profile">Profile</a>-->
 <!--        </li>-->
         <li>
-          <a ui-sref="access.newUser">新建用户</a>
+          <a ui-sref="access.newUser" ng-if="userInfo.userType=='管理员'">新建用户</a>
         </li>
         <li>
-          <a ui-sref="access.userList">用户列表</a>
+          <a ui-sref="access.userList" ng-if="userInfo.userType=='管理员'">用户列表</a>
         </li>
+          <li>
+              <a ui-sref="access.newUser({loginName:userInfo.loginName})" ng-if="userInfo.userType!='管理员'">修改信息</a>
+          </li>
 <!--        <li>-->
 <!--          <a ui-sref="app.docs">-->
 <!--            <span class="label bg-info pull-right">new</span>-->

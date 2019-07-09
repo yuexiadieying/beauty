@@ -18,18 +18,51 @@
                 </div>
                 <div class="list-group list-group-sm">
                     <div class="list-group-item">
-                        <input type="text" placeholder="用户名" class="form-control no-border" ng-model="user.username" required>
+                        <div class="row">
+                            <p class="col-lg-3"><span style="margin-left:10px;">用户名：</span></p>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="用户名" class="form-control no-border"
+                                       style="border-color:#31708f;border-width:1px"
+                                       ng-model="param.editUserInfo.nickname" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-group-item">
-                        <input type="password" placeholder="密码" class="form-control no-border"  required>
+                        <div class="row">
+                            <p class="col-lg-3"><span style="margin-left:10px;">登录名：</span></p>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="登录名" class="form-control no-border"
+                                       style="border-color:#31708f;border-width:1px"
+                                       ng-model="param.editUserInfo.loginName" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-group-item">
+                        <div class="row">
+                            <p class="col-lg-3"><span style="margin-left:10px;">密码：</span></p>
+                            <div class="col-lg-9">
+                                <input type="password" placeholder="密码" class="form-control no-border"
+                                       style="border-color:#31708f;border-width:1px"
+                                       ng-model="param.editUserInfo.password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item" ng-if="userInfo.userType=='管理员'">
+                        <div class="row">
+                            <p class="col-lg-3"><span style="margin-left:10px;">部门：</span></p>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="部门" class="form-control no-border"
+                                       style="border-color:#31708f;border-width:1px"
+                                       ng-model="param.editUserInfo.userType" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item" ng-if="userInfo.userType=='管理员'">
                         <div class="row">
                             <p class="col-lg-3"><span style="margin-left:10px;">权限：</span></p>
                             <div class="col-lg-9">
                                 <select id="sel_search_orderstatus"  multiple="multiple" size="5">
-                                    <option ng-repeat='(index,info) in  param.data' value="{{info.id}}" ng-selected ="select[index]">{{info.name}}</option>
-
+                                    <option ng-repeat='(index,info) in  param.data' value="{{info.id}}" ng-selected ="param.selectLevel[index]">{{info.name}}</option>
                                 </select>
                             </div>
                         </div>
