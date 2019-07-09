@@ -13,6 +13,43 @@ public class Ttjjhdlsy011ngdDTO {
     @JSONField(name="serialNo")
     private Integer serialNo;
 
+
+    /**
+     * 年
+     **/
+    @JSONField(name="year")
+    private Integer year;
+
+    /**
+     * 月
+     **/
+    @JSONField(name="month")
+    private Integer month;
+
+    public Integer getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(Integer serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
     /**
      *行标识
     **/

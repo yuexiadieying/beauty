@@ -14,6 +14,19 @@ public class Ttjjhckt04DTO {
     private Integer serialNo;
 
     /**
+     * 年
+     **/
+    @JSONField(name="year")
+    private Integer year;
+
+    /**
+     * 月
+     **/
+    @JSONField(name="month")
+    private Integer month;
+
+
+    /**
      *行标识
     **/
     @JSONField(name="recid")
@@ -500,4 +513,27 @@ public class Ttjjhckt04DTO {
         this.ck0420029 = ck0420029;
     }
 
+    public Integer getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(Integer serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
 }

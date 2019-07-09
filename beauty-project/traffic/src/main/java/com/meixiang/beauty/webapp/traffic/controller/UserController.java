@@ -4,10 +4,11 @@ import com.aliyun.opensearch.sdk.dependencies.com.google.gson.Gson;
 import com.meixiang.beauty.common.constant.ConfigConstant;
 import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
-import com.meixiang.beauty.common.dto.system.UserInfoDTO;
 import com.meixiang.beauty.common.dto.wexin.WeixinTokenDTO;
+import com.meixiang.beauty.common.utils.MD5Util;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.constant.UserLevelEnum;
+import com.meixiang.beauty.webapp.traffic.dto.system.UserInfoDTO;
 import com.meixiang.beauty.webapp.traffic.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -41,13 +42,25 @@ public class UserController {
 
         ResponseDTO<String> responseDTO = new ResponseDTO<>();
 
-        Query query = new Query(Criteria.where("loginName").is(userInfoDTO.getLoginName()));
-        UserInfoDTO userInfo = mongoTemplate.findOne(query,UserInfoDTO.class,"userInfo");
+//        Query query = new Query(Criteria.where("loginName").is(userInfoDTO.getLoginName()));
+//        UserInfoDTO userInfo = mongoTemplate.findOne(query,UserInfoDTO.class,"userInfo");
 
-        if()
-        {
-
+        String account = userInfoDTO.getLoginName();
+        if (Objects.isNull(account)) {
+            account = "";
         }
+        String passwd = userInfoDTO.getPassword();
+        if (Objects.isNull(passwd)) {
+            passwd = "";
+        }
+
+        UserInfoDTO res = userService.getUserinfoByParam(account, MD5Util.get32bitMD5(passwd));
+        String logintoken = UUID.randomUUID().toString();
+        String userInfoStr = (new Gson()).toJson(res);
+        session.setAttribute(logintoken, userInfoStr);
+
+        responseDTO.setResponseData(logintoken);
+        responseDTO.setResult(StatusConstant.SUCCESS);
 
 //        UserInfoDTO userInfoDTO = new UserInfoDTO();
 
@@ -201,7 +214,7 @@ public class UserController {
         ResponseDTO responseDTO = new ResponseDTO<>();
 
         //todo 存储用户的信息
-
+        userService.updateUserInfo(userInfoDTO);
 
 
         responseDTO.setResult(StatusConstant.SUCCESS);

@@ -2,8 +2,10 @@ package com.meixiang.beauty.webapp.traffic.service.sjtystjfxjc;
 
 import com.aliyun.opensearch.sdk.dependencies.com.google.common.collect.Lists;
 import com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhdlsy003ngdDao;
+import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.DlcyrysjDataDTO;
 import com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhdlsy003ngdDTO;
 import com.meixiang.beauty.webapp.traffic.utils.ClassUtil;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -50,13 +52,14 @@ public class Ttjjhdlsy003ngdService {
     /**
      * l   道路从业人员数据
      **/
-    public List<Map<String, Object>> getRoadWorkersInfo(String start, String end) {
-        List<Map<String, Object>> res = Lists.newArrayList();
+    public List<DlcyrysjDataDTO> getRoadWorkersInfo(String start, String end) {
+        List<DlcyrysjDataDTO> res = Lists.newArrayList();
         List<Ttjjhdlsy003ngdDTO> ttjjhdlsy003ngdDTOs = Lists.newArrayList();
         ttjjhdlsy003ngdDTOs = ttjjhdlsy003ngdDao.getRoadWorkersInfo(start, end);
+//        Map<String, Ttjjhdlsy003ngdDTO>
         if (!CollectionUtils.isEmpty(ttjjhdlsy003ngdDTOs)) {
             for (Ttjjhdlsy003ngdDTO ttjjhdlsy003ngdDTO : ttjjhdlsy003ngdDTOs) {
-                res.add(ClassUtil.toHashMap(ttjjhdlsy003ngdDTO));
+//                res.add(ClassUtil.toHashMap(ttjjhdlsy003ngdDTO));
             }
         }
         return res;
