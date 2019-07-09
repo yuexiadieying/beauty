@@ -27,20 +27,12 @@ public class UserInfoDTO {
     private String email;
 
     //身份证号
-    @JSONField(name = "departmentId")
-    private String departmentId;
+    @JSONField(name = "department")
+    private DepartmentDTO department;
 
     //身份证号
-    @JSONField(name = "departmentName")
-    private String departmentName;
-
-    //身份证号
-    @JSONField(name = "roleId")
-    private String roleId;
-
-    //身份证号
-    @JSONField(name = "roleName")
-    private String roleName;
+    @JSONField(name = "roles")
+    private List<RoleDTO> roles;
 
     //身份证号
     @JSONField(name = "identifyNumber")
@@ -212,5 +204,19 @@ public class UserInfoDTO {
         this.userLevel = userLevel;
     }
 
+    public DepartmentDTO getDepartment() {
+        return department;
+    }
 
+    public void setDepartment(DepartmentDTO department) {
+        this.department = department;
+    }
+
+    public List<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleDTO> roles) {
+        this.roles = roles;
+    }
 }

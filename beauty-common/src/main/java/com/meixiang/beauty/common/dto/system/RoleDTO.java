@@ -1,6 +1,8 @@
-package com.meixiang.beauty.webapp.traffic.dto.system;
+package com.meixiang.beauty.common.dto.system;
 
 import com.alibaba.fastjson.annotation.JSONField;
+
+import java.util.List;
 
 public class RoleDTO {
 
@@ -9,6 +11,9 @@ public class RoleDTO {
 
     @JSONField(name = "roleName")
     private String roleName;
+
+    @JSONField(name = "levels")
+    private List<String> levels;
 
     public String getId() {
         return id;
@@ -26,4 +31,11 @@ public class RoleDTO {
         this.roleName = roleName;
     }
 
+    public List<String> getLevels() {
+        return levels;
+    }
+
+    public void setLevels(List<String> levels) {
+        this.levels = levels;
+    }
 }

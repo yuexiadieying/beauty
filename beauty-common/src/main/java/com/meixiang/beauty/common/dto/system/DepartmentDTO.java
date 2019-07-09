@@ -1,4 +1,4 @@
-package com.meixiang.beauty.webapp.traffic.dto.system;
+package com.meixiang.beauty.common.dto.system;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
