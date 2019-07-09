@@ -5,12 +5,12 @@
 * id非空 修改
 * */
 app.controller('NewRoleCtrl', ['$scope','$stateParams','$timeout',
-    '$http','Global','$state','traUtil','$rootScope',function($scope,$stateParams,$timeout,
-                                                 $http,Global,$state,traUtil,$rootScope) {
+    '$http','Global','$state','traUtil','$rootScope','$interval',function($scope,$stateParams,$timeout,
+                                                 $http,Global,$state,traUtil,$rootScope,$interval) {
 
     traUtil.getUserInfo();
 
-    $scope.param={
+    $scope.param = {
         loginName:$stateParams.loginName,
         data:[
             {
@@ -50,76 +50,83 @@ app.controller('NewRoleCtrl', ['$scope','$stateParams','$timeout',
                 name:'省客运联网售票系统'
             },
         ],
-        editUserInfo:{},
-        selectLevel:[]
-    }
+        roleData:[],
+        selectLevel:[],
+        roleInfo:{roleName:'',levels:[]},
+        selectedRole:'',
+    };
 
-    $scope.select=[]
-
-    if($scope.param.loginName != ''){
-        $http.get('/traffic/user/getEditUserInfo', {
-            params: {
-                loginName: $scope.param.loginName
-            }
-        })
+    $http.get('/traffic/user/getAllRoleList', {})
             .then(function(response) {
-                if(response.data.result==Global.SUCCESS)
-                {
-                    $scope.param.editUserInfo = response.data.responseData;
-                    $scope.arr = [];
-                    console.log($scope.param.editUserInfo);
-                    angular.forEach($scope.param.editUserInfo.userLevel,function (val,index) {
-                        var data = {id:'',name:''};
-                        angular.forEach($scope.param.data,function (val1,index1) {
-                            if(val == val1.id)
-                            {
-                                data.id = angular.copy(val);
-                                data.name = angular.copy(val1.name);
-                            }
-                        })
-                        $scope.arr.push(data);
-                    })
-                    console.log($scope.arr);
-                    //$scope.arr = [{id:'w4444',name:'省水路运政管理'},{id:'w11111',name:'省交通运输统计分析监测与投资计划管理'}];  //假设这是用户的权限
-                    for(var i=0;i<$scope.param.data.length;i++){
-                        for(var j=0;j<$scope.arr.length;j++){
-                            if($scope.param.data[i].id ==$scope.arr[j].id ){
-                                $scope.param.selectLevel[i] = 'select'
-                                break;
-                            }else{
-                                $scope.param.selectLevel[i] = ''
-                            }
-                        }
-                    }
-                    console.log($scope.param.selectLevel);
+                if(response.data.result==Global.SUCCESS) {
+                    $scope.param.roleData = response.data.responseData;
+                    console.log($scope.param.roleData);
+
                 }else {
                     alert(response.data.errorInfo);
                 }
             }, function(x) {
                 $scope.authError = 'Server Error';
             });
-    }
 
     $timeout(function () {
-        $('#sel_search_orderstatus').multiselect({
+        $('#sel_search_role').multiselect({
             includeSelectAllOption: true,
             nonSelectedText : '--请选择--',
             buttonWidth: '90%',
         });
+
+        $('#sel_search_level').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText : '--请选择--',
+            buttonWidth: '90%',
+        });
+
+        $('#sel_search_role').change(function(){
+            console.log($("#sel_search_role").val());
+            angular.forEach($scope.param.roleData,function (val,index) {
+                    if(val.id==$('#sel_search_role').val())
+                    {
+                        $scope.arr = [];
+                        angular.forEach(val.levels,function (val1,index1) {
+                            var data = {id:'',name:''};
+                            angular.forEach($scope.param.data,function (val2,index1) {
+                                if(val1 == val2.id)
+                                {
+                                    data.id = angular.copy(val1);
+                                    data.name = angular.copy(val2.name);
+                                }
+                            })
+                            $scope.arr.push(data);
+                        })
+                        console.log($scope.arr);
+                        //$scope.arr = [{id:'w4444',name:'省水路运政管理'},{id:'w11111',name:'省交通运输统计分析监测与投资计划管理'}];  //假设这是用户的权限
+                        for(var i=0;i<$scope.param.data.length;i++){
+                            for(var j=0;j<$scope.arr.length;j++){
+                                if($scope.param.data[i].id ==$scope.arr[j].id ){
+                                    $scope.param.selectLevel[i] = 'select'
+                                    break;
+                                }else{
+                                    $scope.param.selectLevel[i] = ''
+                                }
+                            }
+                        }
+                        console.log($scope.param.selectLevel);
+                    }
+                })
+        })
     },1000);
 
     //新建用户
-    $scope.newUser = function () {
+    $scope.newRole = function () {
 
-        console.log($("#sel_search_orderstatus").val());//回显的值
+        console.log($("#sel_search_level").val());//回显的值
 
-        $scope.param.editUserInfo.userLevel = [];
-
-        angular.forEach($("#sel_search_orderstatus").val(),function (val,index) {
-            $scope.param.editUserInfo.userLevel.push(val);
+        angular.forEach($("#sel_search_level").val(),function (val,index) {
+            $scope.param.roleInfo.levels.push(val);
         })
 
-        $http.post('/traffic/user/saveUserInfo', $scope.param.editUserInfo)
+        $http.post('/traffic/user/saveRole', $scope.param.roleInfo)
             .then(function(response) {
                 if(response.data.result==Global.SUCCESS)
                 {
@@ -132,34 +139,11 @@ app.controller('NewRoleCtrl', ['$scope','$stateParams','$timeout',
             });
 
     }
-    //修改用户
-    $scope.modifyUser = function () {
 
-        console.log($("#sel_search_orderstatus").val());//回显的值
 
-        $scope.param.editUserInfo.userLevel = [];
-
-        angular.forEach($("#sel_search_orderstatus").val(),function (val,index) {
-            $scope.param.editUserInfo.userLevel.push(val);
-        })
-
-        console.log($scope.param.editUserInfo);
-
-        $http.post('/traffic/user/saveUserInfo', $scope.param.editUserInfo)
-            .then(function(response) {
-                if(response.data.result==Global.SUCCESS)
-                {
-                    $state.go('app.statistic');
-                }else {
-                    alert(response.data.errorInfo);
-                }
-            }, function(x) {
-                $scope.authError = 'Server Error';
-            });
+    $scope.chooseRole = function(){
+        console.log(console.log($("#sel_search_role").val()));
     }
-
-
-
 }]);
 
 

@@ -54,8 +54,6 @@ app.controller('NewUserCtrl', ['$scope','$stateParams','$timeout',
         selectLevel:[]
     }
 
-    $scope.select=[]
-
     if($scope.param.loginName != ''){
         $http.get('/traffic/user/getEditUserInfo', {
             params: {
