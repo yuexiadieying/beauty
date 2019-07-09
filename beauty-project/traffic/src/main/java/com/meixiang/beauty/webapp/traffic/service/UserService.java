@@ -28,7 +28,6 @@ public class UserService {
         return userInfoStr;
     }
 
-
     public void saveUserInfoToToken(String token, String userInfoStr, int logintokenPeriod) {
 
     }
