@@ -27,6 +27,22 @@ public class UserInfoDTO {
     private String email;
 
     //身份证号
+    @JSONField(name = "departmentId")
+    private String departmentId;
+
+    //身份证号
+    @JSONField(name = "departmentName")
+    private String departmentName;
+
+    //身份证号
+    @JSONField(name = "roleId")
+    private String roleId;
+
+    //身份证号
+    @JSONField(name = "roleName")
+    private String roleName;
+
+    //身份证号
     @JSONField(name = "identifyNumber")
     private String identifyNumber;
 

@@ -1,6 +1,5 @@
 package com.meixiang.beauty.webapp.traffic.dao;
 
-import com.meixiang.beauty.webapp.traffic.dto.system.UserInfoDTO;
 import com.meixiang.beauty.common.persistence.annotation.MyBatisDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
