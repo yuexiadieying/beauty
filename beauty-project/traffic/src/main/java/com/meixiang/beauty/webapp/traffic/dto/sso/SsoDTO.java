@@ -21,9 +21,16 @@ public class SsoDTO {
     @JSONField(name = "platformName")
     private String platformName;
 
+    //第三方平台URL
+    @JSONField(name = "platformURL")
+    private String platformURL;
+
     //跟平台间约定的密钥 573824
     @JSONField(name = "platformSecret")
     private String platformSecret;
+
+    @JSONField(name = "platformEncrypt")
+    private String platformEncrypt;
 
     public String getLoginName() {
         return loginName;
@@ -63,5 +70,21 @@ public class SsoDTO {
 
     public void setPlatformName(String platformName) {
         this.platformName = platformName;
+    }
+
+    public String getPlatformURL() {
+        return platformURL;
+    }
+
+    public void setPlatformURL(String platformURL) {
+        this.platformURL = platformURL;
+    }
+
+    public String getPlatformEncrypt() {
+        return platformEncrypt;
+    }
+
+    public void setPlatformEncrypt(String platformEncrypt) {
+        this.platformEncrypt = platformEncrypt;
     }
 }

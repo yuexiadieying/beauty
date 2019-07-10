@@ -6,9 +6,7 @@ import com.meixiang.beauty.common.dto.system.DepartmentDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.common.dto.system.RoleDTO;
 import com.meixiang.beauty.common.dto.system.UserInfoDTO;
-import com.meixiang.beauty.common.utils.EncryptUtil;
-import com.meixiang.beauty.common.utils.MD5Util;
-import com.meixiang.beauty.common.utils.SpringContextHolder;
+import com.meixiang.beauty.webapp.traffic.utils.EncryptUtil;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.dto.sso.SsoDTO;
 import com.meixiang.beauty.webapp.traffic.service.UserService;
@@ -16,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -36,8 +33,6 @@ public class SsoController {
 
     @Autowired
     private MongoTemplate mongoTemplate;
-
-    private EncryptUtil encryptUtil = SpringContextHolder.getBean(EncryptUtil.class);
 
     //todo 同步用户
     @RequestMapping(value = "syncUser", method = {RequestMethod.POST, RequestMethod.GET})
@@ -90,13 +85,13 @@ public class SsoController {
         return  responseDTO;
     }
 
-    @RequestMapping(value = "encrptySSO", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "encryptSSO", method = {RequestMethod.POST, RequestMethod.GET})
     public
     @TrafficLoginRequired
     @ResponseBody
-    ResponseDTO<String> encrptySSO(HttpSession httpSession){
+    ResponseDTO<SsoDTO> encryptSSO(HttpSession httpSession){
 
-        ResponseDTO<String> responseDTO = new ResponseDTO<>();
+        ResponseDTO<SsoDTO> responseDTO = new ResponseDTO<>();
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         Map<String, String> headerValue = getHeadersInfo(request);
@@ -110,12 +105,13 @@ public class SsoController {
         query = new Query(Criteria.where("platformName").is(departmentDTO.getDepartmentName()));
         SsoDTO ssoDTO = mongoTemplate.findOne(query,SsoDTO.class,"sso");
 
-        String str = userInfoDTO.getLoginName()+"/"+userInfoDTO.getPassword();
+        String str = userInfoDTO.getLoginName()+":"+userInfoDTO.getPassword();
 
-        String secretStr = encryptUtil.AESencode(str,ssoDTO.getPlatformSecret());
+        String secretStr = EncryptUtil.getInstance().AESencode(str,ssoDTO.getPlatformSecret());
 
+        ssoDTO.setPlatformEncrypt(secretStr);
         responseDTO.setResult(StatusConstant.SUCCESS);
-        responseDTO.setResponseData(secretStr);
+        responseDTO.setResponseData(ssoDTO);
         return  responseDTO;
     }
 
@@ -131,7 +127,7 @@ public class SsoController {
         Query query = new Query(Criteria.where("platformFlag").is(platformFlag));
         SsoDTO ssoDTO = mongoTemplate.findOne(query,SsoDTO.class,"sso");
 
-        String value = encryptUtil.AESdecode(secretStr,ssoDTO.getPlatformSecret());
+        String value = EncryptUtil.getInstance().AESdecode(secretStr,ssoDTO.getPlatformSecret());
 
         responseDTO.setResult(StatusConstant.SUCCESS);
         responseDTO.setResponseData(value);

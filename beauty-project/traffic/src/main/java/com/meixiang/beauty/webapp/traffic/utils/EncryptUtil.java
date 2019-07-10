@@ -1,6 +1,7 @@
-package com.meixiang.beauty.common.utils;
+package com.meixiang.beauty.webapp.traffic.utils;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.Mac;
@@ -10,6 +11,7 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 
 public class EncryptUtil {
+
 	public static final String MD5 = "MD5";
 	public static final String SHA1 = "SHA1";
 	public static final String HmacMD5 = "HmacMD5";

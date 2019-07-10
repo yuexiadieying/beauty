@@ -11,7 +11,11 @@
 </style>
 <div class="hbox hbox-auto-xs hbox-auto-sm" >
   <div class="wrapper-md" ng-controller="ZhgjCtrl">
-    <p class="m-b-md"><strong>首页 / 其他交通 / 智慧公交 / 基础信息</strong></p>
+    <p class="m-b-md">
+      <strong>首页 / 其他交通 / 智慧公交 / 基础信息</strong>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a ng-href="{{param.url}}" style="color:red;font-weight:bold">点击去往智慧公交平台</a>
+    </p>
     <div style="position: relative;">
       <div id="mapDiv" style="width:100%;height:600px"></div>
       <div style="width:60px;height: 30px;line-height: 30px;font-weight: 700;border-bottom-right-radius: 15px;border-top-right-radius: 15px;position: absolute;top: 0px;left:0px;background: #000009;text-align: center" ng-click="showAndHide()">栏目</div>
