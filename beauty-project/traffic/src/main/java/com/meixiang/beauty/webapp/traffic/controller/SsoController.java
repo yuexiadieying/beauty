@@ -6,6 +6,7 @@ import com.meixiang.beauty.common.dto.system.DepartmentDTO;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
 import com.meixiang.beauty.common.dto.system.RoleDTO;
 import com.meixiang.beauty.common.dto.system.UserInfoDTO;
+import com.meixiang.beauty.common.utils.DateUtils;
 import com.meixiang.beauty.webapp.traffic.utils.EncryptUtil;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
 import com.meixiang.beauty.webapp.traffic.dto.sso.SsoDTO;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -55,21 +57,38 @@ public class SsoController {
                         userInfoDTO.setNickname(ssoDTO.getLoginName());
                         userInfoDTO.setLoginName(ssoDTO.getLoginName());
                         userInfoDTO.setPassword(ssoDTO.getLoginPassword());
+                        userInfoDTO.setUserType(ssoDTO.getPlatformFlag());
 
-                        Query query = new Query(Criteria.where("departmentName").is(ssoDTO1.getPlatformName()));
-                        DepartmentDTO departmentDTO = mongoTemplate.findOne(query,DepartmentDTO.class,"department");
-                        userInfoDTO.setDepartment(departmentDTO);
+                        Query query = new Query(Criteria.where("loginName").is(ssoDTO.getLoginName()))
+                                .addCriteria(Criteria.where("userType").is(ssoDTO.getPlatformFlag()));
+                        UserInfoDTO userInfoDTO1 = mongoTemplate.findOne(query,UserInfoDTO.class,"userinfo");
 
-                        query = new Query(Criteria.where("roleName").is(ssoDTO1.getPlatformName()));
-                        RoleDTO roleDTO = mongoTemplate.findOne(query,RoleDTO.class,"role");
+                        if(userInfoDTO1==null)
+                        {
+                            query = new Query(Criteria.where("departmentName").is(ssoDTO1.getPlatformName()));
+                            DepartmentDTO departmentDTO = mongoTemplate.findOne(query,DepartmentDTO.class,"department");
+                            userInfoDTO.setDepartment(departmentDTO);
 
-                        List<RoleDTO> roleDTOS = new ArrayList<>();
-                        roleDTOS.add(roleDTO);
-                        userInfoDTO.setRoles(roleDTOS);
+                            query = new Query(Criteria.where("roleName").is(ssoDTO1.getPlatformName()));
+                            RoleDTO roleDTO = mongoTemplate.findOne(query,RoleDTO.class,"role");
 
-                        mongoTemplate.insert(userInfoDTO,"userinfo");
+                            List<RoleDTO> roleDTOS = new ArrayList<>();
+                            roleDTOS.add(roleDTO);
+                            userInfoDTO.setRoles(roleDTOS);
 
-                        responseDTO.setResult("Sync Success");
+                            mongoTemplate.insert(userInfoDTO,"userinfo");
+
+                            query = new Query(Criteria.where("platformFlag").is(ssoDTO.getPlatformFlag()));
+                            Update update = new Update();
+                            update.set("platformURL",ssoDTO.getPlatformURL());
+                            mongoTemplate.updateFirst(query,update,SsoDTO.class,"sso");
+
+                            responseDTO.setResult("Sync Success");
+                        }else
+                        {
+                            responseDTO.setResult("Sync Failure");
+                        }
+
                     }else
                     {
                         responseDTO.setResult("Sync Failure");
@@ -118,7 +137,6 @@ public class SsoController {
 
     @RequestMapping(value = "zhgj", method = {RequestMethod.POST, RequestMethod.GET})
     public
-    @TrafficLoginRequired
     @ResponseBody
     ResponseDTO<String> zhgj(@RequestParam String secretStr,@RequestParam String platformFlag){
 
