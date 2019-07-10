@@ -428,7 +428,6 @@ public class UserInfoController {
         return  responseDTO;
     }
 
-
     private static Map<String, String> getHeadersInfo(HttpServletRequest request) {
         Map<String, String> map = new HashMap<>();
         Enumeration headerNames = request.getHeaderNames();
