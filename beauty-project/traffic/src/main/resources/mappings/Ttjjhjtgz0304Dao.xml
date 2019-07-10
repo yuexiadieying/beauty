@@ -3,6 +3,8 @@
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhjtgz0304Dao">
     <resultMap id="Ttjjhjtgz0304InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhjtgz0304DTO" >
        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="year" property="year" jdbcType="VARCHAR" />
+        <result column="month" property="month" jdbcType="VARCHAR" />
         <result column="RECID" property="recid" jdbcType="VARCHAR" />
         <result column="RECVER" property="recver" jdbcType="DOUBLE" />
         <result column="UNITID" property="unitid" jdbcType="VARCHAR" />

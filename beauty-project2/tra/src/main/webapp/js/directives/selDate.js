@@ -48,7 +48,7 @@ angular.module('app')
                     },
                     function (start, end) {
                         $("#"+scope.index +" span").html(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
-                        scope.getData(start.format('YYYY-MM-DD'),end.format('YYYY-MM-DD'))
+                        scope.getDate(start.format('YYYY-MM-DD'),end.format('YYYY-MM-DD'))
                     }
                 );
             };

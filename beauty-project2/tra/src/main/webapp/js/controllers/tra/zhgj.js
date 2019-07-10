@@ -4,11 +4,16 @@
 
 app
   // Flot Chart controller 
-  .controller('ZhgjCtrl', ['$scope','$stateParams', function($scope,$stateParams) {
+  .controller('ZhgjCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state',
+      function($scope,$stateParams,traUtil,$http,Global,$state) {
+
+      traUtil.getUserInfo();
+
       $scope.param = {
           flag:false,
           index:0
       };
+
       if($stateParams.index !=''){
           $scope.param.index = $stateParams.index
       }
@@ -27,10 +32,22 @@ app
       //初始化瓦片图层
       var tileLayer=L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 
-
-
       //地图添加图层
       map.addLayer(tileLayer);
 
+      $http.get('/traffic/sso/encryptSSO')
+          .then(function(response) {
+              if (response.data.result==Global.SUCCESS) {
+                  console.log(response.data.responseData);
+                  $scope.param.url = response.data.responseData.platformURL
+                      +"?platformFlag="+response.data.responseData.platformFlag+'&&'
+                      +'secretStr='+response.data.responseData.platformEncrypt;
+
+              }else{
+                  $state.go('access.signin');
+              }
+          }, function(x) {
+              $scope.authError = 'Server Error';
+          });
 
   }]);

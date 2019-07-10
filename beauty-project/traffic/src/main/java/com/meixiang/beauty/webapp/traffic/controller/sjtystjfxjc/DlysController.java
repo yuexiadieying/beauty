@@ -129,6 +129,8 @@ public class DlysController {
         PageParamDTO<List<DlkhzczjqkDataDTO>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
+        paramDTO.setRequestData(ttjjhdlsy005ngdService
+                .getStationNumChangeInfo(DateUtil.getNowYear(), DateUtil.getNowYear()));
 
         paramDTO.setTotalCount(10);
         responseDTO.setResponseData(paramDTO);
@@ -144,6 +146,8 @@ public class DlysController {
         ResponseDTO<List<Map<String,Object>>> responseDTO = new ResponseDTO<>();
 
         //todo 通过业务层获取 dlwxhwyssjList
+        dlwxhwyssjList = ttjjhdlsy011ngdService
+                .getDangerThingsTransportNumInfo(DateUtil.getPreYear(), DateUtil.getNowYear());
 
         responseDTO.setResponseData(dlwxhwyssjList);
         return  responseDTO;
@@ -159,6 +163,7 @@ public class DlysController {
         PageParamDTO<List<DlcyrysjDataDTO>> paramDTO = new PageParamDTO<>();
 
         //todo 通过业务层获取 paramDTO
+        ttjjhdlsy003ngdService.getRoadWorkersInfo(DateUtil.getPreYear(), DateUtil.getNowYear());
 
         paramDTO.setTotalCount(10);
         responseDTO.setResponseData(paramDTO);

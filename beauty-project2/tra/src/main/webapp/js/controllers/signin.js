@@ -10,12 +10,14 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', 'Global',fu
     $scope.login = function() {
       $scope.authError = null;
       // Try to login
-      $http.post('/traffic/user/login', {username: $scope.user.username, password: $scope.user.password})
+      $http.post('/traffic/user/login', {loginName: $scope.user.username, password: $scope.user.password})
       .then(function(response) {
           if(response.data.result==Global.SUCCESS)
           {
               window.localStorage.setItem("logintoken",response.data.responseData);
               $state.go('app.statistic');
+          }else {
+              alert(response.data.errorInfo);
           }
       }, function(x) {
         $scope.authError = 'Server Error';

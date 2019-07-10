@@ -35,17 +35,45 @@ angular.module('traGlobal',[])
                     var val = d.getFullYear()+"-"+month+"-"+day;
                     return val;
                 },
-               /* getUserInfo:function(){
+                getUserInfo:function(){
+                    var count = function(o){
+                        var t = typeof o;
+
+                        if(t == 'string'){
+                            return o.length;
+
+                        }else if(t == 'object'){
+
+                            var n = 0;
+
+                            for(var i in o){
+
+                                n++;
+
+                            }
+
+                            return n;
+                        }
+                        return false;
+                    };
+
                     $http.get('/traffic/user/getUserInfo')
                         .then(function(response) {
                             if (response.data.result==Global.SUCCESS) {
                                 $rootScope.userInfo = response.data.responseData;
+                                if(count($rootScope.userInfo.roles)==1)
+                                {
+                                    if(count($rootScope.userInfo.roles[0].levels)==1)
+                                    {
+                                        $state.go('app.' + $rootScope.userInfo.roles[0].levels[0]);
+                                    }
+                                }
                             }else{
                                 $state.go('access.signin');
                             }
                         }, function(x) {
                             $scope.authError = 'Server Error';
                         });
-                }*/
+                }
             };
         }]);

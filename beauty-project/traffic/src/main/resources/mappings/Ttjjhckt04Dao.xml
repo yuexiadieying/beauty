@@ -3,6 +3,8 @@
 <mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sjtystjfxjc.Ttjjhckt04Dao">
     <resultMap id="Ttjjhckt04InfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sjtystjfxjc.Ttjjhckt04DTO" >
        <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="year" property="year" jdbcType="VARCHAR" />
+        <result column="month" property="month" jdbcType="VARCHAR" />
         <result column="RECID" property="recid" jdbcType="VARCHAR" />
         <result column="RECVER" property="recver" jdbcType="DOUBLE" />
         <result column="UNITID" property="unitid" jdbcType="VARCHAR" />
@@ -63,7 +65,7 @@
 
     <!--出租汽车运营情况-->
     <select id="getTextBusinessInfo" resultMap="Ttjjhckt04InfoResultMap">
-      select "SUBSTR"(DATATIME,1,4) as year, ("SUM"(CK0420025))  as income from CDPRJ.T_TJJH_CKT_04
+      select "SUBSTR"(DATATIME,1,4) as year, ("SUM"(CK0420025))  as CK0420025 from CDPRJ.T_TJJH_CKT_04
 where "SUBSTR"(DATATIME,1,4) BETWEEN #{start} AND #{end}
 GROUP BY "SUBSTR"(DATATIME,1,4)
     </select>
