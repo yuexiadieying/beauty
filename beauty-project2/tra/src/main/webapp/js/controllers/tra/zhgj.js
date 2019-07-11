@@ -44,7 +44,7 @@ app
                       +'secretStr='+response.data.responseData.platformEncrypt;
 
               }else{
-                  $state.go('access.signin');
+                  alert(response.data.errorinfo);
               }
           }, function(x) {
               $scope.authError = 'Server Error';
