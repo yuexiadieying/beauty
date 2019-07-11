@@ -2,8 +2,9 @@
 
 /* Controllers */
 
-app.controller('HighwayCtrl', ['$scope', function($scope) {
+app.controller('HighwayCtrl', ['$scope','traUtil', function($scope,traUtil) {
 
+    traUtil.getUserInfo();
 
 
 }]);

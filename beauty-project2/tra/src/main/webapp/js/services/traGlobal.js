@@ -56,18 +56,45 @@ angular.module('traGlobal',[])
                         }
                         return false;
                     };
-
                     $http.get('/traffic/user/getUserInfo')
                         .then(function(response) {
                             if (response.data.result==Global.SUCCESS) {
-                                $rootScope.userInfo = response.data.responseData;
-                                if(count($rootScope.userInfo.roles)==1)
-                                {
-                                    if(count($rootScope.userInfo.roles[0].levels)==1)
-                                    {
-                                        $state.go('app.' + $rootScope.userInfo.roles[0].levels[0]);
-                                    }
-                                }
+
+                                $rootScope.goThirdPlatformUrl = "";
+                                $rootScope.goThirdPlatformName = "";
+                                $http.get('/traffic/sso/encryptSSO')
+                                    .then(function(response1) {
+                                        console.log(response1.data);
+                                        if (response.data.result==Global.SUCCESS) {
+                                            $rootScope.goThirdPlatformUrl = response1.data.responseData.platformURL
+                                                +"?platformFlag="+response1.data.responseData.platformFlag+'&&'
+                                                +'secretStr='+response1.data.responseData.platformEncrypt;
+                                            $rootScope.goThirdPlatformName = response1.data.responseData.platformName;
+
+                                        }else{
+                                            $rootScope.thirdPlatformError = response1.data.errorInfo;
+                                        }
+
+                                        $rootScope.goThirdPlatform = function () {
+                                            if($rootScope.goThirdPlatformUrl!=undefined){
+                                                window.location.href = $rootScope.goThirdPlatformUrl;
+                                            }else{
+                                                alert($rootScope.thirdPlatformError);
+                                            }
+                                        }
+
+                                        $rootScope.userInfo = response.data.responseData;
+                                        if(count($rootScope.userInfo.roles)==1)
+                                        {
+                                            if(count($rootScope.userInfo.roles[0].levels)==1)
+                                            {
+                                                $state.go('app.' + $rootScope.userInfo.roles[0].levels[0]);
+                                            }
+                                        }
+
+                                    }, function(x) {
+                                        $scope.authError = 'Server Error';
+                                    });
                             }else{
                                 $state.go('access.signin');
                             }

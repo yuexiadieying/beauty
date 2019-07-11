@@ -2,9 +2,9 @@
 
 /* Controllers */
 
-app.controller('Water_transportationCtl', ['$scope', function($scope) {
+app.controller('Water_transportationCtl', ['$scope','traUtil',function($scope,traUtil) {
 
-
+    traUtil.getUserInfo();
 
 }]);
 

@@ -45,4 +45,5 @@ angular.module('app', [
         }
         return value;
     }
+
 });
