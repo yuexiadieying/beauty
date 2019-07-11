@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping(value = "sdlyssjxtgl")
 public class DlysgljgxxController {
 
-    //todo 道路运输管理机构信息
+    //todo 道路运输管理机构信息 页面保留
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "dlysgljgxx", method = {RequestMethod.POST, RequestMethod.GET})
     public
@@ -33,7 +33,7 @@ public class DlysgljgxxController {
         return  responseDTO;
     }
 
-    //todo 执法人员信息
+    //todo 执法人员信息 待定
     //todo PageParamDTO里面的requestData为查询参数
     @RequestMapping(value = "zfryxx", method = {RequestMethod.POST, RequestMethod.GET})
     public

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sdlyssjxtgl.TsjxttfbsrestudyrecordDao">
+    <resultMap id="TsjxttfbsrestudyrecordInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sdlyssjxtgl.TsjxttfbsrestudyrecordDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="RESTUDYID" property="restudyid" jdbcType="VARCHAR" />
+        <result column="CERID" property="cerid" jdbcType="VARCHAR" />
+        <result column="CARDNO" property="cardno" jdbcType="VARCHAR" />
+        <result column="WORTYPE" property="wortype" jdbcType="VARCHAR" />
+        <result column="ORG" property="org" jdbcType="VARCHAR" />
+        <result column="BATCHNO" property="batchno" jdbcType="VARCHAR" />
+        <result column="STARTDATE" property="startdate" jdbcType="VARCHAR" />
+        <result column="ENDDATE" property="enddate" jdbcType="VARCHAR" />
+        <result column="REASON" property="reason" jdbcType="VARCHAR" />
+        <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+        <result column="CREDATE" property="credate" jdbcType="VARCHAR" />
+        <result column="EDITIME" property="editime" jdbcType="VARCHAR" />
+        <result column="EDIDATE" property="edidate" jdbcType="VARCHAR" />
+        <result column="EDIUSRCODE" property="ediusrcode" jdbcType="VARCHAR" />
+        <result column="ISEFFECT" property="iseffect" jdbcType="CHAR" />
+        <result column="CRETIME" property="cretime" jdbcType="VARCHAR" />
+        <result column="CREUSRCODE" property="creusrcode" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="SEX" property="sex" jdbcType="VARCHAR" />
+        <result column="SCHNAME" property="schname" jdbcType="VARCHAR" />
+        <result column="SAPPLYDATE" property="sapplydate" jdbcType="VARCHAR" />
+        <result column="GRADUATEDATE" property="graduatedate" jdbcType="VARCHAR" />
+        <result column="STUDYTIME" property="studytime" jdbcType="VARCHAR" />
+        <result column="EXAMGRADE" property="examgrade" jdbcType="VARCHAR" />
+        <result column="EXAMRESULT" property="examresult" jdbcType="VARCHAR" />
+        <result column="CYCLE" property="cycle" jdbcType="VARCHAR" />
+        <result column="ISUSE" property="isuse" jdbcType="CHAR" />
+        <result column="RESTUDYIMG1" property="restudyimg1" jdbcType="VARCHAR" />
+        <result column="RESTUDYIMG2" property="restudyimg2" jdbcType="VARCHAR" />
+        <result column="RESTUDYREASON" property="restudyreason" jdbcType="VARCHAR" />
+        <result column="CHEDEPNAME" property="chedepname" jdbcType="VARCHAR" />
+        <result column="EXAMDATE" property="examdate" jdbcType="VARCHAR" />
+        <result column="CHEUSRDATE" property="cheusrdate" jdbcType="VARCHAR" />
+        <result column="CHEUSRNAME" property="cheusrname" jdbcType="VARCHAR" />
+        <result column="QIANZHUUSRNAME" property="qianzhuusrname" jdbcType="VARCHAR" />
+        <result column="CYCLESTART" property="cyclestart" jdbcType="VARCHAR" />
+        <result column="QIANZHUDATE" property="qianzhudate" jdbcType="VARCHAR" />
+        <result column="ISQIANZHU" property="isqianzhu" jdbcType="VARCHAR" />
+        <result column="ENBEWORRECORDID" property="enbeworrecordid" jdbcType="VARCHAR" />
+        <result column="CYCLEEND" property="cycleend" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertdate" jdbcType="DATE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTsjxttfbsrestudyrecordCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_RESTUDYRECORD
+    </select>
+    <!--获取总个数-->
+    <select id="getTsjxttfbsrestudyrecordCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_RESTUDYRECORD
+    </select>
+
+    <select id="getTsjxttfbsrestudyrecordByPageable" resultMap="TsjxttfbsrestudyrecordInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_RESTUDYRECORD a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTsjxttfbsrestudyrecordByParamsPageable" resultMap="TsjxttfbsrestudyrecordInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_RESTUDYRECORD a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>
