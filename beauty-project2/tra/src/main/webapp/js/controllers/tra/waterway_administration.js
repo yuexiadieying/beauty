@@ -4,7 +4,10 @@
 
 app
   // Flot Chart controller 
-  .controller('Waterway_administrationCtrl', ['$scope','Global',"traUtil",'$http','$state', function($scope, Global,traUtil,$http,$state) {
+  .controller('Waterway_administrationCtrl', ['$scope','Global',"traUtil",'$http','$state','$rootScope',
+      function($scope, Global,traUtil,$http,$state,$rootScope) {
+
+      $rootScope.goThirdPlatformName = '省水路运政管理第三方平台';
 
         $scope.sslyzglHomeData = []
 

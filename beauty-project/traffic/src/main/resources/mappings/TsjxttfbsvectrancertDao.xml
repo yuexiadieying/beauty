@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sdlyssjxtgl.TsjxttfbsvectrancertDao">
+    <resultMap id="TsjxttfbsvectrancertInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sdlyssjxtgl.TsjxttfbsvectrancertDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="CMVECID" property="cmvecid" jdbcType="VARCHAR" />
+        <result column="BNSCOPE" property="bnscope" jdbcType="VARCHAR" />
+        <result column="ENDDATE" property="enddate" jdbcType="VARCHAR" />
+        <result column="STADATE" property="stadate" jdbcType="VARCHAR" />
+        <result column="GRADATE" property="gradate" jdbcType="VARCHAR" />
+        <result column="GRADEPCODE" property="gradepcode" jdbcType="VARCHAR" />
+        <result column="TRANO" property="trano" jdbcType="VARCHAR" />
+        <result column="AREAABBR" property="areaabbr" jdbcType="VARCHAR" />
+        <result column="TRAWORD" property="traword" jdbcType="VARCHAR" />
+        <result column="ARCNO" property="arcno" jdbcType="VARCHAR" />
+        <result column="PRINT_REMARK" property="printremark" jdbcType="VARCHAR" />
+        <result column="CTCENTYPE" property="ctcentype" jdbcType="VARCHAR" />
+        <result column="BNSCOPE_BACK" property="bnscopeback" jdbcType="VARCHAR" />
+        <result column="BNSCOPE_CODE" property="bnscopecode" jdbcType="VARCHAR" />
+        <result column="PRODUCT_CODE" property="productcode" jdbcType="VARCHAR" />
+        <result column="PRBNSCOPE_NAME" property="prbnscopename" jdbcType="VARCHAR" />
+        <result column="BRACOLOR" property="braColor" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertdate" jdbcType="DATE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTsjxttfbsvectrancertCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_VECTRANCERT
+    </select>
+    <!--获取总个数-->
+    <select id="getTsjxttfbsvectrancertCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_VECTRANCERT
+    </select>
+
+    <select id="getTsjxttfbsvectrancertByPageable" resultMap="TsjxttfbsvectrancertInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.*, b.BRACOLOR from T_SJXT_TF_BS_VECTRANCERT a
+      left join CDPRJ.T_SJXT_TF_BS_VECGOODS b on b.CMVECID=a.CMVECID
+      WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTsjxttfbsvectrancertByParamsPageable" resultMap="TsjxttfbsvectrancertInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_VECTRANCERT a
+      left join CDPRJ.T_SJXT_TF_BS_VECGOODS b on b.CMVECID=a.CMVECID
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

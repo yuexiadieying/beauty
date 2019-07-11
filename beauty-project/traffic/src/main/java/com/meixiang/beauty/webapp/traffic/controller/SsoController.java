@@ -124,13 +124,18 @@ public class SsoController {
         query = new Query(Criteria.where("platformName").is(departmentDTO.getDepartmentName()));
         SsoDTO ssoDTO = mongoTemplate.findOne(query,SsoDTO.class,"sso");
 
-        String str = userInfoDTO.getLoginName()+":"+userInfoDTO.getPassword();
+        if(ssoDTO!=null){
+            String str = userInfoDTO.getLoginName()+":"+userInfoDTO.getPassword();
+            String secretStr = EncryptUtil.getInstance().AESencode(str,ssoDTO.getPlatformSecret());
+            ssoDTO.setPlatformEncrypt(secretStr);
+            responseDTO.setResult(StatusConstant.SUCCESS);
+            responseDTO.setResponseData(ssoDTO);
+        }else{
+            responseDTO.setResult(StatusConstant.FAILURE);
+            responseDTO.setErrorInfo("对不起，你不是此系统平台的用户");
+            responseDTO.setResponseData(ssoDTO);
+        }
 
-        String secretStr = EncryptUtil.getInstance().AESencode(str,ssoDTO.getPlatformSecret());
-
-        ssoDTO.setPlatformEncrypt(secretStr);
-        responseDTO.setResult(StatusConstant.SUCCESS);
-        responseDTO.setResponseData(ssoDTO);
         return  responseDTO;
     }
 

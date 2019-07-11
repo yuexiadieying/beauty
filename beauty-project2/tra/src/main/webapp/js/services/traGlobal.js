@@ -56,18 +56,33 @@ angular.module('traGlobal',[])
                         }
                         return false;
                     };
-
                     $http.get('/traffic/user/getUserInfo')
                         .then(function(response) {
                             if (response.data.result==Global.SUCCESS) {
-                                $rootScope.userInfo = response.data.responseData;
-                                if(count($rootScope.userInfo.roles)==1)
-                                {
-                                    if(count($rootScope.userInfo.roles[0].levels)==1)
-                                    {
-                                        $state.go('app.' + $rootScope.userInfo.roles[0].levels[0]);
-                                    }
-                                }
+
+                                $http.get('/traffic/sso/encryptSSO')
+                                    .then(function(response1) {
+                                        console.log(response1.data);
+                                        if (response1.data.result==Global.SUCCESS) {
+                                            $rootScope.goThirdPlatformUrl = response1.data.responseData.platformURL
+                                                +"?platformFlag="+response1.data.responseData.platformFlag+'&&'
+                                                +'secretStr='+response1.data.responseData.platformEncrypt;
+                                        }else{
+                                            $rootScope.thirdPlatformError = response1.data.errorInfo;
+                                        }
+
+                                        $rootScope.userInfo = response.data.responseData;
+                                        if(count($rootScope.userInfo.roles)==1)
+                                        {
+                                            if(count($rootScope.userInfo.roles[0].levels)==1)
+                                            {
+                                                $state.go('app.' + $rootScope.userInfo.roles[0].levels[0]);
+                                            }
+                                        }
+
+                                    }, function(x) {
+                                        $scope.authError = 'Server Error';
+                                    });
                             }else{
                                 $state.go('access.signin');
                             }

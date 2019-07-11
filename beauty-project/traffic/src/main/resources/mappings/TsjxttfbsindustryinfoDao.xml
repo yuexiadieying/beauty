@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sdlyssjxtgl.TsjxttfbsindustryinfoDao">
+    <resultMap id="TsjxttfbsindustryinfoInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sdlyssjxtgl.TsjxttfbsindustryinfoDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="OWNER_ID" property="ownerid" jdbcType="VARCHAR" />
+        <result column="JURPERSON" property="jurperson" jdbcType="VARCHAR" />
+        <result column="ECONOMIC_TYPE" property="economictype" jdbcType="VARCHAR" />
+        <result column="CTCNO" property="ctcno" jdbcType="VARCHAR" />
+        <result column="BUSI_REG_NUMBER" property="busiregnumber" jdbcType="VARCHAR" />
+        <result column="JURCTC_TYPE" property="jurctctype" jdbcType="VARCHAR" />
+        <result column="JURCTC_PHONE" property="jurctcphone" jdbcType="VARCHAR" />
+        <result column="JURCTC_MOBILE" property="jurctcmobile" jdbcType="VARCHAR" />
+        <result column="ORG_CODE" property="orgcode" jdbcType="VARCHAR" />
+        <result column="TAX_REG_NUMBER" property="taxregnumber" jdbcType="VARCHAR" />
+        <result column="REGISTERED_CAPITAL" property="registeredcapital" jdbcType="VARCHAR" />
+        <result column="BANKOFDEPOSIT" property="bankofdeposit" jdbcType="VARCHAR" />
+        <result column="BANKACCOUNT" property="bankaccount" jdbcType="VARCHAR" />
+        <result column="TOTAL_INV_AMOUNT" property="totalinvamount" jdbcType="VARCHAR" />
+        <result column="FIXED_FUNDS" property="fixedfunds" jdbcType="VARCHAR" />
+        <result column="PROCESS_FUNDS" property="processfunds" jdbcType="VARCHAR" />
+        <result column="GRA_DATE" property="gradate" jdbcType="VARCHAR" />
+        <result column="CALCULATE_TYPE" property="calculatetype" jdbcType="VARCHAR" />
+        <result column="NATIVE_PRINCIPAL" property="nativeprincipal" jdbcType="VARCHAR" />
+        <result column="FOREIGN_PRINCIPAL" property="foreignprincipal" jdbcType="VARCHAR" />
+        <result column="FOREIGN_REGISTERED_CAPITAL" property="foreignregisteredcapital" jdbcType="VARCHAR" />
+        <result column="NET_FIXED_CAPITAL" property="netfixedcapital" jdbcType="VARCHAR" />
+        <result column="ORIGINAL_FIXED_CAPITAL" property="originalfixedcapital" jdbcType="VARCHAR" />
+        <result column="FLOW_CAPITAL" property="flowcapital" jdbcType="VARCHAR" />
+        <result column="PAICL_UP_CAPITAL" property="paiclupcapital" jdbcType="VARCHAR" />
+        <result column="OPERATING_PERIOD" property="operatingperiod" jdbcType="VARCHAR" />
+        <result column="ORGANIZATION_CODE" property="organizationcode" jdbcType="VARCHAR" />
+        <result column="EMERGENCIES_PHONE" property="emergenciesphone" jdbcType="VARCHAR" />
+        <result column="ESTABLISH_DATE" property="establishdate" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertdate" jdbcType="DATE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTsjxttfbsindustryinfoCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_INDUSTRY_INFO
+    </select>
+    <!--获取总个数-->
+    <select id="getTsjxttfbsindustryinfoCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_INDUSTRY_INFO
+    </select>
+
+    <select id="getTsjxttfbsindustryinfoByPageable" resultMap="TsjxttfbsindustryinfoInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_INDUSTRY_INFO a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTsjxttfbsindustryinfoByParamsPageable" resultMap="TsjxttfbsindustryinfoInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_INDUSTRY_INFO a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

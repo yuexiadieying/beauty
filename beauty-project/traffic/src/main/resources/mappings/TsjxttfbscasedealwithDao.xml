@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sdlyssjxtgl.TsjxttfbscasedealwithDao">
+    <resultMap id="TsjxttfbscasedealwithInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sdlyssjxtgl.TsjxttfbscasedealwithDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="DEALWITH_ID" property="dealwithid" jdbcType="VARCHAR" />
+        <result column="CASE_ID" property="caseid" jdbcType="VARCHAR" />
+        <result column="SURPROCESS" property="surprocess" jdbcType="VARCHAR" />
+        <result column="REPORTED_USER" property="reporteduser" jdbcType="VARCHAR" />
+        <result column="REPORTED_DATE" property="reporteddate" jdbcType="VARCHAR" />
+        <result column="FINDINGAND_OPINION" property="findingandopinion" jdbcType="VARCHAR" />
+        <result column="INVESTIGATORS_ONE" property="investigatorsone" jdbcType="VARCHAR" />
+        <result column="INVESTIGATORS_TWO" property="investigatorstwo" jdbcType="VARCHAR" />
+        <result column="INVLECARDNO_ONE" property="invlecardnoone" jdbcType="VARCHAR" />
+        <result column="INVLECARDNO_TWO" property="invlecardnotwo" jdbcType="VARCHAR" />
+        <result column="APPROVE_NO" property="approveno" jdbcType="VARCHAR" />
+        <result column="APPROVE_SN" property="approvesn" jdbcType="VARCHAR" />
+        <result column="RESPONSIBLE_USER" property="responsibleuser" jdbcType="VARCHAR" />
+        <result column="APPROVE_DATE" property="approvedate" jdbcType="VARCHAR" />
+        <result column="NOFILE_NAME" property="nofilename" jdbcType="VARCHAR" />
+        <result column="NOFILE_DATE" property="nofiledate" jdbcType="VARCHAR" />
+        <result column="AUDIT_USER" property="audituser" jdbcType="VARCHAR" />
+        <result column="AUDIT_OPN" property="auditopn" jdbcType="VARCHAR" />
+        <result column="AUDITOPN_DATE" property="auditopndate" jdbcType="VARCHAR" />
+        <result column="DEPAUDIT_USER" property="depaudituser" jdbcType="VARCHAR" />
+        <result column="DEPAUDIT_OPN" property="depauditopn" jdbcType="VARCHAR" />
+        <result column="DEPAUDIT_OPN_DATE" property="depauditopndate" jdbcType="VARCHAR" />
+        <result column="EXCUSE_HEAR" property="excusehear" jdbcType="VARCHAR" />
+        <result column="APP_REMARKS" property="appremarks" jdbcType="VARCHAR" />
+        <result column="NOTICE_NO" property="noticeno" jdbcType="VARCHAR" />
+        <result column="NOTICE_SN" property="noticesn" jdbcType="VARCHAR" />
+        <result column="NOTICE_USER" property="noticeuser" jdbcType="VARCHAR" />
+        <result column="CORRECT_DAYS" property="correctdays" jdbcType="VARCHAR" />
+        <result column="CORRECT_ACT" property="correctact" jdbcType="VARCHAR" />
+        <result column="NOTICE_DATE" property="noticedate" jdbcType="VARCHAR" />
+        <result column="NOTICE_LINKMAN" property="noticelinkman" jdbcType="VARCHAR" />
+        <result column="NOTICE_LINKTEL" property="noticelinktel" jdbcType="VARCHAR" />
+        <result column="NOTICE_SEND_WORD" property="noticesendword" jdbcType="VARCHAR" />
+        <result column="NOTICE_SEND_DATE" property="noticesenddate" jdbcType="VARCHAR" />
+        <result column="NOTICE_SEND_REMARKS" property="noticesendremarks" jdbcType="VARCHAR" />
+        <result column="NOTICE_RECIPIENT" property="noticerecipient" jdbcType="VARCHAR" />
+        <result column="NOTICE_ADDRESS" property="noticeaddress" jdbcType="VARCHAR" />
+        <result column="NOTICE_SERVED_USER_ONE" property="noticeserveduserone" jdbcType="VARCHAR" />
+        <result column="NOTICE_SERVED_USER_TWO" property="noticeservedusertwo" jdbcType="VARCHAR" />
+        <result column="PUN_NO" property="punno" jdbcType="VARCHAR" />
+        <result column="PUN_SN" property="punsn" jdbcType="VARCHAR" />
+        <result column="PUN_USER" property="punuser" jdbcType="VARCHAR" />
+        <result column="PUN_DATE" property="pundate" jdbcType="VARCHAR" />
+        <result column="FACTUALEVIDENCE" property="factualevidence" jdbcType="VARCHAR" />
+        <result column="PUN_CONTENT" property="puncontent" jdbcType="VARCHAR" />
+        <result column="LAWE_DEP" property="lawedep" jdbcType="VARCHAR" />
+        <result column="PUN_LAWEPSN_ONE" property="punlawepsnone" jdbcType="VARCHAR" />
+        <result column="PUN_LECARDNO_ONE" property="punlecardnoone" jdbcType="VARCHAR" />
+        <result column="PUN_LAWEPSN__TWO" property="punlawepsntwo" jdbcType="VARCHAR" />
+        <result column="PUN_LECARDNO_TWO" property="punlecardnotwo" jdbcType="VARCHAR" />
+        <result column="PUN_CORRECT_DAYS" property="puncorrectdays" jdbcType="VARCHAR" />
+        <result column="PUN_AMOUNT" property="punamount" jdbcType="VARCHAR" />
+        <result column="PUN_BANK" property="punbank" jdbcType="VARCHAR" />
+        <result column="PUN_ORGANS" property="punorgans" jdbcType="VARCHAR" />
+        <result column="PUN_SEND_WORD" property="punsendword" jdbcType="VARCHAR" />
+        <result column="PUN_SEND_ADDRESS" property="punsendaddress" jdbcType="VARCHAR" />
+        <result column="PUN_SEND_DATE" property="punsenddate" jdbcType="VARCHAR" />
+        <result column="PUN_SEND_REMARKS" property="punsendremarks" jdbcType="VARCHAR" />
+        <result column="PUN_USER2" property="punuser2" jdbcType="VARCHAR" />
+        <result column="PUN_SERVED_USER_ONE" property="punserveduserone" jdbcType="VARCHAR" />
+        <result column="PUN_SERVED_USER_TWO" property="punservedusertwo" jdbcType="VARCHAR" />
+        <result column="LIMITAMEND" property="limitamend" jdbcType="VARCHAR" />
+        <result column="LIMIT_OTHER" property="limitother" jdbcType="VARCHAR" />
+        <result column="LIMIT_DATE" property="limitdate" jdbcType="VARCHAR" />
+        <result column="LIMIT_PROMISE_DAY" property="limitpromiseday" jdbcType="VARCHAR" />
+        <result column="LIMIT_PROMISE_DATE" property="limitpromisedate" jdbcType="VARCHAR" />
+        <result column="TRANSFER_NO" property="transferno" jdbcType="VARCHAR" />
+        <result column="TRANSFER_SN" property="transfersn" jdbcType="VARCHAR" />
+        <result column="RECEIPT_DEP" property="receiptdep" jdbcType="VARCHAR" />
+        <result column="SUSPECTED" property="suspected" jdbcType="VARCHAR" />
+        <result column="TRAN_USER" property="tranuser" jdbcType="VARCHAR" />
+        <result column="TRAN_PUN" property="tranpun" jdbcType="VARCHAR" />
+        <result column="TRAN_DEP" property="trandep" jdbcType="VARCHAR" />
+        <result column="TRAN_DATE" property="trandate" jdbcType="VARCHAR" />
+        <result column="ACCEPT_USER" property="acceptuser" jdbcType="VARCHAR" />
+        <result column="SIGN_DATE" property="signdate" jdbcType="VARCHAR" />
+        <result column="CONTR_DEP" property="contrdep" jdbcType="VARCHAR" />
+        <result column="CLOSED_NO" property="closedno" jdbcType="VARCHAR" />
+        <result column="CLOSED_SN" property="closedsn" jdbcType="VARCHAR" />
+        <result column="PARTIESTOCASE" property="partiestocase" jdbcType="VARCHAR" />
+        <result column="TREAT_DECIDE" property="treatdecide" jdbcType="VARCHAR" />
+        <result column="PERFORM_USER" property="performuser" jdbcType="VARCHAR" />
+        <result column="CLOSED_DATE" property="closeddate" jdbcType="VARCHAR" />
+        <result column="BANK_FLOW_NO" property="bankflowno" jdbcType="VARCHAR" />
+        <result column="LAWSTAFF_ONE" property="lawstaffone" jdbcType="VARCHAR" />
+        <result column="LAWSTAFF_TWO" property="lawstafftwo" jdbcType="VARCHAR" />
+        <result column="LAWSTAFF_THREE" property="lawstaffthree" jdbcType="VARCHAR" />
+        <result column="LAWSTAFF_FOUR" property="lawstafffour" jdbcType="VARCHAR" />
+        <result column="ORGANCODE" property="organcode" jdbcType="VARCHAR" />
+        <result column="REVREA_NO" property="revreano" jdbcType="VARCHAR" />
+        <result column="REVREA_SN" property="revreasn" jdbcType="VARCHAR" />
+        <result column="CASE_REVIEW" property="casereview" jdbcType="VARCHAR" />
+        <result column="REV_REASON" property="revreason" jdbcType="VARCHAR" />
+        <result column="APPLI_USER" property="appliuser" jdbcType="VARCHAR" />
+        <result column="APPLI_DATE" property="applidate" jdbcType="VARCHAR" />
+        <result column="RESPEOVIEWS" property="respeoviews" jdbcType="VARCHAR" />
+        <result column="DECISION_ORGANS" property="decisionorgans" jdbcType="VARCHAR" />
+        <result column="DECISION_DATE" property="decisiondate" jdbcType="VARCHAR" />
+        <result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
+        <result column="SIGNATURE_DATE" property="signaturedate" jdbcType="VARCHAR" />
+        <result column="LAW_ORGANS_ADDRESS" property="laworgansaddress" jdbcType="VARCHAR" />
+        <result column="LAW_ORGANS" property="laworgans" jdbcType="VARCHAR" />
+        <result column="COMPEN_ORGANSID" property="compenorgansid" jdbcType="VARCHAR" />
+        <result column="LAW_ORGANS_ID" property="laworgansid" jdbcType="VARCHAR" />
+        <result column="EDIUSRCODE" property="ediusrcode" jdbcType="VARCHAR" />
+        <result column="EDIDATE" property="edidate" jdbcType="VARCHAR" />
+        <result column="EDITIME" property="editime" jdbcType="VARCHAR" />
+        <result column="PUN_BANK_ACCOUNT" property="punbankaccount" jdbcType="VARCHAR" />
+        <result column="NOTICE_REGFACT" property="noticeregfact" jdbcType="VARCHAR" />
+        <result column="TRANDATA" property="trandata" jdbcType="VARCHAR" />
+        <result column="SUPRSLSUG_DATE" property="suprslsugdate" jdbcType="VARCHAR" />
+        <result column="NOTIC_EXCUSEANDH" property="noticexcuseandh" jdbcType="VARCHAR" />
+        <result column="NOTIC_EREMARKS" property="noticeremarks" jdbcType="CLOB" />
+        <result column="BANK_CONTR_NUM" property="bankcontrnum" jdbcType="VARCHAR" />
+        <result column="TEMPCODE" property="tempcode" jdbcType="VARCHAR" />
+        <result column="COURT" property="court" jdbcType="VARCHAR" />
+        <result column="RESAUDITMENT" property="resauditment" jdbcType="VARCHAR" />
+        <result column="RESAUDIT_USER" property="resaudituser" jdbcType="VARCHAR" />
+        <result column="OTHERPUNS" property="otherpuns" jdbcType="VARCHAR" />
+        <result column="DETAIN_APPROVE_USER" property="detainapproveuser" jdbcType="VARCHAR" />
+        <result column="STEPBASIS" property="stepbasis" jdbcType="VARCHAR" />
+        <result column="DETAIN_APPROVE_MIND" property="detainapprovemind" jdbcType="VARCHAR" />
+        <result column="DETAIN_APPROVE_REMARKS" property="detainapproveremarks" jdbcType="VARCHAR" />
+        <result column="DETAIN_APPROVE_NO" property="detainapproveno" jdbcType="VARCHAR" />
+        <result column="DETAIN_APPROVE_SN" property="detainapprovesn" jdbcType="VARCHAR" />
+        <result column="CASEINFO" property="caseinfo" jdbcType="VARCHAR" />
+        <result column="PERFORM_DATE" property="performdate" jdbcType="VARCHAR" />
+        <result column="PERFORM_TIME" property="performtime" jdbcType="VARCHAR" />
+        <result column="PERFORMER" property="performer" jdbcType="VARCHAR" />
+        <result column="PERFORM" property="perform" jdbcType="VARCHAR" />
+        <result column="IS_DECIDE" property="isdecide" jdbcType="CHAR" />
+        <result column="CASE_MEMO" property="casememo" jdbcType="VARCHAR" />
+        <result column="PERFORM_MONEY" property="performmoney" jdbcType="DOUBLE" />
+        <result column="CAPITAL_MONEY" property="capitalmoney" jdbcType="VARCHAR" />
+        <result column="DETAIN_ITEM_NAME" property="detainitemname" jdbcType="VARCHAR" />
+        <result column="LATE_MONEY" property="latemoney" jdbcType="DOUBLE" />
+        <result column="EXEC_DATE" property="execdate" jdbcType="VARCHAR" />
+        <result column="EXEC_TIME" property="exectime" jdbcType="VARCHAR" />
+        <result column="DETAIN_APPROVE_DATE" property="detainapprovedate" jdbcType="VARCHAR" />
+        <result column="PDSD_TYPE" property="pdsdtype" jdbcType="VARCHAR" />
+        <result column="PTSD_TYPE" property="ptsdtype" jdbcType="VARCHAR" />
+        <result column="CORPXW" property="corpxw" jdbcType="VARCHAR" />
+        <result column="EXDAYS" property="exdays" jdbcType="VARCHAR" />
+        <result column="EXCARD" property="excard" jdbcType="VARCHAR" />
+        <result column="DWFZR" property="dwfzr" jdbcType="VARCHAR" />
+        <result column="APPROVEDATE2" property="approvedate2" jdbcType="VARCHAR" />
+        <result column="CREMARK" property="cremark" jdbcType="VARCHAR" />
+        <result column="DREMARK" property="dremark" jdbcType="VARCHAR" />
+        <result column="ENDCASEREMARK" property="endcaseremark" jdbcType="VARCHAR" />
+        <result column="NOTICE_OPT_ONE" property="noticeoptone" jdbcType="VARCHAR" />
+        <result column="NOTICE_OPT_TWO" property="noticeopttwo" jdbcType="VARCHAR" />
+        <result column="SYSOPERTIME" property="sysopertime" jdbcType="DOUBLE" />
+        <result column="LAWERDEP_USER" property="lawerdepuser" jdbcType="VARCHAR" />
+        <result column="LAWERDEP_MIND" property="lawerdepmind" jdbcType="VARCHAR" />
+        <result column="LAWERDEP_DATE" property="lawerdepdate" jdbcType="VARCHAR" />
+        <result column="RESAUDIT_DATE" property="resauditdate" jdbcType="VARCHAR" />
+        <result column="INQ_CASE_NAME" property="inqcasename" jdbcType="VARCHAR" />
+        <result column="INQ_REGITEM_NAME" property="inqregitemname" jdbcType="VARCHAR" />
+        <result column="INQ_PUNITEM_NAME" property="inqpunitemname" jdbcType="VARCHAR" />
+        <result column="INQ_DETAINITEM_NAME" property="inqdetainitemname" jdbcType="VARCHAR" />
+        <result column="LOST_POINT" property="lostpoint" jdbcType="VARCHAR" />
+        <result column="NOTICE_SERVED_TYPE" property="noticeservedtype" jdbcType="VARCHAR" />
+        <result column="PUN_SERVED_TYPE" property="punservedtype" jdbcType="VARCHAR" />
+        <result column="DETAIN_CASE_NAME" property="detaincasename" jdbcType="VARCHAR" />
+        <result column="DETAIN_REGITEM_NAME" property="detainregitemname" jdbcType="VARCHAR" />
+        <result column="DETAIN_PUNITEM_NAME" property="detainpunitemname" jdbcType="VARCHAR" />
+        <result column="DETAIN_DETAINITEM_NAME" property="detaindetainitemname" jdbcType="VARCHAR" />
+        <result column="SEIZE_REASON" property="seizereason" jdbcType="VARCHAR" />
+        <result column="NOTICE_CONTENT" property="noticecontent" jdbcType="VARCHAR" />
+        <result column="SEIZE_DATE_BEGIN" property="seizedatebegin" jdbcType="VARCHAR" />
+        <result column="SEIZE_DATE_END" property="seizedateend" jdbcType="VARCHAR" />
+        <result column="DEPOSITORY" property="depository" jdbcType="VARCHAR" />
+        <result column="DETAIN_USER" property="detainuser" jdbcType="VARCHAR" />
+        <result column="DETAIN_DECIDE_NO" property="detaindecideno" jdbcType="VARCHAR" />
+        <result column="DETAIN_DECIDE_SN" property="detaindecidesn" jdbcType="VARCHAR" />
+        <result column="RELEASE_NO" property="releaseno" jdbcType="VARCHAR" />
+        <result column="RELEASE_SN" property="releasesn" jdbcType="VARCHAR" />
+        <result column="RELEASE_DATE" property="releasedate" jdbcType="VARCHAR" />
+        <result column="RECEIVE_DATE" property="receivedate" jdbcType="VARCHAR" />
+        <result column="RECEIVE_PLACE" property="receiveplace" jdbcType="VARCHAR" />
+        <result column="DETAIN_AUDIT_USER" property="detainaudituser" jdbcType="VARCHAR" />
+        <result column="DETAIN_AUDIT_OPN" property="detainauditopn" jdbcType="VARCHAR" />
+        <result column="DETAIN_AUDIT_DATE" property="detainauditdate" jdbcType="VARCHAR" />
+        <result column="DETAIN_DEPAUDIT_USER" property="detaindepaudituser" jdbcType="VARCHAR" />
+        <result column="DETAIN_DEPAUDIT_OPN" property="detaindepauditopn" jdbcType="VARCHAR" />
+        <result column="DETAIN_DEPAUDIT_DATE" property="detaindepauditdate" jdbcType="VARCHAR" />
+        <result column="ISPAYMENT" property="ispayment" jdbcType="CHAR" />
+        <result column="IMPORTANTCASE" property="importantcase" jdbcType="VARCHAR" />
+        <result column="STATE_IDS" property="stateids" jdbcType="VARCHAR" />
+        <result column="CB_IDS" property="cbids" jdbcType="VARCHAR" />
+        <result column="REASON_IDS" property="reasonids" jdbcType="VARCHAR" />
+        <result column="DISTRESS_CBIDS" property="distresscbids" jdbcType="VARCHAR" />
+        <result column="DISTRESS_CASE_NAME" property="distresscasename" jdbcType="VARCHAR" />
+        <result column="DISTRESS_REGITEM_NAME" property="distressregitemname" jdbcType="VARCHAR" />
+        <result column="DISTRESS_PUNITEM_NAME" property="distresspunitemname" jdbcType="VARCHAR" />
+        <result column="DISTRESS_ITEM_NAME" property="distressitemname" jdbcType="VARCHAR" />
+        <result column="LOST_REASON" property="lostreason" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DATE" property="sampledate" jdbcType="VARCHAR" />
+        <result column="SAMPLE_REASON" property="samplereason" jdbcType="VARCHAR" />
+        <result column="SAMPLE_APP_NO" property="sampleappno" jdbcType="VARCHAR" />
+        <result column="SAMPLE_APP_SN" property="sampleappsn" jdbcType="VARCHAR" />
+        <result column="SAMPLE_APP_DATE" property="sampleappdate" jdbcType="VARCHAR" />
+        <result column="SAMPLE_AUDIT_OPN" property="sampleauditopn" jdbcType="VARCHAR" />
+        <result column="SAMPLE_AUDIT_USER" property="sampleaudituser" jdbcType="VARCHAR" />
+        <result column="SAMPLE_AUDIT_DATE" property="sampleauditdate" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DEPAUDIT_OPN" property="sampledepauditopn" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DEPAUDIT_USER" property="sampledepaudituser" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DEPAUDIT_DATE" property="sampledepauditdate" jdbcType="VARCHAR" />
+        <result column="SAMPLEREMARK" property="sampleremark" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DCD_NO" property="sampledcdno" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DCD_SN" property="sampledcdsn" jdbcType="VARCHAR" />
+        <result column="SAMPLE_LIMIT" property="samplelimit" jdbcType="VARCHAR" />
+        <result column="SAMPLE_DCD_DATE" property="sampledcddate" jdbcType="VARCHAR" />
+        <result column="UNSAMPLE_NO" property="unsampleno" jdbcType="VARCHAR" />
+        <result column="UNSAMPLE_SN" property="unsamplesn" jdbcType="VARCHAR" />
+        <result column="UNSAMPLE_DATE" property="unsampledate" jdbcType="VARCHAR" />
+        <result column="UNSAMPLE_REASON" property="unsamplereason" jdbcType="VARCHAR" />
+        <result column="UNSAMPLE_ITEM_NAME" property="unsampleitemname" jdbcType="VARCHAR" />
+        <result column="UNSAMPLE_TYPE" property="unsampletype" jdbcType="VARCHAR" />
+        <result column="AUTHENTICATES" property="authenticates" jdbcType="VARCHAR" />
+        <result column="AUTHENTICATE" property="authenticate" jdbcType="VARCHAR" />
+        <result column="AUTHENTICATE_DATE" property="authenticatedate" jdbcType="VARCHAR" />
+        <result column="AUTHENTICATE_COURT" property="authenticatecourt" jdbcType="VARCHAR" />
+        <result column="AUTHENTICATE_ENDDATE" property="authenticateenddate" jdbcType="VARCHAR" />
+        <result column="AUTHENTICATE_LAW_ORGANS" property="authenticatelaworgans" jdbcType="VARCHAR" />
+        <result column="ABARBEITUNG_NO" property="abarbeitungno" jdbcType="VARCHAR" />
+        <result column="ABARBEITUNG_SN" property="abarbeitungsn" jdbcType="VARCHAR" />
+        <result column="CORRECT_NM" property="correctnm" jdbcType="VARCHAR" />
+        <result column="CORRECT_COMNM" property="correctcomnm" jdbcType="VARCHAR" />
+        <result column="CORRECT_ENDDATE" property="correctenddate" jdbcType="VARCHAR" />
+        <result column="CORRECT_CONTENT" property="correctcontent" jdbcType="VARCHAR" />
+        <result column="CORRECT_ISEFFECT" property="correctiseffect" jdbcType="VARCHAR" />
+        <result column="IS_EXCUSE_HEAR" property="isexcusehear" jdbcType="VARCHAR" />
+        <result column="UNDERTAKER_IDEA" property="undertakeridea" jdbcType="VARCHAR" />
+        <result column="UNDERTAKER_USER" property="undertakeruser" jdbcType="VARCHAR" />
+        <result column="UNDERTAKER_DATE" property="undertakerdate" jdbcType="VARCHAR" />
+        <result column="SURPROCESSEND" property="surprocessend" jdbcType="VARCHAR" />
+        <result column="PROOF_DATE" property="proofdate" jdbcType="VARCHAR" />
+        <result column="PROOF_REASON" property="proofreason" jdbcType="VARCHAR" />
+        <result column="PROOF_APP_NO" property="proofappno" jdbcType="VARCHAR" />
+        <result column="PROOF_APP_SN" property="proofappsn" jdbcType="VARCHAR" />
+        <result column="PROOF_APP_DATE" property="proofappdate" jdbcType="VARCHAR" />
+        <result column="PROOF_AUDIT_OPN" property="proofauditopn" jdbcType="VARCHAR" />
+        <result column="PROOF_AUDIT_USER" property="proofaudituser" jdbcType="VARCHAR" />
+        <result column="PROOF_AUDIT_DATE" property="proofauditdate" jdbcType="VARCHAR" />
+        <result column="PROOF_DEPAUDIT_OPN" property="proofdepauditopn" jdbcType="VARCHAR" />
+        <result column="PROOF_DEPAUDIT_USER" property="proofdepaudituser" jdbcType="VARCHAR" />
+        <result column="PROOF_DEPAUDIT_DATE" property="proofdepauditdate" jdbcType="VARCHAR" />
+        <result column="PROOF_DCD_NO" property="proofdcdno" jdbcType="VARCHAR" />
+        <result column="PROOF_DCD_SN" property="proofdcdsn" jdbcType="VARCHAR" />
+        <result column="PROOF_DATE_BEGIN" property="proofdatebegin" jdbcType="VARCHAR" />
+        <result column="PROOF_DATE_END" property="proofdateend" jdbcType="VARCHAR" />
+        <result column="PROOF_LIMIT" property="prooflimit" jdbcType="VARCHAR" />
+        <result column="PROOF_DCD_DATE" property="proofdcddate" jdbcType="VARCHAR" />
+        <result column="UNPROOF_NO" property="unproofno" jdbcType="VARCHAR" />
+        <result column="UNPROOF_SN" property="unproofsn" jdbcType="VARCHAR" />
+        <result column="UNPROOF_DATE" property="unproofdate" jdbcType="VARCHAR" />
+        <result column="UNPROOF_REASON" property="unproofreason" jdbcType="VARCHAR" />
+        <result column="UNPROOF_ITEM_NAME" property="unproofitemname" jdbcType="VARCHAR" />
+        <result column="UNPROOF_TYPE" property="unprooftype" jdbcType="VARCHAR" />
+        <result column="PROOFREMARK" property="proofremark" jdbcType="VARCHAR" />
+        <result column="DETAINREMARK" property="detainremark" jdbcType="VARCHAR" />
+        <result column="REGISTERREMARK" property="registerremark" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertdate" jdbcType="DATE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTsjxttfbscasedealwithCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_CASEDEALWITH
+    </select>
+    <!--获取总个数-->
+    <select id="getTsjxttfbscasedealwithCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_CASEDEALWITH
+    </select>
+
+    <select id="getTsjxttfbscasedealwithByPageable" resultMap="TsjxttfbscasedealwithInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_CASEDEALWITH a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTsjxttfbscasedealwithByParamsPageable" resultMap="TsjxttfbscasedealwithInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_CASEDEALWITH a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

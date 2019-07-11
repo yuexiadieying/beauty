@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sdlyssjxtgl.TsjxttfbscaseinfoDao">
+    <resultMap id="TsjxttfbscaseinfoInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sdlyssjxtgl.TsjxttfbscaseinfoDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="CASE_ID" property="caseid" jdbcType="VARCHAR" />
+        <result column="ORGANCODE" property="organcode" jdbcType="VARCHAR" />
+        <result column="CHEOBJECT" property="cheobject" jdbcType="VARCHAR" />
+        <result column="IEUNIT_ID" property="ieunitid" jdbcType="VARCHAR" />
+        <result column="LESECTION_ID" property="lesectionid" jdbcType="VARCHAR" />
+        <result column="APPLYID" property="applyid" jdbcType="VARCHAR" />
+        <result column="CASE_NUM" property="casenum" jdbcType="VARCHAR" />
+        <result column="CASE_NAME" property="casename" jdbcType="VARCHAR" />
+        <result column="LAWLESSACTION" property="lawlessaction" jdbcType="VARCHAR" />
+        <result column="PUNISH_CONTENT" property="punishcontent" jdbcType="VARCHAR" />
+        <result column="REGITEM_NAME" property="regitemname" jdbcType="VARCHAR" />
+        <result column="PUNITEM_NAME" property="punitemname" jdbcType="VARCHAR" />
+        <result column="PECDATE" property="pecdate" jdbcType="VARCHAR" />
+        <result column="PECTIME" property="pectime" jdbcType="VARCHAR" />
+        <result column="PRCSITE" property="prcsite" jdbcType="VARCHAR" />
+        <result column="CMPSN_ID" property="cmpsnid" jdbcType="VARCHAR" />
+        <result column="PSN_NAME" property="psnname" jdbcType="VARCHAR" />
+        <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+        <result column="SEX" property="sex" jdbcType="VARCHAR" />
+        <result column="AGE" property="age" jdbcType="INTEGER" />
+        <result column="NATION" property="nation" jdbcType="VARCHAR" />
+        <result column="NATPLACE" property="natplace" jdbcType="VARCHAR" />
+        <result column="JOBDEP" property="jobdep" jdbcType="VARCHAR" />
+        <result column="TECCLASS" property="tecclass" jdbcType="VARCHAR" />
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+        <result column="PSN_PHONE" property="psnphone" jdbcType="VARCHAR" />
+        <result column="PSN_CTCTYPE" property="psnctctype" jdbcType="VARCHAR" />
+        <result column="PSN_CTCNO" property="psnctcno" jdbcType="VARCHAR" />
+        <result column="CMCLT_ID" property="cmcltid" jdbcType="VARCHAR" />
+        <result column="CLTNAME" property="cltname" jdbcType="VARCHAR" />
+        <result column="JURPERSON" property="jurperson" jdbcType="VARCHAR" />
+        <result column="CLTADRESS" property="cltadress" jdbcType="VARCHAR" />
+        <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+        <result column="PERNUM" property="pernum" jdbcType="VARCHAR" />
+        <result column="CONPERSON" property="conperson" jdbcType="VARCHAR" />
+        <result column="MAICODING" property="maicoding" jdbcType="VARCHAR" />
+        <result column="CMVEC_ID" property="cmvecid" jdbcType="VARCHAR" />
+        <result column="BRANUM" property="branum" jdbcType="VARCHAR" />
+        <result column="BRACOLOR" property="bracolor" jdbcType="VARCHAR" />
+        <result column="VEC_MDLTYPE" property="vecmdltype" jdbcType="VARCHAR" />
+        <result column="VEC_ENGNO" property="vecengno" jdbcType="VARCHAR" />
+        <result column="VEC_FANNO" property="vecfanno" jdbcType="VARCHAR" />
+        <result column="VEC_VIN" property="vecvin" jdbcType="VARCHAR" />
+        <result column="VEC_PLACE" property="vecplace" jdbcType="VARCHAR" />
+        <result column="DETAIN_NO" property="detainno" jdbcType="VARCHAR" />
+        <result column="LAWEPSN_ONE" property="lawepsnone" jdbcType="VARCHAR" />
+        <result column="LECARDNO_ONE" property="lecardnoone" jdbcType="VARCHAR" />
+        <result column="LAWEPSN_TWO" property="lawepsntwo" jdbcType="VARCHAR" />
+        <result column="LECARDNO_TWO" property="lecardnotwo" jdbcType="VARCHAR" />
+        <result column="LAWEDEP" property="lawedep" jdbcType="VARCHAR" />
+        <result column="REGPSN" property="regpsn" jdbcType="VARCHAR" />
+        <result column="REG_DATE" property="regdate" jdbcType="VARCHAR" />
+        <result column="DEC_MONEY" property="decmoney" jdbcType="DOUBLE" />
+        <result column="EXE_MONEY" property="exemoney" jdbcType="DOUBLE" />
+        <result column="REA_MONEY" property="reamoney" jdbcType="DOUBLE" />
+        <result column="ISEFFECT" property="iseffect" jdbcType="INTEGER" />
+        <result column="CREUSRCODE" property="creusrcode" jdbcType="VARCHAR" />
+        <result column="CREDATE" property="credate" jdbcType="VARCHAR" />
+        <result column="CRETIME" property="cretime" jdbcType="VARCHAR" />
+        <result column="EDIUSRCODE" property="ediusrcode" jdbcType="VARCHAR" />
+        <result column="EDIDATE" property="edidate" jdbcType="VARCHAR" />
+        <result column="EDITIME" property="editime" jdbcType="VARCHAR" />
+        <result column="PUN_COUNT" property="puncount" jdbcType="VARCHAR" />
+        <result column="ISCON" property="iscon" jdbcType="VARCHAR" />
+        <result column="TRANO" property="trano" jdbcType="VARCHAR" />
+        <result column="VECTYPE" property="vectype" jdbcType="VARCHAR" />
+        <result column="CTCNO" property="ctcno" jdbcType="VARCHAR" />
+        <result column="MIALCODE" property="mialcode" jdbcType="VARCHAR" />
+        <result column="AXLNUM" property="axlnum" jdbcType="INTEGER" />
+        <result column="VECFRE_TOTALLENGHT" property="vecfretotallenght" jdbcType="DOUBLE" />
+        <result column="VECFRE_TOTALWIDTH" property="vecfretotalwidth" jdbcType="DOUBLE" />
+        <result column="VECFRE_TOTALHEIGHT" property="vecfretotalheight" jdbcType="DOUBLE" />
+        <result column="OVERSTEP_LENGHT" property="oversteplenght" jdbcType="DOUBLE" />
+        <result column="OVERSTEP_WIDTH" property="overstepwidth" jdbcType="DOUBLE" />
+        <result column="OVERSTEP_HEIGHT" property="overstepheight" jdbcType="DOUBLE" />
+        <result column="VECFRGROSS_WEIGHT" property="vecfrgrossweight" jdbcType="DOUBLE" />
+        <result column="OVERSTEP_TONNAGE" property="oversteptonnage" jdbcType="DOUBLE" />
+        <result column="CHENUM" property="chenum" jdbcType="DOUBLE" />
+        <result column="FREIGHT_NAME" property="freightname" jdbcType="VARCHAR" />
+        <result column="SECTION_START" property="sectionstart" jdbcType="VARCHAR" />
+        <result column="DESTINATION" property="destination" jdbcType="VARCHAR" />
+        <result column="BYWAYOFLINE" property="bywayofline" jdbcType="VARCHAR" />
+        <result column="RUN_KILOMETRE" property="runkilometre" jdbcType="VARCHAR" />
+        <result column="CAPITAL_MONEY" property="capitalmoney" jdbcType="VARCHAR" />
+        <result column="PROMAICOMMENT" property="promaicomment" jdbcType="VARCHAR" />
+        <result column="LICETYPE" property="licetype" jdbcType="VARCHAR" />
+        <result column="CASETYPE" property="casetype" jdbcType="VARCHAR" />
+        <result column="DERATE_MONEY" property="deratemoney" jdbcType="DOUBLE" />
+        <result column="ISDERATE" property="isderate" jdbcType="VARCHAR" />
+        <result column="APPLYDERATE" property="applyderate" jdbcType="VARCHAR" />
+        <result column="BIG_DERATE_MONEY" property="bigderatemoney" jdbcType="VARCHAR" />
+        <result column="PUNISH_CONTENTING" property="punishcontenting" jdbcType="VARCHAR" />
+        <result column="PUNITEMNAMEBYEND" property="punitemnamebyend" jdbcType="VARCHAR" />
+        <result column="FIRSTDERATEMONEY" property="firstderatemoney" jdbcType="DOUBLE" />
+        <result column="APPEAL" property="appeal" jdbcType="VARCHAR" />
+        <result column="BEHAVIOR" property="behavior" jdbcType="VARCHAR" />
+        <result column="OVERRATE" property="overrate" jdbcType="VARCHAR" />
+        <result column="EDUCATION" property="education" jdbcType="VARCHAR" />
+        <result column="QUALITYNUM" property="qualitynum" jdbcType="DOUBLE" />
+        <result column="OTHERPUNS" property="otherpuns" jdbcType="VARCHAR" />
+        <result column="EVIDENCE_NO" property="evidenceno" jdbcType="VARCHAR" />
+        <result column="HASFORCE" property="hasforce" jdbcType="CHAR" />
+        <result column="PARTYONSCENE" property="partyonscene" jdbcType="CHAR" />
+        <result column="WFID" property="wfid" jdbcType="VARCHAR" />
+        <result column="CURNODE" property="curnode" jdbcType="VARCHAR" />
+        <result column="RELATIONS_CODE" property="relationscode" jdbcType="CHAR" />
+        <result column="APPPERSTATUES" property="appperstatues" jdbcType="VARCHAR" />
+        <result column="APP_CASE_NAME" property="appcasename" jdbcType="VARCHAR" />
+        <result column="CASE_REMARK" property="caseremark" jdbcType="VARCHAR" />
+        <result column="CASE_SOURCE" property="casesource" jdbcType="VARCHAR" />
+        <result column="PROJECT_NAME" property="projectname" jdbcType="VARCHAR" />
+        <result column="SYSOPERTIME" property="sysopertime" jdbcType="DOUBLE" />
+        <result column="TEMPLATE_ID" property="templateid" jdbcType="VARCHAR" />
+        <result column="IS_CMPSN" property="iscmpsn" jdbcType="VARCHAR" />
+        <result column="IS_CLTNAME" property="iscltname" jdbcType="CHAR" />
+        <result column="OLD_CMPSN_ID" property="oldcmpsnid" jdbcType="VARCHAR" />
+        <result column="OLD_PSN_NAME" property="oldpsnname" jdbcType="VARCHAR" />
+        <result column="OLD_COUNTRY" property="oldcountry" jdbcType="VARCHAR" />
+        <result column="OLD_SEX" property="oldsex" jdbcType="VARCHAR" />
+        <result column="OLD_AGE" property="oldage" jdbcType="INTEGER" />
+        <result column="OLD_NATION" property="oldnation" jdbcType="VARCHAR" />
+        <result column="OLD_NATPLACE" property="oldnatplace" jdbcType="VARCHAR" />
+        <result column="OLD_JOBDEP" property="oldjobdep" jdbcType="VARCHAR" />
+        <result column="OLD_TECCLASS" property="oldtecclass" jdbcType="VARCHAR" />
+        <result column="OLD_ADDRESS" property="oldaddress" jdbcType="VARCHAR" />
+        <result column="OLD_PSN_PHONE" property="oldpsnphone" jdbcType="VARCHAR" />
+        <result column="OLD_PSN_CTCTYPE" property="oldpsnctctype" jdbcType="VARCHAR" />
+        <result column="OLD_PSN_CTCNO" property="oldpsnctcno" jdbcType="VARCHAR" />
+        <result column="OLD_RELATIONS_CODE" property="oldrelationscode" jdbcType="CHAR" />
+        <result column="OLD_IS_CMPSN" property="oldiscmpsn" jdbcType="VARCHAR" />
+        <result column="OLD_MAICODING" property="oldmaicoding" jdbcType="VARCHAR" />
+        <result column="ISACQUIRE_CERT" property="isacquirecert" jdbcType="VARCHAR" />
+        <result column="OLD_ISACQUIRE_CERT" property="oldisacquirecert" jdbcType="VARCHAR" />
+        <result column="OLD_ISEFFECT" property="oldiseffect" jdbcType="INTEGER" />
+        <result column="INSERT_DATE" property="insertdate" jdbcType="DATE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTsjxttfbscaseinfoCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_CASEINFO
+    </select>
+    <!--获取总个数-->
+    <select id="getTsjxttfbscaseinfoCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_CASEINFO
+    </select>
+
+    <select id="getTsjxttfbscaseinfoByPageable" resultMap="TsjxttfbscaseinfoInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_CASEINFO a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTsjxttfbscaseinfoByParamsPageable" resultMap="TsjxttfbscaseinfoInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_CASEINFO a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

@@ -18,6 +18,9 @@ angular.module('app', [
     'traGlobal'
 ]).run(function($rootScope,$http,$state,Global){
 
+    $rootScope.goThirdPlatformUrl = "";
+    $rootScope.goThirdPlatformName = "";
+
     $rootScope.loginOut = function(){
         $http.get('/traffic/user/loginOut')
             .then(function(response) {
@@ -45,4 +48,13 @@ angular.module('app', [
         }
         return value;
     }
+
+    $rootScope.goThirdPlatform = function () {
+        if($rootScope.goThirdPlatformUrl!=''){
+            window.location.href = $rootScope.goThirdPlatformUrl;
+        }else{
+            alert($rootScope.thirdPlatformError);
+        }
+    }
+
 });

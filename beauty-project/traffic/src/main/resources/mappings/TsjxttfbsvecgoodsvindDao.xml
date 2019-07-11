@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meixiang.beauty.webapp.traffic.dao.sdlyssjxtgl.TsjxttfbsvecgoodsvindDao">
+    <resultMap id="TsjxttfbsvecgoodsvindInfoResultMap" type="com.meixiang.beauty.webapp.traffic.dto.sdlyssjxtgl.TsjxttfbsvecgoodsvindDTO" >
+       <result column="RN" property="serialNo" jdbcType="DOUBLE" />
+        <result column="CMVECID" property="cmvecid" jdbcType="VARCHAR" />
+        <result column="VIND_DATE" property="vinddate" jdbcType="VARCHAR" />
+        <result column="VIND_NEXT_DATE" property="vindnextdate" jdbcType="VARCHAR" />
+        <result column="CMCLT_ID" property="cmcltid" jdbcType="VARCHAR" />
+        <result column="VINDCON_NO" property="vindconno" jdbcType="VARCHAR" />
+        <result column="VINDGRD_NO" property="vindgrdno" jdbcType="VARCHAR" />
+        <result column="VINDREP_NO" property="vindrepno" jdbcType="VARCHAR" />
+        <result column="INS_CMCLT_ID" property="inscmcltid" jdbcType="VARCHAR" />
+        <result column="INTERVALMILEAGE" property="intervalmileage" jdbcType="VARCHAR" />
+        <result column="INTERVALDATE" property="intervaldate" jdbcType="VARCHAR" />
+        <result column="REPAIR_STAFF" property="repairstaff" jdbcType="VARCHAR" />
+        <result column="TEST_TYPE" property="testtype" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE" property="insertdate" jdbcType="DATE" />
+
+    </resultMap>
+
+    <!--获取总个数-->
+    <select id="getTsjxttfbsvecgoodsvindCount" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_VECGOODS_VIND
+    </select>
+    <!--获取总个数-->
+    <select id="getTsjxttfbsvecgoodsvindCountByParams" resultType="java.lang.Integer">
+        SELECT count(1) FROM T_SJXT_TF_BS_VECGOODS_VIND
+    </select>
+
+    <select id="getTsjxttfbsvecgoodsvindByPageable" resultMap="TsjxttfbsvecgoodsvindInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_VECGOODS_VIND a WHERE ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+    <select id="getTsjxttfbsvecgoodsvindByParamsPageable" resultMap="TsjxttfbsvecgoodsvindInfoResultMap">
+      SELECT * 
+      FROM (SELECT ROWNUM as rn, a.* from T_SJXT_TF_BS_VECGOODS_VIND a 
+      WHERE (a.UNITNO like CONCAT('#', CONCAT(#{info},'#'))) AND 
+      ROWNUM &lt;= #{end}) WHERE rn &gt; #{start}
+    </select>
+
+</mapper>

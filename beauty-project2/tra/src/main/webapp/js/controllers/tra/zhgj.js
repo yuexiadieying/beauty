@@ -4,9 +4,10 @@
 
 app
   // Flot Chart controller 
-  .controller('ZhgjCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state',
-      function($scope,$stateParams,traUtil,$http,Global,$state) {
+  .controller('ZhgjCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state','$rootScope',
+      function($scope,$stateParams,traUtil,$http,Global,$state,$rootScope) {
 
+      $rootScope.goThirdPlatformName = '智慧公交第三方平台';
       traUtil.getUserInfo();
 
       $scope.param = {
@@ -34,20 +35,5 @@ app
 
       //地图添加图层
       map.addLayer(tileLayer);
-
-      $http.get('/traffic/sso/encryptSSO')
-          .then(function(response) {
-              if (response.data.result==Global.SUCCESS) {
-                  console.log(response.data.responseData);
-                  $scope.param.url = response.data.responseData.platformURL
-                      +"?platformFlag="+response.data.responseData.platformFlag+'&&'
-                      +'secretStr='+response.data.responseData.platformEncrypt;
-
-              }else{
-                  $state.go('access.signin');
-              }
-          }, function(x) {
-              $scope.authError = 'Server Error';
-          });
 
   }]);

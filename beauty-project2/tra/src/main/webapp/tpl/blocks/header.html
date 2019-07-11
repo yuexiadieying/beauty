@@ -14,16 +14,19 @@
 <div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
   <!-- nabar right -->
   <ul class="nav navbar-nav navbar-right">
-    <li class="dropdown" dropdown>
-      <a href class="dropdown-toggle clear" dropdown-toggle>
+      <li class="dropdown" dropdown>
+          <a href class="dropdown-toggle clear" dropdown-toggle>
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
                 <img src="img/a0.jpg" alt="...">
                 <i class="on md b-white bottom"></i>
               </span>
-        <span class="hidden-sm hidden-md">{{userInfo.nickname}}</span> <b class="caret"></b>
-      </a>
-      <!-- dropdown -->
-      <ul class="dropdown-menu animated fadeInRight w">
+              <span class="hidden-sm hidden-md">{{userInfo.nickname}}</span>
+              <b class="caret"></b>
+              <a ng-click="goThirdPlatform()" style="color: red;font-weight: bold;margin-left: -440px;position: absolute;margin-top: -50px;"
+                 ng-if="goThirdPlatformName!=''">点击去往{{goThirdPlatformName}}</a>
+          </a>
+          <!-- dropdown -->
+          <ul class="dropdown-menu animated fadeInRight w">
           <li>
               <a ui-sref="access.newDepartment" ng-if="userInfo.userType=='管理员'">部门管理</a>
           </li>
@@ -44,8 +47,8 @@
           <a ng-click="loginOut()">退出登陆</a>
         </li>
       </ul>
-      <!-- / dropdown -->
-    </li>
+          <!-- / dropdown -->
+      </li>
   </ul>
   <!-- / navbar right -->
 </div>
