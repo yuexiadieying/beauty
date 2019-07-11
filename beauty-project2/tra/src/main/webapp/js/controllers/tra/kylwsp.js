@@ -4,7 +4,9 @@
 
 app
   // Flot Chart controller 
-  .controller('KylwspCtrl', ['$scope','traUtil', function($scope,traUtil) {
+  .controller('KylwspCtrl', ['$scope','traUtil','$rootScope',function($scope,traUtil,$rootScope) {
+
+      $rootScope.goThirdPlatformName = '省客运联网售票系统第三方平台';
 
       traUtil.getUserInfo();
 

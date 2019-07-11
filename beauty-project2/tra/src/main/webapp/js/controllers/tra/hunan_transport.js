@@ -1,7 +1,9 @@
 'use hunan_transport';
 
 
-app.controller('Hunan_transportCtrl', ['$scope','traUtil', function($scope,traUtil) {
+app.controller('Hunan_transportCtrl', ['$scope','traUtil','$rootScope', function($scope,traUtil,$rootScope) {
+
+  $rootScope.goThirdPlatformName = '湖南省公路水路建设与运输市场信息服务系统第三方平台';
 
     traUtil.getUserInfo();
 

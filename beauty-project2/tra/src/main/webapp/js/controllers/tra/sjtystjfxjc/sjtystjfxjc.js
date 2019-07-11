@@ -4,9 +4,10 @@
 
 app
   // Flot Chart controller 
-  .controller('SjtystjfxjcCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state',
-      function($scope,$stateParams,traUtil,$http,Global,$state) {
+  .controller('SjtystjfxjcCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state','$rootScope',
+      function($scope,$stateParams,traUtil,$http,Global,$state,$rootScope) {
 
+      $rootScope.goThirdPlatformName = '省交通运输统计分析检测第三方平台';
       traUtil.getUserInfo();
 
       $scope.d3 = [

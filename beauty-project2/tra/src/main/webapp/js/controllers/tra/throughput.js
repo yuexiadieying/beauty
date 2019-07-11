@@ -3,7 +3,10 @@
 /* Controllers */
 
 app
-  .controller('ThroughputCtrl', ['$scope', '$http',"traUtil",'$http','$state','Global', function($scope,$http,traUtil,$http,$state,Global) {
+  .controller('ThroughputCtrl', ['$scope', '$http',"traUtil",'$http','$state','Global','$rootScope',
+      function($scope,$http,traUtil,$http,$state,Global,$rootScope) {
+
+          $rootScope.goThirdPlatformName = '湖南省港口企业与码头单位吞吐量报表第三方平台';
 
     $scope.mtdwttlHomeData = []
 

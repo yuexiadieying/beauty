@@ -4,9 +4,10 @@
 
 app
   // Flot Chart controller 
-  .controller('ZhgjCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state',
-      function($scope,$stateParams,traUtil,$http,Global,$state) {
+  .controller('ZhgjCtrl', ['$scope','$stateParams','traUtil', '$http','Global','$state','$rootScope',
+      function($scope,$stateParams,traUtil,$http,Global,$state,$rootScope) {
 
+      $rootScope.goThirdPlatformName = '智慧公交第三方平台';
       traUtil.getUserInfo();
 
       $scope.param = {
