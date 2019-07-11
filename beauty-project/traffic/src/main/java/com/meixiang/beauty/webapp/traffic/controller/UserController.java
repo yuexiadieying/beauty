@@ -1,19 +1,14 @@
 package com.meixiang.beauty.webapp.traffic.controller;
 
 import com.aliyun.opensearch.sdk.dependencies.com.google.gson.Gson;
-import com.meixiang.beauty.common.constant.ConfigConstant;
 import com.meixiang.beauty.common.constant.StatusConstant;
 import com.meixiang.beauty.common.dto.system.ResponseDTO;
-import com.meixiang.beauty.common.dto.wexin.WeixinTokenDTO;
+import com.meixiang.beauty.common.dto.system.UserInfoDTO;
 import com.meixiang.beauty.common.utils.MD5Util;
 import com.meixiang.beauty.webapp.traffic.annotation.TrafficLoginRequired;
-import com.meixiang.beauty.webapp.traffic.constant.UserLevelEnum;
-import com.meixiang.beauty.webapp.traffic.dto.system.UserInfoDTO;
 import com.meixiang.beauty.webapp.traffic.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;

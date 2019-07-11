@@ -334,12 +334,32 @@ angular.module('app')
                   }
               })
               .state('access.newUser', {
-                  url: '/newUser/:id',
+                  url: '/newUser/:loginName',
                   templateUrl: 'tpl/tra/newUser.html',
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
                               return $ocLazyLoad.load(['js/controllers/tra/newUser.js']);
+                          }]
+                  }
+              })
+              .state('access.newDepartment', {
+                  url: '/newDepartment',
+                  templateUrl: 'tpl/tra/newDepartment.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/newDepartment.js']);
+                          }]
+                  }
+              })
+              .state('access.newRole', {
+                  url: '/newRole/:roleId',
+                  templateUrl: 'tpl/tra/newRole.html',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load(['js/controllers/tra/newRole.js']);
                           }]
                   }
               })

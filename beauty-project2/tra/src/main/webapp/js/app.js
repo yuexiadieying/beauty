@@ -33,12 +33,16 @@ angular.module('app', [
 
     $rootScope.checkIfContain = function (userLevel) {
         var value = false;
-        angular.forEach($rootScope.userInfo.userLevel,function (val,index) {
-            if(val==userLevel)
-            {
-                value = true;
-            }
-        })
+        if($rootScope.userInfo!=undefined){
+            angular.forEach($rootScope.userInfo.roles,function (val,index) {
+                angular.forEach(val.levels,function (val1,index1) {
+                    if(val1==userLevel)
+                    {
+                        value = true;
+                    }
+                })
+            })
+        }
         return value;
     }
 });
