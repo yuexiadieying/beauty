@@ -2313,6 +2313,1932 @@
       </ul>
     </tab>
 
+    <tab>
+      <tab-heading>
+        我的应用
+      </tab-heading>
+      <ul class="list-group no-borders pull-in m-b-none" style="max-height:10000px;">
+        <!-- 城市客运-->
+        <div class="col-lg-6" ng-if="appArray[indexFun('cskyW01')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading">
+                <span class="label bg-danger pull-right m-t-xs">...</span>
+                城市（县城）客运交通管理信息
+              </div>
+              <table class="table table-striped m-b-none">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>管理信息</th>
+                  <th>占比</th>
+                  <th>月环比</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in [1,2,3,4]">
+                  <td>A{{$index}}</td>
+                  <td>--</td>
+                  <td>
+                    40%
+                    <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                      <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                           title="80%" style="width: 80%"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                    <span style="color:green">10%</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="row" style="margin-top:30px;">
+                <div class="col-sm-4 hidden-xs">
+                </div>
+                <div class="col-sm-4 text-center">
+                  <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('cskyW02')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                城市客运主要统计指标快速年报信息
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+           " style="height:380px;width:100%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('cskyW03')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content: space-between">
+                <div>出租汽车运营情况（单位：万元）</div>
+                <div><div sel-date index="taxi"></div></div>
+              </div>
+
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+           " style="height:380px;width:100%;" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('cskyW04')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="justify-content: space-between;display: flex">
+                <div>公共汽电车运营情况</div>
+                <div><div sel-date index="busTram"></div></div>
+              </div>
+
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'Unique Visits', points: { show: true } },
+                { data: {{d0_2}}, label: 'Page Views', bars: { show: true, barWidth: 0.6,
+fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }
+           " style="height:380px;width:100%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('cskyW05')].status">
+          <div class="panel panel-default">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content: space-between">
+                <div>城市公交运营情况(单位：万元)</div>
+                <div><div sel-date index="daterange-btn"></div></div>
+              </div>
+
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }
+           " style="height:380px;width:100%;"></div>
+            </div>
+          </div>
+        </div>
+        <!--道路运输-->
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW01')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 道路运输统计（半年，年）涵盖道路客运站信息（单位：%）</div>
+                <div><div sel-date index="rrodTrafficStatistics"></div></div>
+              </div>
+            </div>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { label: 'A', data: {{d1_1}} },
+                { label: 'B', data: {{d1_2}} },
+                { label: 'C', data: {{d1_3}} }
+              ],
+              {
+                bars: { show: true, fill: true, lineWidth: 1, order: 1, fillColor: { colors: [{
+opacity: 0.5 }, { opacity: 0.9}] } },
+                colors: ['{{app.color.info}}', '{{app.color.success}}',
+'{{app.color.primary}}'],
+                series: { shadowSize: 1 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true
+              }" style="height:340px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW02')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
+              道路客户站场增减情况
+            </div>
+            <table class="table table-striped m-b-none">
+              <thead>
+              <tr>
+                <th>站场名称</th>
+                <th>增减率</th>
+                <th>月环比</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="item in [1,2,3,4,5,6]">
+                <td>站场{{$index}}</td>
+                <td>
+                  <span>35%</span>
+                  <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                    <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                         title="80%" style="width: 80%"></div>
+                  </div>
+                </td>
+                <td>
+                  <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                  <span style="color: green">10%</span></td>
+              </tr>
+              </tbody>
+            </table>
+            <br>
+            <div class="row">
+              <div class="col-sm-4 hidden-xs">
+              </div>
+              <div class="col-sm-4 text-center">
+                <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                  <li><a href>1</a></li>
+                  <li><a href>2</a></li>
+                  <li><a href>3</a></li>
+                  <li><a href>4</a></li>
+                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW03')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>道路危险货物运输数据</div>
+                <div><div sel-date index="gangerousGoods"></div></div>
+              </div>
+            </div>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h><span>60</span>&nbsp;异常统计&nbsp;|&nbsp;<span>30</span>&nbsp;已完成&nbsp;|
+              &nbsp;<span>30</span>&nbsp;超时</h>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:310px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW04')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
+              道路从业人员数据
+            </div>
+            <table class="table table-striped m-b-none">
+              <thead>
+              <tr>
+                <th>名称</th>
+                <th>完成率</th>
+                <th>月环比</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="item in [1,2,3,4,5]">
+                <td>刘涛{{$index}}</td>
+                <td>
+                  <span>35%</span>
+                  <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                    <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                         title="80%" style="width: 80%"></div>
+                  </div>
+                </td>
+                <td>
+                  <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                  <span style="color: green">10%</span></td>
+              </tr>
+              </tbody>
+            </table>
+            <br>
+            <div class="row" style="margin-top:30px;">
+              <div class="col-sm-4 hidden-xs">
+              </div>
+              <div class="col-sm-4 text-center">
+                <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                  <li><a href>1</a></li>
+                  <li><a href>2</a></li>
+                  <li><a href>3</a></li>
+                  <li><a href>4</a></li>
+                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW05')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div ><span>道路货运场站数据(单位:%)</span></div>
+                <div>
+                  <div><div sel-date index="freightYard"></div></div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW06')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
+              道路运输经理人数据
+            </div>
+            <table class="table table-striped m-b-none">
+              <thead>
+              <tr>
+                <th>名称</th>
+                <th>达标率</th>
+                <th>月环比</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="item in [1,2,3,4,5]">
+                <td>刘涛{{$index}}</td>
+                <td>
+                  <span>35%</span>
+                  <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                    <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                         title="80%" style="width: 80%"></div>
+                  </div>
+                </td>
+                <td>
+                  <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                  <span style="color: green">10%</span></td>
+              </tr>
+              </tbody>
+            </table>
+            <br>
+            <div class="row" style="margin-top: 30px;">
+              <div class="col-sm-4 hidden-xs">
+              </div>
+              <div class="col-sm-4 text-center">
+                <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                  <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                  <li><a href>1</a></li>
+                  <li><a href>2</a></li>
+                  <li><a href>3</a></li>
+                  <li><a href>4</a></li>
+                  <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW07')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 港澳台及外商投资道路运输业情况数据（单位：%）</div>
+                <div style="width:30%"><div sel-year index="wstzdlycy"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:350px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW08')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+
+                道路经营业户数据
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW09')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 道路运输统计（企业）涵盖公路货运企业运输量调查数据</div>
+                <div><div sel-date index="enterpriseTraffic"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:360px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW010')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+
+                公路客运企业运输量调查
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW011')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div ><span>重点联系公路运输企业经营财务状况调查数据(单位：%)</span></div>
+                <div><div sel-date index="financialStatus"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('dlysW012')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">湖南省交通公路装卸搬运企业统计</div>
+            <br><br>
+            <div class="panel-body text-center">
+              <div ng-init="data1=[80,20]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie',
+height:220, sliceColors:['{{app.color.info}}','#eaeeea']}" class="sparkline inline"></div>
+              <div class="line pull-in"></div>
+              <br>
+              <div class="text-xs">
+                <i class="fa fa-circle text-info"></i> 100发生异常
+                <i class="fa fa-circle text-muted m-l"></i> 30已完成
+                <i class="fa fa-circle text-info-dk m-l"></i> 80成功率
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--港口综合-->
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW01')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px;line-height: 40px;">
+              <div style="display: flex;justify-content:space-between;">
+                <div ><span>分航线进出港旅客人数情况（单位：百万人次）</span></div>
+                <div><div sel-date index="guests"></div></div>
+              </div>
+
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW02')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                国际分航线进出港旅客人数情况
+              </div>
+              <br>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW03')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 国内分航线进出港旅客人数情况(单位：百万人次)</div>
+                <div><div sel-date index="gnfhxjclkrs"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:350px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW04')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                内贸情况
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW05')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div>分货类吞吐(单位：万吨)</div>
+                <div><div sel-date index="throughput"></div></div>
+              </div>
+
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW06')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                内贸出港情况
+              </div>
+              <br>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW07')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 国际航线进出港集装箱吞吐（单位：万吨）</div>
+                <div style="margin-right:10px;width:50%"><div sel-year index="gjhxjcgjzxdt"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:350px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW08')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                外贸情况
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW09')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>国内航线进出港集装箱吞吐（单位：万吨）</div>
+                <div><div sel-date index="domestic"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+             }" style="height:350px;;width: 100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW010')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                外贸出港情况
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW011')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div>内支线进出港集装箱吞吐（单位：万吨）</div>
+                <div><div sel-date index="portContainer"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW012')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              分货类分运输方式集疏运情况
+            </div>
+            <br><br>
+            <div class="panel-body text-center">
+              <div ng-init="data1=[80,20]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie',
+height:154, sliceColors:['{{app.color.info}}','#eaeeea']}" class="sparkline inline"></div>
+              <div class="line pull-in"></div>
+              <br>
+              <div class="text-xs">
+                <i class="fa fa-circle text-info"></i> 100发生异常
+                <i class="fa fa-circle text-muted m-l"></i> 30已完成
+                <i class="fa fa-circle text-info-dk m-l"></i> 80成功率
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW013')].status">
+          <div class="panel panel-default" style="height:470px;">
+            <div class="panel-heading font-bold" >
+              <div style="display: flex;justify-content:space-between;">
+                <div>内外贸船舶停泊时间</div>
+                <div><div sel-date index="anchorTime"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:350px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW014')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading">
+                <span class="label bg-danger pull-right m-t-xs">...</span>
+                港口法人企业
+              </div>
+              <table class="table table-striped m-b-none">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>完成率</th>
+                  <th>月环比</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in [1,2,3,4]">
+                  <td>企业{{$index}}</td>
+                  <td>
+                    40%
+                    <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                      <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                           title="80%" style="width: 80%"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                    <span style="color:green">10%</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="row">
+                <div class="col-sm-4 hidden-xs">
+                </div>
+                <div class="col-sm-4 text-center">
+                  <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gkzhW015')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                港口码头单位数据
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;width: 100%" ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--公路交调-->
+        <div class="col-lg-6" ng-if="appArray[indexFun('gljdW01')].status">
+          <div class="panel panel-default" style="height: 470px;">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>路段平均日交通量统计（单位：万台）</div>
+                <div>
+                  <span class='full-left' style="margin-right: 10px;">路段</span>
+                  <select style="padding:5px 10px;">
+                    <option>S110</option>
+                    <option>S111</option>
+                    <option>S112</option>
+                    <option>S113</option>
+                    <option>S114</option>
+                  </select>
+                </div>
+                <div><div sel-date index="trafficNum"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }
+            " style="height:350px;width: 100%" ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('gljdW02')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              小时交通量记录（单位：万辆）
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:350px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('gljdW03')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                日交通量统计
+              </div>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 内河航道-->
+        <div class="col-lg-6" ng-if="appArray[indexFun('nhhdW01')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 分叉辅助段基础数据</div>
+                <div style="margin-right:10px;width:20%;"><div sel-month
+                                                               index="bifurcationAuxiliarySection"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('nhhdW02')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                过河建筑物基础数据
+              </div>
+              <br>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('nhhdW03')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>  航段基础数据（单位：万元）</div>
+                <div style="margin-right: 10px;width:30%;"><div sel-month
+                                                                index="hdjcsj"></div></div>
+              </div>
+            </div>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:320px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('nhhdW04')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              临河设施基础数据
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('nhhdW05')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>瓶颈区段基础数据</div>
+                <div>
+                  <span class='full-left' style="margin-right: 10px;">路段</span>
+                  <select style="padding:5px 10px;">
+                    <option>S110</option>
+                    <option>S111</option>
+                    <option>S112</option>
+                    <option>S113</option>
+                    <option>S114</option>
+                  </select>
+                </div>
+                <div><div sel-date index="bottleneckSection"></div></div>
+              </div>
+            </div>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:350px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('nhhdW06')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                <span class="label bg-danger pull-right m-t-xs">...</span>
+                枢纽基础数据等数据
+              </div>
+              <table class="table table-striped m-b-none">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>数据</th>
+                  <th>占比</th>
+                  <th>周环比</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in [1,2,3,4]">
+                  <td>基础{{$index}}</td>
+                  <td>35000</td>
+                  <td>
+                    40%
+                    <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                      <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                           title="80%" style="width: 80%"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                    <span style="color:green">10%</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="row">
+                <div class="col-sm-4 hidden-xs">
+                </div>
+                <div class="col-sm-4 text-center">
+                  <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--运输综合-->
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW01')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 公路水路运输量月度统计基础情况（单位：万吨）</div>
+                <div style="width:26%;"><div sel-month index="waterwayTraffic"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW02')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <p><span class="label bg-danger pull-right m-t-xs">...</span>
+                高速公路车流量和通行费情况</p>
+              <div style="display: flex;justify-content:space-between;">
+                <div style="margin-top:10px;">  <a class="active" style="  padding: 5px 10px;
+border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color:
+#7893fd;">车流量</a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-
+radius: 10px;border-top-right-radius: 10px;color: #666;">通行费</a></div>
+                <div style="width:30%"><div sel-date-single index="tolls"></div></div>
+              </div>
+            </div>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:300px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW03')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>高速公路货车车流量和车货总重情况</div>
+                <div><div sel-date index="traffics"></div></div>
+              </div>
+              <P>单位：万量 <span style="margin-left: 30px;"> <a class="active" style="
+padding: 5px 10px;  border: solid 1px #7893fd;border-bottom-left-radius: 10px;border-top-left-
+radius: 10px;color: #7893fd;">车流量</a><a style=" padding: 5px 10px;  border: solid 1px
+#666;border-bottom-right-radius: 10px;border-top-right-radius: 10px;color: #666;">通行费
+</a></span></P>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+            } " style="height:350px;;width: 100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW04')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
+              公路客货运输量情况
+            </div>
+            <br><br>
+            <div class="panel-body text-center">
+              <div ng-init="data1=[80,20]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie',
+height:200, sliceColors:['{{app.color.info}}','#eaeeea']}" class="sparkline inline"></div>
+              <div class="line pull-in"></div>
+              <br>
+              <div class="text-xs">
+                <i class="fa fa-circle text-info"></i> 100发生异常
+                <i class="fa fa-circle text-muted m-l"></i> 30已完成
+                <i class="fa fa-circle text-info-dk m-l"></i> 80成功率
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW05')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 公路运输业务量情况（单位：万吨）</div>
+                <div><div sel-date index="trafficVolume"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW06')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <span class="label bg-danger pull-right m-t-xs">...</span>
+              水路客货运输量情况
+            </div>
+            <br><br>
+            <div class="panel-body text-center">
+              <div ng-init="data1=[80,20]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie',
+height:200, sliceColors:['{{app.color.info}}','#eaeeea']}" class="sparkline inline"></div>
+              <div class="line pull-in"></div>
+              <br>
+              <div class="text-xs">
+                <i class="fa fa-circle text-info"></i> 100发生异常
+                <i class="fa fa-circle text-muted m-l"></i> 30已完成
+                <i class="fa fa-circle text-info-dk m-l"></i> 80成功率
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW07')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 海事签字情况（单位：%）</div>
+                <div style="margin-right:10px;width:30%;"><div sel-year
+                                                               index="hsqzqk"></div></div>
+              </div>
+            </div>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:320px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW08')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              公路分货运运输量情况
+            </div>
+            <br><br>
+            <div class="panel-body text-center">
+              <div ng-init="data1=[80,20]" ui-jq="sparkline" ui-options="{{data1}}, {type:'pie',
+height:154, sliceColors:['{{app.color.info}}','#eaeeea']}" class="sparkline inline"></div>
+              <div class="line pull-in"></div>
+              <br>
+              <div class="text-xs">
+                <i class="fa fa-circle text-info"></i> 100发生异常
+                <i class="fa fa-circle text-muted m-l"></i> 30已完成
+                <i class="fa fa-circle text-info-dk m-l"></i> 80成功率
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW09')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>公路旅客货物运营车辆拥有量情况（单位：万吨）</div>
+                <div><div sel-date index="operating"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+            } " style="height:350px;;width: 100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW10')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                公路密度情况
+              </div>
+              <br>
+              <div class="panel-body">
+                <div ui-jq="plot" ui-options="
+                {{d3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0.5, stroke: { width: 0 }, label: {
+show: true, threshold: 0.05 } } },
+                  colors:
+['{{app.color.primary}}','{{app.color.info}}','{{app.color.success}}','{{app.color.warning}}','
+{{app.color.danger}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+            " style="height:350px;;width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW11')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div>公路桥梁隧道年底到达数情况（单位：万辆）</div>
+                <div><div sel-date index="bridgeTunnel"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:300px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW12')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                公路运输法人企业情况
+              </div>
+              <table class="table table-striped m-b-none">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>增长率</th>
+                  <th>月环比</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in [1,2,3,4]">
+                  <td>名称{{$index}}</td>
+                  <td>
+                    40%
+                    <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                      <div class="progress-bar bg-success" data-toggle="tooltip" data-original-
+                           title="80%" style="width: 80%"></div>
+                    </div>
+                  </td>
+                  <td>
+                    <i class="glyphicon glyphicon-arrow-up icon" style="color: green"></i>
+                    <span style="color:green">10%</span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="row">
+                <div class="col-sm-4 hidden-xs">
+                </div>
+                <div class="col-sm-4 text-center">
+                  <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW13')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>内河航道通航里程年底达到量情况（单位：万吨）</div>
+                <div><div sel-date index="navigation"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:380px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW14')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                货运车辆更新情况
+              </div>
+              <table class="table table-striped m-b-none">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>更新情况</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in [1,2,3,4,5]">
+                  <td>名称{{$index}}</td>
+                  <td>--</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="row" style="margin-top: 30px;">
+                <div class="col-sm-4 hidden-xs">
+                </div>
+                <div class="col-sm-4 text-center">
+                  <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW15')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 水路运输运输量情况（单位：万辆）</div>
+                <div><div sel-date index="trafficWarter"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;;width:95%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW16')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-body">
+              <div class="panel-heading font-bold">
+                水路运输法人企业变更情况
+              </div>
+              <table class="table table-striped m-b-none">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>更新情况</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in [1,2,3,4,5]">
+                  <td>名称{{$index}}</td>
+                  <td>--</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="row" style="margin-top: 30px;">
+                <div class="col-sm-4 hidden-xs">
+                </div>
+                <div class="col-sm-4 text-center">
+                  <ul class="pagination pagination-sm m-t-none m-b-none" style="width: 200%;">
+                    <li><a href><i class="fa fa-chevron-left"></i></a></li>
+                    <li><a href>1</a></li>
+                    <li><a href>2</a></li>
+                    <li><a href>3</a></li>
+                    <li><a href>4</a></li>
+                    <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW17')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div>水路运输工具拥有量情况(单位：万吨)</div>
+                <div><div sel-date index="waterTransport"></div></div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d0_1}}, label: 'A', points: { show: true }, lines: { show: true,
+fill: true, fillColor: { colors: [{ opacity: 0.1 }, { opacity: 0.1}] } } }
+              ],
+              {
+                colors: [ '{{app.color.info}}','{{app.color.warning}}' ],
+                series: { shadowSize: 2 },
+                xaxis:{ font: { color: '#ccc' } },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: {
+x: 0, y: 20 } }
+              }" style="height:380px;width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW18')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 营业性汽车运输效率和燃料消耗情况</div>
+                <div style="width:30%;"><div sel-date-single index="efficiency"></div></div>
+              </div>
+              <P><a class="active" style="  padding: 5px 10px;  border: solid 1px
+#7893fd;border-bottom-left-radius: 10px;border-top-left-radius: 10px;color: #7893fd;">运输效率
+              </a><a style=" padding: 5px 10px;  border: solid 1px #666;border-bottom-right-radius:
+10px;border-top-right-radius: 10px;color: #666;">燃料消耗情况</a></P>
+            </div>
+            <br><br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+              [
+                { data: {{d}}, points: { show: true, radius: 6}, splines: { show: true,
+tension: 0.45, lineWidth: 5, fill: 0 } }
+              ],
+              {
+                colors: ['{{app.color.info}}'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#ccc' },
+                  position: 'bottom',
+                  ticks: [
+                    [ 1, 'Jan' ], [ 2, 'Feb' ], [ 3, 'Mar' ], [ 4, 'Apr' ], [ 5, 'May' ], [ 6,
+'Jun' ], [ 7, 'Jul' ], [ 8, 'Aug' ], [ 9, 'Sep' ], [ 10, 'Oct' ], [ 11, 'Nov' ], [ 12, 'Dec' ]
+                  ]
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.1 is %y.4',  defaultTheme: false, shifts: { x: 0,
+y: 20 } }
+              }
+            " style="height:300px;width: 100%" >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" ng-if="appArray[indexFun('yszhW19')].status">
+          <div class="panel panel-default" style="height:470px">
+            <div class="panel-heading font-bold" style="height:65px">
+              <div style="display: flex;justify-content:space-between;">
+                <div> 营业性运输船舶燃料消耗情况数据（单位：%）</div>
+                <div><div sel-date index="shipFuel"></div></div>
+              </div>
+            </div>
+            <br>
+            <div class="panel-body">
+              <div ui-jq="plot" ui-options="
+                          [
+                            { data: {{d0_2}}, label: '水运船舶', bars: { show: true, barWidth:
+0.6, fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.4}] } } }
+                          ],
+                          {
+                            colors: [ '{{app.color.info}}','{{app.color.success}}' ],
+                            series: { shadowSize: 2 },
+                            xaxis:{ font: { color: '#ccc' } },
+                            yaxis:{ font: { color: '#ccc' } },
+                            grid: { hoverable: true, clickable: true, borderWidth: 0, color:
+'#ccc' },
+                            tooltip: true,
+                            tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false,
+shifts: { x: 0, y: 20 } }
+                          }"
+                   style="height:350px;width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </tab>
   </tabset>
 </div>
